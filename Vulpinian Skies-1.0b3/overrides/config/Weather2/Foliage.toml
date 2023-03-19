@@ -1,0 +1,12 @@
+
+#General mod settings
+[general]
+	# 
+	#Range: > -2147483648
+	foliageShaderRange = 40
+	# 
+	#Range: > -2147483648
+	Thread_Foliage_Process_Delay = 1000
+	# 
+	extraGrass = false
+

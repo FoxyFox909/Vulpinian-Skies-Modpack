@@ -1,0 +1,28 @@
+{
+	"name": "Weather Warning",
+	"icon": "weather2:weather_item",
+	"category": "patchouli:welcome_category",
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "You have landed in a world with localized $(bold)weather and storms$(reset). $(br)$(br)Natural disasters are rare, but do occur. It is best to protect yourself and your real estate with a $(bold)Weather Deflector.$(reset)"
+			
+		},
+		{ 
+			"type": "patchouli:spotlight",
+			"item": "weather2:weather_deflector",
+			"text": "$(bold)One is included in every Starter Hut.$(reset) Simply place it down near the site to be protected and it will just work. No batteries needed. It $(italics)does not$(reset) need to be visible to work, and can be hidden. $(br)$(br)Will not stop the rain, but $(italics)will$(reset) stop a tornado."	
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "weather2:weather_item",	
+			"text": "Additional Weather Deflectors can be crafted rather inexpensively."
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "weather2:weather_deflector",
+			"text": "Use the Weather Item to craft."
+			
+		}
+	]
+}

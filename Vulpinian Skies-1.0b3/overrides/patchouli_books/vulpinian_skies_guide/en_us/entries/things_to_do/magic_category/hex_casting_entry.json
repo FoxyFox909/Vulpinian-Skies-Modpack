@@ -1,0 +1,18 @@
+{
+	"name": "Hex Casting",
+	"icon": "minecraft:amethyst_cluster",
+	"category": "patchouli:magic_category",
+	"sortnum": 1,
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "The most $(italics)beginner-unfriendly$(reset) school of magic out there!$(br)$(br)Seriously, this school of magic is very complex. Probably not worth it if you only want to dabble in magic and not go very deeply into it.$(br)$(br)You can get similar results for $(italics)a lot less effort$(reset) in other magic schools, in most cases."
+		},
+		{ 
+			"type": "patchouli:spotlight",
+			"item": "patchouli:guide_book{\"patchouli:book\":\"hexcasting:thehexbook\"}",
+			"text": "So why does this even exist? Is this ever worth it, you ask?$(br)$(br)Oh, once you take the time to master this form of magic, it has the most potential to shape the world to your vision. Expert Hex Casters are respected around here.$(br)$(br)Consult the $(italics)Hex Notebook$(reset) in your Starter Hut to get started, if you are brave enough."
+			
+		}
+	]
+}
