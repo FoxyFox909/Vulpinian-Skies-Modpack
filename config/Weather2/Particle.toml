@@ -1,0 +1,32 @@
+
+#General mod settings
+[general]
+	# 
+	Wind_Particle_leafs = true
+	#Currently used for rates of leaf, waterfall, and fire particles
+	#Range: 4.9E-324 ~ 1.7976931348623157E308
+	Wind_Particle_effect_rate = 0.7
+	# 
+	Wind_Particle_waterfall = true
+	# 
+	Wind_Particle_fire = false
+	#Enables or disables all precipitation particle types
+	Particle_RainSnow = true
+	# 
+	Particle_Rain = false
+	# 
+	Particle_Rain_GroundSplash = true
+	# 
+	Particle_Rain_DownfallSheet = false
+	# 
+	Particle_VanillaAndWeatherOnly = false
+	# 
+	#Range: 4.9E-324 ~ 1.7976931348623157E308
+	Precipitation_Particle_effect_rate = 0.7
+	# 
+	#Range: 4.9E-324 ~ 1.7976931348623157E308
+	Sandstorm_Particle_Debris_effect_rate = 0.6
+	# 
+	#Range: 4.9E-324 ~ 1.7976931348623157E308
+	Sandstorm_Particle_Dust_effect_rate = 0.6
+

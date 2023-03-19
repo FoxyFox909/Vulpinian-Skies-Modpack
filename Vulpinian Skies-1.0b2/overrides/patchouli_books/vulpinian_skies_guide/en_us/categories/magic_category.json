@@ -1,0 +1,7 @@
+{
+	"name": "Magic",
+	"description": "People here have studied the strange energies of this world, and they have discovered ways to use it to create $(italics)unique spells, magical items, rituals$(reset) and more... $(br)$(br)Magic users can become very powerful, depending on how well they learn their craft.$(br)$(br)There are $(bold)three main schools of magic$(reset).",
+	"icon": "ars_elemental:water_focus",
+	"parent": "patchouli:things_to_do_category",
+	"sortnum": 2
+}

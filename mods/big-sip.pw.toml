@@ -1,0 +1,13 @@
+name = "Big Sip"
+filename = "bigsip-0.0.3-alpha.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "553fbaa92b8743232a06d293b2cc2aa422e99012"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 3986490
+project-id = 653777

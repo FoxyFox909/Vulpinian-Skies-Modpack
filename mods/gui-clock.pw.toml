@@ -1,0 +1,13 @@
+name = "GUI Clock"
+filename = "guiclock-1.18.2-4.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "35d43df2f955119f2bf7465c6488a51216775d47"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4422841
+project-id = 347529

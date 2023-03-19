@@ -1,0 +1,17 @@
+{
+	"name": "Blood Magic",
+	"icon": "bloodmagic:weakbloodorb",
+	"category": "patchouli:magic_category",
+	"sortnum": 2,
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "We don't talk about Blo$(obf)ood magic because a Blood Magic user killed my slime son.$(br)$(br)Then stole my girlfriend.$(br)And then he tooko my truck.$(br)$(br)I don't get paid enough for this.$(reset)$(br)$(br)And that's why we don't talk about it."
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "bloodmagic:guide",
+			"text": "Documents related to this magic school are not included in Starter Huts, but this is how to get them.$(br)$(br)Proeed at your own risk."
+		}
+	]
+}

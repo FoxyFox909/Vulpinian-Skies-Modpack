@@ -1,0 +1,9 @@
+
+#General mod settings
+[general]
+	# 
+	Snow_PerformSnowfall = false
+	# 
+	#Range: > -2147483648
+	Snow_RarityOfBuildup = 64
+

@@ -1,0 +1,38 @@
+
+[general]
+	#Defines if the Profiler should run in the background or not
+	enable-profiler = false
+
+[client]
+
+	[client.profiler-overlay]
+		#Defines if the Profiler Overlay should be enabled
+		profiler-overlay = true
+		#Defines the Horizontal Alignment of the UI, left to right
+		#Allowed Values: START, CENTER, END
+		horizontal-alignment = "START"
+		#Defines the Vertical Alignment of the UI, top to bottom
+		#Allowed Values: START, CENTER, END
+		vertical-alignment = "START"
+		#Defines the Scale of the Overlay
+		#Range: 0.1 ~ 10.0
+		scale = 1.0
+		#Reference to save which dimension is currently detailed
+		detailed-dimension = "minecraft:overworld"
+
+	[client.MiniMap]
+		#If you have access to this feature if it should be enabled. This will just turn off the MiniMap and disable any data synchronization
+		enable-minimap = true
+		#This decides the LOD (Level Of Detail) of the MiniMap. This is here to ensure you can control how much GPU ram you will need
+		#There are 4 modes, Auto, MAX, High, Medium
+		#AUTO will basically ensure the minimap will never exceed 300MB of GPU ram per minimap
+		#MAX will basically apply no LOD. Which at max radius (1k chunks) will require 4GB of GPU Ram
+		#High is the first level of LOD. Which will only show 1/4th of the detail. Which will take at max radius 1GB of GPU ram
+		#Medium is the second level of LOD. Which will only show 1/16th of the detail. Which will take at max radius 250MB of GPU Ram
+		#Allowed Values: AUTO, MAX, HIGH, MEDIUM
+		lod = "AUTO"
+		#If you hover with your mouse over the MiniMap that it should show a large version of said miniMap
+		large-hover = true
+		#If you need to refresh the Supporter info set this to true and on the next game restart it will automatically update the info.
+		update-supporters = true
+

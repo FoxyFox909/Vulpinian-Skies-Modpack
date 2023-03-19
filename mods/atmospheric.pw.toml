@@ -1,0 +1,13 @@
+name = "Atmospheric"
+filename = "atmospheric-1.18.2-4.0.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "c523f9bda578f7fe7bf362e44fe8c30036f9c2d0"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4367068
+project-id = 362393

@@ -1,0 +1,13 @@
+name = "Extended Item Information"
+filename = "ExtendedItemInformation-4.0.2-1.18.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "f812e762892a207cb3c804b4e2aa580c3fc2e1df"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 3838314
+project-id = 285166

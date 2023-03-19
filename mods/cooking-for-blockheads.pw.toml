@@ -1,0 +1,13 @@
+name = "Cooking for Blockheads"
+filename = "cookingforblockheads-forge-1.18.2-12.2.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "a05f0b1d035b3715a7d75a62a907234ef6d3464e"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4065856
+project-id = 231484

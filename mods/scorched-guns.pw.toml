@@ -1,0 +1,13 @@
+name = "~SCORCHED GUNS~ "
+filename = "scorchedguns-1.6-1.18.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "fbac9a997b26baa58eb7c58bb4bc483e6c07702b"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4399679
+project-id = 802940

@@ -1,0 +1,13 @@
+name = "Artifacts"
+filename = "artifacts-1.18.2-4.2.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "b4baf2b7d0c26b01314452ab54fdf2d2ac156e7a"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 3984105
+project-id = 312353

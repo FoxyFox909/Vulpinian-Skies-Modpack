@@ -1,0 +1,13 @@
+name = "Weather, Storms & Tornadoes"
+filename = "weather2-1.18.2-2.7.5.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "dbda98451d90e899eb5620b6ccdaea6b24f74d83"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4426524
+project-id = 237746

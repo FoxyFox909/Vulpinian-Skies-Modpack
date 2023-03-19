@@ -1,0 +1,13 @@
+name = "Autumnity"
+filename = "autumnity-1.18.2-3.0.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "c9d1269da18c4535d7ea9a211a7fd7403d02d584"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4365141
+project-id = 365045

@@ -1,0 +1,13 @@
+name = "Create: Crystal Clear"
+filename = "create_crystal_clear-0.1.3e-1.18.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "2a60350ffb800fffb3ddfdb5ab4d71750c2888d4"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4192943
+project-id = 669724

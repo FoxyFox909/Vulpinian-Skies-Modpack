@@ -1,0 +1,13 @@
+name = "Valkyrien Computers [Fabric/Forge]"
+filename = "vc-1.5.0+98a361d36e.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "696eb3d6c6ca4fb20a6a9df4e8019d672648ccf0"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4422402
+project-id = 779690
