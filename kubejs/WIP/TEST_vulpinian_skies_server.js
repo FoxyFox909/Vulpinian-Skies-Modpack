@@ -94,8 +94,8 @@ onEvent("command.registry", event => {
 								let paddedId = lifetimePlayers.toString().padStart(5,0)
 								
 								addToLifetimePlayers(1)
-								
-								Utils.server.runCommand('data merge block ' + (posX + relPosX)+ ' ' + (posY + relPosY) + ' ' + (posZ + relPosZ) + ` {Items:[{Slot:0b,id:"create_things_and_misc:card", Count: 1b, tag:{Inscribed:"Vulpine Co. [stage1-valid]",display:{Name:'[{"text":"Gun Arena ID-${paddedId}","italic":false}]'}}}]}`)
+								//Utils.server.runCommand('data merge block ' + (posX + relPosX)+ ' ' + (posY + relPosY) + ' ' + (posZ + relPosZ) + ` {Items:[{Slot:0b,id:"create_things_and_misc:card", Count: 1b, tag:{Inscribed:"Vulpine Co. [stage1-valid]",display:{Name:'[{"text":"Gun Arena ID-${paddedId}","italic":false}]'}}}]}`)
+								Utils.server.runCommand('data merge block ' + (posX + relPosX)+ ' ' + (posY + relPosY) + ' ' + (posZ + relPosZ) + ` {Items:[{Slot:0b,id:"create_things_and_misc:card", Count: 1b, tag:{Inscribed:"Vulpine Co. [stage1-valid]",display:{Name:'[{"text":"Gun Arena ID-${paddedId}","italic":false}]',Lore:['[{"text":"CARD ID: ${paddedId} | STATUS: Valid Entry Ticket","italic":false}]']}}}]}`)
 								Utils.server.tell("Put a diamond in chest above, and coords used were: " + posX + ' ' + (posY + 1) + ' ' + posZ)								
 								return 1
 							})
@@ -119,70 +119,99 @@ onEvent("command.registry", event => {
 			)
 			.then(Commands.literal('stage-two').executes(ctx => {
 				//Commences stage 2 of card, setting card Inscribed NBT to Stage 2 and binding card to player				
-				//let name = entityData.getName().getContents()				
-								
-				//entityData.getInventory().getItem(1).setTag(Inscribed.merge(null)) //not working
-				//let inventory = entityData.inventory.contains('create_things_and_misc:card') /use to check for item :D
-				//let inventory = entityData.getInventory().player.inventory.get(1) /not working
 				
-				
+					//let name = entityData.getName().getContents()								
+					//let inventory = entityData.inventory.contains('create_things_and_misc:card') /use to check for item :D
+				let $tagList = java('net.minecraft.nbt.ListTag')
+				//let $JSONtoNBT = java('net.minecraft.nbt.TagParser')
 				let entityData = ctx.source.entity
 				let size = entityData.getInventory().items.length
 				let name = entityData.name.contents
+				
+				let loreString = entityData.getInventory().getItem(1).getTag().display.Lore // get Item lore
+				let stringifiedLore = ""
+				stringifiedLore = stringifiedLore + loreString
+				const loreRegex = /STATUS/
+				let loreIndex = stringifiedLore.search(loreRegex)
+				let newLore = "Blue da be daa"
+				//let modifiedLore = JSON.stringify(String.raw`${stringifiedLore.substring(0, (loreIndex + 8)) + newLore + stringifiedLore.substring((loreIndex + 26))}`)
+				let modifiedLore = stringifiedLore.substring(0, (loreIndex + 8)) + newLore + stringifiedLore.substring((loreIndex + 26))
+				//let tagListLore = new $tagList() //(entityData.getInventory().getItem(1).getTag().display.Lore)
+				let tagListLore = eval(modifiedLore)
+				let addToTagListLore = tagListLore.push(modifiedLore)
+				
+				
+				let rawNewLore = modifiedLore//.replace(/^\"|\"$/gm, "")
+				let loreSanitizeRegex = /\"/gm
+				let loreSanitizeGet = entityData.getInventory().getItem(1).getTag().display
+				let stringifiedLoreSanitizeGet = ""
+				stringifiedLoreSanitizeGet = stringifiedLoreSanitizeGet + loreSanitizeGet
+				
+				
+				
+				//let seralizeLore = entityData.getInventory().getItem(1).serializeNBT().tag.display.Lore
+				//let modifyLore = String.raw`${entityData.getInventory().getItem(1).getTag().display.Lore}`
+				//entityData.getInventory().getItem(1).getTag().display.Lore = " "// //['[{"text":"CARD ID: 00053 | STATUS: Blue da be daa","italic":false}]']
+				//entityData.getInventory().getItem(1).getTag().display.Lore = `${entityData.getInventory().getItem(1).getTag().display.Lore} Test`
+				//entityData.getInventory().getItem(1).getTag().display = toString(entityData.getInventory().getItem(1).getTag().display.replace(loreSanitizeRegex, 'fox'))
+				entityData.getInventory().getItem(1).getTag().display.Lore = eval(modifiedLore)
+				
+				//entityData.getInventory().getItem(1).serializeNBT().tag.display.Lore = "tes"
+				
+				
+				//let whisper = entityData.sendMessage(("MrCrayfish's Device Mod:"), "1")
+				//let whisper = entityData.getInventory().getItem(1).tag.display.Lore
+				
+				
+				
+				
+				//Utils.server.tell("Keys are " + Object.keys(whisper))
+				//Utils.server.tell("Type is " + typeof(loreString))
+				Utils.server.tell("Object is " + loreString + " and Raw string is " + stringifiedLore)
+				Utils.server.tell("Altered lore is " + modifiedLore + " and its type is " + typeof(modifiedLore))
+				Utils.server.tell("Rawified New lore is " + rawNewLore + " and its type is " + typeof(rawNewLore))
+				Utils.server.tell("Display full is: " + stringifiedLoreSanitizeGet + " and is type " + typeof(stringifiedLoreSanitizeGet))
+				Utils.server.tell("Type of thing is " + (entityData.getInventory().getItem(1).getTag().display.Lore instanceof $tagList))
+				Utils.server.tell("Last type search: " + typeof(tagListLore) + " and is " + tagListLore + " and has keys: " + Object.keys(tagListLore))
+				
+				//Utils.server.tell("Keys are :" + + entityData.getInventory().getItem(1).getTag().display.Lore)
+				//Utils.server.tell("Source keys are :" + (ctx.source.getPlayerOrException()))
+				
+				//Utils.server.tell("SNBT is " + seralizeLore)
+				//Utils.server.tell("modifyLore is" + modifyLore)
+				//Utils.server.tell("Stringification worked as such: " + stringifiedName + " and its type is " + typeof(stringifiedName))
+				
+				
 				//let inventory = entityData.getInventory().getItem(1).getTag().Inscribed = "Vulpine Co. [stage2-prematch]" //get the NBT tag down to the Inscribed key
-			/* "[a-zA-Z0-9 -]*"(?=:):[a-zA-Z0-9 "-ć]*(?<=")|"[a-zA-Z0-9 -]*"(?=:):[a-zA-Z0-9 "-ć]*(?=,)|"[a-zA-Z0-9 -]*"(?=:):[a-zA-Z0-9 "-ć]*(?=\w+) */
-			// ^([^"]*["]){4}[^"].*$ semi working regex
-			// *"([^"]+)(?=") best working regex
-				//let nameString = entityData.getInventory().getItem(1).serializeNBT().tag.display.Name // get Item display name
-				/*
-				let parsedNameString = nameString.split(/(?=")/)
-				parsedNameString[3] = parsedNameString[3].concat(" Text test1", "Text test 3")
-				let preFinalNameString = parsedNameString.join()
-				let finalNameString = `{Name:'${preFinalNameString}'}`*/
-				//(.")(,) BEST WORKING REGEX
-				//console.log(str.substring(0, (nameIndex + 1)) + " injected text" + str.substring((nameIndex + 1)));
-				
-				let nameString = entityData.getInventory().getItem(1).getTag().display.Name // get Item display name
-				const nameRegex = /(.")(,)/
-				let nameIndex = nameString.search(nameRegex)
-				let modifiedName = nameString.substring(0, (nameIndex + 1)) + " injected text" + nameString.substring((nameIndex + 1))
-				entityData.getInventory().getItem(1).getTag().display.Name = modifiedName
-				
-				
-				//let tagLookup = entityData.getInventory().getItem(1).getTag().display = `{Name:'${finalNameString}'}`
 
-				//Utils.server.tell("Contents to be JSONED are " + nameString)
-				//Utils.server.tell("Keys are " + Object.keys(parsedNameString))
-				//Utils.server.tell("Type is  " + typeof(parsedNameString[3]))
-				//Utils.server.tell("Contents are " + parsedNameString)
-				//Utils.server.tell("Modified string is " + parsedNameString[3])
-				//Utils.server.tell("Modified array is " + parsedNameString)
-				//Utils.server.tell("Joined and ready to ship NBT is " + finalNameString)
-				//Utils.server.tell("Value of tags " + tagLookup)
-
-				Utils.server.tell("Contents of Tag are " + nameString)
-				Utils.server.tell("Type of Tag is " + typeof(nameString))
-				Utils.server.tell("Injected text like so: " + modifiedName)
 				
-				
-				
-				
-				
-				for (let slot = 0; slot < size; slot++) {
+				for (let slot = 0; slot < (size + 5); slot++) {
 				let invSlotId = entityData.getInventory().getItem(slot).serializeNBT().id //get ID from NBT of item
 				
 				//Utils.server.tell("Slot " + slot + " has an id of " + invSlotId)	
 				
 				//Loops through inventory finding cards matching the right NBT, and takes the first one it finds.
 					if (invSlotId == "create_things_and_misc:card") {
-						Utils.server.tell("SUCCESFULLY FOUND A CARD");
+						//Utils.server.tell("SUCCESFULLY FOUND A CARD");
 						let cardTag = entityData.getInventory().getItem(slot).getTag().Inscribed //get the NBT dat adown to the Inscribed key for validation
 						
 						if (cardTag == "Vulpine Co. [stage1-valid]") {
-							Utils.server.tell("Card is valid");
+							let nameString = entityData.getInventory().getItem(slot).getTag().display.Name // get Item display name
+							const nameRegex = /(.")(,)/
+							let nameIndex = nameString.search(nameRegex)
+							let playerName = entityData.name.contents
+							let stringifiedPlayerName = ""
+							stringifiedName = stringifiedName + playerName
+							let modifiedName = nameString.substring(0, (nameIndex + 1)) + ` ${stringifiedPlayerName} ` + nameString.substring((nameIndex + 1))							
+							event.server.tell("Found a valid Card!"); //not sure if this will whisper or tell the whole server
+							entityData.getInventory().getItem(slot).getTag().display.Name = modifiedName;
+							entityData.getInventory().getItem(slot).getTag().Inscribed = "Vulpine Co. [stage2-prematch]"; //Set the NBT tag to stage2
+							
+							
+							
 							break;
 						} else {continue};
-					}; 	//else invSlotId == "minecraft:air";
+					};	// else Utils.server.tell("No Card Found");	//else invSlotId == "minecraft:air";
 				};
 				
 				
