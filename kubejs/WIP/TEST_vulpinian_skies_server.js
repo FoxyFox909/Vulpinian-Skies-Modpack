@@ -118,10 +118,75 @@ onEvent("command.registry", event => {
 				})
 			)
 			.then(Commands.literal('stage-two').executes(ctx => {
+				//Commences stage 2 of card, setting card Inscribed NBT to Stage 2 and binding card to player				
+				//let name = entityData.getName().getContents()				
+								
+				//entityData.getInventory().getItem(1).setTag(Inscribed.merge(null)) //not working
+				//let inventory = entityData.inventory.contains('create_things_and_misc:card') /use to check for item :D
+				//let inventory = entityData.getInventory().player.inventory.get(1) /not working
+				
+				
 				let entityData = ctx.source.entity
-				//let name = entityData.getName().getContents()
+				let size = entityData.getInventory().items.length
 				let name = entityData.name.contents
-				Utils.server.tell("Contents are " + name)
+				//let inventory = entityData.getInventory().getItem(1).getTag().Inscribed = "Vulpine Co. [stage2-prematch]" //get the NBT tag down to the Inscribed key
+			/* "[a-zA-Z0-9 -]*"(?=:):[a-zA-Z0-9 "-ć]*(?<=")|"[a-zA-Z0-9 -]*"(?=:):[a-zA-Z0-9 "-ć]*(?=,)|"[a-zA-Z0-9 -]*"(?=:):[a-zA-Z0-9 "-ć]*(?=\w+) */
+			// ^([^"]*["]){4}[^"].*$ semi working regex
+			// *"([^"]+)(?=") best working regex
+				//let nameString = entityData.getInventory().getItem(1).serializeNBT().tag.display.Name // get Item display name
+				/*
+				let parsedNameString = nameString.split(/(?=")/)
+				parsedNameString[3] = parsedNameString[3].concat(" Text test1", "Text test 3")
+				let preFinalNameString = parsedNameString.join()
+				let finalNameString = `{Name:'${preFinalNameString}'}`*/
+				//(.")(,) BEST WORKING REGEX
+				//console.log(str.substring(0, (nameIndex + 1)) + " injected text" + str.substring((nameIndex + 1)));
+				
+				let nameString = entityData.getInventory().getItem(1).getTag().display.Name // get Item display name
+				const nameRegex = /(.")(,)/
+				let nameIndex = nameString.search(nameRegex)
+				let modifiedName = nameString.substring(0, (nameIndex + 1)) + " injected text" + nameString.substring((nameIndex + 1))
+				entityData.getInventory().getItem(1).getTag().display.Name = modifiedName
+				
+				
+				//let tagLookup = entityData.getInventory().getItem(1).getTag().display = `{Name:'${finalNameString}'}`
+
+				//Utils.server.tell("Contents to be JSONED are " + nameString)
+				//Utils.server.tell("Keys are " + Object.keys(parsedNameString))
+				//Utils.server.tell("Type is  " + typeof(parsedNameString[3]))
+				//Utils.server.tell("Contents are " + parsedNameString)
+				//Utils.server.tell("Modified string is " + parsedNameString[3])
+				//Utils.server.tell("Modified array is " + parsedNameString)
+				//Utils.server.tell("Joined and ready to ship NBT is " + finalNameString)
+				//Utils.server.tell("Value of tags " + tagLookup)
+
+				Utils.server.tell("Contents of Tag are " + nameString)
+				Utils.server.tell("Type of Tag is " + typeof(nameString))
+				Utils.server.tell("Injected text like so: " + modifiedName)
+				
+				
+				
+				
+				
+				for (let slot = 0; slot < size; slot++) {
+				let invSlotId = entityData.getInventory().getItem(slot).serializeNBT().id //get ID from NBT of item
+				
+				//Utils.server.tell("Slot " + slot + " has an id of " + invSlotId)	
+				
+				//Loops through inventory finding cards matching the right NBT, and takes the first one it finds.
+					if (invSlotId == "create_things_and_misc:card") {
+						Utils.server.tell("SUCCESFULLY FOUND A CARD");
+						let cardTag = entityData.getInventory().getItem(slot).getTag().Inscribed //get the NBT dat adown to the Inscribed key for validation
+						
+						if (cardTag == "Vulpine Co. [stage1-valid]") {
+							Utils.server.tell("Card is valid");
+							break;
+						} else {continue};
+					}; 	//else invSlotId == "minecraft:air";
+				};
+				
+				
+				
 				return 1
 				})
 			)
