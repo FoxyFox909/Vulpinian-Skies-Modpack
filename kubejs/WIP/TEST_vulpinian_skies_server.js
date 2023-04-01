@@ -1,8 +1,7 @@
 
+const maxPlayers =  4//Max amount of players allowed to be registered to a game
 
 onEvent('item.entity_interact', event => {
-	
-	
 	
 	if (event.target.type == "minecraft:fox" & event.item.id == "minecraft:nether_star"){
 	
@@ -75,12 +74,14 @@ onEvent("command.registry", event => {
 		const changePlayers = (p) => {return event.server.persistentData.currentPlayersCount = p;}
 		//let resetPlayers = changePlayers([])
 		if (resetBool){changePlayers([]); return;}
-		Utils.server.tell('initializeCurrentPlayers Function Called')
-		
+		Utils.server.tell('initializeCurrentPlayers Function Called')	
 	}
 	
-	function buildCurrentPlayers(){
-		
+	function pushCurrentPlayers(playerName, playerNumber){
+		const currentPlayers = event.server.persistentData.currentPlayersCount
+		const player = `{"PlayerNumber":"${playerNumber}","Name":"${playerName}","Team":"None"}`
+		currentPlayers.push(player)
+		return
 	}
 	
 	event.register(
@@ -152,6 +153,8 @@ onEvent("command.registry", event => {
 						let cardTag = entityData.getInventory().getItem(slot).getTag().Inscribed //get the NBT dat adown to the Inscribed key for validation
 						
 						if (cardTag == "Vulpine Co. [stage1-valid]") {
+							let currentPlayersCount = event.server.persistentData.currentPlayersCount.length
+							if (currentPlayersCount >= maxPlayers) {event.server.tell("Found a valid Card, but player slots are full! Please wait until the next match."); return;}
 							let nameString = entityData.getInventory().getItem(slot).getTag().display.Name // get Item display name
 							let nameRegex = /(.")(,)/
 							let nameIndex = nameString.search(nameRegex)
@@ -170,36 +173,43 @@ onEvent("command.registry", event => {
 							entityData.getInventory().getItem(slot).getTag().display.Name = modifiedName;
 							entityData.getInventory().getItem(slot).getTag().Inscribed = "Vulpine Co. [stage2-prematch]"; //Set the NBT tag to stage2
 							entityData.getInventory().getItem(slot).getTag().display.Lore = eval(modifiedLore);
+							pushCurrentPlayers(stringifiedPlayerName, (currentPlayersCount + 1));
 							
 							
 							break;
 						} else {continue};
 					};	// else Utils.server.tell("No Card Found");	//else invSlotId == "minecraft:air";
 				};
-				
-				
-				
 				return 1
 				})
-			)
-			.then(Commands.literal('currentplayers-init').executes(ctx => {
-				var currentPlayers = event.server.persistentData.currentPlayersCount
-				initializeCurrentPlayers(null, 0)
-				Utils.server.tell("Current Player Count is " + currentPlayers)
-				//Utils.server.tell("Keys are " + Object.keys(currentPlayers[0]))
-				//Utils.server.tell("second item is " + currentPlayers[1])
-				return 1
-				})
-			)
-			.then(Commands.literal('currentplayers-reset').executes(ctx => {
-				
-				initializeCurrentPlayers(0, 1)
-				var currentPlayers = event.server.persistentData.currentPlayersCount
-				Utils.server.tell("Current Player Count is " + currentPlayers)
-				//Utils.server.tell("Keys are " + Object.keys(currentPlayers[0]))
-				//Utils.server.tell("second item is " + currentPlayers[1])
-				return 1
-				})
+			).then(Commands.literal('currentplayers')
+				.then(Commands.literal('query').executes(ctx => {
+					var currentPlayers = event.server.persistentData.currentPlayersCount
+					initializeCurrentPlayers(null, 0)
+					Utils.server.tell("Current Player Count is " + currentPlayers)
+					//Utils.server.tell("Keys are " + Object.keys(currentPlayers[0]))
+					Utils.server.tell("Length is: " + currentPlayers.length)
+					return 1
+					})
+				)
+				.then(Commands.literal('reset').executes(ctx => {
+					
+					initializeCurrentPlayers(0, 1)
+					var currentPlayers = event.server.persistentData.currentPlayersCount
+					Utils.server.tell("Current Player Count is " + currentPlayers)
+					
+					return 1
+					})
+				)
+				.then(Commands.literal('build').executes(ctx => {
+					
+					pushCurrentPlayers()
+					var currentPlayers = event.server.persistentData.currentPlayersCount
+					Utils.server.tell("Pushed to Current Players, and it is now: " + currentPlayers)
+					
+					return 1
+					})
+				)
 			)
 			.then(Commands.literal('BLANK').executes(ctx => {
 
