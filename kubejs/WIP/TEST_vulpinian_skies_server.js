@@ -19,8 +19,6 @@ onEvent('item.entity_interact', event => {
 	return
 	}
 	
-	
-	
 	/*Utils.server.tell( event.player.stages.has('starting_items'))
 	event.player.stages.remove('starting_items')
 	Utils.server.tell(event.player.stages.has('starting_items'))*/
@@ -32,8 +30,9 @@ onEvent('item.entity_interact', event => {
 	
 	if (event.target.type == "minecraft:fox" & event.item.id == "minecraft:diamond") {
 	Utils.server.tell("Fox Clicked with Diamond")
-	addToLifetimePlayers(1)
-	Utils.server.tell("Lifetime players is now: " + lifetimePlayers)
+	//addToLifetimePlayers(1)
+	event.server.persistentData.currentPlayersCount = [{"PlayerNumber":"1","Name":"Ahri_Loyala","Team":"Blue"},{"PlayerNumber":"2","Name":"Raven_Blackblood","Team":"Red"}]
+	//Utils.server.tell("Lifetime players is now: " + lifetimePlayers)
 	return
 	}
 	
@@ -59,10 +58,6 @@ function mathTest(number){
 	return maf
 }
 
-
-
-
-
 onEvent("command.registry", event => {
 	const { commands: Commands, arguments: Arguments} = event;
 	//var lifetimePlayers = event.server.persistentData.lifetimePlayersCount;
@@ -73,6 +68,20 @@ onEvent("command.registry", event => {
 		return data
 	}
 	
+	function initializeCurrentPlayers(pvalue, resetBool){
+		//JSON Array Format is [{"PlayerNumber":"1","Name":"Ahri_Loyala","Team":"Blue"},{"PlayerNumber":"2","Name":"Raven_Blackblood","Team":"Red"}]
+		
+		//const currentPlayers = 
+		const changePlayers = (p) => {return event.server.persistentData.currentPlayersCount = p;}
+		//let resetPlayers = changePlayers([])
+		if (resetBool){changePlayers([]); return;}
+		Utils.server.tell('initializeCurrentPlayers Function Called')
+		
+	}
+	
+	function buildCurrentPlayers(){
+		
+	}
 	
 	event.register(
 		Commands.literal('vps')
@@ -120,69 +129,16 @@ onEvent("command.registry", event => {
 			.then(Commands.literal('stage-two').executes(ctx => {
 				//Commences stage 2 of card, setting card Inscribed NBT to Stage 2 and binding card to player				
 				
-					//let name = entityData.getName().getContents()								
+					
 					//let inventory = entityData.inventory.contains('create_things_and_misc:card') /use to check for item :D
-				let $tagList = java('net.minecraft.nbt.ListTag')
+				//let $tagList = java('net.minecraft.nbt.ListTag')
 				//let $JSONtoNBT = java('net.minecraft.nbt.TagParser')
 				let entityData = ctx.source.entity
 				let size = entityData.getInventory().items.length
-				let name = entityData.name.contents
+				//let name = entityData.name.contents
+			
 				
-				let loreString = entityData.getInventory().getItem(1).getTag().display.Lore // get Item lore
-				let stringifiedLore = ""
-				stringifiedLore = stringifiedLore + loreString
-				const loreRegex = /STATUS/
-				let loreIndex = stringifiedLore.search(loreRegex)
-				let newLore = "Blue da be daa"
-				//let modifiedLore = JSON.stringify(String.raw`${stringifiedLore.substring(0, (loreIndex + 8)) + newLore + stringifiedLore.substring((loreIndex + 26))}`)
-				let modifiedLore = stringifiedLore.substring(0, (loreIndex + 8)) + newLore + stringifiedLore.substring((loreIndex + 26))
-				//let tagListLore = new $tagList() //(entityData.getInventory().getItem(1).getTag().display.Lore)
-				let tagListLore = eval(modifiedLore)
-				let addToTagListLore = tagListLore.push(modifiedLore)
-				
-				
-				let rawNewLore = modifiedLore//.replace(/^\"|\"$/gm, "")
-				let loreSanitizeRegex = /\"/gm
-				let loreSanitizeGet = entityData.getInventory().getItem(1).getTag().display
-				let stringifiedLoreSanitizeGet = ""
-				stringifiedLoreSanitizeGet = stringifiedLoreSanitizeGet + loreSanitizeGet
-				
-				
-				
-				//let seralizeLore = entityData.getInventory().getItem(1).serializeNBT().tag.display.Lore
-				//let modifyLore = String.raw`${entityData.getInventory().getItem(1).getTag().display.Lore}`
-				//entityData.getInventory().getItem(1).getTag().display.Lore = " "// //['[{"text":"CARD ID: 00053 | STATUS: Blue da be daa","italic":false}]']
-				//entityData.getInventory().getItem(1).getTag().display.Lore = `${entityData.getInventory().getItem(1).getTag().display.Lore} Test`
-				//entityData.getInventory().getItem(1).getTag().display = toString(entityData.getInventory().getItem(1).getTag().display.replace(loreSanitizeRegex, 'fox'))
-				entityData.getInventory().getItem(1).getTag().display.Lore = eval(modifiedLore)
-				
-				//entityData.getInventory().getItem(1).serializeNBT().tag.display.Lore = "tes"
-				
-				
-				//let whisper = entityData.sendMessage(("MrCrayfish's Device Mod:"), "1")
-				//let whisper = entityData.getInventory().getItem(1).tag.display.Lore
-				
-				
-				
-				
-				//Utils.server.tell("Keys are " + Object.keys(whisper))
-				//Utils.server.tell("Type is " + typeof(loreString))
-				Utils.server.tell("Object is " + loreString + " and Raw string is " + stringifiedLore)
-				Utils.server.tell("Altered lore is " + modifiedLore + " and its type is " + typeof(modifiedLore))
-				Utils.server.tell("Rawified New lore is " + rawNewLore + " and its type is " + typeof(rawNewLore))
-				Utils.server.tell("Display full is: " + stringifiedLoreSanitizeGet + " and is type " + typeof(stringifiedLoreSanitizeGet))
-				Utils.server.tell("Type of thing is " + (entityData.getInventory().getItem(1).getTag().display.Lore instanceof $tagList))
-				Utils.server.tell("Last type search: " + typeof(tagListLore) + " and is " + tagListLore + " and has keys: " + Object.keys(tagListLore))
-				
-				//Utils.server.tell("Keys are :" + + entityData.getInventory().getItem(1).getTag().display.Lore)
-				//Utils.server.tell("Source keys are :" + (ctx.source.getPlayerOrException()))
-				
-				//Utils.server.tell("SNBT is " + seralizeLore)
-				//Utils.server.tell("modifyLore is" + modifyLore)
-				//Utils.server.tell("Stringification worked as such: " + stringifiedName + " and its type is " + typeof(stringifiedName))
-				
-				
-				//let inventory = entityData.getInventory().getItem(1).getTag().Inscribed = "Vulpine Co. [stage2-prematch]" //get the NBT tag down to the Inscribed key
+				//tils.server.tell("Last type search: " + typeof(modifiedLore) + " and is " + modifiedLore  + " and has keys: " + Object.keys(modifiedLore))
 
 				
 				for (let slot = 0; slot < (size + 5); slot++) {
@@ -197,16 +153,23 @@ onEvent("command.registry", event => {
 						
 						if (cardTag == "Vulpine Co. [stage1-valid]") {
 							let nameString = entityData.getInventory().getItem(slot).getTag().display.Name // get Item display name
-							const nameRegex = /(.")(,)/
+							let nameRegex = /(.")(,)/
 							let nameIndex = nameString.search(nameRegex)
 							let playerName = entityData.name.contents
 							let stringifiedPlayerName = ""
-							stringifiedName = stringifiedName + playerName
-							let modifiedName = nameString.substring(0, (nameIndex + 1)) + ` ${stringifiedPlayerName} ` + nameString.substring((nameIndex + 1))							
+							stringifiedPlayerName = stringifiedPlayerName + playerName;
+							let modifiedName = nameString.substring(0, (nameIndex + 1)) + ` ${stringifiedPlayerName} ` + nameString.substring((nameIndex + 1))
+							let loreString = entityData.getInventory().getItem(slot).getTag().display.Lore // get Item lore
+							let stringifiedLore = ""
+							stringifiedLore = stringifiedLore + loreString;
+							let loreRegex = /STATUS/
+							let loreIndex = stringifiedLore.search(loreRegex)
+							let newStatus = `Prematch - Registered to ${stringifiedPlayerName}`
+							let modifiedLore = stringifiedLore.substring(0, (loreIndex + 8)) + newStatus + stringifiedLore.substring((loreIndex + 26))
 							event.server.tell("Found a valid Card!"); //not sure if this will whisper or tell the whole server
 							entityData.getInventory().getItem(slot).getTag().display.Name = modifiedName;
 							entityData.getInventory().getItem(slot).getTag().Inscribed = "Vulpine Co. [stage2-prematch]"; //Set the NBT tag to stage2
-							
+							entityData.getInventory().getItem(slot).getTag().display.Lore = eval(modifiedLore);
 							
 							
 							break;
@@ -216,6 +179,33 @@ onEvent("command.registry", event => {
 				
 				
 				
+				return 1
+				})
+			)
+			.then(Commands.literal('currentplayers-init').executes(ctx => {
+				var currentPlayers = event.server.persistentData.currentPlayersCount
+				initializeCurrentPlayers(null, 0)
+				Utils.server.tell("Current Player Count is " + currentPlayers)
+				//Utils.server.tell("Keys are " + Object.keys(currentPlayers[0]))
+				//Utils.server.tell("second item is " + currentPlayers[1])
+				return 1
+				})
+			)
+			.then(Commands.literal('currentplayers-reset').executes(ctx => {
+				
+				initializeCurrentPlayers(0, 1)
+				var currentPlayers = event.server.persistentData.currentPlayersCount
+				Utils.server.tell("Current Player Count is " + currentPlayers)
+				//Utils.server.tell("Keys are " + Object.keys(currentPlayers[0]))
+				//Utils.server.tell("second item is " + currentPlayers[1])
+				return 1
+				})
+			)
+			.then(Commands.literal('BLANK').executes(ctx => {
+
+				//Add code here
+				//For copy-pasting purposes
+				//KEEP RETURN
 				return 1
 				})
 			)
