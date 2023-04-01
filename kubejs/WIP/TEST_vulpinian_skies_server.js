@@ -6,8 +6,8 @@ onEvent('item.entity_interact', event => {
 	if (event.target.type == "minecraft:fox" & event.item.id == "minecraft:nether_star"){
 	
 	
-	var lifetimePlayers = event.server.persistentData.lifetimePlayersCount;
-	//const addToLifetimePlayers = event.server.persistentData.lifetimePlayersCount++
+	var lifetimePlayers = event.server.persistentData.gunArenaLifetimePlayersCount;
+	//const addToLifetimePlayers = event.server.persistentData.gunArenaLifetimePlayersCount++
 	let paddedId = lifetimePlayers.toString().padStart(5,0)
 	
 	
@@ -30,7 +30,7 @@ onEvent('item.entity_interact', event => {
 	if (event.target.type == "minecraft:fox" & event.item.id == "minecraft:diamond") {
 	Utils.server.tell("Fox Clicked with Diamond")
 	//addToLifetimePlayers(1)
-	event.server.persistentData.currentPlayersCount = [{"PlayerNumber":"1","Name":"Ahri_Loyala","Team":"Blue"},{"PlayerNumber":"2","Name":"Raven_Blackblood","Team":"Red"}]
+	event.server.persistentData.gunArenaCurrentPlayersCount = [{"PlayerNumber":"1","Name":"Ahri_Loyala","Team":"Blue"},{"PlayerNumber":"2","Name":"Raven_Blackblood","Team":"Red"}]
 	//Utils.server.tell("Lifetime players is now: " + lifetimePlayers)
 	return
 	}
@@ -38,14 +38,14 @@ onEvent('item.entity_interact', event => {
 	//event.player.inventory.removeItem(!nonCapsule)
 	
 	function resetLifetimePlayers(){
-		let data = event.server.persistentData.lifetimePlayersCount
-		event.server.persistentData.lifetimePlayersCount = 0//{"count": 1}
+		let data = event.server.persistentData.gunArenaLifetimePlayersCount
+		event.server.persistentData.gunArenaLifetimePlayersCount = 0//{"count": 1}
 		return data
 	}
 	
 	function addToLifetimePlayers(number){
-		let data = event.server.persistentData.lifetimePlayersCount
-		event.server.persistentData.lifetimePlayersCount = event.server.persistentData.lifetimePlayersCount + number
+		let data = event.server.persistentData.gunArenaLifetimePlayersCount
+		event.server.persistentData.gunArenaLifetimePlayersCount = event.server.persistentData.gunArenaLifetimePlayersCount + number
 		return data
 	}
 	
@@ -59,11 +59,17 @@ function mathTest(number){
 
 onEvent("command.registry", event => {
 	const { commands: Commands, arguments: Arguments} = event;
-	//var lifetimePlayers = event.server.persistentData.lifetimePlayersCount;
+	//var lifetimePlayers = event.server.persistentData.gunArenaLifetimePlayersCount;
 	
 	function addToLifetimePlayers(number){
-		let data = event.server.persistentData.lifetimePlayersCount
-		event.server.persistentData.lifetimePlayersCount = event.server.persistentData.lifetimePlayersCount + number
+		let data = event.server.persistentData.gunArenaLifetimePlayersCount
+		event.server.persistentData.gunArenaLifetimePlayersCount = event.server.persistentData.gunArenaLifetimePlayersCount + number
+		return data
+	}
+	
+	function resetLifetimePlayers(){
+		let data = event.server.persistentData.gunArenaLifetimePlayersCount
+		event.server.persistentData.gunArenaLifetimePlayersCount = 0//{"count": 1}
 		return data
 	}
 	
@@ -71,21 +77,21 @@ onEvent("command.registry", event => {
 		//JSON Array Format is [{"PlayerNumber":"1","Name":"Ahri_Loyala","Team":"Blue"},{"PlayerNumber":"2","Name":"Raven_Blackblood","Team":"Red"}]
 		
 		//const currentPlayers = 
-		const changePlayers = (p) => {return event.server.persistentData.currentPlayersCount = p;}
+		const changePlayers = (p) => {return event.server.persistentData.gunArenaCurrentPlayersCount = p;}
 		//let resetPlayers = changePlayers([])
 		if (resetBool){changePlayers([]); return;}
 		Utils.server.tell('initializeCurrentPlayers Function Called')	
 	}
 	
 	function pushCurrentPlayers(playerName, playerNumber){
-		const currentPlayers = event.server.persistentData.currentPlayersCount
+		const currentPlayers = event.server.persistentData.gunArenaCurrentPlayersCount
 		const player = `{"PlayerNumber":"${playerNumber}","Name":"${playerName}","Team":"None"}`
 		currentPlayers.push(player)
 		return
 	}
 	
 	event.register(
-		Commands.literal('vps')
+		Commands.literal('vps-gunarena')
 			.requires(src => src.hasPermission(2))
 			.then(Commands.literal('card')	
 				.then(Commands.argument('rel-pos-x', Arguments.INTEGER.create(event))
@@ -93,7 +99,7 @@ onEvent("command.registry", event => {
 						.then(Commands.argument('rel-pos-z', Arguments.INTEGER.create(event))
 							.executes(ctx => {
 								
-								var lifetimePlayers = event.server.persistentData.lifetimePlayersCount
+								var lifetimePlayers = event.server.persistentData.gunArenaLifetimePlayersCount
 								const relPosX = Arguments.INTEGER.getResult(ctx, "rel-pos-x");
 								const relPosY = Arguments.INTEGER.getResult(ctx, "rel-pos-y");
 								const relPosZ = Arguments.INTEGER.getResult(ctx, "rel-pos-z");
@@ -121,26 +127,32 @@ onEvent("command.registry", event => {
 					})
 				)
 			)
-			.then(Commands.literal('lifetime-players').executes(ctx => {
-				var lifetimePlayers = event.server.persistentData.lifetimePlayersCount
-				Utils.server.tell("Total Player Count is " + lifetimePlayers)
-				return 1
-				})
+			.then(Commands.literal('lifetime-players')
+				.then(Commands.literal('query').executes(ctx => {
+					let lifetimePlayers = event.server.persistentData.gunArenaLifetimePlayersCount
+					Utils.server.tell("Total Player Count is " + lifetimePlayers)
+					//Utils.server.tell("Type of Player Count is " + typeof(lifetimePlayers))
+					return 1
+					})
+				)
+				.then(Commands.literal('reset').executes(ctx => {
+					let lifetimePlayers = event.server.persistentData.gunArenaLifetimePlayersCount
+					Utils.server.tell("Total Player Count was " + lifetimePlayers)
+					resetLifetimePlayers()
+					Utils.server.tell("Total Player Count is now " + event.server.persistentData.gunArenaLifetimePlayersCount)
+					return 1
+					})
+				)
 			)
 			.then(Commands.literal('stage-two').executes(ctx => {
-				//Commences stage 2 of card, setting card Inscribed NBT to Stage 2 and binding card to player				
-				
+				//Commences stage 2 of Card, setting Card Inscribed NBT to Stage 2 and binding card to player				
 					
-					//let inventory = entityData.inventory.contains('create_things_and_misc:card') /use to check for item :D
-				//let $tagList = java('net.minecraft.nbt.ListTag')
-				//let $JSONtoNBT = java('net.minecraft.nbt.TagParser')
+				//let inventory = entityData.inventory.contains('create_things_and_misc:card') /use to check for item :D
+				//let $tagList = java('net.minecraft.nbt.ListTag') DO NOT USE
+				//let $JSONtoNBT = java('net.minecraft.nbt.TagParser') DO NOT USE
 				let entityData = ctx.source.entity
 				let size = entityData.getInventory().items.length
 				//let name = entityData.name.contents
-			
-				
-				//tils.server.tell("Last type search: " + typeof(modifiedLore) + " and is " + modifiedLore  + " and has keys: " + Object.keys(modifiedLore))
-
 				
 				for (let slot = 0; slot < (size + 5); slot++) {
 				let invSlotId = entityData.getInventory().getItem(slot).serializeNBT().id //get ID from NBT of item
@@ -154,7 +166,7 @@ onEvent("command.registry", event => {
 						
 						if (cardTag == "Vulpine Co. [stage1-valid]") {
 							if (entityData.stages.has('ga_registered_player')) {event.server.tell("Found a valid Card, but you are already registered!"); return;}
-							let currentPlayersCount = event.server.persistentData.currentPlayersCount.length
+							let currentPlayersCount = event.server.persistentData.gunArenaCurrentPlayersCount.length
 							if (currentPlayersCount >= maxPlayers) {event.server.tell("Found a valid Card, but player slots are full! Please wait until the next match."); return;}
 							//if (matchOngoing) {event.server.tell("Found a valid Card, but a match is currently underway! Please wait until the next match. Go watch some pew pews in the meantime :)"); return;} future-proofing
 							let nameString = entityData.getInventory().getItem(slot).getTag().display.Name // get Item display name
@@ -186,7 +198,7 @@ onEvent("command.registry", event => {
 				})
 			).then(Commands.literal('currentplayers')
 				.then(Commands.literal('query').executes(ctx => {
-					var currentPlayers = event.server.persistentData.currentPlayersCount
+					var currentPlayers = event.server.persistentData.gunArenaCurrentPlayersCount
 					initializeCurrentPlayers(null, 0)
 					Utils.server.tell("Current Player Count is " + currentPlayers)
 					//Utils.server.tell("Keys are " + Object.keys(currentPlayers[0]))
@@ -197,22 +209,45 @@ onEvent("command.registry", event => {
 				.then(Commands.literal('reset').executes(ctx => {
 					
 					initializeCurrentPlayers(0, 1)
-					var currentPlayers = event.server.persistentData.currentPlayersCount
+					var currentPlayers = event.server.persistentData.gunArenaCurrentPlayersCount
 					Utils.server.tell("Current Player Count is " + currentPlayers)
 					
 					return 1
 					})
 				)
 				.then(Commands.literal('build').executes(ctx => {
-					
+					//USELESS, FOR REMOVAL
 					pushCurrentPlayers()
-					var currentPlayers = event.server.persistentData.currentPlayersCount
+					var currentPlayers = event.server.persistentData.gunArenaCurrentPlayersCount
 					Utils.server.tell("Pushed to Current Players, and it is now: " + currentPlayers)
 					
 					return 1
 					})
 				)
 			)
+			/*.then(Commands.literal('pre-stage-three').executes(ctx => {
+				
+				var timer = 30
+				var currentPlayersCount = event.server.persistentData.gunArenaCurrentPlayersCount.length
+				
+				//Periodic checks to see if a match is viable; that is, two or more players are registered
+				do { 
+				event.scheduleInTicks(20, callback => {
+				
+				if ()
+					
+					
+				})
+					
+				}
+				while ()
+
+				//Add code here
+				//For copy-pasting purposes
+				//KEEP RETURN
+				return 1
+				})
+			)*/
 			.then(Commands.literal('test').executes(ctx => {
 				let tags = ctx.source.entity.stages.has('test_tag')
 				ctx.source.entity.addTag('test_tag')
