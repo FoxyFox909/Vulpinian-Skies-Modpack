@@ -45,3 +45,12 @@ if (cardTag == "Vulpine Co. [stage1-valid]") {
 							
 									
 									*/
+
+
+	//Debugging messages
+										Utils.server.tell("Obj: " + getLore())
+										Utils.server.tell("Regex is: " + RegExp(buildRegex(pipeIndex)))
+										Utils.server.tell("Captured Index is: " + stringStartIndex)
+										Utils.server.tell("Captured start letter is: " + getLore()[stringStartIndex+1])
+										Utils.server.tell("Captured end letter is: " + getLore()[stringEndIndex-3])
+										Utils.server.tell("Modified NBT: " + modifiedLore)
