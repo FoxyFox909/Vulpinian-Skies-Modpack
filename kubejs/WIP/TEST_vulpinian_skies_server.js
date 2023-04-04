@@ -113,6 +113,8 @@ onEvent("command.registry", event => {
 		stringifiedLore = stringifiedLore + loreString;
 		let loreRegex = /STATUS/
 		let loreIndex = stringifiedLore.search(loreRegex)
+		let newStatus = `Prematch - Registered to ${stringifiedPlayerName} as Player ${currentPlayersCount().length + 1}`
+		let modifiedLore = stringifiedLore.substring(0, (loreIndex + 8)) + newStatus + stringifiedLore.substring((loreIndex + 26))
 		entityData.getInventory().getItem(slot).getTag().display.Lore = eval(modifiedLore);
 		return;
 	}
@@ -139,7 +141,7 @@ onEvent("command.registry", event => {
 								
 								addToLifetimePlayers(1)
 								//Utils.server.runCommand('data merge block ' + (posX + relPosX)+ ' ' + (posY + relPosY) + ' ' + (posZ + relPosZ) + ` {Items:[{Slot:0b,id:"create_things_and_misc:card", Count: 1b, tag:{Inscribed:"Vulpine Co. [stage1-valid]",display:{Name:'[{"text":"Gun Arena ID-${paddedId}","italic":false}]'}}}]}`)
-								Utils.server.runCommand('data merge block ' + (posX + relPosX)+ ' ' + (posY + relPosY) + ' ' + (posZ + relPosZ) + ` {Items:[{Slot:0b,id:"create_things_and_misc:card", Count: 1b, tag:{Inscribed:"Vulpine Co. [stage1-valid]",display:{Name:'[{"text":"Gun Arena ID-${paddedId}","italic":false}]',Lore:['[{"text":"CARD ID: ${paddedId} | STATUS: Valid Entry Ticket","italic":false}]']}}}]}`)
+								Utils.server.runCommand('data merge block ' + (posX + relPosX)+ ' ' + (posY + relPosY) + ' ' + (posZ + relPosZ) + ` {Items:[{Slot:0b,id:"create_things_and_misc:card", Count: 1b, tag:{Inscribed:"Vulpine Co. [stage1-valid]",display:{Name:'[{"text":"Gun Arena ID-${paddedId}","italic":false}]',Lore:['[{"text":"| CARD ID: ${paddedId} | STATUS: Valid Entry Ticket |","italic":false}]']}}}]}`)
 								Utils.server.tell("Put a diamond in chest above, and coords used were: " + posX + ' ' + (posY + 1) + ' ' + posZ)								
 								return 1
 							})
@@ -281,18 +283,6 @@ onEvent("command.registry", event => {
 				return 1
 				})
 			)
-			.then(Commands.literal('test').executes(ctx => {
-				let tags = ctx.source.entity.stages.has('test_tag')
-				ctx.source.entity.addTag('test_tag')
-				Utils.server.tell("My tags are: " + tags)
-				Utils.server.tell("Type is: " + typeof(tags))
-				//Utils.server.tell("Contains test_tag: " + tags.includes("test_tag"))
-				//Add code here
-				//For copy-pasting purposes
-				//KEEP RETURN
-				return 1
-				})
-			)
 			.then(Commands.literal('join-team')
 				.then(Commands.literal('blue').executes(ctx => {
 					
@@ -300,7 +290,63 @@ onEvent("command.registry", event => {
 					return 1
 					})
 				)
-			)
+			).then(Commands.literal('functions') //collection of subcommands to serve as functions to be called inside other commands to get stuff done. Pls dont @ me im just trying to follow DRY principle Sadge
+				.then(Commands.literal('modify-lore')
+					.then(Commands.argument('slot', Arguments.INTEGER.create(event))
+						.then(Commands.argument('pipe-index', Arguments.INTEGER.create(event))
+							.then(Commands.argument('new-lore', Arguments.STRING.create(event))
+								.executes(ctx => {
+									// REGEX ATTEMTPS: /^[|]+?|[^|]+$/ matches last |... but 1000 steps kekw
+									//(?<=[|])(.*)[|]{1}
+									//https://stackoverflow.com/questions/30210118/regex-to-match-substring-after-nth-occurence-of-pipe-character
+									//^((?:[^|]*\|){1})[^|]+
+									//^((?:[^|]*\|){1})[^|]+
+									//^(?:[^|]*\|){1}([^|]*)
+									//^(?:[^|]*\|){1}([^|]*)
+									//(?<=\|)(.*?)(?=\|)
+									/*
+									
+									
+									let newStatus = `Prematch - Registered to Ahri_Loyala as Player ${currentPlayersCount().length + 1}`
+									let modifiedLore = stringifiedLore.substring(0, (loreIndex + 8)) + newStatus + stringifiedLore.substring((loreIndex + 26))
+									entityData.getInventory().getItem(slot).getTag().display.Lore = eval(modifiedLore);
+									
+							
+									
+									*/
+									const arg1 = Arguments.INTEGER.getResult(ctx, "slot")
+									const arg2 = Arguments.INTEGER.getResult(ctx, "pipe-index")								
+									const arg3 = Arguments.STRING.getResult(ctx, "new-lore")
+									modPipeSegment(arg1, arg2, arg3)
+									
+									//modifies a single pipe segment in Card lore selected by pipeIndex with a 1-index
+									//command argumetns are item slot, pipe index, and then string message that will be new lore
+									//BUG: DO NOT USE ' character in the string, or there will be an error
+									function modPipeSegment (slot, pipeIndex, newLore) {
+										let entityData = ctx.source.entity
+										const getLore = () => {return String.raw`${entityData.getInventory().getItem(slot).getTag().display.Lore}`;}
+										const modifyLore = (p) => {entityData.getInventory().getItem(slot).getTag().display.Lore = eval(p);}
+										const buildRegex = (i) => {return RegExp(String.raw`((?:.*?\|){${i}}).*$`);}
+										let stringStartIndex = getLore().match(buildRegex(pipeIndex))[1].length;
+										let stringEndIndex = getLore().match(buildRegex(pipeIndex + 1))[1].length;
+										let modifiedLore = getLore().substring(0, (stringStartIndex + 1)) + newLore + getLore().substring((stringEndIndex - 2))
+										modifyLore(modifiedLore);
+										
+										
+										//Utils.server.tell("Keys: " + Object.keys(entityData.getInventory().getItem(1).getTag().display.Lore[0]))
+										Utils.server.tell("Obj: " + getLore())
+										Utils.server.tell("Regex is: " + RegExp(buildRegex(pipeIndex)))
+										Utils.server.tell("Captured Index is: " + stringStartIndex)
+										Utils.server.tell("Captured start letter is: " + getLore()[stringStartIndex+1])
+										Utils.server.tell("Captured end letter is: " + getLore()[stringEndIndex-3])
+										Utils.server.tell("Modified NBT: " + modifiedLore)
+									}
+									return 1
+								})
+							)
+						)
+					)
+				)
 			.then(Commands.literal('BLANK').executes(ctx => {
 
 				//Add code here
@@ -309,6 +355,7 @@ onEvent("command.registry", event => {
 				return 1
 				})
 			)
+		)
 	)
   
 	
