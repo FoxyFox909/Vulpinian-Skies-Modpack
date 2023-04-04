@@ -1,6 +1,8 @@
 
+//initialize all persistent data = lifetimePlayers as number, currentPlayers as array, readyPlayers as number
 const maxPlayers =  4  //Max amount of players allowed to be registered to a match
 const minPlayers =  2  //Min amount of players needed to trigger a match
+const minReadyPlayers = 2 //min amount of players who have to be ready for a prematch timer to skip down to 5 seconds
 const prematchTimerDefault = 30 //Default time (in 20-ticks intervals, meaning seconds) before a match starts once minPlayers has been satisfied
 
 //Variables for code operations, do not touch
@@ -91,21 +93,12 @@ onEvent("command.registry", event => {
 	
 	function pushCurrentPlayers(playerName, playerNumber){
 		//const currentPlayers = event.server.persistentData.gunArenaCurrentPlayersCount
-		let player = `{"PlayerNumber":"${playerNumber}","Name":"${playerName}","Team":"None"}`
+		let player = `{"PlayerNumber":"${playerNumber}","Name":"${playerName}","Team":"None","Ready":false}`
 		event.server.persistentData.gunArenaCurrentPlayersCount.push(JSON.parse(player))
 		return;
 	}
 	
-	function assignToTeam (playerCardInscribed, team) {
-		let i = 0;
-		
-		
-		
-		currentPlayersCount()[i].Team = (team)
-		return;
-		
-	}
-	
+	/*obsolete
 	function changeLore() {
 		let i = 0;
 		let loreString = entityData.getInventory().getItem(slot).getTag().display.Lore // get Item lore
@@ -117,10 +110,14 @@ onEvent("command.registry", event => {
 		let modifiedLore = stringifiedLore.substring(0, (loreIndex + 8)) + newStatus + stringifiedLore.substring((loreIndex + 26))
 		entityData.getInventory().getItem(slot).getTag().display.Lore = eval(modifiedLore);
 		return;
-	}
+	}*/
 	
-	const lifetimePlayersCount = () => {return event.server.persistentData.gunArenaLifetimePlayersCount}
-	const currentPlayersCount = () => {return event.server.persistentData.gunArenaCurrentPlayersCount}
+	
+	
+	const lifetimePlayersCount = () => {return event.server.persistentData.gunArenaLifetimePlayersCount};
+	const currentPlayersCount = () => {return event.server.persistentData.gunArenaCurrentPlayersCount};
+	const readyPlayers = () => {return event.server.persistentData.gunArenaReadyPlayers};
+	const changeReadyPlayers = (p) => {return event.server.persistentData.gunArenaReadyPlayers = p};
 	
 	event.register(
 		Commands.literal('vps-gunarena')
@@ -149,10 +146,116 @@ onEvent("command.registry", event => {
 					)	
 				)	
 			)	
-			.then(Commands.literal('test')
-				.then(Commands.argument('item-id', Arguments.STRING.create(event))
-					.executes(ctx => {
-					Utils.server.tell("test subcommand")
+			.then(Commands.literal('stage-two').executes(ctx => {
+				//Commences stage 2 of Card, setting Card Inscribed NBT to Stage 2 and binding card to player				
+					
+				//let inventory = entityData.inventory.contains('create_things_and_misc:card') /use to check for item :D
+				//let $tagList = java('net.minecraft.nbt.ListTag') DO NOT USE
+				//let $JSONtoNBT = java('net.minecraft.nbt.TagParser') DO NOT USE
+				let entityData = ctx.source.entity
+				let size = entityData.getInventory().containerSize
+				//let name = entityData.name.contents
+				
+				for (let slot = 0; slot < (size); slot++) {
+				let invSlotId = entityData.getInventory().getItem(slot).serializeNBT().id //get ID from NBT of item
+				
+				//Utils.server.tell("Slot " + slot + " has an id of " + invSlotId)	
+				
+				//Loops through inventory finding cards matching the right NBT, and takes the first one it finds.
+					if (invSlotId == "create_things_and_misc:card") {
+						//Utils.server.tell("SUCCESFULLY FOUND A CARD");
+						let cardTag = entityData.getInventory().getItem(slot).getTag().Inscribed //get the NBT dat adown to the Inscribed key for validation
+						
+						if (cardTag == "Vulpine Co. [stage1-valid]") {
+							if (entityData.stages.has('ga_registered_player')) {event.server.tell("Found a valid Card, but you are already registered!"); return;}
+							if (currentPlayersCount().length >= maxPlayers) {event.server.tell("Found a valid Card, but player slots are full! Please wait until the next match."); return;}
+							//if (matchOngoing) {event.server.tell("Found a valid Card, but a match is currently underway! Please wait until the next match. Go watch some pew pews in the meantime :)"); return;} future-proofing
+							
+							let nameString = entityData.getInventory().getItem(slot).getTag().display.Name // get display name of Card item
+							let nameRegex = /(.")(,)/
+							let nameIndex = nameString.search(nameRegex)
+							let playerName = entityData.name.contents
+							let stringifiedPlayerName = ""
+							stringifiedPlayerName = stringifiedPlayerName + playerName;
+							let modifiedName = nameString.substring(0, (nameIndex + 1)) + ` ${stringifiedPlayerName} ` + nameString.substring((nameIndex + 1))
+							
+							//entityData.runCommand(`tp Ahri_Loyala ~ ~ ~`)
+							Utils.server.runCommand(`execute as ${stringifiedPlayerName} run vps-gunarena functions add-pipe-segment ${slot} 1 "PLAYER ${currentPlayersCount().length + 1}: ${stringifiedPlayerName}"`)
+							Utils.server.runCommand(`execute as ${stringifiedPlayerName} run vps-gunarena functions mod-pipe-segment ${slot} 3 "STATUS: Prematch"`)
+							event.server.tell(`Found a valid Card! You have been registered as Player ${currentPlayersCount().length + 1}.`); //not sure if this will whisper or tell the whole server
+							entityData.getInventory().getItem(slot).getTag().display.Name = modifiedName;
+							entityData.getInventory().getItem(slot).getTag().Inscribed = "Vulpine Co. [stage2-prematch]"; //Set the NBT tag to stage2
+							pushCurrentPlayers(stringifiedPlayerName, (currentPlayersCount().length + 1));
+							entityData.addTag('ga_registered_player')
+							
+							break;
+						} else {continue};
+					};	// else Utils.server.tell("No Card Found");	//else invSlotId == "minecraft:air";
+				};
+				return 1
+				})
+			)
+			.then(Commands.literal('stage-three')
+				.then(Commands.literal('init').executes(ctx => {															
+					if (currentPlayersCount().length < minPlayers || isPrematchTimerTicking) {return;}
+					prematchTimer = prematchTimerDefault
+					Utils.server.tell("Minimum amount of players are present. Match starting soon!")
+					//Upon trigger, periodic checks to see if a match is viable; that is, two or more players are registered or whateve minPlayers is set to
+					recursiveTimer()
+					isPrematchTimerTicking = true
+					
+					function recursiveTimer(){
+						
+						if (readyPlayers() >= minReadyPlayers && prematchTimer > 5) {prematchTimer = 5;}
+						if (prematchTimer <= 0) {if (teamsPlayersCount.Red > 1 && teamsPlayersCount.Blue) {prematchTimer = prematchTimerDefault; Utils.server.tell("Cannot start match with an empty team. Try again."); return;} Utils.server.tell("MATCH HAS STARTED"); prematchTimer = prematchTimerDefault; isPrematchTimerTicking = false; changeReadyPlayers(0); return; }
+						Utils.server.tell("Match starts in " + prematchTimer + " and there are " + readyPlayers() + " players ready");
+						prematchTimer--;
+						event.server.scheduleInTicks(20, callback => {
+							recursiveTimer();
+						})	
+					}
+					//return
+					return 1
+					})
+				)
+				.then(Commands.literal('join-team')
+					.then(Commands.argument('team', Arguments.INTEGER.create(event)).executes(ctx => {
+						const arg1 = Arguments.INTEGER.getResult(ctx, "team"); //1 = Blue, 2 = Red, 3 = Random (default)						
+						let playerName = ctx.source.entity.name.contents
+						let stringifiedPlayerName = ""
+						
+						stringifiedPlayerName = stringifiedPlayerName + playerName;
+						Utils.server.runCommand(`execute as ${stringifiedPlayerName} run vps-gunarena functions assignToTeam ${arg1}`);
+						event.server.tell('You have joined a team.')
+						return 1
+					})
+					)
+				)
+			)
+			.then(Commands.literal('currentplayers')
+				.then(Commands.literal('query').executes(ctx => {
+					initializeCurrentPlayers(null, 0)
+					Utils.server.tell("Current Player Count is " + currentPlayersCount())
+					//Utils.server.tell("Keys are " + Object.keys(currentPlayers[0]))
+					Utils.server.tell("Length is: " + currentPlayersCount().length)
+					return 1
+					})
+				)
+				.then(Commands.literal('reset').executes(ctx => {
+					
+					initializeCurrentPlayers(0, 1)
+					Utils.server.tell("Current Player Count is " + currentPlayersCount())
+					
+					return 1
+					})
+				)
+				.then(Commands.literal('build').executes(ctx => {
+					//USELESS, FOR REMOVAL
+					//Object.assign(event.server.persistentData.gunArenaCurrentPlayersCount[0], {Kils: "0"})
+					Utils.server.tell("Player 1 is " + event.server.persistentData.gunArenaCurrentPlayersCount[0])
+					//event.server.persistentData.gunArenaCurrentPlayersCount[0]['Kills'] = "0"
+					Utils.server.tell("Pushed to Current Players, and it is now: " + currentPlayersCount())
+					
 					return 1
 					})
 				)
@@ -179,146 +282,16 @@ onEvent("command.registry", event => {
 					})
 				)
 			) 
-			.then(Commands.literal('stage-two').executes(ctx => {
-				//Commences stage 2 of Card, setting Card Inscribed NBT to Stage 2 and binding card to player				
-					
-				//let inventory = entityData.inventory.contains('create_things_and_misc:card') /use to check for item :D
-				//let $tagList = java('net.minecraft.nbt.ListTag') DO NOT USE
-				//let $JSONtoNBT = java('net.minecraft.nbt.TagParser') DO NOT USE
-				let entityData = ctx.source.entity
-				let size = entityData.getInventory().items.length
-				//let name = entityData.name.contents
-				
-				for (let slot = 0; slot < (size + 5); slot++) {
-				let invSlotId = entityData.getInventory().getItem(slot).serializeNBT().id //get ID from NBT of item
-				
-				//Utils.server.tell("Slot " + slot + " has an id of " + invSlotId)	
-				
-				//Loops through inventory finding cards matching the right NBT, and takes the first one it finds.
-					if (invSlotId == "create_things_and_misc:card") {
-						//Utils.server.tell("SUCCESFULLY FOUND A CARD");
-						let cardTag = entityData.getInventory().getItem(slot).getTag().Inscribed //get the NBT dat adown to the Inscribed key for validation
-						
-						if (cardTag == "Vulpine Co. [stage1-valid]") {
-							if (entityData.stages.has('ga_registered_player')) {event.server.tell("Found a valid Card, but you are already registered!"); return;}
-							if (currentPlayersCount().length >= maxPlayers) {event.server.tell("Found a valid Card, but player slots are full! Please wait until the next match."); return;}
-							//if (matchOngoing) {event.server.tell("Found a valid Card, but a match is currently underway! Please wait until the next match. Go watch some pew pews in the meantime :)"); return;} future-proofing
-							let nameString = entityData.getInventory().getItem(slot).getTag().display.Name // get Item display name
-							let nameRegex = /(.")(,)/
-							let nameIndex = nameString.search(nameRegex)
-							let playerName = entityData.name.contents
-							let stringifiedPlayerName = ""
-							stringifiedPlayerName = stringifiedPlayerName + playerName;
-							let modifiedName = nameString.substring(0, (nameIndex + 1)) + ` ${stringifiedPlayerName} ` + nameString.substring((nameIndex + 1))
-							let loreString = entityData.getInventory().getItem(slot).getTag().display.Lore // get Item lore
-							let stringifiedLore = ""
-							stringifiedLore = stringifiedLore + loreString;
-							let loreRegex = /STATUS/
-							let loreIndex = stringifiedLore.search(loreRegex)
-							let newStatus = `Prematch - Registered to ${stringifiedPlayerName} as Player ${currentPlayersCount().length + 1}`
-							let modifiedLore = stringifiedLore.substring(0, (loreIndex + 8)) + newStatus + stringifiedLore.substring((loreIndex + 26))
-							event.server.tell(`Found a valid Card! You have been registered as Player ${currentPlayersCount().length + 1}.`); //not sure if this will whisper or tell the whole server
-							entityData.getInventory().getItem(slot).getTag().display.Name = modifiedName;
-							entityData.getInventory().getItem(slot).getTag().Inscribed = "Vulpine Co. [stage2-prematch]"; //Set the NBT tag to stage2
-							entityData.getInventory().getItem(slot).getTag().display.Lore = eval(modifiedLore);
-							pushCurrentPlayers(stringifiedPlayerName, (currentPlayersCount().length + 1));
-							entityData.addTag('ga_registered_player')
-							
-							break;
-						} else {continue};
-					};	// else Utils.server.tell("No Card Found");	//else invSlotId == "minecraft:air";
-				};
-				return 1
-				})
-			).then(Commands.literal('currentplayers')
-				.then(Commands.literal('query').executes(ctx => {
-					initializeCurrentPlayers(null, 0)
-					Utils.server.tell("Current Player Count is " + currentPlayersCount()[0].Team)
-					//Utils.server.tell("Keys are " + Object.keys(currentPlayers[0]))
-					Utils.server.tell("Length is: " + currentPlayersCount().length)
-					return 1
-					})
-				)
-				.then(Commands.literal('reset').executes(ctx => {
-					
-					initializeCurrentPlayers(0, 1)
-					Utils.server.tell("Current Player Count is " + currentPlayersCount())
-					
-					return 1
-					})
-				)
-				.then(Commands.literal('build').executes(ctx => {
-					//USELESS, FOR REMOVAL
-					//Object.assign(event.server.persistentData.gunArenaCurrentPlayersCount[0], {Kils: "0"})
-					Utils.server.tell("Player 1 is " + event.server.persistentData.gunArenaCurrentPlayersCount[0])
-					//event.server.persistentData.gunArenaCurrentPlayersCount[0]['Kills'] = "0"
-					Utils.server.tell("Pushed to Current Players, and it is now: " + currentPlayersCount())
-					
-					return 1
-					})
-				)
-			)
-			.then(Commands.literal('pre-stage-three').executes(ctx => {
-				
-				if (currentPlayersCount().length < minPlayers || isPrematchTimerTicking) {return;}
-				prematchTimer = prematchTimerDefault
-				Utils.server.tell("Minimum amount of players are present. Match starting soon!")
-				//Periodic checks to see if a match is viable; that is, two or more players are registered
-				recursiveTimer()
-				isPrematchTimerTicking = true
-				
-				function recursiveTimer(){
-					
-					if (prematchTimer <= 0) {Utils.server.tell("boom baby"); return; }
-					Utils.server.tell("(loop) Match starts in " + prematchTimer)
-					prematchTimer--;
-					event.server.scheduleInTicks(20, callback => {
-						recursiveTimer();
-					})
-					
-				}
-				
-
-				//return
-				return 1
-				})
-			)
-			.then(Commands.literal('join-team')
-				.then(Commands.literal('blue').executes(ctx => {
-					
-					assignToTeam(0, "Blue")
-					return 1
-					})
-				)
-			).then(Commands.literal('functions') //collection of subcommands to serve as functions to be called inside other commands to get stuff done. Pls dont @ me im just trying to follow DRY principle Sadge
-				.then(Commands.literal('modify-lore')
+			.then(Commands.literal('functions') //collection of subcommands to serve as functions to be called inside other commands to get stuff done. Pls dont @ me im just trying to follow DRY principle Sadge
+				.then(Commands.literal('mod-pipe-segment')
 					.then(Commands.argument('slot', Arguments.INTEGER.create(event))
 						.then(Commands.argument('pipe-index', Arguments.INTEGER.create(event))
 							.then(Commands.argument('new-lore', Arguments.STRING.create(event))
 								.executes(ctx => {
-									// REGEX ATTEMTPS: /^[|]+?|[^|]+$/ matches last |... but 1000 steps kekw
-									//(?<=[|])(.*)[|]{1}
-									//https://stackoverflow.com/questions/30210118/regex-to-match-substring-after-nth-occurence-of-pipe-character
-									//^((?:[^|]*\|){1})[^|]+
-									//^((?:[^|]*\|){1})[^|]+
-									//^(?:[^|]*\|){1}([^|]*)
-									//^(?:[^|]*\|){1}([^|]*)
-									//(?<=\|)(.*?)(?=\|)
-									/*
-									
-									
-									let newStatus = `Prematch - Registered to Ahri_Loyala as Player ${currentPlayersCount().length + 1}`
-									let modifiedLore = stringifiedLore.substring(0, (loreIndex + 8)) + newStatus + stringifiedLore.substring((loreIndex + 26))
-									entityData.getInventory().getItem(slot).getTag().display.Lore = eval(modifiedLore);
-									
-							
-									
-									*/
 									const arg1 = Arguments.INTEGER.getResult(ctx, "slot")
 									const arg2 = Arguments.INTEGER.getResult(ctx, "pipe-index")								
 									const arg3 = Arguments.STRING.getResult(ctx, "new-lore")
-									modPipeSegment(arg1, arg2, arg3)
-									
+									modPipeSegment(arg1, arg2, arg3)									
 									//modifies a single pipe segment in Card lore selected by pipeIndex with a 1-index
 									//command argumetns are item slot, pipe index, and then string message that will be new lore
 									//BUG: DO NOT USE ' character in the string, or there will be an error
@@ -330,16 +303,7 @@ onEvent("command.registry", event => {
 										let stringStartIndex = getLore().match(buildRegex(pipeIndex))[1].length;
 										let stringEndIndex = getLore().match(buildRegex(pipeIndex + 1))[1].length;
 										let modifiedLore = getLore().substring(0, (stringStartIndex + 1)) + newLore + getLore().substring((stringEndIndex - 2))
-										modifyLore(modifiedLore);
-										
-										
-										//Utils.server.tell("Keys: " + Object.keys(entityData.getInventory().getItem(1).getTag().display.Lore[0]))
-										Utils.server.tell("Obj: " + getLore())
-										Utils.server.tell("Regex is: " + RegExp(buildRegex(pipeIndex)))
-										Utils.server.tell("Captured Index is: " + stringStartIndex)
-										Utils.server.tell("Captured start letter is: " + getLore()[stringStartIndex+1])
-										Utils.server.tell("Captured end letter is: " + getLore()[stringEndIndex-3])
-										Utils.server.tell("Modified NBT: " + modifiedLore)
+										modifyLore(modifiedLore);										
 									}
 									return 1
 								})
@@ -347,17 +311,119 @@ onEvent("command.registry", event => {
 						)
 					)
 				)
-			.then(Commands.literal('BLANK').executes(ctx => {
+				.then(Commands.literal('add-pipe-segment')
+					.then(Commands.argument('slot', Arguments.INTEGER.create(event))
+						.then(Commands.argument('pipe-index', Arguments.INTEGER.create(event))
+							.then(Commands.argument('new-lore', Arguments.STRING.create(event))
+								.executes(ctx => {
+									const arg1 = Arguments.INTEGER.getResult(ctx, "slot")
+									const arg2 = Arguments.INTEGER.getResult(ctx, "pipe-index")								
+									const arg3 = Arguments.STRING.getResult(ctx, "new-lore")
+									modPipeSegment(arg1, arg2, arg3)									
+									//Pushes a single pipe segment in Card lore at position selected by pipeIndex with a 1-index
+									//command argumetns are item slot, pipe index, and then string message that will be new lore
+									//BUG: CANNOT PUSH AFTER LAST PIPE SEGMENT. WILL BRICK CARD LORE KEKW Probably fixable by regex but it is functional for the current use case
+									//BUG: DO NOT USE ' character in the string, or there will be an error
+									function modPipeSegment (slot, pipeIndex, newLore) {
+										let entityData = ctx.source.entity
+										const getLore = () => {return String.raw`${entityData.getInventory().getItem(slot).getTag().display.Lore}`;}
+										const modifyLore = (p) => {entityData.getInventory().getItem(slot).getTag().display.Lore = eval(p);}
+										const buildRegex = (i) => {return RegExp(String.raw`((?:.*?\|){${i}}).*$`);}
+										let stringStartIndex = getLore().match(buildRegex(pipeIndex))[1].length;
+										let stringEndIndex = stringStartIndex - 1;
+										let modifiedLore = getLore().substring(0, (stringStartIndex + 1)) + newLore + ' ' + getLore().substring((stringEndIndex ))
+										modifyLore(modifiedLore);
+										
+										//Debugging messages
+										/*
+										Utils.server.tell("Obj: " + getLore())
+										Utils.server.tell("Regex is: " + RegExp(buildRegex(pipeIndex)))
+										Utils.server.tell("Captured Index is: " + stringStartIndex)
+										Utils.server.tell("Captured start letter is: " + getLore()[stringStartIndex+1])
+										Utils.server.tell("Captured end letter is: " + getLore()[stringEndIndex-3])
+										Utils.server.tell("Modified NBT: " + modifiedLore)
+										*/
+										
+									}
+									return 1
+								})
+							)
+						)
+					)
+				)
+				.then(Commands.literal('assign-to-team') //assigns players to teams where 1 = blue, 2 = red, 3 = random
+					.then(Commands.argument('team', Arguments.INTEGER.create(event))
+						.executes(ctx => {
+							event.server.tell("assignToTeam function called")
+							const arg1 = Arguments.INTEGER.getResult(ctx, "team");
+							let assignedTeam = '';
+							let playerIndex = 0;
+							let entityData = ctx.source.entity;
+							let size = entityData.getInventory().containerSize;														
+							for (let slot = 0; slot < (size + 5); slot++) {
+							let invSlotId = entityData.getInventory().getItem(slot).serializeNBT().id //get ID from NBT of item													
+							
+							//Loops through inventory finding cards matching the right NBT, and takes the first one it finds and gets Player number from inscribed to find player index in JSON array
+								if (invSlotId == "create_things_and_misc:card") {									
+									let cardTag = entityData.getInventory().getItem(slot).getTag().Inscribed //get the NBT dat adown to the Inscribed key for validation
+									
+									if (cardTag == "Vulpine Co. [stage2-prematch]") {																				
+										let getLore = () => {return String.raw`${entityData.getInventory().getItem(slot).getTag().display.Lore}`;};
+										playerIndex = getLore().charAt(21) - 1;																																																	
+										break;
+									} else {continue};
+								};
+							};																					
+							assignToTeam(arg1)
+							function assignToTeam (passedTeam) {
+								let deObjPassedTeam = 0 + passedTeam; //Convert the integer that arrives as an object to a number for use with switch								
+								
+								switch (deObjPassedTeam) {
+									case 1: assignedTeam = "Blue"; break;
+									case 2: assignedTeam = "Red"; break;
+									case 3: assignedTeam = "Random"; break;
+									default: assignedTeam = "Random";								
+								}	
+								currentPlayersCount()[playerIndex].Team = assignedTeam; //Sets the chosen team to player's JSON entry
+								event.server.tell(typeof(currentPlayersCount()[playerIndex].Ready) + '' + currentPlayersCount()[playerIndex].Ready)
+								if (!currentPlayersCount()[playerIndex].Ready) {currentPlayersCount()[playerIndex].Ready = true; changeReadyPlayers(readyPlayers()+1)}; //Sets the player as ready so they cannot double up and adds to readyPlayers counter
+								event.server.tell("Your new team is: " + currentPlayersCount()[playerIndex].Team)
+								return;	
+							}							
+							return 1
+						})
+					)
+				)			
+		)
+		.then(Commands.literal('test')				
+			.executes(ctx => {
+			Utils.server.tell("test command")
+			let entityData = ctx.source.entity;
+			
+			Utils.server.tell("readyPlayers was: " + readyPlayers())
+			changeReadyPlayers(0);
+			Utils.server.tell("readyPlayers is now: " + readyPlayers())
+			
+			
+			return 1
+				
+			})
+			
+		)
+		.then(Commands.literal('BLANK').executes(ctx => {
 
-				//Add code here
-				//For copy-pasting purposes
-				//KEEP RETURN
-				return 1
-				})
-			)
+			//Add code here
+			//For copy-pasting purposes
+			//KEEP RETURN
+			return 1
+			})
 		)
 	)
   
 	
 	
 })
+
+
+
+
