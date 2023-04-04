@@ -25,3 +25,23 @@ if (cardTag == "Vulpine Co. [stage1-valid]") {
 							
 							break;
 						} else {continue};
+
+
+// REGEX ATTEMTPS: /^[|]+?|[^|]+$/ matches last |... but 1000 steps kekw
+									//(?<=[|])(.*)[|]{1}
+									//https://stackoverflow.com/questions/30210118/regex-to-match-substring-after-nth-occurence-of-pipe-character
+									//^((?:[^|]*\|){1})[^|]+
+									//^((?:[^|]*\|){1})[^|]+
+									//^(?:[^|]*\|){1}([^|]*)
+									//^(?:[^|]*\|){1}([^|]*)
+									//(?<=\|)(.*?)(?=\|)
+									/*
+									
+									
+									let newStatus = `Prematch - Registered to Ahri_Loyala as Player ${currentPlayersCount().length + 1}`
+									let modifiedLore = stringifiedLore.substring(0, (loreIndex + 8)) + newStatus + stringifiedLore.substring((loreIndex + 26))
+									entityData.getInventory().getItem(slot).getTag().display.Lore = eval(modifiedLore);
+									
+							
+									
+									*/
