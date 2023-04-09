@@ -1,13 +1,15 @@
 
 //initialize all persistent data = lifetimePlayers as number, currentPlayers as array, readyPlayers as number
-const maxPlayers =  4  //Max amount of players allowed to be registered to a match
-const minPlayers =  2  //Min amount of players needed to trigger a match
-const minReadyPlayers = 2 //min amount of players who have to be ready for a prematch timer to skip down to 5 seconds
-const prematchTimerDefault = 30 //Default time (in 20-ticks intervals, meaning seconds) before a match starts once minPlayers has been satisfied
+//EDIT necessary relative coords when building a new arena with this program. Ctrl+F "EDIT" to find relevant fields.
+const maxPlayers =  4;  //Max amount of players allowed to be registered to a match
+const minPlayers =  2; //Min amount of players needed to trigger a match to start
+const minReadyPlayers = 2; //min amount of players who have to be ready for a prematch timer to skip down to 5 seconds
+const prematchTimerDefault = 30; //Default time (in 20-ticks intervals, meaning seconds) before a match starts once minPlayers has been satisfied
 
 //Variables for code operations, do not touch
-var prematchTimer = 30
-var isPrematchTimerTicking = false
+var prematchTimer = 30;
+var isPrematchTimerTicking = false;
+var isMatchOngoing = false;
 
 onEvent('item.entity_interact', event => {
 	
@@ -346,6 +348,55 @@ onEvent("command.registry", event => {
 					stageFourFillTeams();
 					return 1	
 					})
+				)
+				.then(Commands.literal('init-match-begin') //EDIT RELATIVE POSITION command arguments when setting up the command block. These are meant to power the Team Command blocks that will summon players to their respective team locations.
+					.then(Commands.argument('rel-pos-x-one', Arguments.INTEGER.create(event))
+						.then(Commands.argument('rel-pos-y-one', Arguments.INTEGER.create(event))
+							.then(Commands.argument('rel-pos-z-one', Arguments.INTEGER.create(event))
+								.then(Commands.argument('rel-pos-x-two', Arguments.INTEGER.create(event))
+									.then(Commands.argument('rel-pos-y-two', Arguments.INTEGER.create(event))
+										.then(Commands.argument('rel-pos-z-two', Arguments.INTEGER.create(event))
+											.executes(ctx => {
+											const relXOne = Arguments.INTEGER.getResult(ctx, "rel-pos-x-one"); //Relative coords to Blue Team Command Block X position
+											const relYOne = Arguments.INTEGER.getResult(ctx, "rel-pos-y-one");
+											const relZOne = Arguments.INTEGER.getResult(ctx, "rel-pos-z-one");
+											const relXTwo = Arguments.INTEGER.getResult(ctx, "rel-pos-x-two"); //Relative coords to Red Team Command Block X position
+											const relYTwo = Arguments.INTEGER.getResult(ctx, "rel-pos-y-two");
+											const relZTwo = Arguments.INTEGER.getResult(ctx, "rel-pos-z-two");															
+											const pos = ctx.source.position;
+											let posX = Math.floor(pos.x());
+											let posY = Math.floor(pos.y());
+											let posZ = Math.floor(pos.z());
+											
+											//Activate Team Command blocks via redstone
+											Utils.server.runCommand(`setblock ${posX + relXOne} ${posY + relYOne} ${posZ + relZOne} minecraft:redstone_block`);
+											Utils.server.runCommand(`setblock ${posX + relXTwo} ${posY + relYTwo} ${posZ + relZTwo} minecraft:redstone_block`);
+											Utils.server.tell('init-match-begin');															
+											return 1	
+											})
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+				.then(Commands.literal('players-summon')
+					.then(Commands.argument('team-tag', Arguments.STRING.create(event))
+						.executes(ctx => {
+						const arg1 = Arguments.STRING.getResult(ctx, "team-tag"); 
+						const pos = ctx.source.position;
+						let posX = Math.floor(pos.x());
+						let posY = Math.floor(pos.y());
+						let posZ = Math.floor(pos.z());
+						const spawnSpread = 2; //The maximum amount of blocks away from the center of the Team Room that players will spawn in (set this to the size of the Team Room)
+						const randomSpawnGen = () => {let r = Math.floor(Math.random() * spawnSpread); if (Math.floor(Math.random() * 2)) {r *= -1}; return r};
+						Utils.server.runCommand(`setblock ${posX} ${posY - 1} ${posZ} minecraft:air`);
+						Utils.server.runCommand(`execute as @e[type=minecraft:player,tag=${arg1}] run tp @s ${posX + randomSpawnGen()} ${posY + 2} ${posZ + randomSpawnGen()}`);
+							
+						return 1
+						})
+					)
 				)
 			)
 			.then(Commands.literal('currentplayers')
