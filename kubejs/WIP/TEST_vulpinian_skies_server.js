@@ -16,12 +16,9 @@ onEvent('item.entity_interact', event => {
 	
 	var lifetimePlayers = event.server.persistentData.gunArenaLifetimePlayersCount;
 	//const addToLifetimePlayers = event.server.persistentData.gunArenaLifetimePlayersCount++
-	let paddedId = lifetimePlayers.toString().padStart(5,0)
-	
 	
 	Utils.server.tell("Fox Clicked")
-	Utils.server.tell("lifetimePlayers is " + lifetimePlayers)
-	Utils.server.tell("If we strifigy and pad lifetimePlayers, it is " + paddedId)
+	Utils.server.tell("lifetimePlayers is " + lifetimePlayers)	
 	
 	return
 	}
@@ -38,7 +35,7 @@ onEvent('item.entity_interact', event => {
 	if (event.target.type == "minecraft:fox" & event.item.id == "minecraft:diamond") {
 	Utils.server.tell("Fox Clicked with Diamond")
 	//addToLifetimePlayers(1)
-	event.server.persistentData.gunArenaCurrentPlayersCount = [{"PlayerNumber":"1","Name":"Ahri_Loyala","Team":"Blue"},{"PlayerNumber":"2","Name":"Raven_Blackblood","Team":"Red"}]
+	event.server.persistentData.gunArenaCurrentPlayers = [{"PlayerNumber":"1","Name":"Ahri_Loyala","Team":"Blue"},{"PlayerNumber":"2","Name":"Raven_Blackblood","Team":"Red"}]
 	//Utils.server.tell("Lifetime players is now: " + lifetimePlayers)
 	return
 	}
@@ -85,39 +82,45 @@ onEvent("command.registry", event => {
 		//JSON Array Format is [{"PlayerNumber":"1","Name":"Ahri_Loyala","Team":"Blue"},{"PlayerNumber":"2","Name":"Raven_Blackblood","Team":"Red"}]
 		
 		//const currentPlayers = 
-		const changePlayers = (p) => {return event.server.persistentData.gunArenaCurrentPlayersCount = p;}
+		const changePlayers = (p) => {return event.server.persistentData.gunArenaCurrentPlayers = p;}
 		//let resetPlayers = changePlayers([])
 		if (resetBool){changePlayers([]); return;}
 		Utils.server.tell('initializeCurrentPlayers Function Called')	
 	}
 	
 	function pushCurrentPlayers(playerName, playerNumber){
-		//const currentPlayers = event.server.persistentData.gunArenaCurrentPlayersCount
-		let player = `{"PlayerNumber":"${playerNumber}","Name":"${playerName}","Team":"None","Ready":false}`
-		event.server.persistentData.gunArenaCurrentPlayersCount.push(JSON.parse(player))
+		//const currentPlayers = event.server.persistentData.gunArenaCurrentPlayers
+		let player = `{"PlayerNumber":"${playerNumber}","Name":"${playerName}","Team":"Random","Ready":false}`
+		event.server.persistentData.gunArenaCurrentPlayers.push(JSON.parse(player))
 		return;
 	}
 	
-	/*obsolete
-	function changeLore() {
-		let i = 0;
-		let loreString = entityData.getInventory().getItem(slot).getTag().display.Lore // get Item lore
-		let stringifiedLore = ""
-		stringifiedLore = stringifiedLore + loreString;
-		let loreRegex = /STATUS/
-		let loreIndex = stringifiedLore.search(loreRegex)
-		let newStatus = `Prematch - Registered to ${stringifiedPlayerName} as Player ${currentPlayersCount().length + 1}`
-		let modifiedLore = stringifiedLore.substring(0, (loreIndex + 8)) + newStatus + stringifiedLore.substring((loreIndex + 26))
-		entityData.getInventory().getItem(slot).getTag().display.Lore = eval(modifiedLore);
-		return;
-	}*/
-	
+	//number is players to add or remove, team is what team to add or remove to
+	//for team, 1 = Blue, 2 = red, 3 = random, 0 or any other number = reset (set both teams to 0 players)
+	function changeTeamsPlayersCount(number, team) {		
+
+		//its broke // const setCount = (n, teamName) => {let t = event.server.persistentData.gunArenaTeamsPlayersCount; Utils.server.tell("setCount's teamName is " + teamName + "and type is " + typeof(teamName)); return t.teamKey += n;}
+		const setBlueCount = (n) => {return event.server.persistentData.gunArenaTeamsPlayersCount.Blue += n;};
+		const setRedCount = (n) => {return event.server.persistentData.gunArenaTeamsPlayersCount.Red += n;};
+		const setRandomCount = (n) => {return event.server.persistentData.gunArenaTeamsPlayersCount.Random += n;};
+		//setCount(1, 'Blue')
+		//event.server.persistentData.gunArenaTeamsPlayersCount.Red += 1;
+		//Utils.server.tell('String test: ' + )
+		switch (team) {			
+			case 1: setBlueCount(number); break;
+			case 2: setRedCount(number); break;
+			case 3: setRandomCount(number); break;
+			default: event.server.persistentData.gunArenaTeamsPlayersCount = {"Blue":0,"Red":0,"Random":0};
+			Utils.server.tell("Blue team is: " + teamsPlayersCount().Blue + ". Red team is: " + teamsPlayersCount().Red)
+		}					
+	}
 	
 	
 	const lifetimePlayersCount = () => {return event.server.persistentData.gunArenaLifetimePlayersCount};
-	const currentPlayersCount = () => {return event.server.persistentData.gunArenaCurrentPlayersCount};
+	const currentPlayers = () => {return event.server.persistentData.gunArenaCurrentPlayers};
 	const readyPlayers = () => {return event.server.persistentData.gunArenaReadyPlayers};
 	const changeReadyPlayers = (p) => {return event.server.persistentData.gunArenaReadyPlayers = p};
+	const teamsPlayersCount = () => {return event.server.persistentData.gunArenaTeamsPlayersCount};
 	
 	event.register(
 		Commands.literal('vps-gunarena')
@@ -168,7 +171,7 @@ onEvent("command.registry", event => {
 						
 						if (cardTag == "Vulpine Co. [stage1-valid]") {
 							if (entityData.stages.has('ga_registered_player')) {event.server.tell("Found a valid Card, but you are already registered!"); return;}
-							if (currentPlayersCount().length >= maxPlayers) {event.server.tell("Found a valid Card, but player slots are full! Please wait until the next match."); return;}
+							if (currentPlayers().length >= maxPlayers) {event.server.tell("Found a valid Card, but player slots are full! Please wait until the next match."); return;}
 							//if (matchOngoing) {event.server.tell("Found a valid Card, but a match is currently underway! Please wait until the next match. Go watch some pew pews in the meantime :)"); return;} future-proofing
 							
 							let nameString = entityData.getInventory().getItem(slot).getTag().display.Name // get display name of Card item
@@ -180,14 +183,15 @@ onEvent("command.registry", event => {
 							let modifiedName = nameString.substring(0, (nameIndex + 1)) + ` ${stringifiedPlayerName} ` + nameString.substring((nameIndex + 1))
 							
 							//entityData.runCommand(`tp Ahri_Loyala ~ ~ ~`)
-							Utils.server.runCommand(`execute as ${stringifiedPlayerName} run vps-gunarena functions add-pipe-segment ${slot} 1 "PLAYER ${currentPlayersCount().length + 1}: ${stringifiedPlayerName}"`)
+							Utils.server.runCommand(`execute as ${stringifiedPlayerName} run vps-gunarena functions add-pipe-segment ${slot} 1 "PLAYER ${currentPlayers().length + 1}: ${stringifiedPlayerName}"`)
 							Utils.server.runCommand(`execute as ${stringifiedPlayerName} run vps-gunarena functions mod-pipe-segment ${slot} 3 "STATUS: Prematch"`)
-							event.server.tell(`Found a valid Card! You have been registered as Player ${currentPlayersCount().length + 1}.`); //not sure if this will whisper or tell the whole server
+							event.server.tell(`Found a valid Card! You have been registered as Player ${currentPlayers().length + 1}.`); //not sure if this will whisper or tell the whole server
 							entityData.getInventory().getItem(slot).getTag().display.Name = modifiedName;
 							entityData.getInventory().getItem(slot).getTag().Inscribed = "Vulpine Co. [stage2-prematch]"; //Set the NBT tag to stage2
-							pushCurrentPlayers(stringifiedPlayerName, (currentPlayersCount().length + 1));
-							entityData.addTag('ga_registered_player')
-							
+							pushCurrentPlayers(stringifiedPlayerName, (currentPlayers().length + 1));
+							entityData.addTag('ga_registered_player');
+							entityData.addTag('ga_random_team');
+							changeTeamsPlayersCount(1, 3);
 							break;
 						} else {continue};
 					};	// else Utils.server.tell("No Card Found");	//else invSlotId == "minecraft:air";
@@ -197,7 +201,7 @@ onEvent("command.registry", event => {
 			)
 			.then(Commands.literal('stage-three')
 				.then(Commands.literal('init').executes(ctx => {															
-					if (currentPlayersCount().length < minPlayers || isPrematchTimerTicking) {return;}
+					if (currentPlayers().length < minPlayers || isPrematchTimerTicking) {return;}
 					prematchTimer = prematchTimerDefault
 					Utils.server.tell("Minimum amount of players are present. Match starting soon!")
 					//Upon trigger, periodic checks to see if a match is viable; that is, two or more players are registered or whateve minPlayers is set to
@@ -207,7 +211,7 @@ onEvent("command.registry", event => {
 					function recursiveTimer(){
 						
 						if (readyPlayers() >= minReadyPlayers && prematchTimer > 5) {prematchTimer = 5;}
-						if (prematchTimer <= 0) {if (teamsPlayersCount.Red > 1 && teamsPlayersCount.Blue) {prematchTimer = prematchTimerDefault; Utils.server.tell("Cannot start match with an empty team. Try again."); return;} Utils.server.tell("MATCH HAS STARTED"); prematchTimer = prematchTimerDefault; isPrematchTimerTicking = false; changeReadyPlayers(0); return; }
+						if (prematchTimer <= 0) {if ((teamsPlayersCount().Blue <= 1 && teamsPlayersCount().Random < 1) || (teamsPlayersCount().Red <= 1 && teamsPlayersCount().Random < 1)) {prematchTimer = 5; Utils.server.tell("Cannot start match with an empty team. Try again."); return;} Utils.server.tell("MATCH HAS STARTED"); prematchTimer = prematchTimerDefault; isPrematchTimerTicking = false; changeReadyPlayers(0); return; }
 						Utils.server.tell("Match starts in " + prematchTimer + " and there are " + readyPlayers() + " players ready");
 						prematchTimer--;
 						event.server.scheduleInTicks(20, callback => {
@@ -220,13 +224,61 @@ onEvent("command.registry", event => {
 				)
 				.then(Commands.literal('join-team')
 					.then(Commands.argument('team', Arguments.INTEGER.create(event)).executes(ctx => {
-						const arg1 = Arguments.INTEGER.getResult(ctx, "team"); //1 = Blue, 2 = Red, 3 = Random (default)						
-						let playerName = ctx.source.entity.name.contents
-						let stringifiedPlayerName = ""
 						
+						const arg1 = Arguments.INTEGER.getResult(ctx, "team"); //1 = Blue, 2 = Red, 3 = Random (default)												
+						let deObjPassedTeam = 0 + arg1;						
+						let playerName = ctx.source.entity.name.contents;
+						let stringifiedPlayerName = ""
 						stringifiedPlayerName = stringifiedPlayerName + playerName;
-						Utils.server.runCommand(`execute as ${stringifiedPlayerName} run vps-gunarena functions assignToTeam ${arg1}`);
-						event.server.tell('You have joined a team.')
+						let entityData = ctx.source.entity;						
+						const blueTag = () => {return entityData.stages.has('ga_blue_team');};
+						const redTag = () => {return entityData.stages.has('ga_red_team');};
+						const randomTag = () => {return entityData.stages.has('ga_random_team');};
+						const addTag = (tag) => {entityData.stages.add(tag)};
+						const removeTag = (tag) => {entityData.stages.remove(tag)};
+						let deObjArg1 = 1;	
+						let size = entityData.getInventory().containerSize
+						Utils.server.tell("type of deObjArg1 is " + typeof(parseInt(arg1)) + " and value is " + deObjArg1)
+						for (let slot = 0; slot < (size); slot++) {
+							let invSlotId = entityData.getInventory().getItem(slot).serializeNBT().id;		
+							if (invSlotId == "create_things_and_misc:card") {
+								//Utils.server.tell("SUCCESFULLY FOUND A CARD");
+								let cardTag = entityData.getInventory().getItem(slot).getTag().Inscribed;
+								if (cardTag == "Vulpine Co. [stage2-prematch]") {														
+									switch (parseInt(arg1)) {
+									case 1: if (blueTag()) {return;}
+										Utils.server.tell('join-team blue team detected');
+										addTag('ga_blue_team');
+										Utils.server.runCommand(`execute as ${stringifiedPlayerName} run vps-gunarena functions assign-to-team ${arg1}`);
+										changeTeamsPlayersCount(1 , 1);
+										if (redTag()) {changeTeamsPlayersCount(-1 , 2); removeTag('ga_red_team');}
+										if (randomTag()) {removeTag('ga_random_team'); changeTeamsPlayersCount(-1 , 3);}
+										break;
+									case 2: if (redTag()) {return;}
+										Utils.server.tell('join-team red team detected');
+										addTag('ga_red_team');
+										Utils.server.runCommand(`execute as ${stringifiedPlayerName} run vps-gunarena functions assign-to-team ${arg1}`);
+										changeTeamsPlayersCount(1 , 2);
+										if (blueTag()) {changeTeamsPlayersCount(-1 , 1); removeTag('ga_blue_team');}
+										if (randomTag()) {removeTag('ga_random_team'); changeTeamsPlayersCount(-1 , 3);}
+										break;
+									case 3: if (randomTag()) {return;}
+										Utils.server.tell('join-team random team detected');
+										addTag('ga_random_team');
+										Utils.server.runCommand(`execute as ${stringifiedPlayerName} run vps-gunarena functions assign-to-team ${arg1}`);
+										changeTeamsPlayersCount(1 , 3);
+										if (blueTag()) {changeTeamsPlayersCount(-1 , 1); removeTag('ga_blue_team');}
+										if (redTag()) {changeTeamsPlayersCount(-1 , 2); removeTag('ga_red_team');}
+										break;
+										
+									};
+								} else {continue};
+							};													
+						};
+						
+						
+						event.server.tell('Join team Command end')
+						
 						return 1
 					})
 					)
@@ -235,26 +287,26 @@ onEvent("command.registry", event => {
 			.then(Commands.literal('currentplayers')
 				.then(Commands.literal('query').executes(ctx => {
 					initializeCurrentPlayers(null, 0)
-					Utils.server.tell("Current Player Count is " + currentPlayersCount())
+					Utils.server.tell("Current Player Count is " + currentPlayers())
 					//Utils.server.tell("Keys are " + Object.keys(currentPlayers[0]))
-					Utils.server.tell("Length is: " + currentPlayersCount().length)
+					Utils.server.tell("Length is: " + currentPlayers().length)
 					return 1
 					})
 				)
 				.then(Commands.literal('reset').executes(ctx => {
 					
 					initializeCurrentPlayers(0, 1)
-					Utils.server.tell("Current Player Count is " + currentPlayersCount())
+					Utils.server.tell("Current Player Count is " + currentPlayers())
 					
 					return 1
 					})
 				)
 				.then(Commands.literal('build').executes(ctx => {
 					//USELESS, FOR REMOVAL
-					//Object.assign(event.server.persistentData.gunArenaCurrentPlayersCount[0], {Kils: "0"})
-					Utils.server.tell("Player 1 is " + event.server.persistentData.gunArenaCurrentPlayersCount[0])
-					//event.server.persistentData.gunArenaCurrentPlayersCount[0]['Kills'] = "0"
-					Utils.server.tell("Pushed to Current Players, and it is now: " + currentPlayersCount())
+					//Object.assign(event.server.persistentData.gunArenaCurrentPlayers[0], {Kils: "0"})
+					Utils.server.tell("Player 1 is " + event.server.persistentData.gunArenaCurrentPlayers[0])
+					//event.server.persistentData.gunArenaCurrentPlayers[0]['Kills'] = "0"
+					Utils.server.tell("Pushed to Current Players, and it is now: " + currentPlayers())
 					
 					return 1
 					})
@@ -283,6 +335,13 @@ onEvent("command.registry", event => {
 				)
 			) 
 			.then(Commands.literal('functions') //collection of subcommands to serve as functions to be called inside other commands to get stuff done. Pls dont @ me im just trying to follow DRY principle Sadge
+				.then(Commands.literal('init-persistent-data') //initalizes (and resets) all persistent server data related to GunArena, for debugging as well as first-time setup
+					.executes(ctx => {
+						initializeCurrentPlayers(0, 1);
+						changeReadyPlayers(0);
+						return 1
+					})
+				)
 				.then(Commands.literal('mod-pipe-segment')
 					.then(Commands.argument('slot', Arguments.INTEGER.create(event))
 						.then(Commands.argument('pipe-index', Arguments.INTEGER.create(event))
@@ -342,8 +401,7 @@ onEvent("command.registry", event => {
 										Utils.server.tell("Captured start letter is: " + getLore()[stringStartIndex+1])
 										Utils.server.tell("Captured end letter is: " + getLore()[stringEndIndex-3])
 										Utils.server.tell("Modified NBT: " + modifiedLore)
-										*/
-										
+										*/										
 									}
 									return 1
 								})
@@ -353,8 +411,7 @@ onEvent("command.registry", event => {
 				)
 				.then(Commands.literal('assign-to-team') //assigns players to teams where 1 = blue, 2 = red, 3 = random
 					.then(Commands.argument('team', Arguments.INTEGER.create(event))
-						.executes(ctx => {
-							event.server.tell("assignToTeam function called")
+						.executes(ctx => {							
 							const arg1 = Arguments.INTEGER.getResult(ctx, "team");
 							let assignedTeam = '';
 							let playerIndex = 0;
@@ -376,39 +433,62 @@ onEvent("command.registry", event => {
 							};																					
 							assignToTeam(arg1)
 							function assignToTeam (passedTeam) {
-								let deObjPassedTeam = 0 + passedTeam; //Convert the integer that arrives as an object to a number for use with switch								
+								//let deObjPassedTeam = 0 + passedTeam; //REUSE ONLY IF STUFF BREAKS. Convert the integer that arrives as an object to a number for use with switch								
 								
-								switch (deObjPassedTeam) {
+								switch (parseInt(passedTeam)) {
 									case 1: assignedTeam = "Blue"; break;
 									case 2: assignedTeam = "Red"; break;
 									case 3: assignedTeam = "Random"; break;
 									default: assignedTeam = "Random";								
 								}	
-								currentPlayersCount()[playerIndex].Team = assignedTeam; //Sets the chosen team to player's JSON entry
-								event.server.tell(typeof(currentPlayersCount()[playerIndex].Ready) + '' + currentPlayersCount()[playerIndex].Ready)
-								if (!currentPlayersCount()[playerIndex].Ready) {currentPlayersCount()[playerIndex].Ready = true; changeReadyPlayers(readyPlayers()+1)}; //Sets the player as ready so they cannot double up and adds to readyPlayers counter
-								event.server.tell("Your new team is: " + currentPlayersCount()[playerIndex].Team)
+								currentPlayers()[playerIndex].Team = assignedTeam; //Sets the chosen team to player's JSON entry
+								if (!currentPlayers()[playerIndex].Ready) {currentPlayers()[playerIndex].Ready = true; changeReadyPlayers(readyPlayers()+1)}; //Sets the player as ready so they cannot double up and adds to readyPlayers counter
+								event.server.tell("Your new team is: " + currentPlayers()[playerIndex].Team)
 								return;	
 							}							
 							return 1
 						})
 					)
-				)			
+				)
+				.then(Commands.literal('ready-players')
+					.then(Commands.argument('reset-bool', Arguments.INTEGER.create(event))
+						.executes(ctx => {
+						const arg1 = Arguments.INTEGER.getResult(ctx, "reset-bool");
+						
+						//Utils.server.tell("Number of players ready was: " + readyPlayers());
+						
+						Utils.server.tell("Number of players ready is: " + readyPlayers());
+						if (arg1){changeReadyPlayers(0); Utils.server.tell("readyPlayers is now " + readyPlayers());}
+						return 1
+							
+						})
+					)
+				)
+				.then(Commands.literal('teams-players-count')
+					.then(Commands.argument('reset-bool', Arguments.INTEGER.create(event))				
+						.executes(ctx => {					
+						const arg1 = Arguments.INTEGER.getResult(ctx, "reset-bool");
+												
+						let entityData = ctx.source.entity;						
+						Utils.server.tell("teamsPlayersCount is: " + teamsPlayersCount())
+						if (arg1) {changeTeamsPlayersCount(1, 0); Utils.server.tell("teamsPlayersCount is now " + teamsPlayersCount());}
+						return 1
+							
+						})
+					)
+				)
 		)
 		.then(Commands.literal('test')				
 			.executes(ctx => {
 			Utils.server.tell("test command")
 			let entityData = ctx.source.entity;
 			
-			Utils.server.tell("readyPlayers was: " + readyPlayers())
-			changeReadyPlayers(0);
-			Utils.server.tell("readyPlayers is now: " + readyPlayers())
-			
-			
+			//Utils.server.tell("readyPlayers was: " + readyPlayers())
+			//changeTeamsPlayersCount(1, 0)
+			Utils.server.tell("teamsPlayersCount is: " + teamsPlayersCount())									
 			return 1
 				
-			})
-			
+			})			
 		)
 		.then(Commands.literal('BLANK').executes(ctx => {
 
