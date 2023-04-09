@@ -116,16 +116,12 @@ onEvent("command.registry", event => {
 	}
 	
 	
-//---------------RNG STUFF---------------
-	//let size = currentPlayers.length;
-	//let bluePlayers = 2;
-	//let redPlayers = 2;
-	//let randomPlayersCount = 0;
-	let playersForRandomAssignment = [];
+//---------------RNG STUFF---------------	
+	//let playersForRandomAssignment = [];
 
 	const getRandomInt = (max) => {return Math.floor(Math.random() * max)};
 
-	function stageThreeFillTeams() {
+	/*function stageThreeFillTeams() {
 
 	  let list = getRandomTeamPlayers();  
 	  console.log("Array of random players: " + list);
@@ -137,15 +133,15 @@ onEvent("command.registry", event => {
 		  default: if (getRandomInt(2)) {assignToTeamRandom("Blue"); bluePlayers++} else {assignToTeamRandom("Red"); redPlayers++;}      
 		}
 	  } 
-	}
+	} copied to stage-four init-randomize*/
 
 	function assignToTeamRandom (team) {
 		let randomPlayers = getRandomTeamPlayers();    
 		let r = getRandomInt(randomPlayers.length);
-		let chosenPlayer = (currentPlayers[(randomPlayers[r])]);  	
+		let chosenPlayer = currentPlayers()[(randomPlayers[r])];  	
 		chosenPlayer.Team = team;
 		console.log(chosenPlayer);  
-		playersForRandomAssignment.splice(r, 1);
+		//playersForRandomAssignment.splice(r, 1);
 		console.log("New PFRA is: " + randomPlayers);
 	  return  
 	}
@@ -153,10 +149,10 @@ onEvent("command.registry", event => {
 	function getRandomTeamPlayers() {
 	  let array = []
 	  
-	  for (let i =0; i < size; i++) {    
-		if (currentPlayers[i].Team == "Random") {
-		  randomPlayersCount++; //substitute for changeTeamsPlayers to add a player to Random team key             
-		  array.push(currentPlayers[i].PlayerNumber - 1);
+	  for (let i =0; i < currentPlayers().length; i++) {    
+		if (currentPlayers()[i].Team == "Random") {
+		  //changeTeamsPlayersCount(1 , 3); //randomPlayersCount++; //substitute for changeTeamsPlayers to add a player to Random team key um what was this for???
+		  array.push(currentPlayers()[i].PlayerNumber - 1);
 		}
 	  } 
 	  return array;
@@ -349,8 +345,24 @@ onEvent("command.registry", event => {
 					.executes(ctx => {
 					Utils.server.tell('Stage Four Initialized');
 					let pos = ctx.source.position;							
-					Utils.server.runCommand(`setblock ${Math.floor(pos.x())} ${Math.floor(pos.y()) - 1} ${Math.floor(pos.z())} minecraft:air`);	
-						
+					Utils.server.runCommand(`setblock ${Math.floor(pos.x())} ${Math.floor(pos.y()) - 1} ${Math.floor(pos.z())} minecraft:air`);
+					let bluePlayers = teamsPlayersCount().Blue;
+					let redPlayers = teamsPlayersCount().Red;
+					
+					//Randomly but evenly distributes players who picked "Random Team" between blue and red team, and if player did not pick a team, they are random by default
+					function stageFourFillTeams() {
+					  let list = getRandomTeamPlayers();  
+					  Utils.server.tell("Array of random players: " + list);
+					  for (let i = list.length; i > 0; i--) {    
+						let newSize = getRandomTeamPlayers().length;    
+						switch (true) {
+						  case (redPlayers > bluePlayers): assignToTeamRandom("Blue"); changeTeamsPlayersCount(-1, 3); changeTeamsPlayersCount(1, 1); break;
+						  case (bluePlayers > redPlayers): assignToTeamRandom("Red"); changeTeamsPlayersCount(-1, 3); changeTeamsPlayersCount(1, 2); break;
+						  default: if (getRandomInt(2)) {assignToTeamRandom("Blue"); changeTeamsPlayersCount(-1, 3); changeTeamsPlayersCount(1, 1);} else {assignToTeamRandom("Red"); changeTeamsPlayersCount(-1, 3); changeTeamsPlayersCount(1, 2);}      
+						}
+					  } 
+					}
+					stageFourFillTeams();
 					return 1	
 					})
 				)
@@ -557,9 +569,8 @@ onEvent("command.registry", event => {
 			//changeTeamsPlayersCount(1, 0)
 			//Utils.server.tell("teamsPlayersCount is: " + teamsPlayersCount())									
 			
-			const pos = ctx.source.position;		
-			Utils.server.tell("pos: " + pos.x() + " and type of pos: " + typeof(pos.x()));
-			Utils.server.runCommand(`setblock ${Math.floor(pos.x())} ${Math.floor(pos.y()) + 1} ${Math.floor(pos.z())} minecraft:redstone_block`);
+			let rpl = getRandomTeamPlayers();
+			Utils.server.tell("random players are: " + rpl);
 			return 1
 				
 			})			
