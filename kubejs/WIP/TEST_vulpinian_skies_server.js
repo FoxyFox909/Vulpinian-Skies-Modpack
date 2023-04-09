@@ -116,6 +116,55 @@ onEvent("command.registry", event => {
 	}
 	
 	
+//---------------RNG STUFF---------------
+	//let size = currentPlayers.length;
+	//let bluePlayers = 2;
+	//let redPlayers = 2;
+	//let randomPlayersCount = 0;
+	let playersForRandomAssignment = [];
+
+	const getRandomInt = (max) => {return Math.floor(Math.random() * max)};
+
+	function stageThreeFillTeams() {
+
+	  let list = getRandomTeamPlayers();  
+	  console.log("Array of random players: " + list);
+	  for (let i = list.length; i > 0; i--) {    
+		let newSize = getRandomTeamPlayers().length;    
+		switch (true) {
+		  case (redPlayers > bluePlayers): assignToTeamRandom("Blue"); bluePlayers++; break;
+		  case (bluePlayers > redPlayers): assignToTeamRandom("Red"); redPlayers++; break;
+		  default: if (getRandomInt(2)) {assignToTeamRandom("Blue"); bluePlayers++} else {assignToTeamRandom("Red"); redPlayers++;}      
+		}
+	  } 
+	}
+
+	function assignToTeamRandom (team) {
+		let randomPlayers = getRandomTeamPlayers();    
+		let r = getRandomInt(randomPlayers.length);
+		let chosenPlayer = (currentPlayers[(randomPlayers[r])]);  	
+		chosenPlayer.Team = team;
+		console.log(chosenPlayer);  
+		playersForRandomAssignment.splice(r, 1);
+		console.log("New PFRA is: " + randomPlayers);
+	  return  
+	}
+
+	function getRandomTeamPlayers() {
+	  let array = []
+	  
+	  for (let i =0; i < size; i++) {    
+		if (currentPlayers[i].Team == "Random") {
+		  randomPlayersCount++; //substitute for changeTeamsPlayers to add a player to Random team key             
+		  array.push(currentPlayers[i].PlayerNumber - 1);
+		}
+	  } 
+	  return array;
+	}
+
+//---------------RNG STUFF---------------
+	
+	
 	const lifetimePlayersCount = () => {return event.server.persistentData.gunArenaLifetimePlayersCount};
 	const currentPlayers = () => {return event.server.persistentData.gunArenaCurrentPlayers};
 	const readyPlayers = () => {return event.server.persistentData.gunArenaReadyPlayers};
@@ -206,12 +255,23 @@ onEvent("command.registry", event => {
 					Utils.server.tell("Minimum amount of players are present. Match starting soon!")
 					//Upon trigger, periodic checks to see if a match is viable; that is, two or more players are registered or whateve minPlayers is set to
 					recursiveTimer()
-					isPrematchTimerTicking = true
+					isPrematchTimerTicking = true;
 					
 					function recursiveTimer(){
 						
 						if (readyPlayers() >= minReadyPlayers && prematchTimer > 5) {prematchTimer = 5;}
-						if (prematchTimer <= 0) {if ((teamsPlayersCount().Blue <= 1 && teamsPlayersCount().Random < 1) || (teamsPlayersCount().Red <= 1 && teamsPlayersCount().Random < 1)) {prematchTimer = 5; Utils.server.tell("Cannot start match with an empty team. Try again."); return;} Utils.server.tell("MATCH HAS STARTED"); prematchTimer = prematchTimerDefault; isPrematchTimerTicking = false; changeReadyPlayers(0); return; }
+						if (prematchTimer <= 0) {
+							if ((teamsPlayersCount().Blue <= 1 && teamsPlayersCount().Random < 1) || (teamsPlayersCount().Red <= 1 && teamsPlayersCount().Random < 1)) 
+								{prematchTimer = 5; Utils.server.tell("Cannot start match with an empty team. Try again."); return;}
+							Utils.server.tell("MATCH HAS STARTED");
+							prematchTimer = prematchTimerDefault;
+							isPrematchTimerTicking = false;
+							changeReadyPlayers(0);
+							let pos = ctx.source.position;							
+							Utils.server.runCommand(`setblock ${Math.floor(pos.x())} ${Math.floor(pos.y()) + 1} ${Math.floor(pos.z())} minecraft:redstone_block`);							
+							return;
+							}
+							
 						Utils.server.tell("Match starts in " + prematchTimer + " and there are " + readyPlayers() + " players ready");
 						prematchTimer--;
 						event.server.scheduleInTicks(20, callback => {
@@ -282,6 +342,17 @@ onEvent("command.registry", event => {
 						return 1
 					})
 					)
+				)
+			)
+			.then(Commands.literal('stage-four')
+				.then(Commands.literal('init-randomize')
+					.executes(ctx => {
+					Utils.server.tell('Stage Four Initialized');
+					let pos = ctx.source.position;							
+					Utils.server.runCommand(`setblock ${Math.floor(pos.x())} ${Math.floor(pos.y()) - 1} ${Math.floor(pos.z())} minecraft:air`);	
+						
+					return 1	
+					})
 				)
 			)
 			.then(Commands.literal('currentplayers')
@@ -480,12 +551,15 @@ onEvent("command.registry", event => {
 		)
 		.then(Commands.literal('test')				
 			.executes(ctx => {
-			Utils.server.tell("test command")
-			let entityData = ctx.source.entity;
-			
+			Utils.server.tell("test command for setblock")
+			//let entityData = ctx.source.entity;			
 			//Utils.server.tell("readyPlayers was: " + readyPlayers())
 			//changeTeamsPlayersCount(1, 0)
-			Utils.server.tell("teamsPlayersCount is: " + teamsPlayersCount())									
+			//Utils.server.tell("teamsPlayersCount is: " + teamsPlayersCount())									
+			
+			const pos = ctx.source.position;		
+			Utils.server.tell("pos: " + pos.x() + " and type of pos: " + typeof(pos.x()));
+			Utils.server.runCommand(`setblock ${Math.floor(pos.x())} ${Math.floor(pos.y()) + 1} ${Math.floor(pos.z())} minecraft:redstone_block`);
 			return 1
 				
 			})			
