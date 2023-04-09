@@ -116,33 +116,16 @@ onEvent("command.registry", event => {
 	}
 	
 	
-//---------------RNG STUFF---------------	
-	//let playersForRandomAssignment = [];
-
+//---------------RNG STUFF---------------		
 	const getRandomInt = (max) => {return Math.floor(Math.random() * max)};
-
-	/*function stageThreeFillTeams() {
-
-	  let list = getRandomTeamPlayers();  
-	  console.log("Array of random players: " + list);
-	  for (let i = list.length; i > 0; i--) {    
-		let newSize = getRandomTeamPlayers().length;    
-		switch (true) {
-		  case (redPlayers > bluePlayers): assignToTeamRandom("Blue"); bluePlayers++; break;
-		  case (bluePlayers > redPlayers): assignToTeamRandom("Red"); redPlayers++; break;
-		  default: if (getRandomInt(2)) {assignToTeamRandom("Blue"); bluePlayers++} else {assignToTeamRandom("Red"); redPlayers++;}      
-		}
-	  } 
-	} copied to stage-four init-randomize*/
 
 	function assignToTeamRandom (team) {
 		let randomPlayers = getRandomTeamPlayers();    
 		let r = getRandomInt(randomPlayers.length);
 		let chosenPlayer = currentPlayers()[(randomPlayers[r])];  	
 		chosenPlayer.Team = team;
-		console.log(chosenPlayer);  
-		//playersForRandomAssignment.splice(r, 1);
-		console.log("New PFRA is: " + randomPlayers);
+		Utils.server.runCommand(`tag ${chosenPlayer.Name} remove ga_random_team`);
+		Utils.server.runCommand(`tag ${chosenPlayer.Name} add ga_${team.toLowerCase()}_team`);
 	  return  
 	}
 
@@ -157,7 +140,6 @@ onEvent("command.registry", event => {
 	  } 
 	  return array;
 	}
-
 //---------------RNG STUFF---------------
 	
 	
@@ -345,16 +327,15 @@ onEvent("command.registry", event => {
 					.executes(ctx => {
 					Utils.server.tell('Stage Four Initialized');
 					let pos = ctx.source.position;							
-					Utils.server.runCommand(`setblock ${Math.floor(pos.x())} ${Math.floor(pos.y()) - 1} ${Math.floor(pos.z())} minecraft:air`);
-					let bluePlayers = teamsPlayersCount().Blue;
-					let redPlayers = teamsPlayersCount().Red;
+					Utils.server.runCommand(`setblock ${Math.floor(pos.x())} ${Math.floor(pos.y()) - 1} ${Math.floor(pos.z())} minecraft:air`);					
 					
 					//Randomly but evenly distributes players who picked "Random Team" between blue and red team, and if player did not pick a team, they are random by default
 					function stageFourFillTeams() {
 					  let list = getRandomTeamPlayers();  
 					  Utils.server.tell("Array of random players: " + list);
-					  for (let i = list.length; i > 0; i--) {    
-						let newSize = getRandomTeamPlayers().length;    
+					  for (let i = list.length; i > 0; i--) {
+						let bluePlayers = teamsPlayersCount().Blue;
+						let redPlayers = teamsPlayersCount().Red;						
 						switch (true) {
 						  case (redPlayers > bluePlayers): assignToTeamRandom("Blue"); changeTeamsPlayersCount(-1, 3); changeTeamsPlayersCount(1, 1); break;
 						  case (bluePlayers > redPlayers): assignToTeamRandom("Red"); changeTeamsPlayersCount(-1, 3); changeTeamsPlayersCount(1, 2); break;
