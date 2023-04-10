@@ -1,15 +1,18 @@
 
-//initialize all persistent data = lifetimePlayers as number, currentPlayers as array, readyPlayers as number
+//initialize all persistent data = lifetimePlayers as number, currentPlayers as array, readyPlayers as number, cuirrentMatch as compound tag {}
 //EDIT necessary relative coords when building a new arena with this program. Ctrl+F "EDIT" to find relevant fields.
 const maxPlayers =  4;  //Max amount of players allowed to be registered to a match
 const minPlayers =  2; //Min amount of players needed to trigger a match to start
 const minReadyPlayers = 2; //min amount of players who have to be ready for a prematch timer to skip down to 5 seconds
-const prematchTimerDefault = 30; //Default time (in 20-ticks intervals, meaning seconds) before a match starts once minPlayers has been satisfied
+const prematchTimerDefault = 30; //Amount of time (in seconds, so 20-ticks intervals) before a match starts once minPlayers has been satisfied. Defauls is 30
+const roundTimerDefault = 5; //Amount of time a round should last before it ends from time. Default is 120
 
-//Variables for code operations, do not touch
+//Global variables for program operation, do not touch
 var prematchTimer = 30;
 var isPrematchTimerTicking = false;
 var isMatchOngoing = false;
+var actionRequired = false
+var shouldRoundStart = false;
 
 onEvent('item.entity_interact', event => {
 	
@@ -150,6 +153,11 @@ onEvent("command.registry", event => {
 	const readyPlayers = () => {return event.server.persistentData.gunArenaReadyPlayers};
 	const changeReadyPlayers = (p) => {return event.server.persistentData.gunArenaReadyPlayers = p};
 	const teamsPlayersCount = () => {return event.server.persistentData.gunArenaTeamsPlayersCount};
+	
+	const currentMatch = () => {return event.server.persistentData.gunArenaCurrentMatch};
+	const resetCurrentMatch = () => {let m = `{"TotalTime":0,"RoundTimer":120,"RoundNumber":0,"BluePoints":0,"RedPoints":0}`; event.server.persistentData.gunArenaCurrentMatch = {}; event.server.persistentData.gunArenaCurrentMatch = (JSON.parse(m));};
+	const addToCurrentMatchTime = (p) => {return event.server.persistentData.gunArenaCurrentMatch.TotalTime += p};
+	const resetCurrentMatchTime = () => {event.server.persistentData.gunArenaCurrentMatchTime = 0};
 	
 	event.register(
 		Commands.literal('vps-gunarena')
@@ -349,31 +357,42 @@ onEvent("command.registry", event => {
 					return 1	
 					})
 				)
-				.then(Commands.literal('init-match-begin') //EDIT RELATIVE POSITION command arguments when setting up the command block. These are meant to power the Team Command blocks that will summon players to their respective team locations.
+				.then(Commands.literal('init-match-begin') //EDIT RELATIVE POSITION command arguments when setting up the command block. These are meant to power the Team Command blocks + Watchdog that will summon players to their respective team locations.
 					.then(Commands.argument('rel-pos-x-one', Arguments.INTEGER.create(event))
 						.then(Commands.argument('rel-pos-y-one', Arguments.INTEGER.create(event))
 							.then(Commands.argument('rel-pos-z-one', Arguments.INTEGER.create(event))
 								.then(Commands.argument('rel-pos-x-two', Arguments.INTEGER.create(event))
 									.then(Commands.argument('rel-pos-y-two', Arguments.INTEGER.create(event))
 										.then(Commands.argument('rel-pos-z-two', Arguments.INTEGER.create(event))
-											.executes(ctx => {
-											const relXOne = Arguments.INTEGER.getResult(ctx, "rel-pos-x-one"); //Relative coords to Blue Team Command Block X position
-											const relYOne = Arguments.INTEGER.getResult(ctx, "rel-pos-y-one");
-											const relZOne = Arguments.INTEGER.getResult(ctx, "rel-pos-z-one");
-											const relXTwo = Arguments.INTEGER.getResult(ctx, "rel-pos-x-two"); //Relative coords to Red Team Command Block X position
-											const relYTwo = Arguments.INTEGER.getResult(ctx, "rel-pos-y-two");
-											const relZTwo = Arguments.INTEGER.getResult(ctx, "rel-pos-z-two");															
-											const pos = ctx.source.position;
-											let posX = Math.floor(pos.x());
-											let posY = Math.floor(pos.y());
-											let posZ = Math.floor(pos.z());
-											
-											//Activate Team Command blocks via redstone
-											Utils.server.runCommand(`setblock ${posX + relXOne} ${posY + relYOne} ${posZ + relZOne} minecraft:redstone_block`);
-											Utils.server.runCommand(`setblock ${posX + relXTwo} ${posY + relYTwo} ${posZ + relZTwo} minecraft:redstone_block`);
-											Utils.server.tell('init-match-begin');															
-											return 1	
-											})
+											.then(Commands.argument('rel-pos-x-three', Arguments.INTEGER.create(event))
+												.then(Commands.argument('rel-pos-y-three', Arguments.INTEGER.create(event))
+													.then(Commands.argument('rel-pos-z-three', Arguments.INTEGER.create(event))
+														.executes(ctx => {
+														const relXOne = Arguments.INTEGER.getResult(ctx, "rel-pos-x-one"); //Relative coords to Blue Team Command Block X position
+														const relYOne = Arguments.INTEGER.getResult(ctx, "rel-pos-y-one");
+														const relZOne = Arguments.INTEGER.getResult(ctx, "rel-pos-z-one");
+														const relXTwo = Arguments.INTEGER.getResult(ctx, "rel-pos-x-two"); //Relative coords to Red Team Command Block X position
+														const relYTwo = Arguments.INTEGER.getResult(ctx, "rel-pos-y-two");
+														const relZTwo = Arguments.INTEGER.getResult(ctx, "rel-pos-z-two");
+														const relXThree = Arguments.INTEGER.getResult(ctx, "rel-pos-x-three"); //Relative coords to Watchdog Command Block X position (should be in one of the corners of the arena, keeps approved_entities inside)
+														const relYThree = Arguments.INTEGER.getResult(ctx, "rel-pos-y-three");
+														const relZThree = Arguments.INTEGER.getResult(ctx, "rel-pos-z-three");
+														const pos = ctx.source.position;
+														let posX = Math.floor(pos.x());
+														let posY = Math.floor(pos.y());
+														let posZ = Math.floor(pos.z());
+														
+														//Activate Team Command blocks via redstone
+														Utils.server.runCommand(`setblock ${posX + relXOne} ${posY + relYOne} ${posZ + relZOne} minecraft:redstone_block`);
+														Utils.server.runCommand(`setblock ${posX + relXTwo} ${posY + relYTwo} ${posZ + relZTwo} minecraft:redstone_block`);
+														Utils.server.runCommand(`execute as @e[type=minecraft:player,tag=ga_registered_player] run tag @s add ga_approved_entity`);
+														Utils.server.runCommand(`setblock ${posX + relXThree} ${posY + relYThree} ${posZ + relZThree} minecraft:redstone_block`);
+														Utils.server.tell('init-match-begin');
+														return 1	
+														})
+													)
+												)
+											)
 										)
 									)
 								)
@@ -381,7 +400,7 @@ onEvent("command.registry", event => {
 						)
 					)
 				)
-				.then(Commands.literal('players-summon')
+				.then(Commands.literal('players-summon') //Gets players of respective teams to the start of the match and each round and resets whatever needs resetting per team player
 					.then(Commands.argument('team-tag', Arguments.STRING.create(event))
 						.executes(ctx => {
 						const arg1 = Arguments.STRING.getResult(ctx, "team-tag"); 
@@ -389,13 +408,62 @@ onEvent("command.registry", event => {
 						let posX = Math.floor(pos.x());
 						let posY = Math.floor(pos.y());
 						let posZ = Math.floor(pos.z());
-						const spawnSpread = 2; //The maximum amount of blocks away from the center of the Team Room that players will spawn in (set this to the size of the Team Room)
+						const spawnSpread = 2; //EDIT The maximum amount of blocks away from the center of the Team Room that players will spawn in (set this to the size of the Team Room where 1 = 1x1 area, 2 = 3x3 area, 3 = 5x5 area...)
 						const randomSpawnGen = () => {let r = Math.floor(Math.random() * spawnSpread); if (Math.floor(Math.random() * 2)) {r *= -1}; return r};
 						Utils.server.runCommand(`setblock ${posX} ${posY - 1} ${posZ} minecraft:air`);
-						Utils.server.runCommand(`execute as @e[type=minecraft:player,tag=${arg1}] run tp @s ${posX + randomSpawnGen()} ${posY + 2} ${posZ + randomSpawnGen()}`);
-							
+						Utils.server.runCommand(`execute as @e[type=minecraft:player,tag=${arg1}] run tp @s ${posX + randomSpawnGen()} ${posY + 2} ${posZ + randomSpawnGen()}`);																	
 						return 1
 						})
+					)
+				)
+				.then(Commands.literal('start-match-ticker') //Gets players of respective teams to the start of the match and each round and resets whatever needs resetting per team player
+					.then(Commands.argument('rel-pos-x-one', Arguments.INTEGER.create(event))
+						.then(Commands.argument('rel-pos-y-one', Arguments.INTEGER.create(event))
+							.then(Commands.argument('rel-pos-z-one', Arguments.INTEGER.create(event))
+								.executes(ctx => {
+								const relXOne = Arguments.INTEGER.getResult(ctx, "rel-pos-x-one"); //Relative coords to Blue Team Command Block X position
+								const relYOne = Arguments.INTEGER.getResult(ctx, "rel-pos-y-one");
+								const relZOne = Arguments.INTEGER.getResult(ctx, "rel-pos-z-one");
+
+								const pos = ctx.source.position;
+								let posX = Math.floor(pos.x());
+								let posY = Math.floor(pos.y());
+								let posZ = Math.floor(pos.z());
+								
+								const redstoneBlock = (relX, relY, relZ) => {Utils.server.runCommand(`setblock ${posX + relX} ${posY + rel} ${posZ + relZ} minecraft:redstone_block`)};
+								const getTimeToNextAction = (p) => {return currentMatch().TotalTime + p;};
+								
+								let internalTimerOne = getTimeToNextAction(roundTimerDefault);
+								
+								resetCurrentMatch();								
+								matchTicker();
+								
+								//Main mini game loop that handles events throughout a live match
+								function matchTicker () {																		
+									addToCurrentMatchTime(1);
+									Utils.server.tell("Match ticking. Total match time is: " + currentMatch().TotalTime);
+									if (currentMatch().TotalTime == internalTimerOne) {
+										internalTimerOne = getTimeToNextAction(roundTimerDefault);
+										Utils.server.tell("Internal timer triggered!");
+									}
+									
+									if (actionRequired) {
+										switch (true) {
+											case shouldRoundStart:
+												Utils.server.tell("Round was started!");
+												break;
+										}
+									}
+									
+									event.server.scheduleInTicks(20, callback => {
+										matchTicker();
+									})										
+								}
+								
+								return 1
+								})
+							)
+						)
 					)
 				)
 			)
@@ -595,14 +663,17 @@ onEvent("command.registry", event => {
 		)
 		.then(Commands.literal('test')				
 			.executes(ctx => {
-			Utils.server.tell("test command for setblock")
+			Utils.server.tell("test command for match timer")
 			//let entityData = ctx.source.entity;			
 			//Utils.server.tell("readyPlayers was: " + readyPlayers())
 			//changeTeamsPlayersCount(1, 0)
 			//Utils.server.tell("teamsPlayersCount is: " + teamsPlayersCount())									
 			
-			let rpl = getRandomTeamPlayers();
-			Utils.server.tell("random players are: " + rpl);
+			//let rpl = getRandomTeamPlayers();
+			resetCurrentMatch()
+			Utils.server.tell("Full obj: " + currentMatch());			
+			//Utils.server.tell("Match timer (seconds) is: " + typeof(currentMatch()));			
+			Utils.server.tell("Keys is: " + Object.keys(currentMatch()));
 			return 1
 				
 			})			
@@ -615,10 +686,7 @@ onEvent("command.registry", event => {
 			return 1
 			})
 		)
-	)
-  
-	
-	
+	)  	
 })
 
 
