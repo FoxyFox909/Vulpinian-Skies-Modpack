@@ -17,7 +17,7 @@ var triggeredAction = 0;
 var primeRoundPhaseOne = false;
 
 
-onEvent('item.entity_interact', event => {
+onEvent("item.entity_interact", event => {
 	
 	if (event.target.type == "minecraft:fox" & event.item.id == "minecraft:nether_star"){
 	
@@ -42,8 +42,9 @@ onEvent('item.entity_interact', event => {
 	
 	if (event.target.type == "minecraft:fox" & event.item.id == "minecraft:diamond") {
 	Utils.server.tell("Fox Clicked with Diamond")
+	//Utils.server.tell("Bool is " + currentMatch().IsOngoing);
 	//addToLifetimePlayers(1)
-	event.server.persistentData.gunArenaCurrentPlayers = [{"PlayerNumber":"1","Name":"Ahri_Loyala","Team":"Blue"},{"PlayerNumber":"2","Name":"Raven_Blackblood","Team":"Red"}]
+	//event.server.persistentData.gunArenaCurrentPlayers = [{"PlayerNumber":"1","Name":"Ahri_Loyala","Team":"Blue"},{"PlayerNumber":"2","Name":"Raven_Blackblood","Team":"Red"}]
 	//Utils.server.tell("Lifetime players is now: " + lifetimePlayers)
 	return
 	}
@@ -735,5 +736,15 @@ onEvent("command.registry", event => {
 })
 
 
-
-
+onEvent("entity.death", event => {
+	const currentMatch = () => {return event.server.persistentData.gunArenaCurrentMatch}; //sadly some of these have to be repeated per event as I can't figure out how to make them global
+	
+	
+	
+	
+	if (!currentMatch().IsOngoing) {return;}
+	if (event.entity.type == "minecraft:polar_bear") {Utils.server.tell("Keys of entity are: " + Object.keys(event.entity));}
+			
+	
+	
+})
