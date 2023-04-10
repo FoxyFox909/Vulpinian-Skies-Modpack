@@ -158,7 +158,7 @@ onEvent("command.registry", event => {
 	const teamsPlayersCount = () => {return event.server.persistentData.gunArenaTeamsPlayersCount};
 	
 	const currentMatch = () => {return event.server.persistentData.gunArenaCurrentMatch};
-	const resetCurrentMatch = () => {let m = `{"IsOngoing":false,"TotalTime":0,"RoundTimer":120,"RoundNumber":0,"BluePoints":0,"RedPoints":0}`; event.server.persistentData.gunArenaCurrentMatch = {}; event.server.persistentData.gunArenaCurrentMatch = (JSON.parse(m));};
+	const resetCurrentMatch = () => {let m = `{"IsOngoing":false,"TotalTime":0,"RoundTimer":120,"RoundNumber":0,"BluePoints":0,"RedPoints":0,"BluePlayers":0,"RedPlayers":0}`; event.server.persistentData.gunArenaCurrentMatch = {}; event.server.persistentData.gunArenaCurrentMatch = (JSON.parse(m));};
 	const addToCurrentMatchTime = (p) => {return event.server.persistentData.gunArenaCurrentMatch.TotalTime += p};
 	const resetCurrentMatchTime = () => {event.server.persistentData.gunArenaCurrentMatchTime = 0};
 	
@@ -433,31 +433,33 @@ onEvent("command.registry", event => {
 								let posY = Math.floor(pos.y());
 								let posZ = Math.floor(pos.z());
 								
-								const redstoneBlock = (relX, relY, relZ) => {Utils.server.runCommand(`setblock ${posX + relX} ${posY + relY} ${posZ + relZ} minecraft:redstone_block`)};
-								const getTimeToNextAction = (p) => {return currentMatch().TotalTime + p;};
+								const redstoneBlock = (relX, relY, relZ) => {Utils.server.runCommand(`setblock ${posX + relX} ${posY + relY} ${posZ + relZ} minecraft:redstone_block`)}; //redstone blocks placed at relative XYZ coords used to trigger command blocks
+								const getTimeToNextAction = (seconds, offset) => {return currentMatch().TotalTime + (seconds + offset);}; //The offset is becase it takes 2 seconds in total  for the game loop to register that then actually triggger something
 								
-								let internalTimerOne = getTimeToNextAction(roundTimerDefault);
+								let internalTimerOne = getTimeToNextAction(roundTimerDefault, 0);
 								let nextTrigger = 0;
 								
 								resetCurrentMatch();
-								event.server.persistentData.gunArenaCurrentMatch.IsOngoing = true; //Set flag that match is underway
+								event.server.persistentData.gunArenaCurrentMatch.IsOngoing = true; //Set flag that match is underway. Game loop stops if this flag is false
+								event.server.persistentData.gunArenaCurrentMatch.BluePlayers = teamsPlayersCount().Blue; //teamsPlayersCount is doubling as a cached count of players that will be used to actually keep track
+								event.server.persistentData.gunArenaCurrentMatch.RedPlayers = teamsPlayersCount().Red;   //of who the winning team of a round is by being subtracted whenever a player of that team is killed
 								matchTicker();
 								redstoneBlock(1, 0, 0);
 								
-								//Main mini game loop that handles events throughout a live match
+								//Main game loop of GunArena that handles events throughout a live match
 								function matchTicker () {
 									if (!currentMatch().IsOngoing) {return;}
 									addToCurrentMatchTime(1);
-									Utils.server.tell("Match ticking. Total match time is: " + currentMatch().TotalTime);									
+									Utils.server.tell("Match ticking. Total match time is: " + currentMatch().TotalTime); 
 									if (currentMatch().TotalTime == internalTimerOne) {
-										internalTimerOne = getTimeToNextAction(roundTimerDefault);
+										internalTimerOne = getTimeToNextAction(roundTimerDefault, 0); //The offset is canceled here because it is not needed for inner timers set from outside the function
 										Utils.server.tell("Internal timer triggered!");
 									}
 									
 									if (primingRequired) {
 										switch (true) {
 											case primeRoundPhaseOne:
-												nextTrigger = getTimeToNextAction(roundPrepTimerDefault); 
+												nextTrigger = getTimeToNextAction(roundPrepTimerDefault, -2); 
 												Utils.server.tell("Round Phase One Primed");
 												primingRequired = false;
 												primeRoundPhaseOne = false
@@ -712,11 +714,12 @@ onEvent("command.registry", event => {
 			//let entityData = ctx.source.entity;			
 			//Utils.server.tell("readyPlayers was: " + readyPlayers())
 			//changeTeamsPlayersCount(1, 0)
-			//Utils.server.tell("teamsPlayersCount is: " + teamsPlayersCount())									
+			Utils.server.tell("teamsPlayersCount is: " + teamsPlayersCount())									
 			
 			//let rpl = getRandomTeamPlayers();
-			resetCurrentMatch()
-			Utils.server.tell("Full obj: " + currentMatch());			
+			//resetCurrentMatch()
+			Utils.server.tell("Full obj: " + currentMatch());
+			
 			return 1
 			})			
 		)
