@@ -6,13 +6,16 @@ const minPlayers =  2; //Min amount of players needed to trigger a match to star
 const minReadyPlayers = 2; //min amount of players who have to be ready for a prematch timer to skip down to 5 seconds
 const prematchTimerDefault = 30; //Amount of time (in seconds, so 20-ticks intervals) before a match starts once minPlayers has been satisfied. Defauls is 30
 const roundTimerDefault = 5; //Amount of time a round should last before it ends from time. Default is 120
+const roundPrepTimerDefault = 20; //Amount of time players get for preparation, before the gates open and a round starts. Default is 20
 
 //Global variables for program operation, do not touch
 var prematchTimer = 30;
 var isPrematchTimerTicking = false;
-var isMatchOngoing = false;
-var actionRequired = false
-var shouldRoundStart = false;
+var primingRequired = false
+var triggerRequired = false;
+var triggeredAction = 0;
+var primeRoundPhaseOne = false;
+
 
 onEvent('item.entity_interact', event => {
 	
@@ -155,7 +158,7 @@ onEvent("command.registry", event => {
 	const teamsPlayersCount = () => {return event.server.persistentData.gunArenaTeamsPlayersCount};
 	
 	const currentMatch = () => {return event.server.persistentData.gunArenaCurrentMatch};
-	const resetCurrentMatch = () => {let m = `{"TotalTime":0,"RoundTimer":120,"RoundNumber":0,"BluePoints":0,"RedPoints":0}`; event.server.persistentData.gunArenaCurrentMatch = {}; event.server.persistentData.gunArenaCurrentMatch = (JSON.parse(m));};
+	const resetCurrentMatch = () => {let m = `{"IsOngoing":false,"TotalTime":0,"RoundTimer":120,"RoundNumber":0,"BluePoints":0,"RedPoints":0}`; event.server.persistentData.gunArenaCurrentMatch = {}; event.server.persistentData.gunArenaCurrentMatch = (JSON.parse(m));};
 	const addToCurrentMatchTime = (p) => {return event.server.persistentData.gunArenaCurrentMatch.TotalTime += p};
 	const resetCurrentMatchTime = () => {event.server.persistentData.gunArenaCurrentMatchTime = 0};
 	
@@ -209,7 +212,7 @@ onEvent("command.registry", event => {
 						if (cardTag == "Vulpine Co. [stage1-valid]") {
 							if (entityData.stages.has('ga_registered_player')) {event.server.tell("Found a valid Card, but you are already registered!"); return;}
 							if (currentPlayers().length >= maxPlayers) {event.server.tell("Found a valid Card, but player slots are full! Please wait until the next match."); return;}
-							//if (matchOngoing) {event.server.tell("Found a valid Card, but a match is currently underway! Please wait until the next match. Go watch some pew pews in the meantime :)"); return;} future-proofing
+							if (currentMatch().IsOngoing) {event.server.tell("Found a valid Card, but a match is currently underway! Please wait warmly until the next match."); return;}
 							
 							let nameString = entityData.getInventory().getItem(slot).getTag().display.Name // get display name of Card item
 							let nameRegex = /(.")(,)/
@@ -430,27 +433,44 @@ onEvent("command.registry", event => {
 								let posY = Math.floor(pos.y());
 								let posZ = Math.floor(pos.z());
 								
-								const redstoneBlock = (relX, relY, relZ) => {Utils.server.runCommand(`setblock ${posX + relX} ${posY + rel} ${posZ + relZ} minecraft:redstone_block`)};
+								const redstoneBlock = (relX, relY, relZ) => {Utils.server.runCommand(`setblock ${posX + relX} ${posY + relY} ${posZ + relZ} minecraft:redstone_block`)};
 								const getTimeToNextAction = (p) => {return currentMatch().TotalTime + p;};
 								
 								let internalTimerOne = getTimeToNextAction(roundTimerDefault);
+								let nextTrigger = 0;
 								
-								resetCurrentMatch();								
+								resetCurrentMatch();
+								event.server.persistentData.gunArenaCurrentMatch.IsOngoing = true; //Set flag that match is underway
 								matchTicker();
+								redstoneBlock(1, 0, 0);
 								
 								//Main mini game loop that handles events throughout a live match
-								function matchTicker () {																		
+								function matchTicker () {
+									if (!currentMatch().IsOngoing) {return;}
 									addToCurrentMatchTime(1);
-									Utils.server.tell("Match ticking. Total match time is: " + currentMatch().TotalTime);
+									Utils.server.tell("Match ticking. Total match time is: " + currentMatch().TotalTime);									
 									if (currentMatch().TotalTime == internalTimerOne) {
 										internalTimerOne = getTimeToNextAction(roundTimerDefault);
 										Utils.server.tell("Internal timer triggered!");
 									}
 									
-									if (actionRequired) {
+									if (primingRequired) {
 										switch (true) {
-											case shouldRoundStart:
-												Utils.server.tell("Round was started!");
+											case primeRoundPhaseOne:
+												nextTrigger = getTimeToNextAction(roundPrepTimerDefault); 
+												Utils.server.tell("Round Phase One Primed");
+												primingRequired = false;
+												primeRoundPhaseOne = false
+												triggerRequired = true;
+												triggeredAction = 1;
+												break;
+										}
+									}
+									
+									if (triggerRequired && currentMatch().TotalTime == nextTrigger) {
+										switch (triggeredAction) {
+											case 1: //Trigger Phase one (open the gates)
+												redstoneBlock(1, 0, 1);
 												break;
 										}
 									}
@@ -465,6 +485,31 @@ onEvent("command.registry", event => {
 							)
 						)
 					)
+				)
+				.then(Commands.literal('round-handler')					
+					.then(Commands.literal('phase-one')
+						.then(Commands.literal('primer')
+							.executes(ctx => {
+								const pos = ctx.source.position;
+								let posX = Math.floor(pos.x());
+								let posY = Math.floor(pos.y());
+								let posZ = Math.floor(pos.z());
+								
+								Utils.server.runCommand(`setblock ${posX} ${posY - 1} ${posZ} minecraft:air`);
+								primingRequired = true;
+								primeRoundPhaseOne = true;								
+								return 1
+							})
+						)
+						.then(Commands.literal('trigger')
+						)
+					)
+					.then(Commands.literal('phase-two')
+						.then(Commands.literal('primer')
+						)
+						.then(Commands.literal('trigger')
+						)
+					)				
 				)
 			)
 			.then(Commands.literal('currentplayers')
@@ -672,10 +717,7 @@ onEvent("command.registry", event => {
 			//let rpl = getRandomTeamPlayers();
 			resetCurrentMatch()
 			Utils.server.tell("Full obj: " + currentMatch());			
-			//Utils.server.tell("Match timer (seconds) is: " + typeof(currentMatch()));			
-			Utils.server.tell("Keys is: " + Object.keys(currentMatch()));
 			return 1
-				
 			})			
 		)
 		.then(Commands.literal('BLANK').executes(ctx => {
