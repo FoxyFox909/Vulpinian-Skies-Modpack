@@ -712,14 +712,58 @@ onEvent("command.registry", event => {
 		.then(Commands.literal('test')				
 			.executes(ctx => {
 			Utils.server.tell("test command for match timer")
-			//let entityData = ctx.source.entity;			
-			//Utils.server.tell("readyPlayers was: " + readyPlayers())
-			//changeTeamsPlayersCount(1, 0)
-			Utils.server.tell("teamsPlayersCount is: " + teamsPlayersCount())									
+			let entityData = ctx.source.entity;						
+			//Utils.server.tell("teamsPlayersCount is: " + teamsPlayersCount())									
+			let playerName = entityData.name.contents
+			let stringifiedPlayerName = ""
+			stringifiedPlayerName = stringifiedPlayerName + playerName;
 			
-			//let rpl = getRandomTeamPlayers();
+			let size = entityData.getInventory().containerSize;
+			
+			/*
+			for (let i = 0; i < size; i++) {
+				let invSlotId = entityData.getInventory().getItem(i) //get ID from NBT of item
+				//invSlotId.addTagElement(`"origin":"gun_arena"`);
+				//invSlotId.setTag(`tag:{belongsToPlayer:1}`)
+				//invSlotId.tags.toArray().pop(`tag:{belongsToPlayer:1`);
+				//data merge entity @s {Inventory:[{Slot:0b ,id:"minecraft:nether_star"}]}
+				//entityData.getInventory().getItem(i).getTag() = "test";
+				//Utils.server.tell("keys are: " + Object.keys(invSlotId.tags.toArray()));
+				//entityData.getInventory().getItem(i).getTag().push(`"belongsToPlayer":2`);
+				
+				//Utils.server.tell("Tag is: " + entityData.getInventory().getItem(i).getTag());
+				//let belongTag = JSON.parse(`{"belongsToPlayer":3}`);
+				//entityData.getInventory().getItem(i).serializeNBT().tag = belongTag;
+				entityData.getInventory().getItem(i).serializeNBT().tag.belongsToPlayer += 10;
+				Utils.server.tell("Seralized NBT is: " + typeof(entityData.getInventory().getItem(i).serializeNBT().tag.belongsToPlayer));
+				Utils.server.tell("Seralized NBT keys: " + Object.keys(entityData.getInventory().getItem(i).serializeNBT()));
+				
+				if (invSlotId.tag) {
+				Utils.server.tell(invSlotId.tag);				
+				}
+				
+				
+			} does not seem liek a viable way to tag items....*/
+			
+			//Curios slots need to be handled separately to regular inventory; luckily there is a handy `/curios drop` command
+			let curiosSlots = ["back", "belt", "feet", "hands", "head", "necklace"];
+			
+			for (let i = 0; i < curiosSlots.length; i++) {
+				
+				Utils.server.runCommand(`curios drop ${stringifiedPlayerName} ${curiosSlots[i]}`);
+			}
+			
 			//resetCurrentMatch()
 			Utils.server.tell("Full obj: " + currentMatch());
+			
+			
+			event.server.scheduleInTicks(2, callback => {
+				Utils.server.runCommand(`execute positioned as ${stringifiedPlayerName} as @e[type=item, distance=..2] run data merge entity @s {Item:{tag:{belongsToPlayer:1}}}`);
+				Utils.server.runCommand(`tp @e[type=item,nbt={Item:{tag:{belongsToPlayer:1}}}] 6 -59 -23`);
+			}) //one way to do it, but it might be hlaggya nd unreliable... sight try a loop
+			//perhaps add one tick per player number, to avoid any potential interference. This may not be the most elegant way but if it's reliable and gets the job done...
+			
+			entityData.inventory.dropAll();
 			
 			return 1
 			})			
@@ -735,16 +779,18 @@ onEvent("command.registry", event => {
 	)  	
 })
 
-
+//death cannot be canceled. on death, some global variables are affected, and spawnpoint is set
 onEvent("entity.death", event => {
+
 	const currentMatch = () => {return event.server.persistentData.gunArenaCurrentMatch}; //sadly some of these have to be repeated per event as I can't figure out how to make them global
 	
 	
 	
 	
 	if (!currentMatch().IsOngoing) {return;}
-	if (event.entity.type == "minecraft:polar_bear") {Utils.server.tell("Keys of entity are: " + Object.keys(event.entity));}
-			
+	
+	if (event.entity.type == "minecraft:polar_bear") {event.cancel(); event.entity.runCommand(`tp @s ~ ~10 ~`); Utils.server.tell("Source: " + (event.source));}
+		
 	
 	
 })
