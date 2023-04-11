@@ -427,7 +427,7 @@ onEvent("command.registry", event => {
 								.executes(ctx => {
 								const relXOne = Arguments.INTEGER.getResult(ctx, "rel-pos-x-one"); //EDIT These coords arguments will refer to the RELATIVE coords from the command block
 								const relYOne = Arguments.INTEGER.getResult(ctx, "rel-pos-y-one"); //to the FIRST block that will be used for item safekeeping, where items will be teleported to, the "root" for the lockers area
-								const relZOne = Arguments.INTEGER.getResult(ctx, "rel-pos-z-one"); //It is designed to have lockers 5 blocks apart from each other by default, going in the EAST (positive X) direction. The distance can be configured. Can build as many lockers as wished. Remember to change maxPlayers variable when expanding.
+								const relZOne = Arguments.INTEGER.getResult(ctx, "rel-pos-z-one"); //It is designed to have lockers 5 blocks apart from each other by default, going in the SOUTH (positive Z) direction in a straight line. The distance can be configured. Can build as many lockers as wished. Remember to change maxPlayers variable when expanding.
 								
 								const pos = ctx.source.position;
 								let posX = Math.floor(pos.x());
@@ -437,20 +437,28 @@ onEvent("command.registry", event => {
 								for (let i =0; i < currentPlayers().length; i++) {									
 									let pNumber = currentPlayers()[i].PlayerNumber;
 									let pName = currentPlayers()[i].Name;
-								  
-									Utils.server.runCommand(`execute as ${pName} run say hello I am player ${pNumber}`);
-									Utils.server.runCommand(`execute as ${pName} run vps-gunarena functions drop-all`);
+									let newInscribed = `Vulpine Co. [stage4-match-${pName}]`; //Will make the player's card work as a unique key to open the lockers during prematch and briefly after match ends so they can pick their stuff up
+									let lockerArrayDist = 7 * (pNumber - 1) //EDIT This is the default distance between locker root to locker root (the block right above the chute, to where items get teleported
 									
-									//Curios slots need to be handled separately to regular inventory; luckily there is a handy `/curios drop` command 
-									let curiosSlots = ["back", "belt", "feet", "hands", "head", "necklace"];			
-									for (let i = 0; i < curiosSlots.length; i++) {				
-										Utils.server.runCommand(`curios drop ${pName} ${curiosSlots[i]}`);
-									}
-									//perhaps add one tick per player number, to avoid any potential interference. Tags items (minus Gun Arena card) with Player # then teleports them for safekeeping
-									event.server.scheduleInTicks(2, callback => {
-										Utils.server.runCommand(`execute positioned as ${pName} as @e[type=item,distance=..3] unless data entity @s {Item:{tag:{GunArenaOrigin:1b}}} run data merge entity @s {Item:{tag:{belongsToPlayer:${pNumber}}}}`);
-										Utils.server.runCommand(`tp @e[type=item,nbt={Item:{tag:{belongsToPlayer:${pNumber}}}}] ${posX + relXOne} ${posY + relYOne} ${posZ + relZOne}`); //TP items to be picked up by custom locker for safekeeping. Create pipes are used for quickly catchign all the items. The defautl locker design was extensively tested and catches all items reliably.
-									})			
+									//Each iteration is delayed by one extra tick in order to prevent interference in the form if player items getting mixed up
+									event.server.scheduleInTicks((pNumber), callback => {
+										Utils.server.runCommand(`execute as ${pName} run say hello I am player ${pNumber}`);
+										Utils.server.runCommand(`execute as ${pName} run vps-gunarena functions drop-all`);
+										
+										//Curios slots need to be handled separately to regular inventory; luckily there is a handy `/curios drop` command 
+										let curiosSlots = ["back", "belt", "feet", "hands", "head", "necklace"];			
+										for (let i = 0; i < curiosSlots.length; i++) {				
+											Utils.server.runCommand(`curios drop ${pName} ${curiosSlots[i]}`);
+										}
+										//perhaps add one tick per player number, to avoid any potential interference. Tags items (minus Gun Arena card) with Player # then teleports them for safekeeping
+										event.server.scheduleInTicks(2, callback => {
+											Utils.server.runCommand(`execute positioned as ${pName} as @e[type=item,distance=..3] unless data entity @s {Item:{tag:{GunArenaOrigin:1b}}} run data merge entity @s {Item:{tag:{belongsToPlayer:${pNumber}}}}`);
+											Utils.server.runCommand(`tp @e[type=item,nbt={Item:{tag:{belongsToPlayer:${pNumber}}}}] ${posX + relXOne} ${posY + relYOne} ${posZ + relZOne + lockerArrayDist}`); //TP items to be picked up by custom locker for safekeeping. Create pipes are used for quickly catchign all the items. The defautl locker design was extensively tested and catches all items reliably.
+											Utils.server.runCommand(`execute positioned as ${pName} as @e[type=item,distance=..3,nbt={Item:{tag:{GunArenaOrigin:1b}}}] run data merge entity @s {Item:{tag:{Inscribed:"${newInscribed}"}}}`); //repurpose card as keycard
+											Utils.server.runCommand(`execute positioned ${posX + relXOne + 2} ${posY + relYOne - 1} ${posZ + relZOne - 3 + lockerArrayDist} run data merge block ~ ~ ~ {ForgeData:{check:"${newInscribed}"}}`); // Actually modify the lock so it works with the new keycard. Coords of position are relative to the relative coords. All lockers should be the exact same design and distance
+											Utils.server.runCommand(`execute positioned ${posX + relXOne + 5} ${posY + relYOne - 2} ${posZ + relZOne - 2 + lockerArrayDist} run data merge block ~ ~ ~ {ForgeData:{check:"${newInscribed}"}}`); // Outer lock (door) mainly just for fun. Not essential.
+										})
+									})
 									
 								}
 								
@@ -765,10 +773,11 @@ onEvent("command.registry", event => {
 			let stringifiedPlayerName = ""
 			stringifiedPlayerName = stringifiedPlayerName + playerName;
 			
-			let size = entityData.getInventory().containerSize;
+			resetCurrentMatch();
+			//let size = entityData.getInventory().containerSize;
 			//Utils.server.tell("Type of data: " +  typeof(entityData.getInventory().getItem(1).tag.belongsToPlayer));
 			//Utils.server.tell("keys of drop all? " + Object.keys(entityData.inventory.dropAll))
-			//Utils.server.tell("Full obj: " + currentMatch());
+			Utils.server.tell("Full obj: " + currentMatch());
 			return 1
 			})			
 		)
