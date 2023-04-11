@@ -425,24 +425,33 @@ onEvent("command.registry", event => {
 						.then(Commands.argument('rel-pos-y-one', Arguments.INTEGER.create(event))
 							.then(Commands.argument('rel-pos-z-one', Arguments.INTEGER.create(event))
 								.executes(ctx => {
-								const relXOne = Arguments.INTEGER.getResult(ctx, "rel-pos-x-one"); //Relative coords to Blue Team Command Block X position
-								const relYOne = Arguments.INTEGER.getResult(ctx, "rel-pos-y-one");
-								const relZOne = Arguments.INTEGER.getResult(ctx, "rel-pos-z-one");
+								const relXOne = Arguments.INTEGER.getResult(ctx, "rel-pos-x-one"); //EDIT These coords arguments will refer to the RELATIVE coords from the command block
+								const relYOne = Arguments.INTEGER.getResult(ctx, "rel-pos-y-one"); //to the FIRST block that will be used for item safekeeping, where items will be teleported to, the "root" for the lockers area
+								const relZOne = Arguments.INTEGER.getResult(ctx, "rel-pos-z-one"); //It is designed to have lockers 5 blocks apart from each other by default, going in the EAST (positive X) direction. The distance can be configured. Can build as many lockers as wished. Remember to change maxPlayers variable when expanding.
 								
 								const pos = ctx.source.position;
 								let posX = Math.floor(pos.x());
 								let posY = Math.floor(pos.y());
 								let posZ = Math.floor(pos.z());
 								
-								for (let i =0; i < currentPlayers().length; i++) {
-								  let pNumber = currentPlayers()[i].PlayerNumber;
-								  let pName = currentPlayers()[i].Name;
+								for (let i =0; i < currentPlayers().length; i++) {									
+									let pNumber = currentPlayers()[i].PlayerNumber;
+									let pName = currentPlayers()[i].Name;
 								  
-								 Utils.server.runCommand(`execute as ${pName} run say hello I am player ${pNumber}`);
-								  
-								 	//if (currentPlayers()[i].Name == stringifiedPlayerName) {									  
-									//  pNumber = currentPlayers()[i].PlayerNumber;
-									//}
+									Utils.server.runCommand(`execute as ${pName} run say hello I am player ${pNumber}`);
+									Utils.server.runCommand(`execute as ${pName} run vps-gunarena functions drop-all`);
+									
+									//Curios slots need to be handled separately to regular inventory; luckily there is a handy `/curios drop` command 
+									let curiosSlots = ["back", "belt", "feet", "hands", "head", "necklace"];			
+									for (let i = 0; i < curiosSlots.length; i++) {				
+										Utils.server.runCommand(`curios drop ${pName} ${curiosSlots[i]}`);
+									}
+									//perhaps add one tick per player number, to avoid any potential interference. Tags items (minus Gun Arena card) with Player # then teleports them for safekeeping
+									event.server.scheduleInTicks(2, callback => {
+										Utils.server.runCommand(`execute positioned as ${pName} as @e[type=item,distance=..3] unless data entity @s {Item:{tag:{GunArenaOrigin:1b}}} run data merge entity @s {Item:{tag:{belongsToPlayer:${pNumber}}}}`);
+										Utils.server.runCommand(`tp @e[type=item,nbt={Item:{tag:{belongsToPlayer:${pNumber}}}}] ${posX + relXOne} ${posY + relYOne} ${posZ + relZOne}`); //TP items to be picked up by custom locker for safekeeping. Create pipes are used for quickly catchign all the items. The defautl locker design was extensively tested and catches all items reliably.
+									})			
+									
 								}
 								
 								return 1
@@ -739,6 +748,13 @@ onEvent("command.registry", event => {
 						})
 					)
 				)
+				.then(Commands.literal('drop-all') //Drop all items in (vanilla) inventory of entity who ran this command; used in item-handler
+					.executes(ctx => {
+						let entityData = ctx.source.entity;
+						entityData.inventory.dropAll();
+						return 1
+					})
+				)
 		)
 		.then(Commands.literal('test')				
 			.executes(ctx => {
@@ -750,21 +766,9 @@ onEvent("command.registry", event => {
 			stringifiedPlayerName = stringifiedPlayerName + playerName;
 			
 			let size = entityData.getInventory().containerSize;
-			
-			//Curios slots need to be handled separately to regular inventory; luckily there is a handy `/curios drop` command
-			let curiosSlots = ["back", "belt", "feet", "hands", "head", "necklace"];			
-			for (let i = 0; i < curiosSlots.length; i++) {				
-				Utils.server.runCommand(`curios drop ${stringifiedPlayerName} ${curiosSlots[i]}`);
-			}
-			//perhaps add one tick per player number, to avoid any potential interference. Tags items (minus Gun Arena card) with Player # then teleports them for safekeeping
-			event.server.scheduleInTicks(2, callback => {
-				Utils.server.runCommand(`execute positioned as ${stringifiedPlayerName} as @e[type=item,distance=..2] unless data entity @s {Item:{tag:{GunArenaOrigin:1b}}} run data merge entity @s {Item:{tag:{belongsToPlayer:1}}}`);
-				Utils.server.runCommand(`tp @e[type=item,nbt={Item:{tag:{belongsToPlayer:1}}}] 6 -59 -23`);
-			})			
-			entityData.inventory.dropAll();
-			
-			
-			Utils.server.tell("Full obj: " + currentMatch());
+			//Utils.server.tell("Type of data: " +  typeof(entityData.getInventory().getItem(1).tag.belongsToPlayer));
+			//Utils.server.tell("keys of drop all? " + Object.keys(entityData.inventory.dropAll))
+			//Utils.server.tell("Full obj: " + currentMatch());
 			return 1
 			})			
 		)
