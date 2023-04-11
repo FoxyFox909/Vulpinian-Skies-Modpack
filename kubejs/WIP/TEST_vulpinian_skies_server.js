@@ -419,7 +419,38 @@ onEvent("command.registry", event => {
 						return 1
 						})
 					)
-				)
+				)				
+				.then(Commands.literal('item-handler') //Individually stores player items for safekeeping during the match and to prevent foreign items from entering the Gun Arena
+					.then(Commands.argument('rel-pos-x-one', Arguments.INTEGER.create(event))
+						.then(Commands.argument('rel-pos-y-one', Arguments.INTEGER.create(event))
+							.then(Commands.argument('rel-pos-z-one', Arguments.INTEGER.create(event))
+								.executes(ctx => {
+								const relXOne = Arguments.INTEGER.getResult(ctx, "rel-pos-x-one"); //Relative coords to Blue Team Command Block X position
+								const relYOne = Arguments.INTEGER.getResult(ctx, "rel-pos-y-one");
+								const relZOne = Arguments.INTEGER.getResult(ctx, "rel-pos-z-one");
+								
+								const pos = ctx.source.position;
+								let posX = Math.floor(pos.x());
+								let posY = Math.floor(pos.y());
+								let posZ = Math.floor(pos.z());
+								
+								for (let i =0; i < currentPlayers().length; i++) {
+								  let pNumber = currentPlayers()[i].PlayerNumber;
+								  let pName = currentPlayers()[i].Name;
+								  
+								 Utils.server.runCommand(`execute as ${pName} run say hello I am player ${pNumber}`);
+								  
+								 	//if (currentPlayers()[i].Name == stringifiedPlayerName) {									  
+									//  pNumber = currentPlayers()[i].PlayerNumber;
+									//}
+								}
+								
+								return 1
+								})
+							)
+						)
+					)
+				)		
 				.then(Commands.literal('start-match-ticker') //Gets players of respective teams to the start of the match and each round and resets whatever needs resetting per team player
 					.then(Commands.argument('rel-pos-x-one', Arguments.INTEGER.create(event))
 						.then(Commands.argument('rel-pos-y-one', Arguments.INTEGER.create(event))
