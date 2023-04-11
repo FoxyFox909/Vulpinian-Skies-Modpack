@@ -182,7 +182,7 @@ onEvent("command.registry", event => {
 								
 								addToLifetimePlayers(1)
 								//Utils.server.runCommand('data merge block ' + (posX + relPosX)+ ' ' + (posY + relPosY) + ' ' + (posZ + relPosZ) + ` {Items:[{Slot:0b,id:"create_things_and_misc:card", Count: 1b, tag:{Inscribed:"Vulpine Co. [stage1-valid]",display:{Name:'[{"text":"Gun Arena ID-${paddedId}","italic":false}]'}}}]}`)
-								Utils.server.runCommand('data merge block ' + (posX + relPosX)+ ' ' + (posY + relPosY) + ' ' + (posZ + relPosZ) + ` {Items:[{Slot:0b,id:"create_things_and_misc:card", Count: 1b, tag:{Inscribed:"Vulpine Co. [stage1-valid]",display:{Name:'[{"text":"Gun Arena ID-${paddedId}","italic":false}]',Lore:['[{"text":"| CARD ID: ${paddedId} | STATUS: Valid Entry Ticket |","italic":false}]']}}}]}`)
+								Utils.server.runCommand('data merge block ' + (posX + relPosX)+ ' ' + (posY + relPosY) + ' ' + (posZ + relPosZ) + ` {Items:[{Slot:0b,id:"create_things_and_misc:card", Count: 1b, tag:{Inscribed:"Vulpine Co. [stage1-valid]",display:{Name:'[{"text":"Gun Arena ID-${paddedId}","italic":false}]',Lore:['[{"text":"| CARD ID: ${paddedId} | STATUS: Valid Entry Ticket |","italic":false}]']},GunArenaOrigin:1b}}]}`)
 								Utils.server.tell("Put a diamond in chest above, and coords used were: " + posX + ' ' + (posY + 1) + ' ' + posZ)								
 								return 1
 							})
@@ -720,56 +720,25 @@ onEvent("command.registry", event => {
 			
 			let size = entityData.getInventory().containerSize;
 			
-			/*
-			for (let i = 0; i < size; i++) {
-				let invSlotId = entityData.getInventory().getItem(i) //get ID from NBT of item
-				//invSlotId.addTagElement(`"origin":"gun_arena"`);
-				//invSlotId.setTag(`tag:{belongsToPlayer:1}`)
-				//invSlotId.tags.toArray().pop(`tag:{belongsToPlayer:1`);
-				//data merge entity @s {Inventory:[{Slot:0b ,id:"minecraft:nether_star"}]}
-				//entityData.getInventory().getItem(i).getTag() = "test";
-				//Utils.server.tell("keys are: " + Object.keys(invSlotId.tags.toArray()));
-				//entityData.getInventory().getItem(i).getTag().push(`"belongsToPlayer":2`);
-				
-				//Utils.server.tell("Tag is: " + entityData.getInventory().getItem(i).getTag());
-				//let belongTag = JSON.parse(`{"belongsToPlayer":3}`);
-				//entityData.getInventory().getItem(i).serializeNBT().tag = belongTag;
-				entityData.getInventory().getItem(i).serializeNBT().tag.belongsToPlayer += 10;
-				Utils.server.tell("Seralized NBT is: " + typeof(entityData.getInventory().getItem(i).serializeNBT().tag.belongsToPlayer));
-				Utils.server.tell("Seralized NBT keys: " + Object.keys(entityData.getInventory().getItem(i).serializeNBT()));
-				
-				if (invSlotId.tag) {
-				Utils.server.tell(invSlotId.tag);				
-				}
-				
-				
-			} does not seem liek a viable way to tag items....*/
-			
 			//Curios slots need to be handled separately to regular inventory; luckily there is a handy `/curios drop` command
-			let curiosSlots = ["back", "belt", "feet", "hands", "head", "necklace"];
-			
-			for (let i = 0; i < curiosSlots.length; i++) {
-				
+			let curiosSlots = ["back", "belt", "feet", "hands", "head", "necklace"];			
+			for (let i = 0; i < curiosSlots.length; i++) {				
 				Utils.server.runCommand(`curios drop ${stringifiedPlayerName} ${curiosSlots[i]}`);
 			}
-			
-			//resetCurrentMatch()
-			Utils.server.tell("Full obj: " + currentMatch());
-			
-			
+			//perhaps add one tick per player number, to avoid any potential interference. Tags items (minus Gun Arena card) with Player # then teleports them for safekeeping
 			event.server.scheduleInTicks(2, callback => {
-				Utils.server.runCommand(`execute positioned as ${stringifiedPlayerName} as @e[type=item, distance=..2] run data merge entity @s {Item:{tag:{belongsToPlayer:1}}}`);
+				Utils.server.runCommand(`execute positioned as ${stringifiedPlayerName} as @e[type=item,distance=..2] unless data entity @s {Item:{tag:{GunArenaOrigin:1b}}} run data merge entity @s {Item:{tag:{belongsToPlayer:1}}}`);
 				Utils.server.runCommand(`tp @e[type=item,nbt={Item:{tag:{belongsToPlayer:1}}}] 6 -59 -23`);
-			}) //one way to do it, but it might be hlaggya nd unreliable... sight try a loop
-			//perhaps add one tick per player number, to avoid any potential interference. This may not be the most elegant way but if it's reliable and gets the job done...
-			
+			})			
 			entityData.inventory.dropAll();
 			
+			
+			Utils.server.tell("Full obj: " + currentMatch());
 			return 1
 			})			
 		)
 		.then(Commands.literal('BLANK').executes(ctx => {
-
+			resetCurrentMatch()
 			//Add code here
 			//For copy-pasting purposes
 			//KEEP RETURN
