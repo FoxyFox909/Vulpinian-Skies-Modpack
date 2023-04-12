@@ -124,7 +124,7 @@ onEvent("command.registry", event => {
 			case 2: setRedCount(number); break;
 			case 3: setRandomCount(number); break;
 			default: event.server.persistentData.gunArenaTeamsPlayersCount = {"Blue":0,"Red":0,"Random":0};
-			Utils.server.tell("Blue team is: " + teamsPlayersCount().Blue + ". Red team is: " + teamsPlayersCount().Red)
+			//Utils.server.tell("Blue team is: " + teamsPlayersCount().Blue + ". Red team is: " + teamsPlayersCount().Red)
 		}					
 	}
 	
@@ -529,10 +529,11 @@ onEvent("command.registry", event => {
 										switch (true) {
 											case (currentMatch().BluePoints == winPoints):
 												Utils.server.tell("Blue Team has Won the Match")
+												redstoneBlock(3, 0, 0);
 												break;
 											case (currentMatch().RedPoints == winPoints):
 												Utils.server.tell("Red Team has Won the Match")
-												//redstone end the match
+												redstoneBlock(3, 0, 0);												
 												break;					
 										}
 										Utils.server.tell("ROUND ENDED FROM TIME!");
@@ -690,6 +691,32 @@ onEvent("command.registry", event => {
 						)
 					)				
 				)
+				.then(Commands.literal('conclude-match')
+					.executes(ctx => {						
+						const pos = ctx.source.position;
+						let posX = Math.floor(pos.x());
+						let posY = Math.floor(pos.y());
+						let posZ = Math.floor(pos.z());
+						
+						Utils.server.runCommand(`setblock ${posX} ${posY - 1} ${posZ} minecraft:air`);	
+						
+						//tag removal
+						let tagArr = ["ga_registered_player","ga_approved_entity","ga_blue_team","ga_red_team"]
+						for (let i = 0; i < tagArr.length; i++) {							
+							Utils.server.runCommand(`tag @e[type=minecraft:player,tag=${tagArr[i]}] remove ${tagArr[i]}`);													
+						}
+
+						//clears various persistent data used for match
+						initializeCurrentPlayers(0, 1);
+						changeReadyPlayers(0);
+						changeTeamsPlayersCount(1, 0);
+						resetCurrentMatch();
+						Utils.server.runCommand(`setblock ${killBlockCoords[0] - 3} ${killBlockCoords[1]} ${killBlockCoords[2]} minecraft:air`); //Uses killBlockCoords (two blocks south, or Positive Z, to matchTicker command block) to clear the redstone block underneath command block
+						Utils.server.runCommand(`setblock ${killBlockCoords[0] + 13} ${killBlockCoords[1] + 3} ${killBlockCoords[2] + 10} minecraft:air`); //EDIT uses killBlockCoords to close gate of Blue Team Room if needed
+						Utils.server.runCommand(`setblock ${killBlockCoords[0] + 1} ${killBlockCoords[1] + 3} ${killBlockCoords[2] + 10} minecraft:air`); //same but for Red Team Room
+						return 1
+					})
+				)
 			)
 			.then(Commands.literal('currentplayers')
 				.then(Commands.literal('query').executes(ctx => {
@@ -742,10 +769,12 @@ onEvent("command.registry", event => {
 				)
 			) 
 			.then(Commands.literal('functions') //collection of subcommands to serve as functions to be called inside other commands to get stuff done. Pls dont @ me im just trying to follow DRY principle Sadge
-				.then(Commands.literal('init-persistent-data') //initalizes (and resets) all persistent server data related to GunArena, for debugging as well as first-time setup
+				.then(Commands.literal('init-persistent-data') //initalizes (and resets) all persistent server data related to GunArena, for debugging as well as first-time setup. Run this at least once when first setting up the Gun Arena
 					.executes(ctx => {
 						initializeCurrentPlayers(0, 1);
 						changeReadyPlayers(0);
+						resetCurrentMatch(0);
+						
 						return 1
 					})
 				)
@@ -988,9 +1017,11 @@ onEvent("entity.death", event => {
 			switch (true) {
 				case (currentMatch().BluePoints == winPoints):
 					Utils.server.tell("Blue Team has Won the Match")
+					Utils.server.runCommand(`setblock ${killBlockCoords[0]} ${killBlockCoords[1] + 1} ${killBlockCoords[2]} minecraft:redstone_block`);
 					break;
 				case (currentMatch().RedPoints == winPoints):					
-					//redstone end the match
+					Utils.server.tell("Red Team has Won the Match")
+					Utils.server.runCommand(`setblock ${killBlockCoords[0]} ${killBlockCoords[1] + 1} ${killBlockCoords[2]} minecraft:redstone_block`);
 					break;					
 			}
 			//Utils.server.tell("Source: " + (event.source));
