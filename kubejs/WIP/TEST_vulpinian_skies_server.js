@@ -6,7 +6,7 @@ const minPlayers =  2; //Min amount of players needed to trigger a match to star
 const minReadyPlayers = 2; //min amount of players who have to be ready for a prematch timer to skip down to 5 seconds
 const prematchTimerDefault = 30; //Amount of time (in seconds, so 20-ticks intervals) before a match starts once minPlayers has been satisfied. Defauls is 30
 const roundTimerDefault = 10; //Amount of time (seconds) a round should last before it ends to time. Default is 120
-const roundPrepTimerDefault = 20; //Amount of time players get for preparation, before the gates open and a round starts. Default is 20
+const roundPrepTimerDefault = 6; //Amount of time players get for preparation, before the gates open and a round starts. Default is 20
 const roundPostTimerDefault = 4; //Amount of time before round is ended and players get sent back to their appropriate Team Room, after the round has been won by a team. Default is 4
 const winPoints = 10; 			//Number of rounds a team needs to win in order to win the whole match
 
@@ -515,7 +515,27 @@ onEvent("command.registry", event => {
 									Utils.server.tell("Round Timer is: " + currentMatch().RoundTimer);
 									if (currentMatch().RoundTimer == 0) { //Natural subloop to handle round timers
 										redstoneBlock(2, 0, 1); //Trigger Phase two (reset players and close the gates)
-										Utils.server.tell("ROUND ENDED!");
+										switch (true) {
+											case (currentMatch().BluePlayers < currentMatch().RedPlayers):
+												currentMatch().RedPoints += 1;
+												Utils.server.runCommand(`setblock ${killBlockCoords[0]} ${killBlockCoords[1]} ${killBlockCoords[2]} minecraft:redstone_block`);												
+												break;
+											case (currentMatch().RedPlayers < currentMatch().BluePlayers):
+												currentMatch().BluePoints += 1;
+												Utils.server.runCommand(`setblock ${killBlockCoords[0]} ${killBlockCoords[1]} ${killBlockCoords[2]} minecraft:redstone_block`);												
+												break;					
+										}
+										
+										switch (true) {
+											case (currentMatch().BluePoints == winPoints):
+												Utils.server.tell("Blue Team has Won the Match")
+												break;
+											case (currentMatch().RedPoints == winPoints):
+												Utils.server.tell("Red Team has Won the Match")
+												//redstone end the match
+												break;					
+										}
+										Utils.server.tell("ROUND ENDED FROM TIME!");
 									}
 									
 									if (primingRequired) {
