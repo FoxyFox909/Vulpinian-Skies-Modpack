@@ -161,6 +161,8 @@ onEvent("command.registry", event => {
 	const readyPlayers = () => {return event.server.persistentData.gunArenaReadyPlayers};
 	const changeReadyPlayers = (p) => {return event.server.persistentData.gunArenaReadyPlayers = p};
 	const teamsPlayersCount = () => {return event.server.persistentData.gunArenaTeamsPlayersCount};
+	const playersStoredSpawn = () => {return event.server.persistentData.gunArenaplayersStoredSpawn};
+	const resetPlayersStoredSpawn = () => {event.server.persistentData.gunArenaplayersStoredSpawn = []};
 	
 	const currentMatch = () => {return event.server.persistentData.gunArenaCurrentMatch};
 	const resetCurrentMatch = () => {let m = `{"IsOngoing":false,"TotalTime":0,"RoundTimer":-1,"RoundNumber":0,"BluePoints":0,"RedPoints":0,"BluePlayers":0,"RedPlayers":0}`; event.server.persistentData.gunArenaCurrentMatch = {}; event.server.persistentData.gunArenaCurrentMatch = (JSON.parse(m));};
@@ -704,10 +706,13 @@ onEvent("command.registry", event => {
 						let tagArr = ["ga_registered_player","ga_approved_entity","ga_blue_team","ga_red_team"]
 						for (let i = 0; i < tagArr.length; i++) {							
 							Utils.server.runCommand(`tag @e[type=minecraft:player,tag=${tagArr[i]}] remove ${tagArr[i]}`);													
-						}
+						}						
+						
+						//FOR LOOP HERE TO GIVE BACK SPAWN POINTS
 
 						//clears various persistent data used for match
 						initializeCurrentPlayers(0, 1);
+						resetPlayersStoredSpawn(); //ONLY AFTER GIVING THEM BACK THEIR SPAWN LMAO
 						changeReadyPlayers(0);
 						changeTeamsPlayersCount(1, 0);
 						resetCurrentMatch();
@@ -770,10 +775,13 @@ onEvent("command.registry", event => {
 			) 
 			.then(Commands.literal('functions') //collection of subcommands to serve as functions to be called inside other commands to get stuff done. Pls dont @ me im just trying to follow DRY principle Sadge
 				.then(Commands.literal('init-persistent-data') //initalizes (and resets) all persistent server data related to GunArena, for debugging as well as first-time setup. Run this at least once when first setting up the Gun Arena
-					.executes(ctx => {
+					.executes(ctx => {						
+						resetLifetimePlayers();
+						resetPlayersStoredSpawn();
 						initializeCurrentPlayers(0, 1);
-						changeReadyPlayers(0);
-						resetCurrentMatch(0);
+						changeTeamsPlayersCount(1, 0);
+						changeReadyPlayers(0);						
+						resetCurrentMatch(0);																														
 						
 						return 1
 					})
@@ -930,23 +938,53 @@ onEvent("command.registry", event => {
 		)
 		.then(Commands.literal('test')				
 			.executes(ctx => {
-			Utils.server.tell("test command for match timer")
-			let entityData = ctx.source.entity;						
-			//Utils.server.tell("teamsPlayersCount is: " + teamsPlayersCount())									
-			let playerName = entityData.name.contents
-			let stringifiedPlayerName = ""
-			//stringifiedPlayerName = stringifiedPlayerName + playerName;
-			
-			
-			
-			Utils.server.tell("Blue Players: " + currentMatch().BluePlayers);
-			Utils.server.tell("Red Players: " + currentMatch().RedPlayers);
-			Utils.server.tell("Blue Points: " + currentMatch().BluePoints);
-			Utils.server.tell("Red Points: " + currentMatch().RedPoints);
-			
-			
-			return 1
-			})			
+				Utils.server.tell("test command for match timer")
+				let entityData = ctx.source.entity;			
+				//Utils.server.tell("teamsPlayersCount is: " + teamsPlayersCount())									
+				let playerName = entityData.name.contents
+				let stringifiedPlayerName = ""
+				//stringifiedPlayerName = stringifiedPlayerName + playerName;
+				
+				
+				/*
+				Utils.server.tell("Blue Players: " + currentMatch().BluePlayers);
+				Utils.server.tell("Red Players: " + currentMatch().RedPlayers);
+				Utils.server.tell("Blue Points: " + currentMatch().BluePoints);
+				Utils.server.tell("Red Points: " + currentMatch().RedPoints);
+				*/
+				
+				
+				for (let i = 0; i < currentPlayers().length; i++) {
+					Utils.server.runCommand(`execute as ${currentPlayers()[i].Name} run vps-gunarena test2`);
+				}
+				
+				
+				Utils.server.tell("My spawn Point: " + entityData.getRespawnPosition().getX());
+				Utils.server.tell("My spawn keys: " + Object.keys(entityData.getRespawnPosition()))
+				Utils.server.tell("My spawn typeof: " + typeof(entityData.getRespawnPosition()))
+				resetPlayersStoredSpawn();
+				Utils.server.tell("SPAWN ARRAY IS: " + playersStoredSpawn());
+				
+				return 1
+			})	
+		)
+		.then(Commands.literal('test2')
+			.executes(ctx => {				
+				let getCoord = ctx.source.entity.getRespawnPosition();		
+				let spawnX = getCoord.getX();
+				let spawnY = getCoord.getY();
+				let spawnZ = getCoord.getZ();
+				
+				Utils.server.tell("Coords types are X: " + typeof(spawnX) + " Y: " + typeof(spawnY) + " Z: " + typeof(spawnZ));
+				Utils.server.tell("Coords are X: " + spawnX + " Y: " + spawnY + " Z: " + spawnZ);
+				
+				let spawnData = `{"Name":"${ctx.source.entity.name.contents}","X":${eval(spawnX)},"Y":${parseInt(spawnY)},"Z":${parseInt(spawnZ)}}`;
+				event.server.persistentData.gunArenaplayersStoredSpawn.push(JSON.parse(spawnData));
+				Utils.server.tell("Array is now : " + playersStoredSpawn());
+				Utils.server.tell("Index 0.X is: " + typeof(playersStoredSpawn()[0].X));
+				Utils.server.tell("Index 0 keys: " + Object.keys(playersStoredSpawn()[0]));
+				return 1
+			})
 		)
 		.then(Commands.literal('test-addplayers')				
 			.executes(ctx => {
