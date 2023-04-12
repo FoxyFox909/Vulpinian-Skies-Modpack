@@ -8,7 +8,7 @@ const prematchTimerDefault = 30; //Amount of time (in seconds, so 20-ticks inter
 const roundTimerDefault = 10; //Amount of time (seconds) a round should last before it ends to time. Default is 120
 const roundPrepTimerDefault = 6; //Amount of time players get for preparation, before the gates open and a round starts. Default is 20
 const roundPostTimerDefault = 4; //Amount of time before round is ended and players get sent back to their appropriate Team Room, after the round has been won by a team. Default is 4
-const winPoints = 10; 			//Number of rounds a team needs to win in order to win the whole match
+const winPoints = 3; 			//Number of rounds a team needs to win in order to win the whole match
 const jailCoords = [7, 3, 22]; //XYZ - Points to the center of Jail (the room dead players go to for the rest of the round) AS RELATIVE TO killBlockCoords. NOT ABSOLUTE COORDS.
 
 //Global variables for program operation. Do not touch, used just for initalization
@@ -461,7 +461,9 @@ onEvent("command.registry", event => {
 										event.server.scheduleInTicks(2, callback => {
 											Utils.server.runCommand(`execute positioned as ${pName} as @e[type=item,distance=..3] unless data entity @s {Item:{tag:{GunArenaOrigin:1b}}} run data merge entity @s {Item:{tag:{belongsToPlayer:${pNumber}}}}`);
 											Utils.server.runCommand(`tp @e[type=item,nbt={Item:{tag:{belongsToPlayer:${pNumber}}}}] ${posX + relXOne} ${posY + relYOne} ${posZ + relZOne + lockerArrayDist}`); //TP items to be picked up by custom locker for safekeeping. Create pipes are used for quickly catchign all the items. The defautl locker design was extensively tested and catches all items reliably.
-											Utils.server.runCommand(`execute positioned as ${pName} as @e[type=item,distance=..3,nbt={Item:{tag:{GunArenaOrigin:1b}}}] run data merge entity @s {Item:{tag:{Inscribed:"${newInscribed}"}}}`); //repurpose card as keycard
+											//Utils.server.runCommand(`execute positioned as ${pName} as @e[type=item,distance=..3,nbt={Item:{tag:{GunArenaOrigin:1b}}}] run data merge entity @s {Item:{tag:{Inscribed:"${newInscribed}"}}}`); //repurpose card as keycard and enhcance it with Recall and Soulbinding so it sticks well to players
+											Utils.server.runCommand(`execute positioned as ${pName} as @e[type=item,distance=..3,nbt={Item:{tag:{GunArenaOrigin:1b}}}] run data merge entity @s {Item:{tag:{Inscribed:"${newInscribed}",Enchantments:[{lvl:1s,id:"capsule:recall"}],tic_modifiers:[{level:1s,name:"tconstruct:soulbound"},{level:1s,name:"tconstruct:resurrected"}],tic_persistent_data:{upgrades:-1},tic_stats:{},tic_upgrades:[{level:1s,name:"tconstruct:resurrected"},{level:1s,name:"tconstruct:soulbound"}],tic_volatile_data:{upgrades:1}}}}`);
+											Utils.server.runCommand(`execute positioned as ${pName} as @e[type=item,distance=..3,nbt={Item:{tag:{GunArenaOrigin:1b}}}] run tp @s ~ ~ ~`);
 											Utils.server.runCommand(`execute positioned ${posX + relXOne + 2} ${posY + relYOne - 1} ${posZ + relZOne - 3 + lockerArrayDist} run data merge block ~ ~ ~ {ForgeData:{check:"${newInscribed}"}}`); // Actually modify the lock so it works with the new keycard. Coords of position are relative to the relative coords. All lockers should be the exact same design and distance
 											Utils.server.runCommand(`execute positioned ${posX + relXOne + 5} ${posY + relYOne - 2} ${posZ + relZOne - 2 + lockerArrayDist} run data merge block ~ ~ ~ {ForgeData:{check:"${newInscribed}"}}`); // Outer lock (door) mainly just for fun. Not essential.
 										})
@@ -1084,15 +1086,19 @@ onEvent("entity.death", event => {
 			switch (true) {
 				case (currentMatch().BluePoints == winPoints):
 					Utils.server.tell("Blue Team has Won the Match")
-					Utils.server.runCommand(`setblock ${killBlockCoords[0]} ${killBlockCoords[1] + 1} ${killBlockCoords[2]} minecraft:redstone_block`);
+					Utils.server.runCommand(`setblock ${killBlockCoords[0] + 1} ${killBlockCoords[1]} ${killBlockCoords[2]} minecraft:redstone_block`);
 					break;
 				case (currentMatch().RedPoints == winPoints):					
 					Utils.server.tell("Red Team has Won the Match")
-					Utils.server.runCommand(`setblock ${killBlockCoords[0]} ${killBlockCoords[1] + 1} ${killBlockCoords[2]} minecraft:redstone_block`);
+					Utils.server.runCommand(`setblock ${killBlockCoords[0] + 1} ${killBlockCoords[1]} ${killBlockCoords[2]} minecraft:redstone_block`);
 					break;					
 			}
 			//Utils.server.tell("Source: " + (event.source));
 	}	
 	
 	
+})
+
+onEvent('item.tags', event => {
+	event.add('tconstruct:modifiable', 'create_things_and_misc:card')
 })
