@@ -5,8 +5,10 @@ const maxPlayers =  4;  //Max amount of players allowed to be registered to a ma
 const minPlayers =  2; //Min amount of players needed to trigger a match to start
 const minReadyPlayers = 2; //min amount of players who have to be ready for a prematch timer to skip down to 5 seconds
 const prematchTimerDefault = 30; //Amount of time (in seconds, so 20-ticks intervals) before a match starts once minPlayers has been satisfied. Defauls is 30
-const roundTimerDefault = 5; //Amount of time a round should last before it ends from time. Default is 120
+const roundTimerDefault = 120; //Amount of time (seconds) a round should last before it ends to time. Default is 120
 const roundPrepTimerDefault = 20; //Amount of time players get for preparation, before the gates open and a round starts. Default is 20
+const roundPostTimerDefault = 2; //Amount of time before round is ended and players get sent back to their appropriate Team Room. Default is 2
+const winPoints = 10; 			//Number of rounds a team needs to win in order to win the whole match
 
 //Global variables for program operation, do not touch
 var prematchTimer = 30;
@@ -15,6 +17,7 @@ var primingRequired = false
 var triggerRequired = false;
 var triggeredAction = 0;
 var primeRoundPhaseOne = false;
+var killBlockCoords = [];
 
 
 onEvent("item.entity_interact", event => {
@@ -159,7 +162,7 @@ onEvent("command.registry", event => {
 	const teamsPlayersCount = () => {return event.server.persistentData.gunArenaTeamsPlayersCount};
 	
 	const currentMatch = () => {return event.server.persistentData.gunArenaCurrentMatch};
-	const resetCurrentMatch = () => {let m = `{"IsOngoing":false,"TotalTime":0,"RoundTimer":120,"RoundNumber":0,"BluePoints":0,"RedPoints":0,"BluePlayers":0,"RedPlayers":0}`; event.server.persistentData.gunArenaCurrentMatch = {}; event.server.persistentData.gunArenaCurrentMatch = (JSON.parse(m));};
+	const resetCurrentMatch = () => {let m = `{"IsOngoing":false,"TotalTime":0,"RoundTimer":-1,"RoundNumber":0,"BluePoints":0,"RedPoints":0,"BluePlayers":0,"RedPlayers":0}`; event.server.persistentData.gunArenaCurrentMatch = {}; event.server.persistentData.gunArenaCurrentMatch = (JSON.parse(m));};
 	const addToCurrentMatchTime = (p) => {return event.server.persistentData.gunArenaCurrentMatch.TotalTime += p};
 	const resetCurrentMatchTime = () => {event.server.persistentData.gunArenaCurrentMatchTime = 0};
 	
@@ -468,7 +471,7 @@ onEvent("command.registry", event => {
 						)
 					)
 				)		
-				.then(Commands.literal('start-match-ticker') //Gets players of respective teams to the start of the match and each round and resets whatever needs resetting per team player
+				.then(Commands.literal('start-match-ticker') //Triggers main game loop which handles the round, events, resets
 					.then(Commands.argument('rel-pos-x-one', Arguments.INTEGER.create(event))
 						.then(Commands.argument('rel-pos-y-one', Arguments.INTEGER.create(event))
 							.then(Commands.argument('rel-pos-z-one', Arguments.INTEGER.create(event))
@@ -488,6 +491,7 @@ onEvent("command.registry", event => {
 								let internalTimerOne = getTimeToNextAction(roundTimerDefault, 0);
 								let nextTrigger = 0;
 								
+								killBlockCoords = [parseInt(posX + 3), parseInt(posY), parseInt(posZ + 1)]; //This sets the relative coordinates to the killBlock which is triggered by entity.death event in order to save resources/prevent additional checks in loop
 								resetCurrentMatch();
 								event.server.persistentData.gunArenaCurrentMatch.IsOngoing = true; //Set flag that match is underway. Game loop stops if this flag is false
 								event.server.persistentData.gunArenaCurrentMatch.BluePlayers = teamsPlayersCount().Blue; //teamsPlayersCount is doubling as a cached count of players that will be used to actually keep track
@@ -503,6 +507,13 @@ onEvent("command.registry", event => {
 									if (currentMatch().TotalTime == internalTimerOne) {
 										internalTimerOne = getTimeToNextAction(roundTimerDefault, 0); //The offset is canceled here because it is not needed for inner timers set from outside the function
 										Utils.server.tell("Internal timer triggered!");
+									}
+									
+									
+									if (currentMatch().RoundTimer > -1) {currentMatch().RoundTimer += -1;}
+									Utils.server.tell("Round Timer is: " + currentMatch().RoundTimer);
+									if (currentMatch().RoundTimer == 0) { //Natural subloop to handle round timers										
+										Utils.server.tell("ROUNDE ENDED!");
 									}
 									
 									if (primingRequired) {
@@ -539,7 +550,7 @@ onEvent("command.registry", event => {
 				)
 				.then(Commands.literal('round-handler')					
 					.then(Commands.literal('phase-one')
-						.then(Commands.literal('primer')
+						.then(Commands.literal('primer') //Prime the main game loop to do the trigger after x seconds, where x is roundPrepTimerDefault
 							.executes(ctx => {
 								const pos = ctx.source.position;
 								let posX = Math.floor(pos.x());
@@ -552,13 +563,91 @@ onEvent("command.registry", event => {
 								return 1
 							})
 						)
-						.then(Commands.literal('trigger')
+						.then(Commands.literal('trigger') //Actually do the stuff
+							.then(Commands.argument('rel-pos-x-one', Arguments.INTEGER.create(event))
+								.then(Commands.argument('rel-pos-y-one', Arguments.INTEGER.create(event))
+									.then(Commands.argument('rel-pos-z-one', Arguments.INTEGER.create(event))
+										.then(Commands.argument('rel-pos-x-two', Arguments.INTEGER.create(event))
+											.then(Commands.argument('rel-pos-y-two', Arguments.INTEGER.create(event))
+												.then(Commands.argument('rel-pos-z-two', Arguments.INTEGER.create(event))
+													.executes(ctx => {
+														const relXOne = Arguments.INTEGER.getResult(ctx, "rel-pos-x-one"); //EDIT IN COMMAND BLOCK Relative coords to blue Team Room gate activator, such as to place a redstone block
+														const relYOne = Arguments.INTEGER.getResult(ctx, "rel-pos-y-one");
+														const relZOne = Arguments.INTEGER.getResult(ctx, "rel-pos-z-one");
+														const relXTwo = Arguments.INTEGER.getResult(ctx, "rel-pos-x-two"); //Relative coords to blue Team Room gate activator
+														const relYTwo = Arguments.INTEGER.getResult(ctx, "rel-pos-y-two");
+														const relZTwo = Arguments.INTEGER.getResult(ctx, "rel-pos-z-two");
+
+														const redstoneBlock = (relX, relY, relZ) => {Utils.server.runCommand(`setblock ${posX + relX} ${posY + relY} ${posZ + relZ} minecraft:redstone_block`)};
+														
+														const pos = ctx.source.position;
+														let posX = Math.floor(pos.x());
+														let posY = Math.floor(pos.y());
+														let posZ = Math.floor(pos.z());
+														
+														Utils.server.runCommand(`setblock ${posX} ${posY - 1} ${posZ} minecraft:air`);																									
+														Utils.server.runCommand(`setblock ${posX + relXOne} ${posY + relYOne} ${posZ + relZOne} minecraft:redstone_block`); //Open Blue Team Gates
+														Utils.server.runCommand(`setblock ${posX + relXTwo} ${posY + relYTwo} ${posZ + relZTwo} minecraft:redstone_block`); //Open Red Team Gates
+														
+														currentMatch().RoundTimer = roundTimerDefault;																																										
+														return 1
+													})
+												)
+											)
+										)
+									)
+								)
+							)
 						)
 					)
 					.then(Commands.literal('phase-two')
-						.then(Commands.literal('primer')
+						.then(Commands.literal('primer') //Prime the main game loop to do the trigger after x seconds, where x is roundPostTimerDefault
+							.executes(ctx => {
+								const pos = ctx.source.position;
+								let posX = Math.floor(pos.x());
+								let posY = Math.floor(pos.y());
+								let posZ = Math.floor(pos.z());
+								
+								Utils.server.runCommand(`setblock ${posX} ${posY - 1} ${posZ} minecraft:air`);
+								primingRequired = true;
+								primeRoundPhaseOne = true;		
+								return 1
+							})
 						)
-						.then(Commands.literal('trigger')
+						.then(Commands.literal('trigger') //Actually do the stuff
+							.then(Commands.argument('rel-pos-x-one', Arguments.INTEGER.create(event))
+								.then(Commands.argument('rel-pos-y-one', Arguments.INTEGER.create(event))
+									.then(Commands.argument('rel-pos-z-one', Arguments.INTEGER.create(event))
+										.then(Commands.argument('rel-pos-x-two', Arguments.INTEGER.create(event))
+											.then(Commands.argument('rel-pos-y-two', Arguments.INTEGER.create(event))
+												.then(Commands.argument('rel-pos-z-two', Arguments.INTEGER.create(event))
+													.executes(ctx => {
+														const relXOne = Arguments.INTEGER.getResult(ctx, "rel-pos-x-one"); //EDIT IN COMMAND BLOCK Relative coords to blue Team Room gate activator, such as to place a redstone block
+														const relYOne = Arguments.INTEGER.getResult(ctx, "rel-pos-y-one");
+														const relZOne = Arguments.INTEGER.getResult(ctx, "rel-pos-z-one");
+														const relXTwo = Arguments.INTEGER.getResult(ctx, "rel-pos-x-two"); //Relative coords to blue Team Room gate activator
+														const relYTwo = Arguments.INTEGER.getResult(ctx, "rel-pos-y-two");
+														const relZTwo = Arguments.INTEGER.getResult(ctx, "rel-pos-z-two");
+
+														const redstoneBlock = (relX, relY, relZ) => {Utils.server.runCommand(`setblock ${posX + relX} ${posY + relY} ${posZ + relZ} minecraft:redstone_block`)};
+														
+														const pos = ctx.source.position;
+														let posX = Math.floor(pos.x());
+														let posY = Math.floor(pos.y());
+														let posZ = Math.floor(pos.z());
+														
+														Utils.server.runCommand(`setblock ${posX} ${posY - 1} ${posZ} minecraft:air`);																									
+														Utils.server.runCommand(`setblock ${posX + relXOne} ${posY + relYOne} ${posZ + relZOne} minecraft:redstone_block`);
+														Utils.server.runCommand(`setblock ${posX + relXTwo} ${posY + relYTwo} ${posZ + relZTwo} minecraft:redstone_block`);
+														
+														return 1
+													})
+												)
+											)
+										)
+									)
+								)
+							)
 						)
 					)				
 				)
@@ -747,7 +836,7 @@ onEvent("command.registry", event => {
 					.then(Commands.argument('reset-bool', Arguments.INTEGER.create(event))				
 						.executes(ctx => {					
 						const arg1 = Arguments.INTEGER.getResult(ctx, "reset-bool");
-												
+
 						let entityData = ctx.source.entity;						
 						Utils.server.tell("teamsPlayersCount is: " + teamsPlayersCount())
 						if (arg1) {changeTeamsPlayersCount(1, 0); Utils.server.tell("teamsPlayersCount is now " + teamsPlayersCount());}
@@ -755,6 +844,13 @@ onEvent("command.registry", event => {
 							
 						})
 					)
+				)
+				.then(Commands.literal('reset-currentMatch') //Drop all items in (vanilla) inventory of entity who ran this command; used in item-handler
+					.executes(ctx => {
+						resetCurrentMatch();
+						Utils.server.tell("Full obj: " + currentMatch());
+						return 1
+					})
 				)
 				.then(Commands.literal('drop-all') //Drop all items in (vanilla) inventory of entity who ran this command; used in item-handler
 					.executes(ctx => {
@@ -771,13 +867,33 @@ onEvent("command.registry", event => {
 			//Utils.server.tell("teamsPlayersCount is: " + teamsPlayersCount())									
 			let playerName = entityData.name.contents
 			let stringifiedPlayerName = ""
-			stringifiedPlayerName = stringifiedPlayerName + playerName;
+			//stringifiedPlayerName = stringifiedPlayerName + playerName;
 			
-			resetCurrentMatch();
-			//let size = entityData.getInventory().containerSize;
-			//Utils.server.tell("Type of data: " +  typeof(entityData.getInventory().getItem(1).tag.belongsToPlayer));
-			//Utils.server.tell("keys of drop all? " + Object.keys(entityData.inventory.dropAll))
-			Utils.server.tell("Full obj: " + currentMatch());
+			
+			
+			Utils.server.tell("Blue Players: " + currentMatch().BluePlayers);
+			Utils.server.tell("Red Players: " + currentMatch().RedPlayers);
+			Utils.server.tell("Blue Points: " + currentMatch().BluePoints);
+			Utils.server.tell("Red Points: " + currentMatch().RedPoints);
+			
+			
+			return 1
+			})			
+		)
+		.then(Commands.literal('test-addplayers')				
+			.executes(ctx => {
+			Utils.server.tell("test command for match timer")
+			let entityData = ctx.source.entity;						
+			//Utils.server.tell("teamsPlayersCount is: " + teamsPlayersCount())									
+			let playerName = entityData.name.contents
+			let stringifiedPlayerName = ""
+			//stringifiedPlayerName = stringifiedPlayerName + playerName;
+			
+			currentMatch().BluePlayers += 1;
+			currentMatch().RedPlayers += 1;
+			
+			Utils.server.tell("Blue Players: " + currentMatch().BluePlayers);
+			Utils.server.tell("Red Players: " + currentMatch().RedPlayers);												
 			return 1
 			})			
 		)
@@ -796,14 +912,50 @@ onEvent("command.registry", event => {
 onEvent("entity.death", event => {
 
 	const currentMatch = () => {return event.server.persistentData.gunArenaCurrentMatch}; //sadly some of these have to be repeated per event as I can't figure out how to make them global
+	const tag = (p) => {return event.entity.stages.has(p)};
 	
 	
 	
+	//if (!currentMatch().IsOngoing) {return;}
 	
-	if (!currentMatch().IsOngoing) {return;}
-	
-	if (event.entity.type == "minecraft:polar_bear") {event.cancel(); event.entity.runCommand(`tp @s ~ ~10 ~`); Utils.server.tell("Source: " + (event.source));}
-		
+	if (event.entity.type == "minecraft:player") {
+			
+			
+			
+			switch (true) {
+				case tag("ga_blue_team"):
+					Utils.server.tell("Blue Player Killed!");
+					currentMatch().BluePlayers += -1;
+					break;
+				case tag("ga_red_team"):
+					Utils.server.tell("Red Player Killed!");
+					currentMatch().RedPlayers += -1;
+					break;
+			}
+			
+			switch (true) {
+				case (currentMatch().BluePlayers == 0):
+					currentMatch().RedPoints += 1;			
+					//redstone
+					break;
+				case (currentMatch().RedPlayers == 0):
+					currentMatch().BluePoints += 1;					
+					//redstone
+					break;					
+			}
+			
+			switch (true) {
+				case (currentMatch().BluePoints == winPoints):
+					Utils.server.tell("Blue Team has Won the Match")
+					break;
+				case (currentMatch().RedPoints == winPoints):					
+					//redstone end the match
+					break;					
+			}						
+			
+			//Utils.server.runCommand(`setblock ${killBlockCoords[0]} ${killBlockCoords[1]} ${killBlockCoords[2]} minecraft:diamond_block`);
+			Utils.server.tell("Source: " + (event.source));
+	}	
 	
 	
 })
