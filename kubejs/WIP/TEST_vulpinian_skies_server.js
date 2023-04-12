@@ -5,9 +5,9 @@ const maxPlayers =  4;  //Max amount of players allowed to be registered to a ma
 const minPlayers =  2; //Min amount of players needed to trigger a match to start
 const minReadyPlayers = 2; //min amount of players who have to be ready for a prematch timer to skip down to 5 seconds
 const prematchTimerDefault = 30; //Amount of time (in seconds, so 20-ticks intervals) before a match starts once minPlayers has been satisfied. Defauls is 30
-const roundTimerDefault = 120; //Amount of time (seconds) a round should last before it ends to time. Default is 120
+const roundTimerDefault = 10; //Amount of time (seconds) a round should last before it ends to time. Default is 120
 const roundPrepTimerDefault = 20; //Amount of time players get for preparation, before the gates open and a round starts. Default is 20
-const roundPostTimerDefault = 2; //Amount of time before round is ended and players get sent back to their appropriate Team Room. Default is 2
+const roundPostTimerDefault = 4; //Amount of time before round is ended and players get sent back to their appropriate Team Room, after the round has been won by a team. Default is 4
 const winPoints = 10; 			//Number of rounds a team needs to win in order to win the whole match
 
 //Global variables for program operation, do not touch
@@ -17,6 +17,7 @@ var primingRequired = false
 var triggerRequired = false;
 var triggeredAction = 0;
 var primeRoundPhaseOne = false;
+var primeRoundPhaseTwo = false;
 var killBlockCoords = [];
 
 
@@ -491,7 +492,7 @@ onEvent("command.registry", event => {
 								let internalTimerOne = getTimeToNextAction(roundTimerDefault, 0);
 								let nextTrigger = 0;
 								
-								killBlockCoords = [parseInt(posX + 3), parseInt(posY), parseInt(posZ + 1)]; //This sets the relative coordinates to the killBlock which is triggered by entity.death event in order to save resources/prevent additional checks in loop
+								killBlockCoords = [parseInt(posX + 2), parseInt(posY), parseInt(posZ)]; //This sets the relative coordinates to Phase two primer, (round ender) which is triggered by entity.death event in order to save resources/prevent additional checks in loop
 								resetCurrentMatch();
 								event.server.persistentData.gunArenaCurrentMatch.IsOngoing = true; //Set flag that match is underway. Game loop stops if this flag is false
 								event.server.persistentData.gunArenaCurrentMatch.BluePlayers = teamsPlayersCount().Blue; //teamsPlayersCount is doubling as a cached count of players that will be used to actually keep track
@@ -504,16 +505,17 @@ onEvent("command.registry", event => {
 									if (!currentMatch().IsOngoing) {return;}
 									addToCurrentMatchTime(1);
 									Utils.server.tell("Match ticking. Total match time is: " + currentMatch().TotalTime); 
-									if (currentMatch().TotalTime == internalTimerOne) {
+									/*if (currentMatch().TotalTime == internalTimerOne) {
 										internalTimerOne = getTimeToNextAction(roundTimerDefault, 0); //The offset is canceled here because it is not needed for inner timers set from outside the function
 										Utils.server.tell("Internal timer triggered!");
-									}
+									}*/
 									
 									
 									if (currentMatch().RoundTimer > -1) {currentMatch().RoundTimer += -1;}
 									Utils.server.tell("Round Timer is: " + currentMatch().RoundTimer);
-									if (currentMatch().RoundTimer == 0) { //Natural subloop to handle round timers										
-										Utils.server.tell("ROUNDE ENDED!");
+									if (currentMatch().RoundTimer == 0) { //Natural subloop to handle round timers
+										redstoneBlock(2, 0, 1); //Trigger Phase two (reset players and close the gates)
+										Utils.server.tell("ROUND ENDED!");
 									}
 									
 									if (primingRequired) {
@@ -526,6 +528,14 @@ onEvent("command.registry", event => {
 												triggerRequired = true;
 												triggeredAction = 1;
 												break;
+											case primeRoundPhaseTwo:
+												nextTrigger = getTimeToNextAction(roundPostTimerDefault, -2); 
+												Utils.server.tell("Round Phase Two Primed");
+												primingRequired = false;
+												primeRoundPhaseTwo = false
+												triggerRequired = true;
+												triggeredAction = 2;
+												break;
 										}
 									}
 									
@@ -533,6 +543,9 @@ onEvent("command.registry", event => {
 										switch (triggeredAction) {
 											case 1: //Trigger Phase one (open the gates)
 												redstoneBlock(1, 0, 1);
+												break;
+											case 2: //Trigger Phase two (reset players and close the gates)
+												redstoneBlock(2, 0, 1);
 												break;
 										}
 									}
@@ -548,8 +561,8 @@ onEvent("command.registry", event => {
 						)
 					)
 				)
-				.then(Commands.literal('round-handler')					
-					.then(Commands.literal('phase-one')
+				.then(Commands.literal('round-handler')
+					.then(Commands.literal('phase-one') //Time till gates open, pre-round start
 						.then(Commands.literal('primer') //Prime the main game loop to do the trigger after x seconds, where x is roundPrepTimerDefault
 							.executes(ctx => {
 								const pos = ctx.source.position;
@@ -563,7 +576,7 @@ onEvent("command.registry", event => {
 								return 1
 							})
 						)
-						.then(Commands.literal('trigger') //Actually do the stuff
+						.then(Commands.literal('trigger') //Actually do the stuff - OPEN DA GATES
 							.then(Commands.argument('rel-pos-x-one', Arguments.INTEGER.create(event))
 								.then(Commands.argument('rel-pos-y-one', Arguments.INTEGER.create(event))
 									.then(Commands.argument('rel-pos-z-one', Arguments.INTEGER.create(event))
@@ -600,7 +613,7 @@ onEvent("command.registry", event => {
 							)
 						)
 					)
-					.then(Commands.literal('phase-two')
+					.then(Commands.literal('phase-two') //Close gates and resend players to their Team Rooms
 						.then(Commands.literal('primer') //Prime the main game loop to do the trigger after x seconds, where x is roundPostTimerDefault
 							.executes(ctx => {
 								const pos = ctx.source.position;
@@ -610,11 +623,11 @@ onEvent("command.registry", event => {
 								
 								Utils.server.runCommand(`setblock ${posX} ${posY - 1} ${posZ} minecraft:air`);
 								primingRequired = true;
-								primeRoundPhaseOne = true;		
+								primeRoundPhaseTwo = true;
 								return 1
 							})
 						)
-						.then(Commands.literal('trigger') //Actually do the stuff
+						.then(Commands.literal('trigger')
 							.then(Commands.argument('rel-pos-x-one', Arguments.INTEGER.create(event))
 								.then(Commands.argument('rel-pos-y-one', Arguments.INTEGER.create(event))
 									.then(Commands.argument('rel-pos-z-one', Arguments.INTEGER.create(event))
@@ -622,7 +635,7 @@ onEvent("command.registry", event => {
 											.then(Commands.argument('rel-pos-y-two', Arguments.INTEGER.create(event))
 												.then(Commands.argument('rel-pos-z-two', Arguments.INTEGER.create(event))
 													.executes(ctx => {
-														const relXOne = Arguments.INTEGER.getResult(ctx, "rel-pos-x-one"); //EDIT IN COMMAND BLOCK Relative coords to blue Team Room gate activator, such as to place a redstone block
+														const relXOne = Arguments.INTEGER.getResult(ctx, "rel-pos-x-one"); //EDIT IN COMMAND BLOCK Relative coords to blue Team Room gate activator
 														const relYOne = Arguments.INTEGER.getResult(ctx, "rel-pos-y-one");
 														const relZOne = Arguments.INTEGER.getResult(ctx, "rel-pos-z-one");
 														const relXTwo = Arguments.INTEGER.getResult(ctx, "rel-pos-x-two"); //Relative coords to blue Team Room gate activator
@@ -637,9 +650,15 @@ onEvent("command.registry", event => {
 														let posZ = Math.floor(pos.z());
 														
 														Utils.server.runCommand(`setblock ${posX} ${posY - 1} ${posZ} minecraft:air`);																									
-														Utils.server.runCommand(`setblock ${posX + relXOne} ${posY + relYOne} ${posZ + relZOne} minecraft:redstone_block`);
-														Utils.server.runCommand(`setblock ${posX + relXTwo} ${posY + relYTwo} ${posZ + relZTwo} minecraft:redstone_block`);
+														Utils.server.runCommand(`setblock ${posX + relXOne} ${posY + relYOne} ${posZ + relZOne} minecraft:air`); //CLOSE the gates
+														Utils.server.runCommand(`setblock ${posX + relXTwo} ${posY + relYTwo} ${posZ + relZTwo} minecraft:air`);
 														
+														Utils.server.runCommand(`setblock ${posX + relXOne + 4} ${posY + relYOne - 5} ${posZ + relZOne} minecraft:redstone_block`); //EDIT Make this the relative coords going from gate activator to the bottom of the block at the center of each Team Room with the players-summon command
+														Utils.server.runCommand(`setblock ${posX + relXTwo + -4} ${posY + relYTwo - 5} ${posZ + relZTwo} minecraft:redstone_block`); //This sends players to their respective Team Rooms. First one is Blue, then Red.
+														currentMatch().RoundNumber += 1;
+														
+														Utils.server.runCommand(`setblock ${posX + relXOne + -14} ${posY + relYOne - 3} ${posZ + relZOne - 10} minecraft:redstone_block`) //Prime Phase One and keep the Round loop going until game ends. Coord goes from  Blue gate activation block.
+
 														return 1
 													})
 												)
@@ -935,11 +954,13 @@ onEvent("entity.death", event => {
 			
 			switch (true) {
 				case (currentMatch().BluePlayers == 0):
-					currentMatch().RedPoints += 1;			
+					currentMatch().RedPoints += 1;
+					Utils.server.runCommand(`setblock ${killBlockCoords[0]} ${killBlockCoords[1]} ${killBlockCoords[2]} minecraft:redstone_block`);
 					//redstone
 					break;
 				case (currentMatch().RedPlayers == 0):
-					currentMatch().BluePoints += 1;					
+					currentMatch().BluePoints += 1;
+					Utils.server.runCommand(`setblock ${killBlockCoords[0]} ${killBlockCoords[1]} ${killBlockCoords[2]} minecraft:redstone_block`);
 					//redstone
 					break;					
 			}
@@ -951,10 +972,8 @@ onEvent("entity.death", event => {
 				case (currentMatch().RedPoints == winPoints):					
 					//redstone end the match
 					break;					
-			}						
-			
-			//Utils.server.runCommand(`setblock ${killBlockCoords[0]} ${killBlockCoords[1]} ${killBlockCoords[2]} minecraft:diamond_block`);
-			Utils.server.tell("Source: " + (event.source));
+			}
+			//Utils.server.tell("Source: " + (event.source));
 	}	
 	
 	
