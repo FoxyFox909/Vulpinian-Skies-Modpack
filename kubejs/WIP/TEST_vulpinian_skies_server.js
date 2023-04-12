@@ -935,6 +935,39 @@ onEvent("command.registry", event => {
 						return 1
 					})
 				)
+				.then(Commands.literal('store-player-spawns') //Used as part of death-handler. Stores spawn coords (beds or whatever) of registered players to give them back after match, since player spawn point is changed to Jail during.
+					.executes(ctx => {												
+						for (let i = 0; i < currentPlayers().length; i++) {
+							Utils.server.runCommand(`execute as ${currentPlayers()[i].Name} run vps-gunarena functions fetch-spawn`);
+						}						
+						return 1
+					})
+				)
+				.then(Commands.literal('fetch-spawn') //called by store-player-spawns and executed as and per player, actually builds the compound tag array
+					.executes(ctx => {						
+						let getCoord = ctx.source.entity.getRespawnPosition();		
+						let spawnX = getCoord.getX();
+						let spawnY = getCoord.getY();
+						let spawnZ = getCoord.getZ();																							
+						let spawnData = `{"Name":"${ctx.source.entity.name.contents}","X":${spawnX},"Y":${spawnY},"Z":${spawnZ}}`;
+						
+						event.server.persistentData.gunArenaplayersStoredSpawn.push(JSON.parse(spawnData));
+						Utils.server.tell("Array is now : " + playersStoredSpawn());						
+						return 1
+					})
+				)
+				.then(Commands.literal('return-player-spawns') //Used as part of death-handler. Gives back spawn coords of registered players after match
+					.executes(ctx => {												
+						for (let i = 0; i < currentPlayers().length; i++) {
+							let sX = playersStoredSpawn()[i].X;
+							let sY = playersStoredSpawn()[i].Y;
+							let sZ = playersStoredSpawn()[i].Z;
+							
+							Utils.server.runCommand(`execute as ${currentPlayers()[i].Name} run spawnpoint @s ${sX} ${sY} ${sZ}`);
+						}						
+						return 1
+					})
+				)
 		)
 		.then(Commands.literal('test')				
 			.executes(ctx => {
@@ -955,37 +988,22 @@ onEvent("command.registry", event => {
 				
 				
 				for (let i = 0; i < currentPlayers().length; i++) {
-					Utils.server.runCommand(`execute as ${currentPlayers()[i].Name} run vps-gunarena test2`);
+					let sX = playersStoredSpawn()[i].X;
+					let sY = playersStoredSpawn()[i].Y;
+					let sZ = playersStoredSpawn()[i].Z;
+					
+					Utils.server.runCommand(`execute as ${currentPlayers()[i].Name} run spawnpoint @s ${sX} ${sY} ${sZ}`);
 				}
 				
 				
 				Utils.server.tell("My spawn Point: " + entityData.getRespawnPosition().getX());
 				Utils.server.tell("My spawn keys: " + Object.keys(entityData.getRespawnPosition()))
-				Utils.server.tell("My spawn typeof: " + typeof(entityData.getRespawnPosition()))
-				resetPlayersStoredSpawn();
+				Utils.server.tell("My spawn typeof: " + typeof(entityData.getRespawnPosition()))				
 				Utils.server.tell("SPAWN ARRAY IS: " + playersStoredSpawn());
 				
 				return 1
 			})	
-		)
-		.then(Commands.literal('test2')
-			.executes(ctx => {				
-				let getCoord = ctx.source.entity.getRespawnPosition();		
-				let spawnX = getCoord.getX();
-				let spawnY = getCoord.getY();
-				let spawnZ = getCoord.getZ();
-				
-				Utils.server.tell("Coords types are X: " + typeof(spawnX) + " Y: " + typeof(spawnY) + " Z: " + typeof(spawnZ));
-				Utils.server.tell("Coords are X: " + spawnX + " Y: " + spawnY + " Z: " + spawnZ);
-				
-				let spawnData = `{"Name":"${ctx.source.entity.name.contents}","X":${eval(spawnX)},"Y":${parseInt(spawnY)},"Z":${parseInt(spawnZ)}}`;
-				event.server.persistentData.gunArenaplayersStoredSpawn.push(JSON.parse(spawnData));
-				Utils.server.tell("Array is now : " + playersStoredSpawn());
-				Utils.server.tell("Index 0.X is: " + typeof(playersStoredSpawn()[0].X));
-				Utils.server.tell("Index 0 keys: " + Object.keys(playersStoredSpawn()[0]));
-				return 1
-			})
-		)
+		)		
 		.then(Commands.literal('test-addplayers')				
 			.executes(ctx => {
 			Utils.server.tell("test command for match timer")
