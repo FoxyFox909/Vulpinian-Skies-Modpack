@@ -9,8 +9,9 @@ const roundTimerDefault = 10; //Amount of time (seconds) a round should last bef
 const roundPrepTimerDefault = 6; //Amount of time players get for preparation, before the gates open and a round starts. Default is 20
 const roundPostTimerDefault = 4; //Amount of time before round is ended and players get sent back to their appropriate Team Room, after the round has been won by a team. Default is 4
 const winPoints = 10; 			//Number of rounds a team needs to win in order to win the whole match
+const jailCoords = [7, 3, 22]; //XYZ - Points to the center of Jail (the room dead players go to for the rest of the round) AS RELATIVE TO killBlockCoords. NOT ABSOLUTE COORDS.
 
-//Global variables for program operation, do not touch
+//Global variables for program operation. Do not touch, used just for initalization
 var prematchTimer = 30;
 var isPrematchTimerTicking = false;
 var primingRequired = false
@@ -18,7 +19,7 @@ var triggerRequired = false;
 var triggeredAction = 0;
 var primeRoundPhaseOne = false;
 var primeRoundPhaseTwo = false;
-var killBlockCoords = [];
+var killBlockCoords = []; //A block 2 blocks East (positive X from the matchTicker block. The effective position of this block will be right unde Phaste Two Primer. The only block whose coordinates are saved globally (automatically, wherever it is), used as a reference/home point for several in-world operations.
 
 
 onEvent("item.entity_interact", event => {
@@ -391,13 +392,13 @@ onEvent("command.registry", event => {
 														let posX = Math.floor(pos.x());
 														let posY = Math.floor(pos.y());
 														let posZ = Math.floor(pos.z());
-														
-														//Activate Team Command blocks via redstone
+
+														//Activate Team Command blocks via redstone																												
 														Utils.server.runCommand(`setblock ${posX + relXOne} ${posY + relYOne} ${posZ + relZOne} minecraft:redstone_block`);
 														Utils.server.runCommand(`setblock ${posX + relXTwo} ${posY + relYTwo} ${posZ + relZTwo} minecraft:redstone_block`);
 														Utils.server.runCommand(`execute as @e[type=minecraft:player,tag=ga_registered_player] run tag @s add ga_approved_entity`);
 														Utils.server.runCommand(`setblock ${posX + relXThree} ${posY + relYThree} ${posZ + relZThree} minecraft:redstone_block`);
-														Utils.server.tell('init-match-begin');
+														//Utils.server.tell('init-match-begin');
 														return 1	
 														})
 													)
@@ -495,7 +496,17 @@ onEvent("command.registry", event => {
 								let nextTrigger = 0;
 								
 								killBlockCoords = [parseInt(posX + 2), parseInt(posY), parseInt(posZ)]; //This sets the relative coordinates to Phase two primer, (round ender) which is triggered by entity.death event in order to save resources/prevent additional checks in loop
-								resetCurrentMatch();
+								
+								let jailX = killBlockCoords[0] + jailCoords[0];
+								let jailY = killBlockCoords[1] + jailCoords[1];
+								let jailZ = killBlockCoords[2] + jailCoords[2];
+								
+								//Store player spawn coords then set their current ones to Jail (as defined by relative coords of killBlockCoords
+								Utils.server.runCommand(`vps-gunarena functions store-player-spawns`);
+								for (let i = 0; i < currentPlayers().length; i++) {
+									Utils.server.runCommand(`execute as ${currentPlayers()[i].Name} run spawnpoint @s ${jailX} ${jailY} ${jailZ}`);
+								}
+								
 								event.server.persistentData.gunArenaCurrentMatch.IsOngoing = true; //Set flag that match is underway. Game loop stops if this flag is false
 								event.server.persistentData.gunArenaCurrentMatch.BluePlayers = teamsPlayersCount().Blue; //teamsPlayersCount is doubling as a cached count of players that will be used to actually keep track
 								event.server.persistentData.gunArenaCurrentMatch.RedPlayers = teamsPlayersCount().Red;   //of who the winning team of a round is by being subtracted whenever a player of that team is killed
@@ -700,7 +711,7 @@ onEvent("command.registry", event => {
 						let posY = Math.floor(pos.y());
 						let posZ = Math.floor(pos.z());
 						
-						Utils.server.runCommand(`setblock ${posX} ${posY - 1} ${posZ} minecraft:air`);	
+						Utils.server.runCommand(`setblock ${posX} ${posY - 1} ${posZ} minecraft:air`); //Remove redstone block from matchTicker + repeat command block corner
 						
 						//tag removal
 						let tagArr = ["ga_registered_player","ga_approved_entity","ga_blue_team","ga_red_team"]
@@ -708,7 +719,7 @@ onEvent("command.registry", event => {
 							Utils.server.runCommand(`tag @e[type=minecraft:player,tag=${tagArr[i]}] remove ${tagArr[i]}`);													
 						}						
 						
-						//FOR LOOP HERE TO GIVE BACK SPAWN POINTS
+						Utils.server.runCommand(`vps-gunarena functions return-player-spawns`); //Gives players their spawn points back
 
 						//clears various persistent data used for match
 						initializeCurrentPlayers(0, 1);
