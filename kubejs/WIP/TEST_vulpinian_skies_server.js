@@ -83,7 +83,7 @@ onEvent("command.registry", event => {
 	
 	function addToLifetimePlayers(number){
 		let data = event.server.persistentData.gunArenaLifetimePlayersCount
-		event.server.persistentData.gunArenaLifetimePlayersCount = event.server.persistentData.gunArenaLifetimePlayersCount + number
+		event.server.persistentData.gunArenaLifetimePlayersCount = event.server.persistentData.gunArenaLifetimePlayersCount + number;
 		return data;
 	}
 	
@@ -105,7 +105,7 @@ onEvent("command.registry", event => {
 	
 	function pushCurrentPlayers(playerName, playerNumber){
 		//const currentPlayers = event.server.persistentData.gunArenaCurrentPlayers
-		let player = `{"PlayerNumber":"${playerNumber}","Name":"${playerName}","Team":"Random","Ready":false}`
+		let player = `{"PlayerNumber":"${playerNumber}","Name":"${playerName}","Team":"Random","Ready":false,"Kills":0,"Deaths":0}`;
 		event.server.persistentData.gunArenaCurrentPlayers.push(JSON.parse(player))
 		return;
 	}
@@ -393,8 +393,11 @@ onEvent("command.registry", event => {
 														let posY = Math.floor(pos.y());
 														let posZ = Math.floor(pos.z());
 														
-														//Utils.server.runCommand(`execute as @e[type=minecraft:player,tag=ga_blue_team] run vps-gunarena functions add-pipe-segment ${slot} 2 "PLAYER ${currentPlayers().length + 1}: ${stringifiedPlayerName}"`)
-														//Utils.server.runCommand(`execute as ${stringifiedPlayerName} run vps-gunarena functions mod-pipe-segment ${slot} 3 "STATUS: Prematch"`)
+														Utils.server.runCommand(`execute as @e[type=minecraft:player,tag=ga_blue_team] run vps-gunarena functions add-pipe-segment-finder "stage2" 3 "TEAM: Blue"`);
+														Utils.server.runCommand(`execute as @e[type=minecraft:player,tag=ga_red_team] run vps-gunarena functions add-pipe-segment-finder "stage2" 3 "TEAM: Red"`);
+														Utils.server.runCommand(`execute as @e[type=minecraft:player,tag=ga_registered_player] run vps-gunarena functions add-pipe-segment-finder "stage2" 4 "KILLS: 0"`);
+														Utils.server.runCommand(`execute as @e[type=minecraft:player,tag=ga_registered_player] run vps-gunarena functions add-pipe-segment-finder "stage2" 5 "DEATHS: 0"`);
+														Utils.server.runCommand(`execute as @e[type=minecraft:player,tag=ga_registered_player] run vps-gunarena functions mod-pipe-segment-finder "stage2" 6 "STATUS: In Match"`);
 
 														//Activate Team Command blocks via redstone																												
 														Utils.server.runCommand(`setblock ${posX + relXOne} ${posY + relYOne} ${posZ + relZOne} minecraft:redstone_block`);
@@ -526,8 +529,7 @@ onEvent("command.registry", event => {
 									/*if (currentMatch().TotalTime == internalTimerOne) {
 										internalTimerOne = getTimeToNextAction(roundTimerDefault, 0); //The offset is canceled here because it is not needed for inner timers set from outside the function
 										Utils.server.tell("Internal timer triggered!");
-									}*/
-									
+									}*/									
 									
 									if (currentMatch().RoundTimer > -1) {currentMatch().RoundTimer += -1;}
 									Utils.server.tell("Round Timer is: " + currentMatch().RoundTimer);
@@ -718,6 +720,10 @@ onEvent("command.registry", event => {
 						
 						Utils.server.runCommand(`setblock ${posX} ${posY - 1} ${posZ} minecraft:air`); //Remove redstone block from matchTicker + repeat command block corner
 						
+						Utils.server.runCommand(`setblock ${killBlockCoords[0] - 3} ${killBlockCoords[1]} ${killBlockCoords[2]} minecraft:air`); //Uses killBlockCoords (two blocks south, or Positive Z, to matchTicker command block) to clear the redstone block underneath command block
+						Utils.server.runCommand(`setblock ${killBlockCoords[0] + 13} ${killBlockCoords[1] + 3} ${killBlockCoords[2] + 10} minecraft:air`); //EDIT uses killBlockCoords to close gate of Blue Team Room if needed
+						Utils.server.runCommand(`setblock ${killBlockCoords[0] + 1} ${killBlockCoords[1] + 3} ${killBlockCoords[2] + 10} minecraft:air`); //same but for Red Team Room
+						
 						//tag removal
 						let tagArr = ["ga_registered_player","ga_approved_entity","ga_blue_team","ga_red_team"]
 						for (let i = 0; i < tagArr.length; i++) {							
@@ -732,9 +738,7 @@ onEvent("command.registry", event => {
 						changeReadyPlayers(0);
 						changeTeamsPlayersCount(1, 0);
 						resetCurrentMatch();
-						Utils.server.runCommand(`setblock ${killBlockCoords[0] - 3} ${killBlockCoords[1]} ${killBlockCoords[2]} minecraft:air`); //Uses killBlockCoords (two blocks south, or Positive Z, to matchTicker command block) to clear the redstone block underneath command block
-						Utils.server.runCommand(`setblock ${killBlockCoords[0] + 13} ${killBlockCoords[1] + 3} ${killBlockCoords[2] + 10} minecraft:air`); //EDIT uses killBlockCoords to close gate of Blue Team Room if needed
-						Utils.server.runCommand(`setblock ${killBlockCoords[0] + 1} ${killBlockCoords[1] + 3} ${killBlockCoords[2] + 10} minecraft:air`); //same but for Red Team Room
+					
 						return 1
 					})
 				)
@@ -1205,18 +1209,67 @@ onEvent("command.registry", event => {
 onEvent("entity.death", event => {
 	
 	const currentMatch = () => {return event.server.persistentData.gunArenaCurrentMatch}; //sadly some of these have to be repeated per event as I can't figure out how to make them global
-	const tag = (p) => {return event.entity.stages.has(p)};	   
+	const currentPlayers = () => {return event.server.persistentData.gunArenaCurrentPlayers};
+	const tag = (p) => {return event.entity.stages.has(p)};
+
+	//Utils.server.tell("Deathee is " + event.entity.stages.has('ga_registered_player'));
+	
+	function KDChanger (pName, killOrDeath) {		
+		const currentPlayers = () => {return event.server.persistentData.gunArenaCurrentPlayers};
+
+		for (let i = 0; i < currentPlayers().length; i++) {
+			
+			if (pName == currentPlayers()[i].Name) {				
+				switch (killOrDeath) {
+					case 1: //Add a kill
+						currentPlayers()[i].Kills += 1;						
+						Utils.server.runCommand(`execute as ${pName} run vps-gunarena functions mod-pipe-segment-finder "stage4" 4 "KILLS: ${currentPlayers()[i].Kills}"`);
+						break;
+					case 2: //Add a death
+						currentPlayers()[i].Deaths += 1;						
+						Utils.server.runCommand(`execute as ${pName} run vps-gunarena functions mod-pipe-segment-finder "stage4" 5 "DEATHS: ${currentPlayers()[i].Deaths}"`);
+						break;
+				}
+			}			
+		}
+	}
 	
 	//if (!currentMatch().IsOngoing) {return;}
 	
-	if (event.entity.type == "minecraft:player") {
+	if (event.entity.type == "minecraft:polar_bear") {
+
+			if (event.source.player) { //check if sourcce is a player
+				let pSource = event.source.player.name.contents;
+				Utils.server.tell("Source is a player");
+				Utils.server.tell("Source: " + (pSource));
+				KDChanger(pSource, 1);
+				
+			} else {Utils.server.tell("Source is " + event.source);}
+			//Utils.server.tell("Keys of death event: " + Object.keys(event.source.player.name));
+	}
+	
+	if (event.entity.type == "minecraft:player" && tag('ga_registered_player')) {	
+		let deadPlayerName = event.entity.name.contents; //Get the deathee's name (this comment only exists so I can say the word Deathee)
+		
+			Utils.server.tell(`Player ${deadPlayerName} is ded`)
+			Utils.server.runCommand(`gamerule doImmediateRespawn true`);
 			
+			event.server.scheduleInTicks(2, callback => {
+				Utils.server.runCommand(`gamerule doImmediateRespawn false`);			
+			})
+			
+			event.server.scheduleInTicks(10, callback => {
+				Utils.server.tell("Changed deaths, and is now: " + currentPlayers()[1].Deaths);
+				KDChanger(deadPlayerName, 2);
+			})
+
+			/*
 			if (tag("ga_approved_entity")) {
 				Utils.server.runCommand(`gamerule doImmediateRespawn true`);
 				event.server.scheduleInTicks(2, callback => {
-				Utils.server.runCommand(`gamerule doImmediateRespawn false`);
+					Utils.server.runCommand(`gamerule doImmediateRespawn false`);
 				})
-			}
+			}*/
 			//Utils.server.runCommand(`gamerule doImmediateRespawn false`);
 			switch (true) {
 				case tag("ga_blue_team"):
@@ -1251,8 +1304,7 @@ onEvent("entity.death", event => {
 					Utils.server.tell("Red Team has Won the Match")
 					Utils.server.runCommand(`setblock ${killBlockCoords[0] + 1} ${killBlockCoords[1]} ${killBlockCoords[2]} minecraft:redstone_block`);
 					break;					
-			}
-			//Utils.server.tell("Source: " + (event.source));
+			}			
 	}	
 	
 	
