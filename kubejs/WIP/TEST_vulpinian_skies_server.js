@@ -336,9 +336,9 @@ onEvent("command.registry", event => {
 						};
 						
 						
-						event.server.tell('Join team Command end')
+						event.server.tell('Join team Command end');
 						
-						return 1
+						return 1;
 					})
 					)
 				)
@@ -757,9 +757,14 @@ onEvent("command.registry", event => {
 						}
 						
 						//toadd Team K/D - ${}/${},
-						//Write final match result into players' cards 
-						Utils.server.runCommand(`execute as @e[type=minecraft:player,tag=ga_blue_team] run vps-gunarena functions mod-pipe-segment-finder "stage4" 6 "STATUS: ${blueResultMsg} - Team Kills: ${getTeamKillsorDeaths("Blue", "Kills")} / Deaths: ${getTeamKillsorDeaths("Blue", "Deaths")} - Rounds Won: ${bluePoints} / Lost: ${redPoints} - Match Time: ${matchMinutes}:${matchSeconds}"`);
+						//Write final match result into players' cards
+						//The 2-tick delay is used because otherwise if a player dies and it causes the game to end, their card won't get written
+						event.server.scheduleInTicks(2, callback => {
+						Utils.server.runCommand(`execute as @e[type=minecraft:player,tag=ga_blue_team] run vps-gunarena functions mod-pipe-segment-finder "stage4" 6 "STATUS: ${blueResultMsg} - Team Kills: ${getTeamKillsorDeaths("Blue", "Kills")} / Deaths: ${getTeamKillsorDeaths("Blue", "Deaths")} - Rounds Won: ${bluePoints} / Lost: ${redPoints} - Match Time: ${matchMinutes.toString().padStart(5,0)}:${matchSeconds}"`);
 						Utils.server.runCommand(`execute as @e[type=minecraft:player,tag=ga_red_team] run vps-gunarena functions mod-pipe-segment-finder "stage4" 6 "STATUS: ${redResultMsg} - Team Kills: ${getTeamKillsorDeaths("Red", "Kills")} / Deaths: ${getTeamKillsorDeaths("Red", "Deaths")} - Rounds Won: ${redPoints} / Lost: ${bluePoints} - Match Time: ${matchMinutes}:${matchSeconds}"`);
+						})
+						
+						
 						Utils.server.runCommand(`setblock ${posX} ${posY - 1} ${posZ} minecraft:air`); //Remove redstone block from matchTicker + repeat command block corner
 						
 						Utils.server.runCommand(`setblock ${killBlockCoords[0] - 3} ${killBlockCoords[1]} ${killBlockCoords[2]} minecraft:air`); //Uses killBlockCoords (two blocks south, or Positive Z, to matchTicker command block) to clear the redstone block underneath command block
@@ -768,7 +773,7 @@ onEvent("command.registry", event => {
 						
 						//tag removal, delayed by 2 ticks so other operations can be done before tags and data are gone
 						//then clears various persistent data used for match
-						event.server.scheduleInTicks(2, callback => {
+						event.server.scheduleInTicks(4, callback => {
 							let tagArr = ["ga_registered_player","ga_approved_entity","ga_blue_team","ga_red_team"]
 							for (let i = 0; i < tagArr.length; i++) {							
 								Utils.server.runCommand(`tag @e[type=minecraft:player,tag=${tagArr[i]}] remove ${tagArr[i]}`);
