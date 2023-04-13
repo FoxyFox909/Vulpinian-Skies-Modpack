@@ -231,7 +231,6 @@ onEvent("command.registry", event => {
 							stringifiedPlayerName = stringifiedPlayerName + playerName;
 							let modifiedName = nameString.substring(0, (nameIndex + 1)) + ` ${stringifiedPlayerName} ` + nameString.substring((nameIndex + 1))
 							
-							//entityData.runCommand(`tp Ahri_Loyala ~ ~ ~`)
 							Utils.server.runCommand(`execute as ${stringifiedPlayerName} run vps-gunarena functions add-pipe-segment ${slot} 1 "PLAYER ${currentPlayers().length + 1}: ${stringifiedPlayerName}"`)
 							Utils.server.runCommand(`execute as ${stringifiedPlayerName} run vps-gunarena functions mod-pipe-segment ${slot} 3 "STATUS: Prematch"`)
 							event.server.tell(`Found a valid Card! You have been registered as Player ${currentPlayers().length + 1}.`); //not sure if this will whisper or tell the whole server
@@ -243,7 +242,7 @@ onEvent("command.registry", event => {
 							changeTeamsPlayersCount(1, 3);
 							break;
 						} else {continue};
-					};	// else Utils.server.tell("No Card Found");	//else invSlotId == "minecraft:air";
+					};
 				};
 				return 1
 				})
@@ -393,6 +392,9 @@ onEvent("command.registry", event => {
 														let posX = Math.floor(pos.x());
 														let posY = Math.floor(pos.y());
 														let posZ = Math.floor(pos.z());
+														
+														//Utils.server.runCommand(`execute as @e[type=minecraft:player,tag=ga_blue_team] run vps-gunarena functions add-pipe-segment ${slot} 2 "PLAYER ${currentPlayers().length + 1}: ${stringifiedPlayerName}"`)
+														//Utils.server.runCommand(`execute as ${stringifiedPlayerName} run vps-gunarena functions mod-pipe-segment ${slot} 3 "STATUS: Prematch"`)
 
 														//Activate Team Command blocks via redstone																												
 														Utils.server.runCommand(`setblock ${posX + relXOne} ${posY + relYOne} ${posZ + relZOne} minecraft:redstone_block`);
@@ -867,6 +869,88 @@ onEvent("command.registry", event => {
 						)
 					)
 				)
+				.then(Commands.literal('mod-pipe-segment-finder') //same as mod-pipe-segment, but this one includes a finder loop to grab the card of the player on the go, wherever it is in the inventory
+					.then(Commands.argument('inscribed', Arguments.STRING.create(event))
+						.then(Commands.argument('pipe-index', Arguments.INTEGER.create(event))
+							.then(Commands.argument('new-lore', Arguments.STRING.create(event))
+								.executes(ctx => {
+									const arg1 = Arguments.STRING.getResult(ctx, "inscribed")
+									const arg2 = Arguments.INTEGER.getResult(ctx, "pipe-index")								
+									const arg3 = Arguments.STRING.getResult(ctx, "new-lore")
+									
+									let entityData = ctx.source.entity;
+									let size = entityData.getInventory().containerSize;
+									Utils.server.tell("Size is: " + size);
+									for (let slot = 0; slot < (size); slot++) {
+										let invSlotId = entityData.getInventory().getItem(slot).serializeNBT().id; //get ID from NBT of item
+										if (invSlotId == "create_things_and_misc:card") {									
+											let cardTag = entityData.getInventory().getItem(slot).getTag().Inscribed; //get the NBT dat adown to the Inscribed key for validation
+											
+											if (cardTag.includes(arg1)) {
+												modPipeSegment(slot, arg2, arg3);
+												break;
+											} else {continue};
+										};
+									};	
+
+									function modPipeSegment (slot, pipeIndex, newLore) {
+										let entityData = ctx.source.entity
+										const getLore = () => {return String.raw`${entityData.getInventory().getItem(slot).getTag().display.Lore}`;}
+										const modifyLore = (p) => {entityData.getInventory().getItem(slot).getTag().display.Lore = eval(p);}
+										const buildRegex = (i) => {return RegExp(String.raw`((?:.*?\|){${i}}).*$`);}
+										let stringStartIndex = getLore().match(buildRegex(pipeIndex))[1].length;
+										let stringEndIndex = getLore().match(buildRegex(pipeIndex + 1))[1].length;
+										let modifiedLore = getLore().substring(0, (stringStartIndex + 1)) + newLore + getLore().substring((stringEndIndex - 2))
+										modifyLore(modifiedLore);										
+									}
+									return 1
+								})
+							)
+						)
+					)
+				)
+				.then(Commands.literal('add-pipe-segment-finder')
+					.then(Commands.argument('inscribed', Arguments.STRING.create(event))
+						.then(Commands.argument('pipe-index', Arguments.INTEGER.create(event))
+							.then(Commands.argument('new-lore', Arguments.STRING.create(event))
+								.executes(ctx => {
+									const arg1 = Arguments.STRING.getResult(ctx, "inscribed")
+									const arg2 = Arguments.INTEGER.getResult(ctx, "pipe-index")								
+									const arg3 = Arguments.STRING.getResult(ctx, "new-lore")
+									
+									let entityData = ctx.source.entity;
+									let size = entityData.getInventory().containerSize;
+									Utils.server.tell("Size is: " + size);
+									for (let slot = 0; slot < (size); slot++) {
+										let invSlotId = entityData.getInventory().getItem(slot).serializeNBT().id; //get ID from NBT of item
+										if (invSlotId == "create_things_and_misc:card") {									
+											let cardTag = entityData.getInventory().getItem(slot).getTag().Inscribed; //get the NBT dat adown to the Inscribed key for validation
+											
+											if (cardTag.includes(arg1)) {
+												modPipeSegment(slot, arg2, arg3);
+												break;
+											} else {continue};
+										};
+									};	
+									
+									
+									function modPipeSegment (slot, pipeIndex, newLore) {
+										let entityData = ctx.source.entity
+										const getLore = () => {return String.raw`${entityData.getInventory().getItem(slot).getTag().display.Lore}`;}
+										const modifyLore = (p) => {entityData.getInventory().getItem(slot).getTag().display.Lore = eval(p);}
+										const buildRegex = (i) => {return RegExp(String.raw`((?:.*?\|){${i}}).*$`);}
+										let stringStartIndex = getLore().match(buildRegex(pipeIndex))[1].length;
+										let stringEndIndex = stringStartIndex - 1;
+										let modifiedLore = getLore().substring(0, (stringStartIndex + 1)) + newLore + ' ' + getLore().substring((stringEndIndex ))
+										modifyLore(modifiedLore);
+										
+									}
+									return 1
+								})
+							)
+						)
+					)
+				)
 				.then(Commands.literal('assign-to-team') //assigns players to teams where 1 = blue, 2 = red, 3 = random
 					.then(Commands.argument('team', Arguments.INTEGER.create(event))
 						.executes(ctx => {							
@@ -875,7 +959,7 @@ onEvent("command.registry", event => {
 							let playerIndex = 0;
 							let entityData = ctx.source.entity;
 							let size = entityData.getInventory().containerSize;														
-							for (let slot = 0; slot < (size + 5); slot++) {
+							for (let slot = 0; slot < (size); slot++) {
 							let invSlotId = entityData.getInventory().getItem(slot).serializeNBT().id //get ID from NBT of item													
 							
 							//Loops through inventory finding cards matching the right NBT, and takes the first one it finds and gets Player number from inscribed to find player index in JSON array
