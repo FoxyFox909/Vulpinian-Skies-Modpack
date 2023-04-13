@@ -5,10 +5,10 @@ const maxPlayers =  4;  //Max amount of players allowed to be registered to a ma
 const minPlayers =  2; //Min amount of players needed to trigger a match to start
 const minReadyPlayers = 2; //min amount of players who have to be ready for a prematch timer to skip down to 5 seconds
 const prematchTimerDefault = 30; //Amount of time (in seconds, so 20-ticks intervals) before a match starts once minPlayers has been satisfied. Defauls is 30
-const roundTimerDefault = 10; //Amount of time (seconds) a round should last before it ends to time. Default is 120
+const roundTimerDefault = 120; //Amount of time (seconds) a round should last before it ends to time. Default is 120
 const roundPrepTimerDefault = 6; //Amount of time players get for preparation, before the gates open and a round starts. Default is 20
 const roundPostTimerDefault = 4; //Amount of time before round is ended and players get sent back to their appropriate Team Room, after the round has been won by a team. Default is 4
-const winPoints = 3; 			//Number of rounds a team needs to win in order to win the whole match
+const winPoints = 10; 			//Number of rounds a team needs to win in order to win the whole match
 const jailCoords = [7, 3, 22]; //XYZ - Points to the center of Jail (the room dead players go to for the rest of the round) AS RELATIVE TO killBlockCoords. NOT ABSOLUTE COORDS.
 
 //Global variables for program operation. Do not touch, used just for initalization
@@ -46,7 +46,8 @@ onEvent("item.entity_interact", event => {
 	//Utils.server.runCommand("summon fox " + event.player.x + ' ' + event.player.y + ' ' + event.player.z)
 	
 	if (event.target.type == "minecraft:fox" & event.item.id == "minecraft:diamond") {
-	Utils.server.tell("Fox Clicked with Diamond")
+	Utils.server.tell("Fox Clicked with Diamond");
+	Utils.server.tell("Player Keys: " + Object.keys(event.player));
 	//Utils.server.tell("Bool is " + currentMatch().IsOngoing);
 	//addToLifetimePlayers(1)
 	//event.server.persistentData.gunArenaCurrentPlayers = [{"PlayerNumber":"1","Name":"Ahri_Loyala","Team":"Blue"},{"PlayerNumber":"2","Name":"Raven_Blackblood","Team":"Red"}]
@@ -982,13 +983,73 @@ onEvent("command.registry", event => {
 					})
 				)
 		)
+		.then(Commands.literal('extras') //Unnecessary yet satisfying features, polish, bells and whistles
+			.then(Commands.literal('shop') //Simple drop-and-buy shop command, meant to be used with a tileable shop build template
+				.then(Commands.argument('sale-item', Arguments.STRING.create(event))
+					.then(Commands.argument('payment-item', Arguments.STRING.create(event))
+						.then(Commands.argument('item-price', Arguments.INTEGER.create(event))
+							.executes(ctx => {
+								const saleItem = Arguments.STRING.getResult(ctx, "sale-item");
+								const paymentItem = Arguments.STRING.getResult(ctx, "payment-item");
+								const itemPrice = Arguments.INTEGER.getResult(ctx, "item-price");
+								
+								const pos = ctx.source.position
+								let posX = Math.floor(pos.x());
+								let posY = Math.floor(pos.y());
+								let posZ = Math.floor(pos.z());								
+							
+								let itemCount = Utils.server.runCommand(`data get block ${posX - 1} ${posY} ${posZ + 1} Items[0].Count`);								
+								
+								if (itemCount >= itemPrice) {
+								Utils.server.runCommand(`data merge block ${posX - 1} ${posY} ${posZ + 1} {Items:[{Slot:0b,id:"${paymentItem}",Count:${itemCount - itemPrice}b}]}`);								
+								Utils.server.runCommand(`summon minecraft:item ${posX - 1} ${posY + 7} ${posZ + 1} {Item:{id:"${saleItem}",Count:1b}}`);
+								}
+								
+								return 1
+							})
+						)
+					)
+				)
+			)
+			.then(Commands.literal('shop-ticket') //Simple drop-and-buy shop command, specialized for tickets				
+				.then(Commands.argument('payment-item', Arguments.STRING.create(event))
+					.then(Commands.argument('item-price', Arguments.INTEGER.create(event))
+						.executes(ctx => {							
+							const paymentItem = Arguments.STRING.getResult(ctx, "payment-item");
+							const itemPrice = Arguments.INTEGER.getResult(ctx, "item-price");
+							
+							const pos = ctx.source.position
+							let posX = Math.floor(pos.x());
+							let posY = Math.floor(pos.y());
+							let posZ = Math.floor(pos.z());								
+						
+							let itemCount = Utils.server.runCommand(`data get block ${posX - 1} ${posY} ${posZ + 1} Items[0].Count`);								
+							
+							if (itemCount >= itemPrice) {
+							Utils.server.runCommand(`data merge block ${posX - 1} ${posY} ${posZ + 1} {Items:[{Slot:0b,id:"${paymentItem}",Count:${itemCount - itemPrice}b}]}`);							
+							Utils.server.runCommand(`summon minecraft:item ${posX - 1} ${posY + 7} ${posZ + 1} {Item:{id:"${saleItem}",Count:1b}}`);
+							}
+							
+							return 1
+						})
+					)
+				)
+				
+			)
+			.then(Commands.literal('test')
+				.executes(ctx => {
+					
+					return 1
+				})
+			)
+		)			
 		.then(Commands.literal('test')				
 			.executes(ctx => {
 				Utils.server.tell("test command for match timer")
 				let entityData = ctx.source.entity;			
 				//Utils.server.tell("teamsPlayersCount is: " + teamsPlayersCount())									
-				let playerName = entityData.name.contents
-				let stringifiedPlayerName = ""
+				//let playerName = entityData.name.contents
+				//let stringifiedPlayerName = ""
 				//stringifiedPlayerName = stringifiedPlayerName + playerName;
 				
 				
@@ -997,7 +1058,7 @@ onEvent("command.registry", event => {
 				Utils.server.tell("Red Players: " + currentMatch().RedPlayers);
 				Utils.server.tell("Blue Points: " + currentMatch().BluePoints);
 				Utils.server.tell("Red Points: " + currentMatch().RedPoints);
-				*/
+				
 				
 				
 				for (let i = 0; i < currentPlayers().length; i++) {
@@ -1013,11 +1074,22 @@ onEvent("command.registry", event => {
 				Utils.server.tell("My spawn keys: " + Object.keys(entityData.getRespawnPosition()))
 				Utils.server.tell("My spawn typeof: " + typeof(entityData.getRespawnPosition()))				
 				Utils.server.tell("SPAWN ARRAY IS: " + playersStoredSpawn());
+				*/
+				
+				Utils.server.tell(`${Utils.server.runCommand(`data get block 6 -59 -9 Items[0].Count`)}`);
+				
+				let itemCount = Utils.server.runCommand(`data get block 6 -59 -9 Items[0].Count`);
+				let itemPrice = 2;
+				let paymentItem = "minecraft:gold_ingot";
+				
+				if (itemCount >= itemPrice) {
+				Utils.server.runCommand(`data merge block 6 -59 -9 {Items:[{Slot:0b,id:"${paymentItem}",Count:${itemCount - itemPrice}b}]}`);
+				}
 				
 				return 1
 			})	
 		)		
-		.then(Commands.literal('test-addplayers')				
+		.then(Commands.literal('test-addplayers')
 			.executes(ctx => {
 			Utils.server.tell("test command for match timer")
 			let entityData = ctx.source.entity;						
@@ -1047,18 +1119,21 @@ onEvent("command.registry", event => {
 
 //death cannot be canceled. on death, some global variables are affected, and spawnpoint is set
 onEvent("entity.death", event => {
-
+	
 	const currentMatch = () => {return event.server.persistentData.gunArenaCurrentMatch}; //sadly some of these have to be repeated per event as I can't figure out how to make them global
-	const tag = (p) => {return event.entity.stages.has(p)};
-	
-	
+	const tag = (p) => {return event.entity.stages.has(p)};	   
 	
 	//if (!currentMatch().IsOngoing) {return;}
 	
 	if (event.entity.type == "minecraft:player") {
 			
-			
-			
+			if (tag("ga_approved_entity")) {
+				Utils.server.runCommand(`gamerule doImmediateRespawn true`);
+				event.server.scheduleInTicks(2, callback => {
+				Utils.server.runCommand(`gamerule doImmediateRespawn false`);
+				})
+			}
+			//Utils.server.runCommand(`gamerule doImmediateRespawn false`);
 			switch (true) {
 				case tag("ga_blue_team"):
 					Utils.server.tell("Blue Player Killed!");
