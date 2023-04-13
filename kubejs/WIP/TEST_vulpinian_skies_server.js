@@ -5,10 +5,10 @@ const maxPlayers =  4;  //Max amount of players allowed to be registered to a ma
 const minPlayers =  2; //Min amount of players needed to trigger a match to start
 const minReadyPlayers = 2; //min amount of players who have to be ready for a prematch timer to skip down to 5 seconds
 const prematchTimerDefault = 30; //Amount of time (in seconds, so 20-ticks intervals) before a match starts once minPlayers has been satisfied. Defauls is 30
-const roundTimerDefault = 120; //Amount of time (seconds) a round should last before it ends to time. Default is 120
+const roundTimerDefault = 9; //Amount of time (seconds) a round should last before it ends to time. Default is 120
 const roundPrepTimerDefault = 6; //Amount of time players get for preparation, before the gates open and a round starts. Default is 20
 const roundPostTimerDefault = 4; //Amount of time before round is ended and players get sent back to their appropriate Team Room, after the round has been won by a team. Default is 4
-const winPoints = 10; 			//Number of rounds a team needs to win in order to win the whole match
+const winPoints = 3; 			//Number of rounds a team needs to win in order to win the whole match
 const jailCoords = [7, 3, 22]; //XYZ - Points to the center of Jail (the room dead players go to for the rest of the round) AS RELATIVE TO killBlockCoords. NOT ABSOLUTE COORDS.
 
 //Global variables for program operation. Do not touch, used just for initalization
@@ -174,7 +174,7 @@ onEvent("command.registry", event => {
 	event.register(
 		Commands.literal('vps-gunarena')
 			.requires(src => src.hasPermission(2))
-			.then(Commands.literal('card')	
+			.then(Commands.literal('card')
 				.then(Commands.argument('rel-pos-x', Arguments.INTEGER.create(event))
 					.then(Commands.argument('rel-pos-y', Arguments.INTEGER.create(event))
 						.then(Commands.argument('rel-pos-z', Arguments.INTEGER.create(event))
@@ -188,9 +188,9 @@ onEvent("command.registry", event => {
 								let posZ = Math.floor(pos.z())
 								let paddedId = lifetimePlayersCount().toString().padStart(5,0)
 								
-								addToLifetimePlayers(1)
-								//Utils.server.runCommand('data merge block ' + (posX + relPosX)+ ' ' + (posY + relPosY) + ' ' + (posZ + relPosZ) + ` {Items:[{Slot:0b,id:"create_things_and_misc:card", Count: 1b, tag:{Inscribed:"Vulpine Co. [stage1-valid]",display:{Name:'[{"text":"Gun Arena ID-${paddedId}","italic":false}]'}}}]}`)
-								Utils.server.runCommand('data merge block ' + (posX + relPosX)+ ' ' + (posY + relPosY) + ' ' + (posZ + relPosZ) + ` {Items:[{Slot:0b,id:"create_things_and_misc:card", Count: 1b, tag:{Inscribed:"Vulpine Co. [stage1-valid]",display:{Name:'[{"text":"Gun Arena ID-${paddedId}","italic":false}]',Lore:['[{"text":"| CARD ID: ${paddedId} | STATUS: Valid Entry Ticket |","italic":false}]']},GunArenaOrigin:1b}}]}`)
+								addToLifetimePlayers(1);					
+								//Utils.server.runCommand('data merge block ' + (posX + relPosX)+ ' ' + (posY + relPosY) + ' ' + (posZ + relPosZ) + ` {Items:[{Slot:0b,id:"create_things_and_misc:card", Count: 1b, tag:{Inscribed:"Vulpine Co. [stage1-valid]",display:{Name:'[{"text":"Gun Arena ID-${paddedId}","italic":false}]',Lore:['[{"text":"| CARD ID: ${paddedId} | STATUS: Valid Entry Ticket |","italic":false}]']},GunArenaOrigin:1b}}]}`)
+								Utils.server.runCommand('data merge block ' + (posX + relPosX)+ ' ' + (posY + relPosY) + ' ' + (posZ + relPosZ) + ` {Items:[{Slot:0b,id:"create_things_and_misc:card", Count: 1b, tag:{Inscribed:"Vulpine Co. [stage1-valid]",display:{Name:'[{"text":"Gun Arena ID-${paddedId}","italic":false}]',Lore:['[{"text":"| CARD ID: ${paddedId} | STATUS: Valid Entry Ticket |","color":"aqua","italic":false}]']},GunArenaOrigin:1b}}]}`)
 								Utils.server.tell("Put a diamond in chest above, and coords used were: " + posX + ' ' + (posY + 1) + ' ' + posZ)								
 								return 1
 							})
@@ -698,6 +698,9 @@ onEvent("command.registry", event => {
 														Utils.server.runCommand(`setblock ${posX + relXTwo + -4} ${posY + relYTwo - 5} ${posZ + relZTwo} minecraft:redstone_block`); //This sends players to their respective Team Rooms. First one is Blue, then Red.
 														currentMatch().RoundNumber += 1;
 														
+														event.server.persistentData.gunArenaCurrentMatch.BluePlayers = teamsPlayersCount().Blue; //reset teamsPlayersCount VERY IMPORTANT
+														event.server.persistentData.gunArenaCurrentMatch.RedPlayers = teamsPlayersCount().Red;
+														
 														Utils.server.runCommand(`setblock ${posX + relXOne + -14} ${posY + relYOne - 3} ${posZ + relZOne - 10} minecraft:redstone_block`) //Prime Phase One and keep the Round loop going until game ends. Coord goes from  Blue gate activation block.
 
 														return 1
@@ -718,27 +721,74 @@ onEvent("command.registry", event => {
 						let posY = Math.floor(pos.y());
 						let posZ = Math.floor(pos.z());
 						
+						let matchSeconds = currentMatch().TotalTime % 60;
+						let matchMinutes = (currentMatch().TotalTime - matchSeconds) / 60;
+						let bluePoints = currentMatch().BluePoints;
+						let redPoints = currentMatch().RedPoints;
+						let blueResultMsg = "";
+						let redResultMsg = "";
+						
+						function getTeamKillsorDeaths (team, killsOrDeaths) {
+						  let count = 0;
+						   for (let i = 0; i < currentPlayers().length; i++) {
+							  
+							  if (currentPlayers()[i].Team == team) {
+								//console.log(currentPlayers()[i].Team);
+								count += currentPlayers()[i][killsOrDeaths];
+							  }
+						  }
+						  return count;
+						}
+						
+						//By simply comparing points, this is able to handle premature match conclussion, ending the game and properly declaring a winner with whatever the current state of the game was
+						switch (true) {
+							case (bluePoints > redPoints):
+								blueResultMsg = "Victory";
+								redResultMsg = "Defeat";
+								break;
+							case (redPoints > bluePoints):
+								blueResultMsg = "Defeat";
+								redResultMsg = "Victory";
+								break;
+							case (bluePoints == redPoints):
+								blueResultMsg = "Tie";
+								redResultMsg = "Tie";
+								break;
+						}
+						
+						//toadd Team K/D - ${}/${},
+						//Write final match result into players' cards 
+						Utils.server.runCommand(`execute as @e[type=minecraft:player,tag=ga_blue_team] run vps-gunarena functions mod-pipe-segment-finder "stage4" 6 "STATUS: ${blueResultMsg} - Team Kills: ${getTeamKillsorDeaths("Blue", "Kills")} / Deaths: ${getTeamKillsorDeaths("Blue", "Deaths")} - Rounds Won: ${bluePoints} / Lost: ${redPoints} - Match Time: ${matchMinutes}:${matchSeconds}"`);
+						Utils.server.runCommand(`execute as @e[type=minecraft:player,tag=ga_red_team] run vps-gunarena functions mod-pipe-segment-finder "stage4" 6 "STATUS: ${redResultMsg} - Team Kills: ${getTeamKillsorDeaths("Red", "Kills")} / Deaths: ${getTeamKillsorDeaths("Red", "Deaths")} - Rounds Won: ${redPoints} / Lost: ${bluePoints} - Match Time: ${matchMinutes}:${matchSeconds}"`);
 						Utils.server.runCommand(`setblock ${posX} ${posY - 1} ${posZ} minecraft:air`); //Remove redstone block from matchTicker + repeat command block corner
 						
 						Utils.server.runCommand(`setblock ${killBlockCoords[0] - 3} ${killBlockCoords[1]} ${killBlockCoords[2]} minecraft:air`); //Uses killBlockCoords (two blocks south, or Positive Z, to matchTicker command block) to clear the redstone block underneath command block
 						Utils.server.runCommand(`setblock ${killBlockCoords[0] + 13} ${killBlockCoords[1] + 3} ${killBlockCoords[2] + 10} minecraft:air`); //EDIT uses killBlockCoords to close gate of Blue Team Room if needed
 						Utils.server.runCommand(`setblock ${killBlockCoords[0] + 1} ${killBlockCoords[1] + 3} ${killBlockCoords[2] + 10} minecraft:air`); //same but for Red Team Room
 						
-						//tag removal
-						let tagArr = ["ga_registered_player","ga_approved_entity","ga_blue_team","ga_red_team"]
-						for (let i = 0; i < tagArr.length; i++) {							
-							Utils.server.runCommand(`tag @e[type=minecraft:player,tag=${tagArr[i]}] remove ${tagArr[i]}`);													
-						}						
+						//tag removal, delayed by 2 ticks so other operations can be done before tags and data are gone
+						//then clears various persistent data used for match
+						event.server.scheduleInTicks(2, callback => {
+							let tagArr = ["ga_registered_player","ga_approved_entity","ga_blue_team","ga_red_team"]
+							for (let i = 0; i < tagArr.length; i++) {							
+								Utils.server.runCommand(`tag @e[type=minecraft:player,tag=${tagArr[i]}] remove ${tagArr[i]}`);
+							}
+							
+							initializeCurrentPlayers(0, 1);
+							resetPlayersStoredSpawn(); //ONLY AFTER GIVING THEM BACK THEIR SPAWN LMAO
+							changeReadyPlayers(0);
+							changeTeamsPlayersCount(1, 0);
+							resetCurrentMatch();
+							
+							primingRequired = false
+							triggerRequired = false;
+							triggeredAction = 0;
+							primeRoundPhaseOne = false;
+							primeRoundPhaseTwo = false;
+						})
 						
 						Utils.server.runCommand(`vps-gunarena functions return-player-spawns`); //Gives players their spawn points back
-
-						//clears various persistent data used for match
-						initializeCurrentPlayers(0, 1);
-						resetPlayersStoredSpawn(); //ONLY AFTER GIVING THEM BACK THEIR SPAWN LMAO
-						changeReadyPlayers(0);
-						changeTeamsPlayersCount(1, 0);
-						resetCurrentMatch();
-					
+						
 						return 1
 					})
 				)
@@ -1110,14 +1160,14 @@ onEvent("command.registry", event => {
 							let posX = Math.floor(pos.x());
 							let posY = Math.floor(pos.y());
 							let posZ = Math.floor(pos.z());								
-						
-							let itemCount = Utils.server.runCommand(`data get block ${posX - 1} ${posY} ${posZ + 1} Items[0].Count`);								
+							let paddedId = lifetimePlayersCount().toString().padStart(5,0);
+							let itemCount = Utils.server.runCommand(`data get block ${posX - 1} ${posY} ${posZ + 1} Items[0].Count`);
 							
 							if (itemCount >= itemPrice) {
-							Utils.server.runCommand(`data merge block ${posX - 1} ${posY} ${posZ + 1} {Items:[{Slot:0b,id:"${paymentItem}",Count:${itemCount - itemPrice}b}]}`);							
-							Utils.server.runCommand(`summon minecraft:item ${posX - 1} ${posY + 7} ${posZ + 1} {Item:{id:"${saleItem}",Count:1b}}`);
-							}
-							
+							Utils.server.runCommand(`data merge block ${posX - 1} ${posY} ${posZ + 1} {Items:[{Slot:0b,id:"${paymentItem}",Count:${itemCount - itemPrice}b}]}`);														
+							Utils.server.runCommand(`summon minecraft:item ${posX - 1} ${posY + 7} ${posZ + 1} {Item:{id:"create_things_and_misc:card",Count:1b,tag:{Inscribed:"Vulpine Co. [stage1-valid]",display:{Name:'[{"text":"Gun Arena ID-${paddedId}","italic":false}]',Lore:['[{"text":"| CARD ID: ${paddedId} | STATUS: Valid Entry Ticket |","color":"aqua","italic":false}]']},GunArenaOrigin:1b}}}`);
+							addToLifetimePlayers(1)
+							}							
 							return 1
 						})
 					)
@@ -1141,14 +1191,15 @@ onEvent("command.registry", event => {
 				//stringifiedPlayerName = stringifiedPlayerName + playerName;
 				
 				
-				/*
+				
 				Utils.server.tell("Blue Players: " + currentMatch().BluePlayers);
 				Utils.server.tell("Red Players: " + currentMatch().RedPlayers);
 				Utils.server.tell("Blue Points: " + currentMatch().BluePoints);
 				Utils.server.tell("Red Points: " + currentMatch().RedPoints);
+				let paddedId = "meow";
+				Utils.server.runCommand(`summon minecraft:item 10 -60 33 {Item:{id:"create_things_and_misc:card",Count:1b,tag:{Inscribed:"Vulpine Co. [stage1-valid]",display:{Name:'[{"text":"Gun Arena ID-${paddedId}","italic":false}]',Lore:['[{"text":"| CARD ID: ${paddedId} | STATUS: Valid Entry Ticket |","color":"aqua","italic":false}]']},GunArenaOrigin:1b}}}`);
 				
-				
-				
+				/*
 				for (let i = 0; i < currentPlayers().length; i++) {
 					let sX = playersStoredSpawn()[i].X;
 					let sY = playersStoredSpawn()[i].Y;
@@ -1162,17 +1213,7 @@ onEvent("command.registry", event => {
 				Utils.server.tell("My spawn keys: " + Object.keys(entityData.getRespawnPosition()))
 				Utils.server.tell("My spawn typeof: " + typeof(entityData.getRespawnPosition()))				
 				Utils.server.tell("SPAWN ARRAY IS: " + playersStoredSpawn());
-				*/
-				
-				Utils.server.tell(`${Utils.server.runCommand(`data get block 6 -59 -9 Items[0].Count`)}`);
-				
-				let itemCount = Utils.server.runCommand(`data get block 6 -59 -9 Items[0].Count`);
-				let itemPrice = 2;
-				let paymentItem = "minecraft:gold_ingot";
-				
-				if (itemCount >= itemPrice) {
-				Utils.server.runCommand(`data merge block 6 -59 -9 {Items:[{Slot:0b,id:"${paymentItem}",Count:${itemCount - itemPrice}b}]}`);
-				}
+				*/								
 				
 				return 1
 			})	
