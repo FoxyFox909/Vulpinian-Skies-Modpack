@@ -4,7 +4,7 @@ Version 1.0b5
 
 Packaged with Packwiz.
 
-_NO ``.jar`` FILES ARE HOSTED IN THIS REPOSITORY_
+_NO STANDALONE ``.jar`` FILES ARE HOSTED IN THIS REPOSITORY_
 
 
 
