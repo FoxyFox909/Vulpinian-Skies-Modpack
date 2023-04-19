@@ -1,12 +1,12 @@
 name = "Vulpinian Skies"
 author = "Ahri_Loyala"
-version = "1.0b2"
+version = "1.0b5"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "3c0cb883c09dc301d0315cd51c5a112f176fc49691cd0303f38aac840e2925cb"
+hash = "005db6f49330f5f7f3d61c2852e0c31f534e2626c1e1ab0a818c80b1e8b25887"
 
 [versions]
 forge = "40.2.1"
