@@ -1,4 +1,4 @@
-Vulpinian Skies
+**Vulpinian Skies**
 
 Version 1.0b5
 
@@ -6,7 +6,10 @@ Packaged with Packwiz.
 
 _NO ``.jar`` FILES ARE HOSTED IN THIS REPOSITORY_
 
-Credits: 
+
+
+**Credits:**
+
 Author: Fox / Ahri_Loyala
 
 Custom Dungeons and Structures: Raven
