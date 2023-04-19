@@ -1,4 +1,4 @@
-**Vulpinian Skies**
+**Vulpinian Skies** (MODPACK STILL IN BETA AND NOT PUBLICLY RELEASED)
 
 Version 1.0b5
 
