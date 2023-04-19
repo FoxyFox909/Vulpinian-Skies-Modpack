@@ -1,4 +1,4 @@
-Vulpinian Skies Modpack by Ahri_Loyala
+Vulpinian Skies
 
 Version 1.0b5
 
