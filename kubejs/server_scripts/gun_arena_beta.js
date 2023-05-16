@@ -6,12 +6,12 @@ const minPlayers =  2; //Min amount of players needed to trigger a match to star
 const minReadyPlayers = 2; //min amount of players who have to be ready for a prematch timer to skip down to 5 seconds
 const prematchTimerDefault = 30; //Amount of time (in seconds, so 20-ticks intervals) before a match starts once minPlayers has been satisfied. Defauls is 30
 const roundTimerDefault = 15; //Amount of time (seconds) a round should last before it ends to time. Default is 120
-const roundPrepTimerDefault = 6; //Amount of time players get for preparation, before the gates open and a round starts. Default is 20
-const roundPostTimerDefault = 4; //Amount of time before round is ended and players get sent back to their appropriate Team Room, after the round has been won by a team. Default is 4
+const roundPrepTimerDefault = 12; //Amount of time players get for preparation, before the gates open and a round starts. Default is 20
+const roundPostTimerDefault = 8; //Amount of time before round is ended and players get sent back to their appropriate Team Room, after the round has been won by a team. Default is 4
 const winPoints = 3; 			//Number of rounds a team needs to win in order to win the whole match
-const jailCoords = [7, 3, 22]; //XYZ - Points to the center of Jail (the room dead players go to for the rest of the round) AS RELATIVE TO killBlockCoords. NOT ABSOLUTE COORDS.
+const jailCoords = [7, 1, 22]; //XYZ - Points to the intended center of Jail (the room dead players go to for the rest of the round) AS RELATIVE TO killBlockCoords. NOT ABSOLUTE COORDS.ALSO, make sure it's not obstructed, test the spawn coords manually just in case
 
-//Global variables for program operation. Do not touch, used just for initalization
+//Global variables for program operation. Do not touch, initalization-only
 var prematchTimer = 30;
 var isPrematchTimerTicking = false;
 var primingRequired = false
@@ -19,13 +19,7 @@ var triggerRequired = false;
 var triggeredAction = 0;
 var primeRoundPhaseOne = false;
 var primeRoundPhaseTwo = false;
-var killBlockCoords = []; //A block 2 blocks East (positive X from the matchTicker block. The effective position of this block will be right unde Phaste Two Primer. The only block whose coordinates are saved globally (automatically, wherever it is), used as a reference/home point for several in-world operations.
-
-
-function mathTest(number){
-	let maf = 1 + number
-	return maf
-}
+var killBlockCoords = []; //A block 2 blocks East (positive X from the matchTicker block. The effective position of this block will be right unde Phaste Two Primer. The only block whose absolute coordinates are saved globally (automatically, wherever it is), used as a reference/home point for several in-world operations.
 
 onEvent("command.registry", event => {
 	const { commands: Commands, arguments: Arguments} = event;
@@ -169,9 +163,9 @@ onEvent("command.registry", event => {
 						let cardTag = entityData.getInventory().getItem(slot).getTag().Inscribed //get the NBT dat adown to the Inscribed key for validation
 						
 						if (cardTag == "Vulpine Co. [stage1-valid]") {
-							if (entityData.stages.has('ga_registered_player')) {event.server.tell("Found a valid Card, but you are already registered!"); return;}
-							if (currentPlayers().length >= maxPlayers) {event.server.tell("Found a valid Card, but player slots are full! Please wait until the next match."); return;}
-							if (currentMatch().IsOngoing) {event.server.tell("Found a valid Card, but a match is currently underway! Please wait warmly until the next match."); return;}
+							if (entityData.stages.has('ga_registered_player')) {event.server.tell("Found a valid Card, but you are already registered!"); return 0;}
+							if (currentPlayers().length >= maxPlayers) {event.server.tell("Found a valid Card, but player slots are full! Please wait until the next match."); return 0;}
+							if (currentMatch().IsOngoing) {event.server.tell("Found a valid Card, but a match is currently underway! Please wait warmly until the next match."); return 0;}
 							
 							let nameString = entityData.getInventory().getItem(slot).getTag().display.Name // get display name of Card item
 							let nameRegex = /(.")(,)/
@@ -197,18 +191,7 @@ onEvent("command.registry", event => {
 				return 1
 				})
 			)
-			.then(Commands.literal('stage-three')
-				.then(Commands.literal('init-check').executes(ctx => {
-					Utils.server.tell("Check #1");
-					//let x = Number(currentPlayers().size());
-					let x = currentPlayers().size();
-					Utils.server.tell(typeof(x));
-					Utils.server.tell(x);
-					if (x < minPlayers) {Utils.server.tell("Success")}
-					Utils.server.tell("Check #2");
-					return 1;
-				})
-				)
+			.then(Commands.literal('stage-three')				
 				.then(Commands.literal('init').executes(ctx => {
 					let registeredPlayers = currentPlayers().size();
 					if (registeredPlayers < minPlayers || isPrematchTimerTicking) {return 0;}
@@ -223,8 +206,13 @@ onEvent("command.registry", event => {
 						
 						if (readyPlayers() >= minReadyPlayers && prematchTimer > 5) {prematchTimer = 5;}
 						if (prematchTimer <= 0) {
-							if ((teamsPlayersCount().Blue <= 1 && teamsPlayersCount().Random < 1) || (teamsPlayersCount().Red <= 1 && teamsPlayersCount().Random < 1)) 
-								{prematchTimer = 5; Utils.server.tell("Cannot start match with an empty team. Try again."); return;}
+							if ((teamsPlayersCount().Blue <= 1 && teamsPlayersCount().Random < 1) || (teamsPlayersCount().Red <= 1 && teamsPlayersCount().Random < 1)) {
+								prematchTimer = 5; Utils.server.tell("Cannot start match with an empty team. Try again.");
+								event.server.scheduleInTicks(20, callback => {
+									recursiveTimer();
+								})
+								return 0;								
+							}
 							Utils.server.tell("MATCH HAS STARTED");
 							prematchTimer = prematchTimerDefault;
 							isPrematchTimerTicking = false;
@@ -259,7 +247,7 @@ onEvent("command.registry", event => {
 						const removeTag = (tag) => {entityData.stages.remove(tag)};
 						let deObjArg1 = 1;	
 						let size = entityData.getInventory().containerSize
-						Utils.server.tell("type of deObjArg1 is " + typeof(parseInt(arg1)) + " and value is " + deObjArg1)
+						
 						for (let slot = 0; slot < (size); slot++) {
 							let invSlotId = entityData.getInventory().getItem(slot).serializeNBT().id;		
 							if (invSlotId == "create_things_and_misc:card") {
@@ -267,7 +255,7 @@ onEvent("command.registry", event => {
 								let cardTag = entityData.getInventory().getItem(slot).getTag().Inscribed;
 								if (cardTag == "Vulpine Co. [stage2-prematch]") {														
 									switch (parseInt(arg1)) {
-									case 1: if (blueTag()) {return;}
+									case 1: if (blueTag()) {return 0;}
 										Utils.server.tell('join-team blue team detected');
 										addTag('ga_blue_team');
 										Utils.server.runCommand(`execute as ${stringifiedPlayerName} run vps-gunarena functions assign-to-team ${arg1}`);
@@ -275,7 +263,7 @@ onEvent("command.registry", event => {
 										if (redTag()) {changeTeamsPlayersCount(-1 , 2); removeTag('ga_red_team');}
 										if (randomTag()) {removeTag('ga_random_team'); changeTeamsPlayersCount(-1 , 3);}
 										break;
-									case 2: if (redTag()) {return;}
+									case 2: if (redTag()) {return 0;}
 										Utils.server.tell('join-team red team detected');
 										addTag('ga_red_team');
 										Utils.server.runCommand(`execute as ${stringifiedPlayerName} run vps-gunarena functions assign-to-team ${arg1}`);
@@ -283,7 +271,7 @@ onEvent("command.registry", event => {
 										if (blueTag()) {changeTeamsPlayersCount(-1 , 1); removeTag('ga_blue_team');}
 										if (randomTag()) {removeTag('ga_random_team'); changeTeamsPlayersCount(-1 , 3);}
 										break;
-									case 3: if (randomTag()) {return;}
+									case 3: if (randomTag()) {return 0;}
 										Utils.server.tell('join-team random team detected');
 										addTag('ga_random_team');
 										Utils.server.runCommand(`execute as ${stringifiedPlayerName} run vps-gunarena functions assign-to-team ${arg1}`);
@@ -295,11 +283,8 @@ onEvent("command.registry", event => {
 									};
 								} else {continue};
 							};													
-						};
-						
-						
-						event.server.tell('Join team Command end');
-						
+						};												
+						event.server.tell('Join team Command end');						
 						return 1;
 					})
 					)
@@ -315,7 +300,7 @@ onEvent("command.registry", event => {
 					//Randomly but evenly distributes players who picked "Random Team" between blue and red team, and if player did not pick a team, they are random by default
 					function stageFourFillTeams() {
 					  let list = getRandomTeamPlayers();  
-					  Utils.server.tell("Array of random players: " + list);
+					  //Utils.server.tell("Array of random players: " + list);
 					  for (let i = list.length; i > 0; i--) {
 						let bluePlayers = teamsPlayersCount().Blue;
 						let redPlayers = teamsPlayersCount().Red;						
@@ -466,11 +451,13 @@ onEvent("command.registry", event => {
 								let internalTimerOne = getTimeToNextAction(roundTimerDefault, 0);
 								let nextTrigger = 0;
 								
-								killBlockCoords = [parseInt(posX + 2), parseInt(posY), parseInt(posZ)]; //This sets the relative coordinates to Phase two primer, (round ender) which is triggered by entity.death event in order to save resources/prevent additional checks in loop
+								killBlockCoords = [parseInt(posX + 2), parseInt(posY), parseInt(posZ)]; //This sets the relative coordinates to Phase two primer, (round ender) which is triggered by entity.death event in order to save resources/prevent additional checks in loop								
 								
 								let jailX = killBlockCoords[0] + jailCoords[0];
 								let jailY = killBlockCoords[1] + jailCoords[1];
 								let jailZ = killBlockCoords[2] + jailCoords[2];
+								
+								Utils.server.tell(`Jail coords are = ` + jailX + " " + jailY + " " + jailZ);
 								
 								//Store player spawn coords then set their current ones to Jail (as defined by relative coords of killBlockCoords
 								Utils.server.runCommand(`vps-gunarena functions store-player-spawns`);
@@ -486,7 +473,7 @@ onEvent("command.registry", event => {
 								
 								//Main game loop of GunArena that handles events throughout a live match
 								function matchTicker () {
-									if (!currentMatch().IsOngoing) {return;}
+									if (!currentMatch().IsOngoing) {return 0;}
 									addToCurrentMatchTime(1);
 									Utils.server.tell("Match ticking. Total match time is: " + currentMatch().TotalTime); 
 									/*if (currentMatch().TotalTime == internalTimerOne) {
