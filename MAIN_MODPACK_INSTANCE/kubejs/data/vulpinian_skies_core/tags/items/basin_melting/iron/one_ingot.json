@@ -1,0 +1,23 @@
+{
+	"replace": true,
+	"values": [
+		"create:crushed_raw_iron",
+		"minecraft:detector_rail",
+		"minecraft:activator_rail",
+		"buildersaddition:crossrail",
+		"framedblocks:framed_fancy_activator_rail",
+		"framedblocks:framed_fancy_detector_rail",
+		"framedblocks:framed_fancy_activator_rail_slope",
+		"framedblocks:framed_fancy_detector_rail_slope",
+		"framedblocks:framed_activator_rail_slope",
+		"framedblocks:framed_detector_rail_slope",
+		"createdeco:yellow_iron_lamp",
+		"createdeco:red_iron_lamp",
+		"createdeco:green_iron_lamp",
+		"createdeco:blue_iron_lamp",
+		"tconstruct:iron_platform",
+		"minecraft:iron_shovel",    
+		"minecraft:flint_and_steel",    
+		"minecraft:shield"
+	]
+}

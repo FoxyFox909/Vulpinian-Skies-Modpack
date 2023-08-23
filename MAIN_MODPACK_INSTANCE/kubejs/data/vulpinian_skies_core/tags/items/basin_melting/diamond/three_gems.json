@@ -1,0 +1,15 @@
+{
+	"replace": true,
+	"values": [
+		"minecraft:diamond_pickaxe",
+		"minecraft:diamond_axe",
+		"ars_nouveau:apprentice_spell_book",
+		"hmag:insomnia_sword",
+		"gemsnjewels:solid_diamond_pickaxe",
+		"gemsnjewels:jeweled_solid_diamond_pickaxe",
+		"gemsnjewels:solid_diamond_axe",
+		"gemsnjewels:jeweled_solid_diamond_axe",
+		"gemsnjewels:jeweled_diamond_pickaxe",
+		"gemsnjewels:jeweled_diamond_axe"
+	]
+}

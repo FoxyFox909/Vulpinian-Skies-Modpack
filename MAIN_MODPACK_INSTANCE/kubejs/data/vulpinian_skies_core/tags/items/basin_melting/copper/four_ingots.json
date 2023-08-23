@@ -1,0 +1,11 @@
+{
+	"replace": true,
+	"values": [
+		"create:copper_diving_boots",
+		"iceandfire:armor_copper_metal_boots",
+		"miners_delight:copper_pot",
+		"iceandfire:armor_copper_metal_helmet",
+		"iceandfire:armor_copper_metal_chestplate",
+		"iceandfire:armor_copper_metal_leggings"
+	]
+}

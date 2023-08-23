@@ -1,0 +1,8 @@
+{
+	"replace": true,
+	"values": [
+		"createdeco:copper_bars",
+		"createdeco:copper_bars_overlay",
+		"createdeco:copper_support"
+	]
+}

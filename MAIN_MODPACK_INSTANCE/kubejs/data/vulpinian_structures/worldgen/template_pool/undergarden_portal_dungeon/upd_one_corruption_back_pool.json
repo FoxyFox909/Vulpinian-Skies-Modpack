@@ -1,0 +1,15 @@
+{
+	"name": "vulpinian_structures:undergarden_portal_dungeon/upd_one_corruption_back_pool",
+	"fallback": "minecraft:empty",
+	"elements": [
+		{
+			"weight": 1,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "vulpinian_structures:undergarden_portal_dungeon/upd_one_corruption_back",
+				"projection": "terrain_matching",
+				"processors": "vulpinian_structures:undergarten_vegetation_one"
+			}
+		}
+	]
+}

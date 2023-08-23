@@ -1,0 +1,8 @@
+{
+  "title": {
+    "text": "Rebindable Keys",
+	"underlined":true,
+    "color": "dark_aqua"
+  },
+  "tip": "In these tips, all keys inside [brackets] can be rebound."
+}

@@ -1,0 +1,69 @@
+{
+	"name": "vulpinian_structures:undergarden_portal_dungeon/upd_one_room_one_pool",
+	"fallback": "minecraft:empty",
+	"elements": [
+		{
+			"weight": 1,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "vulpinian_structures:undergarden_portal_dungeon/upd_one_room_one",
+				"projection": "rigid",
+				"processors": "vulpinian_structures:none"
+			}
+		},
+		{
+			"weight": 1,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "vulpinian_structures:undergarden_portal_dungeon/upd_one_room_one_b",
+				"projection": "rigid",
+				"processors": "vulpinian_structures:upd_one/depthrock_bricks_ager"
+			}
+		},
+		{
+			"weight": 1,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "vulpinian_structures:undergarden_portal_dungeon/upd_one_room_one_c",
+				"projection": "rigid",
+				"processors": "vulpinian_structures:upd_one/depthrock_bricks_ager"
+			}
+		},
+		{
+			"weight": 1,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "vulpinian_structures:undergarden_portal_dungeon/upd_one_room_one_d",
+				"projection": "rigid",
+				"processors": "vulpinian_structures:upd_one/depthrock_bricks_ager"
+			}
+		},
+		{
+			"weight": 1,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "vulpinian_structures:undergarden_portal_dungeon/upd_one_room_one_e",
+				"projection": "rigid",
+				"processors": "vulpinian_structures:upd_one/depthrock_bricks_ager"
+			}
+		},
+		{
+			"weight": 1,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "vulpinian_structures:undergarden_portal_dungeon/upd_one_room_one_f",
+				"projection": "rigid",
+				"processors": "vulpinian_structures:upd_one/depthrock_bricks_ager"
+			}
+		},
+		{
+			"weight": 1,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "vulpinian_structures:undergarden_portal_dungeon/upd_one_room_one_g",
+				"projection": "rigid",
+				"processors": "vulpinian_structures:upd_one/depthrock_bricks_ager"
+			}
+		}
+	]
+}

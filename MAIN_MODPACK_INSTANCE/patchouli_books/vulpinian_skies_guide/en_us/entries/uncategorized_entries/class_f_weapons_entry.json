@@ -1,0 +1,33 @@
+{
+	"name": "Class F Weapons",
+	"icon": "scorchedguns:hand_crossbow",
+	"category": "patchouli:uncategorized_entries_category",
+	"sortnum": 1,
+	"pages": [
+		{ 
+			"type": "patchouli:spotlight",
+			"item": "kubejs:class_f_frame",
+			"text": "$(workbench)$(br)$(br)Raw Materials:$(br)-Copper"			
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_2hau8pwj1gxfxqnfue38edf37",
+			"recipe2": "kubejs:kjs_cwkvjk2og91rdcc8bv9a7gwlw"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_1v2pvzj8wodpu7s0464dooom4",
+			"recipe2": "kubejs:kjs_41w368fxt997ztqhmvwtpodpr"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_5p16oh1r81ah2doqvkfox0xo",
+			"recipe2": "kubejs:kjs_aecpqk4446kuu1n8w1lpl8fec"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_9kmcs0370ss9r2cea3m9eap2z",
+			"text" : "$(italics)Who put cogwheels in my guns?$(reset)"
+		}
+	]
+}

@@ -1,0 +1,9 @@
+{
+	"replace": true,
+	"values": [
+		"minecraft:smooth_quartz_stairs",
+		"minecraft:quartz_stairs",
+		"buildersaddition:cut_quartz_pillar",
+		"buildersaddition:cut_quartz_bricks_pillar"
+	]
+}

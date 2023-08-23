@@ -1,0 +1,11 @@
+{
+	"replace": true,
+	"values": [
+		"minecraft:lantern",    
+		"minecraft:soul_lantern",
+		"byg:boric_lantern",
+		"byg:glowstone_lantern",
+		"byg:therium_lantern",
+		"byg:cryptic_lantern"
+	]
+}

@@ -1,0 +1,12 @@
+{
+	"replace": true,
+	"values": [
+		"minecraft:golden_axe",
+		"minecraft:golden_pickaxe",
+		"hexcasting:artifact",
+		"artifacts:golden_hook",
+		"ars_nouveau:ritual_brazier",
+		"gemsnjewels:jeweled_gold_axe",
+		"gemsnjewels:jeweled_gold_pickaxe"
+	]
+}

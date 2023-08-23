@@ -1,0 +1,1038 @@
+To refresh this file, delete it and run /reload command again! Last updated: Apr 20, 2023, 2:27:43 PM
+
+#nethersheep:atre_attack_blacklist
+- hmag:drowned_girl
+- hmag:melty_monster
+- hmag:kasha
+- hmag:crimson_slaughterer
+- hmag:snow_canine
+- hmag:savagefang
+
+#tconstruct:rare_mobs
+- minecraft:wither
+- minecraft:ender_dragon
+- minecraft:elder_guardian
+- minecraft:evoker
+- minecraft:player
+
+#undergarden:rotspawn
+- undergarden:rotling
+- undergarden:rotwalker
+- undergarden:rotbeast
+
+#forge:endermen
+- minecraft:enderman
+- hmag:ender_executor
+
+#artifacts:creepers
+- minecraft:creeper
+- creeperoverhaul:jungle_creeper?
+- creeperoverhaul:bamboo_creeper?
+- creeperoverhaul:desert_creeper?
+- creeperoverhaul:badlands_creeper?
+- creeperoverhaul:hills_creeper?
+- creeperoverhaul:savannah_creeper?
+- creeperoverhaul:mushroom_creeper?
+- creeperoverhaul:swamp_creeper?
+- creeperoverhaul:dripstone_creeper?
+- creeperoverhaul:cave_creeper?
+- creeperoverhaul:dark_oak_creeper?
+- creeperoverhaul:spruce_creeper?
+- creeperoverhaul:beach_creeper?
+- creeperoverhaul:snowy_creeper?
+- hmag:creeper_girl
+
+#forge:ooze_proof
+- minecraft:endermite
+- enlightened_end:big_ringling
+- minecraft:ender_dragon
+- minecraft:enderman
+- minecraft:wither
+- enlightened_end:stalker
+- minecraft:phantom
+- minecraft:shulker
+
+#hmag:hard_snowball_hurts_extra_types
+- #minecraft:freeze_hurts_extra_types
+
+#tconstruct:melting/show_in_default
+- minecraft:iron_golem
+- minecraft:snow_golem
+- minecraft:villager
+- minecraft:player
+
+#snowpig:killer_for_snowpig_disc
+- hmag:stray_girl
+
+#hmag:husk_girl_replaceables
+- minecraft:husk
+- specialmobs:huskzombie?
+
+#industrialforegoing:mob_imprisonment_tool_blacklist
+- artifacts:mimic
+
+#iceandfire:blinded
+- iceandfire:deathworm
+- iceandfire:dragon_skull
+- iceandfire:mob_skull
+
+#iceandfire:dragon_targets
+- minecraft:cow
+- minecraft:sheep
+- minecraft:pig
+- minecraft:chicken
+- minecraft:fox
+- minecraft:horse
+- minecraft:mooshroom
+- minecraft:ocelot
+- minecraft:llama
+- minecraft:panda
+- minecraft:parrot
+- minecraft:polar_bear
+- minecraft:rabbit
+- minecraft:trader_llama
+- minecraft:wolf
+- minecraft:cat
+- minecraft:pillager
+- minecraft:cat
+- minecraft:strider
+- minecraft:piglin
+- minecraft:hoglin
+- minecraft:zoglin
+
+#minecraft:beehive_inhabitors
+- minecraft:bee
+- grimoireofgaia:bee
+
+#forge:creepers
+- minecraft:creeper
+- minecraft:creeper
+- hmag:creeper_girl
+
+#hmag:monolith_target_blacklist
+- minecraft:shulker
+
+#minecraft:arrows
+- minecraft:arrow
+- minecraft:spectral_arrow
+
+#starmute:ghastling_enemy
+- minecraft:ghast
+- minecraft:fireball
+
+#tconstruct:bacon_producer
+- minecraft:pig
+- minecraft:piglin
+- minecraft:hoglin
+
+#forge:zombies
+- minecraft:drowned
+- minecraft:husk
+- minecraft:zombie
+- minecraft:zombie_villager
+- hmag:drowned_girl
+- hmag:husk_girl
+- hmag:zombie_girl
+
+#iceandfire:fire_dragon_targets
+- #iceandfire:dragon_targets
+
+#starmute:wither
+- minecraft:wither
+- minecraft:wither_skeleton
+- minecraft:skeleton
+- minecraft:zombified_piglin
+
+#naturalist:vulture_hostiles
+- hmag:husk_girl
+- hmag:zombie_girl
+
+#ars_nouveau:magic_find
+- ars_nouveau:starbuncle
+- ars_nouveau:drygmy
+- ars_nouveau:whirlisprig
+- ars_nouveau:bookwyrm
+- ars_nouveau:wixie
+- ars_elemental:siren_entity
+
+#twilightforest:lifedrain_drops_no_flesh
+- hmag:ghost
+- hmag:wither_ghost
+- hmag:lich
+- hmag:cursed_doll
+- hmag:jack_frost
+- hmag:dogu
+- hmag:slime_girl
+- hmag:magical_slime
+- hmag:monolith
+- hmag:fortress_keeper
+- hmag:necrotic_reaper
+
+#minecraft:axolotl_always_hostiles
+- minecraft:drowned
+- minecraft:guardian
+- minecraft:elder_guardian
+- hmag:drowned_girl
+- hmag:savagefang
+
+#hmag:savagefang_target_blacklist
+- #hmag:creepers
+- hmag:savagefang
+- grimoireofgaia:creep?
+- mutantbeasts:mutant_creeper?
+
+#alexsmobs:fly_hurt_targets
+- hmag:drowned_girl
+- hmag:husk_girl
+- hmag:zombie_girl
+
+#iceandfire:villagers
+- minecraft:villager
+- minecraft:wandering_trader
+
+#iceandfire:lightning_dragon_targets
+- #iceandfire:dragon_targets
+
+#hmag:stray_girl_replaceables
+- minecraft:stray
+- specialmobs:strayskeleton?
+
+#crossroads:salt_vulnerable
+- hmag:creeper_girl
+- hmag:slime_girl
+- hmag:magical_slime
+
+#forge:immune_to_radiation
+- enlightened_end:stalker
+
+#hmag:wither_skeleton_girl_replaceables
+- minecraft:wither_skeleton
+- specialmobs:witherskeleton?
+
+#farmersdelight:horse_feed_users
+- minecraft:horse
+- minecraft:skeleton_horse
+- minecraft:zombie_horse
+- minecraft:donkey
+- minecraft:mule
+- minecraft:llama
+
+#wildbackport:frog_food
+- hmag:magical_slime
+
+#forge:villagers
+- minecraft:villager
+- minecraft:wandering_trader
+- minecraft:zombie_villager
+
+#pneumaticcraft:vacuum_trap_blacklisted
+
+#tconstruct:melting/hide_in_default
+- minecraft:giant
+
+#forge:illagers
+- minecraft:evoker
+- minecraft:illusioner
+- minecraft:pillager
+- minecraft:vindicator
+- minecraft:witch
+
+#starmute:sentry_targets
+- minecraft:player
+- minecraft:armor_stand
+
+#mowziesmobs:barakoa_barako_aligned
+- mowziesmobs:barako
+- mowziesmobs:barakoa_sunblocker
+- mowziesmobs:barakoan_barakoana
+- mowziesmobs:barakoana
+- mowziesmobs:barakoaya
+
+#tconstruct:killagers
+- #forge:villagers
+- #forge:illagers
+- minecraft:iron_golem
+- minecraft:ravager
+
+#supplementaries:jar_tinted_catchable
+- hmag:magical_slime
+
+#hmag:bats
+- minecraft:bat
+
+#hmag:ender_executor_replaceables
+- minecraft:enderman
+- specialmobs:enderman?
+
+#iceandfire:cyclops_unliftables
+- minecraft:ravager
+
+#forge:reflecting/blacklist
+
+#supplementaries:jar_catchable
+- hmag:magical_slime
+
+#minecraft:freeze_hurts_extra_types
+- minecraft:strider
+- minecraft:blaze
+- minecraft:magma_cube
+- hmag:fortress_keeper
+- hmag:kasha
+- hmag:melty_monster
+
+#carryon:entity_blacklist
+- ars_nouveau:whirlisprig
+- ars_nouveau:familiar_whirlisprig
+- ars_nouveau:familiar_drygmy
+- ars_nouveau:familiar_wixie
+- ars_nouveau:familiar_bookwyrm
+- ars_nouveau:wilden_boss
+- ars_nouveau:familiar_starbuncle
+
+#minecolonies:mob_attack_blacklist
+- grimoireofgaia:bee
+- grimoireofgaia:centaur
+- grimoireofgaia:cobble_golem
+- grimoireofgaia:cyclops
+- grimoireofgaia:dryad
+- grimoireofgaia:goblin
+- grimoireofgaia:hunter
+- grimoireofgaia:mermaid
+- grimoireofgaia:satyress
+- grimoireofgaia:wizard_harpy
+- grimoireofgaia:yuki_onna
+- hmag:ender_executor
+- hmag:glaryad
+
+#forge:chorloam_immune
+- minecraft:endermite
+- enlightened_end:big_ringling
+- minecraft:ender_dragon
+- minecraft:enderman
+- minecraft:zombie
+- minecraft:wither
+- enlightened_end:stalker
+- minecraft:shulker
+
+#friendsandfoes:mauler_prey
+- hmag:zombie_girl
+- hmag:magical_slime
+
+#supplementaries:cage_catchable
+- hmag:magical_slime
+
+#iceandfire:ice_dragon_targets
+- #iceandfire:dragon_targets
+- minecraft:turtle
+- minecraft:dolphin
+- minecraft:cod
+- minecraft:pufferfish
+- minecraft:salmon
+- minecraft:tropical_fish
+
+#undergarden:cavern_creature
+- undergarden:nargoyle
+- undergarden:scintling
+- undergarden:muncher
+- undergarden:sploogie
+
+#cataclysm:ignis_cant_poke
+- minecraft:slime
+- minecraft:magma_cube
+- minecraft:ender_dragon
+- minecraft:wither
+- hmag:magical_slime
+
+#hexcasting:cannot_teleport
+- create:stationary_contraption?
+- create:gantry_contraption?
+- create:carriage_contraption?
+- create:super_glue?
+- create:crafting_blueprint?
+- create:seat?
+- minecraft:wither
+- minecraft:end_crystal
+- minecraft:ender_dragon
+- minecraft:item_frame
+- minecraft:painting
+- minecraft:leash_knot
+- minecraft:marker
+
+#byg:not_hurt_by_quartz_crystals
+- minecraft:ghast
+- minecraft:hoglin
+- minecraft:enderman
+- hmag:ender_executor
+- hmag:kasha
+- hmag:ghastly_seeker
+- hmag:crimson_slaughterer
+
+#alexsmobs:mimic_octopus_fears
+- hmag:drowned_girl
+
+#iceandfire:scares_cockatrices
+
+#blue_skies:poison_allies
+- hmag:crimson_slaughterer
+- hmag:scorpion
+- hmag:spider_nest
+
+#iceandfire:fear_dragons
+- minecraft:cow
+- minecraft:sheep
+- minecraft:pig
+- minecraft:chicken
+- minecraft:cat
+- minecraft:fox
+- minecraft:horse
+- minecraft:mooshroom
+- minecraft:ocelot
+- minecraft:llama
+- minecraft:panda
+- minecraft:parrot
+- minecraft:polar_bear
+- minecraft:rabbit
+- minecraft:strider
+- minecraft:trader_llama
+- minecraft:wolf
+- minecraft:hoglin
+
+#hmag:zombie_girl_replaceables
+- minecraft:zombie
+- specialmobs:zombie?
+
+#delightful:drops_raw_goat
+- minecraft:goat
+
+#forge:reflecting/preserve_owner
+- minecraft:fishing_bobber
+
+#enlightened_end:ooze_immune
+- minecraft:endermite
+- enlightened_end:big_ringling
+- minecraft:enderman
+- enlightened_end:stalker
+- minecraft:shulker
+
+#hmag:skeleton_girl_replaceables
+- minecraft:skeleton
+- specialmobs:skeleton?
+
+#iceandfire:sheep
+- minecraft:sheep
+
+#tconstruct:piggybackpack_blacklist
+
+#forge:small_armor
+- #forge:slimes
+
+#forge:magnetized_blacklist
+- minecraft:ender_pearl
+- minecraft:firework_rocket
+- minecraft:item_frame
+- minecraft:spectral_arrow
+- minecraft:shulker_bullet
+- minecraft:lightning_bolt
+- minecraft:dragon_fireball
+- minecraft:experience_bottle
+- minecraft:potion
+- minecraft:small_fireball
+- minecraft:arrow
+- minecraft:falling_block
+- minecraft:egg
+- minecraft:leash_knot
+- minecraft:end_crystal
+- minecraft:experience_orb
+- minecraft:evoker_fangs
+- minecraft:glow_item_frame
+- minecraft:marker
+- minecraft:area_effect_cloud
+- minecraft:fireball
+- minecraft:snowball
+- minecraft:eye_of_ender
+- minecraft:llama_spit
+- minecraft:wither_skull
+
+#delightful:fatty_animals
+- minecraft:cat
+- minecraft:wolf
+- minecraft:cod
+- minecraft:salmon
+- minecraft:cow
+- minecraft:dolphin
+- minecraft:donkey
+- minecraft:fox
+- minecraft:glow_squid
+- minecraft:squid
+- minecraft:goat
+- minecraft:hoglin
+- minecraft:horse
+- minecraft:llama
+- minecraft:mooshroom
+- minecraft:mule
+- minecraft:ocelot
+- minecraft:panda
+- minecraft:pig
+- minecraft:piglin
+- minecraft:piglin_brute
+- minecraft:polar_bear
+- minecraft:pufferfish
+- minecraft:rabbit
+- minecraft:sheep
+- minecraft:tropical_fish
+- minecraft:turtle
+- ecologics:camel?
+- ecologics:penguin?
+- ecologics:squirrel?
+- goodall:dumbo_octopus?
+- goodall:manatee?
+- goodall:red_deer?
+- goodall:seal?
+- goodall:white_tailed_deer?
+- neapolitan:chimpanzee?
+- naturalist:bear?
+- naturalist:boar?
+- naturalist:deer?
+- naturalist:elephant?
+- naturalist:giraffe?
+- naturalist:hippo?
+- naturalist:lion?
+- naturalist:rhino?
+- naturalist:zebra?
+- duckling:duck?
+- duckling:quackling?
+- buzzier_bees:moobloom?
+- buzzier_bees:grizzly_bear?
+- fishofthieves:ancientscale?
+- fishofthieves:battlegill?
+- fishofthieves:devilfish?
+- fishofthieves:islehopper?
+- fishofthieves:plentifin?
+- fishofthieves:pondie?
+- fishofthieves:splashtail?
+- fishofthieves:stormfish?
+- fishofthieves:wildsplash?
+- fishofthieves:wrecker?
+- ars_nouveau:starbuncle?
+- aqcaracal:caracal?
+
+#sullysmod:cannot_bounce
+- hmag:magic_bullet
+- hmag:magma_bullet
+
+#minecraft:powder_snow_walkable_mobs
+- minecraft:rabbit
+- minecraft:endermite
+- minecraft:silverfish
+- minecraft:fox
+- mowziesmobs:frostmaw
+- ecologics:penguin
+- ecologics:squirrel
+- friendsandfoes:iceologer
+
+#ecologics:penguin_hunt_targets
+- minecraft:tropical_fish
+- minecraft:salmon
+- minecraft:cod
+
+#starmute:mobs
+- minecraft:player
+- minecraft:bat
+- minecraft:chicken
+- minecraft:cod
+- minecraft:cow
+- minecraft:donkey
+- minecraft:fox
+- minecraft:horse
+- minecraft:mooshroom
+- minecraft:mule
+- minecraft:ocelot
+- minecraft:panda
+- minecraft:parrot
+- minecraft:pig
+- minecraft:rabbit
+- minecraft:sheep
+- minecraft:skeleton_horse
+- minecraft:salmon
+- minecraft:squid
+- minecraft:strider
+- minecraft:turtle
+- minecraft:tropical_fish
+- minecraft:villager
+- minecraft:wandering_trader
+- minecraft:bee
+- minecraft:dolphin
+- minecraft:polar_bear
+- minecraft:wolf
+- minecraft:cave_spider
+- minecraft:enderman
+- minecraft:iron_golem
+- minecraft:spider
+- minecraft:zombified_piglin
+- minecraft:llama
+- minecraft:trader_llama
+- minecraft:pufferfish
+- minecraft:blaze
+- minecraft:creeper
+- minecraft:drowned
+- minecraft:elder_guardian
+- minecraft:ender_dragon
+- minecraft:evoker
+- minecraft:ghast
+- minecraft:guardian
+- minecraft:hoglin
+- minecraft:husk
+- minecraft:magma_cube
+- minecraft:phantom
+- minecraft:piglin
+- minecraft:piglin_brute
+- minecraft:pillager
+- minecraft:ravager
+- minecraft:shulker
+- minecraft:silverfish
+- minecraft:skeleton
+- minecraft:slime
+- minecraft:stray
+- minecraft:vex
+- minecraft:vindicator
+- minecraft:witch
+- minecraft:wither
+- minecraft:wither_skeleton
+- minecraft:zoglin
+- minecraft:zombie
+- minecraft:zombie_villager
+
+#farmersdelight:dog_food_users
+- minecraft:wolf
+
+#hmag:creepers
+- #forge:creepers
+- cactusmod:cactus_creeper?
+- graveyard:skeleton_creeper?
+- camocreepers:camo_creeper?
+- apocalypse:breecher?
+- dungeons_mobs:icy_creeper?
+- specialmobs:creeper?
+- specialmobs:darkcreeper?
+- specialmobs:deathcreeper?
+- specialmobs:dirtcreeper?
+- specialmobs:doomcreeper?
+- specialmobs:drowningcreeper?
+- specialmobs:endercreeper?
+- specialmobs:firecreeper?
+- specialmobs:gravelcreeper?
+- specialmobs:jumpingcreeper?
+- specialmobs:lightningcreeper?
+- specialmobs:minicreeper?
+- specialmobs:sandcreeper?
+- specialmobs:skeletoncreeper?
+- specialmobs:snowcreeper?
+- specialmobs:splittingcreeper?
+- more_babies:creeper?
+
+#minecraft:impact_projectiles
+- #minecraft:arrows
+- minecraft:snowball
+- minecraft:fireball
+- minecraft:small_fireball
+- minecraft:egg
+- minecraft:trident
+- minecraft:dragon_fireball
+- minecraft:wither_skull
+- exoticbirds:bird_egg
+- cataclysm:void_shard
+- cataclysm:lava_bomb
+- cataclysm:ignis_abyss_fireball
+- cataclysm:ignis_fireball
+- undergarden:blisterbomb
+- undergarden:rotten_blisterberry
+- undergarden:goo_ball
+- undergarden:depthrock_pebble
+- undergarden:minion_projectile
+- hmag:magic_bullet
+- hmag:hard_snowball
+- hmag:poison_seed
+- hmag:magma_bullet
+
+#brazier:brazier_blacklist
+- hmag:magical_slime
+
+#iceandfire:chickens
+- minecraft:chicken
+
+#minecraft:skeletons
+- minecraft:skeleton
+- minecraft:stray
+- minecraft:wither_skeleton
+- hmag:skeleton_girl
+- hmag:stray_girl
+- hmag:wither_skeleton_girl
+
+#minecolonies:hostile
+- hmag:magical_slime
+
+#savage_and_ravage:creepers
+- hmag:creeper_girl
+
+#ars_nouveau:drygmy_blacklist
+- minecraft:iron_golem
+
+#hmag:crimson_slaughterer_target_animal_blacklist
+- minecraft:strider
+
+#cataclysm:trap_block_not_detected
+- cataclysm:ender_golem
+- cataclysm:ender_guardian
+- minecraft:ender_dragon
+- minecraft:enderman
+- minecraft:endermite
+- cataclysm:endermaptera
+- hmag:ender_executor
+
+#delightful:drops_acorn
+- ecologics:squirrel?
+
+#hmag:hmag_mobs
+- hmag:zombie_girl
+- hmag:husk_girl
+- hmag:drowned_girl
+- hmag:skeleton_girl
+- hmag:wither_skeleton_girl
+- hmag:stray_girl
+- hmag:creeper_girl
+- hmag:ghost
+- hmag:wither_ghost
+- hmag:ender_executor
+- hmag:kobold
+- hmag:lich
+- hmag:ogre
+- hmag:spider_nest
+- hmag:melty_monster
+- hmag:cursed_doll
+- hmag:jack_frost
+- hmag:hornet
+- hmag:dullahan
+- hmag:banshee
+- hmag:alraune
+- hmag:catoblepas
+- hmag:scorpion
+- hmag:kasha
+- hmag:dogu
+- hmag:ghastly_seeker
+- hmag:redcap
+- hmag:slime_girl
+- hmag:magical_slime
+- hmag:monolith
+- hmag:crimson_slaughterer
+- hmag:dyssomnia
+- hmag:snow_canine
+- hmag:harpy
+- hmag:savagefang
+- hmag:fortress_keeper
+- hmag:necrotic_reaper
+- hmag:dodomeki
+- hmag:imp
+- hmag:glaryad
+
+#nethersheep:atre_attack_cautiously
+- hmag:zombie_girl
+
+#endergetic:not_balloon_attachable
+- hmag:dyssomnia
+- hmag:ghastly_seeker
+- hmag:monolith
+
+#minecraft:freeze_immune_entity_types
+- minecraft:stray
+- minecraft:polar_bear
+- minecraft:snow_golem
+- minecraft:wither
+- exoticbirds:snowy_phoenix
+- exoticbirds:penguin
+- mowziesmobs:frostmaw
+- ecologics:penguin
+- cataclysm:ender_golem
+- cataclysm:ender_guardian
+- cataclysm:ignis
+- cataclysm:netherite_monstrosity
+- hmag:jack_frost
+- hmag:snow_canine
+- hmag:stray_girl
+
+#ars_nouveau:spell_can_hit
+
+#alexsmobs:orca_targets
+- hmag:drowned_girl
+
+#hmag:creeper_girl_replaceables
+- minecraft:creeper
+- camocreepers:camo_creeper?
+- creeperoverhaul:jungle_creeper?
+- creeperoverhaul:bamboo_creeper?
+- creeperoverhaul:desert_creeper?
+- creeperoverhaul:badlands_creeper?
+- creeperoverhaul:hills_creeper?
+- creeperoverhaul:savannah_creeper?
+- creeperoverhaul:swamp_creeper?
+- creeperoverhaul:dripstone_creeper?
+- creeperoverhaul:cave_creeper?
+- creeperoverhaul:dark_oak_creeper?
+- creeperoverhaul:spruce_creeper?
+- creeperoverhaul:beach_creeper?
+- creeperoverhaul:snowy_creeper?
+- specialmobs:creeper?
+
+#buzzier_bees:moobloom_hostiles
+- hmag:drowned_girl
+- hmag:stray_girl
+- hmag:zombie_girl
+
+#mowziesmobs:barakoa
+- mowziesmobs:barako
+- mowziesmobs:barakoa_sunblocker
+- mowziesmobs:barakoan_barakoana
+- mowziesmobs:barakoan_player
+- mowziesmobs:barakoa_sunblocker_player
+- mowziesmobs:barakoana
+- mowziesmobs:barakoaya
+
+#alexsmobs:sunbird_scorch_targets
+- hmag:banshee
+- hmag:drowned_girl
+- hmag:dyssomnia
+- hmag:ghost
+- hmag:husk_girl
+- hmag:lich
+- hmag:necrotic_reaper
+- hmag:skeleton_girl
+- hmag:stray_girl
+- hmag:wither_ghost
+- hmag:wither_skeleton_girl
+- hmag:zombie_girl
+
+#crossroads:ghost
+- hmag:ghost
+- hmag:wither_ghost
+- hmag:dyssomnia
+
+#friendsandfoes:wildfire_allies
+- hmag:wither_skeleton_girl
+- hmag:wither_ghost
+- hmag:melty_monster
+- hmag:fortress_keeper
+
+#forge:immune_to_ennegel_bounce
+- enlightened_end:big_ringling
+
+#sullysmod:cannot_be_flung
+- hmag:magic_bullet
+- hmag:magma_bullet
+
+#hmag:melty_monster_avoid_mobs
+- minecraft:strider
+- alexsmobs:straddler?
+
+#minecraft:raiders
+- minecraft:evoker
+- minecraft:pillager
+- minecraft:ravager
+- minecraft:vindicator
+- minecraft:illusioner
+- minecraft:witch
+- takesapillage:archer
+- takesapillage:skirmisher
+- takesapillage:legioner
+- cataclysm:nameless_sorcerer
+
+#occultism:afrit_allies
+- hmag:kasha
+- hmag:melty_monster
+
+#minecraft:axolotl_hunt_targets
+- minecraft:tropical_fish
+- minecraft:pufferfish
+- minecraft:salmon
+- minecraft:cod
+- minecraft:squid
+- minecraft:glow_squid
+
+#ars_nouveau:disintegration_whitelist
+
+#forge:slimes
+- minecraft:slime
+- tconstruct:earth_slime
+- tconstruct:sky_slime
+- tconstruct:ender_slime
+- tconstruct:terracube
+- minecraft:slime
+- hmag:magical_slime
+
+#domesticationinnovation:infamy_target_attracted
+- hmag:zombie_girl
+- hmag:husk_girl
+- hmag:drowned_girl
+- hmag:ghost
+- hmag:wither_ghost
+- hmag:kobold
+- hmag:lich
+- hmag:ogre
+- hmag:spider_nest
+- hmag:melty_monster
+- hmag:cursed_doll
+- hmag:jack_frost
+- hmag:hornet
+- hmag:dullahan
+- hmag:banshee
+- hmag:alraune
+- hmag:catoblepas
+- hmag:scorpion
+- hmag:kasha
+- hmag:dogu
+- hmag:ghastly_seeker
+- hmag:redcap
+- hmag:slime_girl
+- hmag:magical_slime
+- hmag:crimson_slaughterer
+- hmag:dyssomnia
+- hmag:snow_canine
+- hmag:harpy
+- hmag:fortress_keeper
+- hmag:necrotic_reaper
+- hmag:dodomeki
+- hmag:imp
+- hmag:glaryad
+
+#suszombification:affected_by_zombies_grace
+- hmag:drowned_girl
+- hmag:husk_girl
+- hmag:zombie_girl
+
+#starmute:mobs_no_player
+- minecraft:bat
+- minecraft:chicken
+- minecraft:cod
+- minecraft:cow
+- minecraft:donkey
+- minecraft:fox
+- minecraft:horse
+- minecraft:mooshroom
+- minecraft:mule
+- minecraft:ocelot
+- minecraft:panda
+- minecraft:parrot
+- minecraft:pig
+- minecraft:rabbit
+- minecraft:sheep
+- minecraft:skeleton_horse
+- minecraft:salmon
+- minecraft:squid
+- minecraft:strider
+- minecraft:turtle
+- minecraft:tropical_fish
+- minecraft:villager
+- minecraft:wandering_trader
+- minecraft:bee
+- minecraft:dolphin
+- minecraft:polar_bear
+- minecraft:wolf
+- minecraft:cave_spider
+- minecraft:enderman
+- minecraft:iron_golem
+- minecraft:spider
+- minecraft:zombified_piglin
+- minecraft:llama
+- minecraft:trader_llama
+- minecraft:pufferfish
+- minecraft:blaze
+- minecraft:creeper
+- minecraft:drowned
+- minecraft:elder_guardian
+- minecraft:ender_dragon
+- minecraft:evoker
+- minecraft:ghast
+- minecraft:guardian
+- minecraft:hoglin
+- minecraft:husk
+- minecraft:magma_cube
+- minecraft:phantom
+- minecraft:piglin
+- minecraft:piglin_brute
+- minecraft:pillager
+- minecraft:ravager
+- minecraft:shulker
+- minecraft:silverfish
+- minecraft:skeleton
+- minecraft:slime
+- minecraft:stray
+- minecraft:vex
+- minecraft:vindicator
+- minecraft:witch
+- minecraft:wither
+- minecraft:wither_skeleton
+- minecraft:zoglin
+- minecraft:zombie
+- minecraft:zombie_villager
+
+#pneumaticcraft:omnihopper_blacklisted
+- minecraft:villager
+
+#undergarden:immune_to_virulent_mix
+- #undergarden:rotspawn
+- #undergarden:cavern_creature
+- undergarden:stoneborn
+- undergarden:mog
+- undergarden:gloomper
+
+#vampirism:zombies
+- hmag:drowned_girl
+- hmag:husk_girl
+- hmag:zombie_girl
+
+#hmag:drowned_girl_replaceables
+- minecraft:drowned
+- specialmobs:drowned?
+
+#ars_nouveau:disintegration_blacklist
+
+#sullysmod:attacks_baby_tortoises
+- hmag:drowned_girl
+- hmag:husk_girl
+- hmag:lich
+- hmag:kasha
+- hmag:necrotic_reaper
+- hmag:ogre
+- hmag:redcap
+- hmag:skeleton_girl
+- hmag:snow_canine
+- hmag:stray_girl
+- hmag:wither_skeleton_girl
+- hmag:zombie_girl
+
+#hexcasting:sticky_teleporters
+- create:contraption?
+- create:stationary_contraption?
+- create:gantry_contraption?
+- create:carriage_contraption?
+- minecraft:pig
+- minecraft:strider
+- minecraft:horse
+- minecraft:skeleton_horse
+- minecraft:zombie_horse
+- minecraft:mule
+- minecraft:donkey
+- minecraft:llama
+- minecraft:trader_llama
+
+#sullysmod:scares_tortoises
+- hmag:banshee
+- hmag:drowned_girl
+- hmag:dyssomnia
+- hmag:ghost
+- hmag:husk_girl
+- hmag:lich
+- hmag:necrotic_reaper
+- hmag:skeleton_girl
+- hmag:stray_girl
+- hmag:wither_ghost
+- hmag:wither_skeleton_girl
+- hmag:zombie_girl

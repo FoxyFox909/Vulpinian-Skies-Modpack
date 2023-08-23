@@ -1,0 +1,15 @@
+{
+	"name": "vulpinian_structures:undergarden_portal_dungeon/undergarden_portal_dungeon_pool",
+	"fallback": "minecraft:empty",
+	"elements": [
+		{
+			"weight": 1,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "vulpinian_structures:undergarden_portal_dungeon/undergarden_portal_dungeon_one",
+				"projection": "rigid",
+				"processors": "vulpinian_structures:upd_one/upd_top_room_stone"
+			}
+		}
+	]
+}

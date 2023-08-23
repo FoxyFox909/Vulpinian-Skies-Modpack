@@ -1,0 +1,23 @@
+{
+	"name": "Class G Weapons",
+	"icon": "scorchedguns:eoka_pistol",
+	"category": "patchouli:uncategorized_entries_category",
+	"sortnum": 0,
+	"pages": [				
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_4h1pe17jq9adnzj13mcfzpry1",
+			"text": "Craftable by hand.$(br)$(br)$(italics)Gunslinging at its crudest.$(reset)"			
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_9cawd962kktmig52t3fp1vj6w",
+			"text": "$(italics)Humble beginnings.$(reset)"			
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_blpdo7flp8nn466llaf5sexq3",
+			"text": "$(italics)Seven barrels because... reasons.$(reset)"			
+		}
+	]
+}

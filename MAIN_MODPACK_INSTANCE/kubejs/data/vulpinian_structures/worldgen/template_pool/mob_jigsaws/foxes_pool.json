@@ -1,0 +1,33 @@
+{
+	"name": "vulpinian_structures:mob_jigsaws/foxes_pool",
+	"fallback": "minecraft:empty",
+	"elements": [
+		{
+			"weight": 1,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "vulpinian_structures:mob_jigsaws/fox_red",
+				"projection": "rigid",
+				"processors": "minecraft:empty"				
+			}
+		},
+		{
+			"weight": 1,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "vulpinian_structures:mob_jigsaws/fox_snow",
+				"projection": "rigid",
+				"processors": "minecraft:empty"				
+			}
+		},
+		{
+			"weight": 1,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "vulpinian_structures:mob_jigsaws/fox_foxhound",
+				"projection": "rigid",
+				"processors": "minecraft:empty"				
+			}
+		}
+	]
+}

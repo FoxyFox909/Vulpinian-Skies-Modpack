@@ -1,0 +1,14 @@
+{
+	"structures": [
+		{
+			"structure": "vulpinian_structures:undergarden_portal_dungeons/undergarden_portal_dungeon",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"type": "minecraft:random_spread",
+		"spacing": 2048,
+		"separation": 1024,
+		"salt": 1784917581
+	}	
+}

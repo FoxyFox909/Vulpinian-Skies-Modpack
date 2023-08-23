@@ -1,0 +1,9 @@
+{
+	"replace": true,
+	"values": [
+		"iceandfire:copper_pickaxe",
+		"iceandfire:copper_axe",
+		"create:copper_valve_handle",
+		"miners_delight:copper_cup"
+	]
+}

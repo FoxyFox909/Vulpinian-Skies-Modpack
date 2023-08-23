@@ -1,0 +1,26 @@
+{
+	"processors": [		
+		{
+			"processor_type": "minecraft:rule",
+			"rules": [
+				{
+					"position_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "undergarden:depthrock_bricks",
+						"probability": 0.1
+					},
+					"output_state": {
+						"Name": "undergarden:cracked_depthrock_bricks"
+					}
+				}
+			]
+		}
+		
+	]
+}

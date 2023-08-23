@@ -1,0 +1,13 @@
+name = "Grimoire of Gaia"
+filename = "GrimoireOfGaia4-1.18.2-2.0.0-beta.5.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "804dabd9fac68b45f650996e50eafdcb32f66227"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4683677
+project-id = 228948

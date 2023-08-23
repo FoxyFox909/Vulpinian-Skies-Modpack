@@ -1,0 +1,8 @@
+{
+  "title": {
+    "text": "Inventory Sorting",
+	"underlined":true,
+    "color": "dark_aqua"
+  },
+  "tip": "Inventories have a clickable Sort button. You can bind separate keys to sort your inventory and containers."
+}

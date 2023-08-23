@@ -1,0 +1,9 @@
+{
+	"replace": true,
+	"values": [
+	"scorchedguns:heavy_crossbow",
+	"scorchedguns:hand_crossbow",
+	"scorchedguns:auto_crossbow",
+	"scorchedguns:volley_gun"	
+	]
+}

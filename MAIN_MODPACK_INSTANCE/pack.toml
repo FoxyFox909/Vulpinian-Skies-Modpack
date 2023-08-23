@@ -1,0 +1,13 @@
+name = "Vulpinian Skies"
+author = "Aurora_Luciri (Fox)"
+version = "1.0b8"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "abfab451da196ab8d8e2e85010a6dc63eb384936faaed4188bc1671bb340daa7"
+
+[versions]
+forge = "40.2.4"
+minecraft = "1.18.2"

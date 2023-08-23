@@ -1,0 +1,18 @@
+{
+	"replace": true,
+	"values": [		
+		"minecraft:golden_shovel",
+		"minecraft:powered_rail",
+		"create:crushed_raw_gold",
+		"create:golden_sheet",
+		"create:controller_rail",
+		"framedblocks:framed_fancy_powered_rail",
+		"framedblocks:framed_powered_rail_slope",
+		"framedblocks:framed_fancy_powered_rail_slope",
+		"quark:gold_button",
+		"gemsnjewels:jeweled_gold_shovel",
+		"farmersdelight:golden_knife",
+		"ars_nouveau:dowsing_rod",
+		"tconstruct:gold_platform"
+	]
+}

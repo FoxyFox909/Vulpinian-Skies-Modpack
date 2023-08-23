@@ -1,0 +1,10 @@
+EMPTY ONES:
+
+ctov:chets/village/village_jungle_house
+ctov:chests/village/cartographer
+ctov:chests/village/village_library
+ctov:chests/village/village_smith
+
+
+
+ctov:chests/village/village_jungle_house

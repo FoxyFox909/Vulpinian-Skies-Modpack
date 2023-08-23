@@ -1,0 +1,13 @@
+{
+	"name": "Intro to Vulpinian Skies",
+	"landing_text": "A treatise on how to smoothly get started with the $(bold)Vulpinian Skies$(reset) lifestyle.$(br)$(br)(Work in Progress)",
+	"version": 1,
+	"book_texture": "patchouli:textures/gui/book_cyan.png",
+	"model": "patchouli:book_cyan",
+	"show_progress":false,
+	"macros": {
+		"$(machinery)": "Hover over the munition above and press [$(k:jei.showRecipe)] to see $(bold)required machinery$(reset).",
+		"$(workbench)": "Crafted via $(bold)sequenced assembly$(reset). Hover over the frame above and press [$(k:jei.showRecipe)] to see $(bold)required components and process$(reset).",
+		"$(apparatus)": "Crafted via $(bold)Enchanting Apparatus$(reset). Hover over munition above and press [$(k:jei.showRecipe)] for more information$(reset)."
+	}
+}

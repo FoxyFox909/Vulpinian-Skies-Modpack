@@ -1,0 +1,9 @@
+{
+	"replace": true,
+	"values": [
+		"#vulpinian_skies_core:quartz_blocks/full",
+		"#vulpinian_skies_core:quartz_blocks/three_fourths",
+		"#vulpinian_skies_core:quartz_blocks/half",
+		"#vulpinian_skies_core:quartz_blocks/one_fourth"
+	]
+}

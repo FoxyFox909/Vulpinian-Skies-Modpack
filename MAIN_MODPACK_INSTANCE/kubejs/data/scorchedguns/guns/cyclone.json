@@ -1,0 +1,30 @@
+{
+  "general": {
+    "auto": true,
+    "rate": 12,
+    "gripType": "cgm:mini_gun",
+    "maxAmmo": 25,
+    "reloadAmount": 25,
+    "recoilAngle": 1.0,
+	"recoilKick": 1.0,
+	"projectileAmount": 1,
+    "alwaysSpread": true,
+    "spread": 9.0
+  },
+  "projectile": {
+    "visible": true,
+    "item": "cgm:missile",
+    "damage": 12.0,
+    "size": 0.8,
+    "speed": 2.0,
+    "life": 30
+  },
+  "sounds": {
+    "fire": "cgm:item.grenade_launcher.fire",
+    "reload": "cgm:item.pistol.reload",
+    "enchantedFire": "cgm:item.mini_gun.enchanted_fire"
+  },
+  "display": {
+
+  }
+}

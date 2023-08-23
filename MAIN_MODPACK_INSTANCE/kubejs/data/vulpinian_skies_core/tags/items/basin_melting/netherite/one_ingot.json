@@ -1,0 +1,24 @@
+{
+	"replace": true,
+	"values": [	
+		"createdeco:netherite_sheet",
+		"createdeco:yellow_netherite_lamp",
+		"createdeco:red_netherite_lamp",
+		"createdeco:green_netherite_lamp",
+		"createdeco:blue_netherite_lamp",
+		"createdeco:netherite_catwalk",
+		"createdeco:netherite_catwalk_stair",
+		"createdeco:netherite_mesh_fence",
+		"sophisticatedbackpacks:netherite_backpack",
+		"sophisticatedstorage:netherite_barrel",
+		"sophisticatedstorage:netherite_chest",
+		"sophisticatedstorage:netherite_shulker_box",
+		"farmersdelight:netherite_knife",
+		"create_things_and_misc:netherite_portable_whistle",
+		"bygonenether:gilded_netherite_shield",
+		"create:netherite_diving_helmet",
+		"create:netherite_backtank",
+		"createdeco:netherite_sheet_slab",
+		"createdeco:netherite_sheet_slab_vert"
+	]
+}

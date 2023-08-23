@@ -1,0 +1,48 @@
+{
+	"name": "Class B Weapons",
+	"icon": "scorchedguns:sc_fusilage",
+	"category": "patchouli:uncategorized_entries_category",
+	"sortnum": 5,
+	"pages": [				
+		{ 
+			"type": "patchouli:spotlight",
+			"item": "kubejs:class_b_frame",
+			"text": "$(workbench)$(br)$(br)Raw Materials:$(br)-Scorched Bronze$(br)-Netherite$(br)-Quartz"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_ca70l3jovlralun17r02cqr2h",
+			"recipe2": "kubejs:kjs_56wyfwjwqf92lkq3r8miu6al9"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_dn35myh0emq3dz6oa17ex59ps",
+			"recipe2": "kubejs:kjs_1j6m6h6y6sx1ccziimnmp7tys"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_axtwzedrk8tc60ibdlr2o24bz",
+			"recipe2": "kubejs:kjs_81hc126n7310tj17vfm7bnhlt"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_7wgl73blzaymmm0fe4t1dz1yu",
+			"recipe2": "kubejs:kjs_75e0jc6wi305mo0udylav1wz2"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_dv9cn2hmgq6ok0v6pkc4xqo5p",
+			"recipe2": "kubejs:kjs_338vnzme71nwtco1gx0yxeucj"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_43fsq253d8k574kpcyedtc570",
+			"recipe2": "kubejs:kjs_3cme2hf4tvar82es3unvbfc65"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_fr1d8ncavhtp975dylpbttz4",
+			"recipe2": "kubejs:kjs_3nv289vojnai8ousrm3vi7li5"
+		}
+	]
+}

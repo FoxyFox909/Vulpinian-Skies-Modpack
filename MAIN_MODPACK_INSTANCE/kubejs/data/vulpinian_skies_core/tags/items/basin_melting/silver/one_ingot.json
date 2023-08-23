@@ -1,0 +1,8 @@
+{
+	"replace": true,
+	"values": [
+		"create:crushed_raw_silver",
+		"iceandfire:silver_shovel",
+		"delightful:silver_knife"
+	]
+}

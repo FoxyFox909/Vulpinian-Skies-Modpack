@@ -1,0 +1,27 @@
+{
+	"replace": true,
+	"values": [		
+		"minecraft:diamond_hoe",
+		"minecraft:diamond_sword",
+		"minecraft:enchanting_table",
+		"minecraft:diamond_horse_armor",
+		"iceandfire:diamond_hippogryph_armor",
+		"aquaculture:diamond_fishing_rod",
+		"aquaculture:diamond_fillet_knife",		
+		"byg:pendorite_ingot",
+		"quark:pickarang",
+		"reliquary:shears_of_winter",
+		"reliquary:ice_magus_rod",
+		"waystones:warp_stone",
+		"advancedperipherals:weak_automata_core",
+		"cookingforblockheads:crafting_book",		
+		"torchmaster:megatorch",
+		"gemsnjewels:solid_diamond_sword",
+		"gemsnjewels:jeweled_solid_diamond_sword",
+		"gemsnjewels:solid_diamond_hoe",
+		"gemsnjewels:jeweled_solid_diamond_hoe",
+		"gemsnjewels:jeweled_diamond_hoe",
+		"gemsnjewels:jeweled_diamond_sword",
+		"scorchedguns:diamond_steel"
+	]
+}

@@ -1,0 +1,13 @@
+name = "Builders Crafts & Additions (Forge)"
+filename = "buildersaddition-1.18.2-20220308a.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "e836927601a8e9f35a7028b81dcd96d8afcbf712"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 3682212
+project-id = 389697

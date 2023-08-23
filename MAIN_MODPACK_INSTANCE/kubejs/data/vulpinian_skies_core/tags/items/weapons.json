@@ -1,0 +1,13 @@
+{
+	"replace": true,
+	"values": [
+	"#vulpinian_skies_core:weapons/class_g",
+	"#vulpinian_skies_core:weapons/class_f",
+	"#vulpinian_skies_core:weapons/class_e",
+	"#vulpinian_skies_core:weapons/class_d",
+	"#vulpinian_skies_core:weapons/class_c",
+	"#vulpinian_skies_core:weapons/class_b",
+	"#vulpinian_skies_core:weapons/class_a",
+	"#vulpinian_skies_core:weapons/class_s"
+	]
+}

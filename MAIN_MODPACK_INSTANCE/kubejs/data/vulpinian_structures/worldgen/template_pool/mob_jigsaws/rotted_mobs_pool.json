@@ -1,0 +1,40 @@
+{
+	"name": "vulpinian_structures:mob_jigsaws/rotted_mobs_pool",
+	"fallback": "minecraft:empty",
+	"elements": [
+		{
+			"weight": 20,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "vulpinian_structures:mob_jigsaws/undergarden/rotling",
+				"projection": "rigid",
+				"processors": "minecraft:empty"				
+			}
+		},
+		{
+			"weight": 10,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "vulpinian_structures:mob_jigsaws/undergarden/rotwalker",
+				"projection": "rigid",
+				"processors": "minecraft:empty"				
+			}
+		},
+		{
+			"weight": 5,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "vulpinian_structures:mob_jigsaws/undergarden/rotbeast",
+				"projection": "rigid",
+				"processors": "minecraft:empty"				
+			}
+		},
+		{
+			"weight": 5,
+			"element": {
+				"element_type": "minecraft:empty_pool_element",				
+				"projection": "rigid"				
+			}
+		}
+	]
+}

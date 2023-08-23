@@ -1,0 +1,15 @@
+{
+	"name": "vulpinian_structures:mob_jigsaws/goblin_trader_pool",
+	"fallback": "minecraft:empty",
+	"elements": [
+		{
+			"weight": 1,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "vulpinian_structures:mob_jigsaws/goblin_trader",
+				"projection": "rigid",
+				"processors": "minecraft:empty"				
+			}
+		}		
+	]
+}

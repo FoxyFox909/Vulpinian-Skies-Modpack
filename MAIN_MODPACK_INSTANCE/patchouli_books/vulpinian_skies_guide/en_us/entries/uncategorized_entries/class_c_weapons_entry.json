@@ -1,0 +1,58 @@
+{
+	"name": "Class C Weapons",
+	"icon": "scorchedguns:scorched_wand",
+	"category": "patchouli:uncategorized_entries_category",
+	"sortnum": 4,
+	"pages": [				
+		{ 
+			"type": "patchouli:spotlight",
+			"item": "kubejs:class_c_frame",
+			"text": "$(workbench)$(br)$(br)Raw Materials:$(br)-Scorched Bronze$(br)-Nethersteel$(br)-Quartz"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_6yrk4xxxyhfvfo7skvlyokytc",
+			"recipe2": "kubejs:kjs_4236gp6sdmfsrqywi9cmfqkm0"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_7wq8r16w6zo59us54zcbqy85x",
+			"recipe2": "kubejs:kjs_ehw4dzikigjf47jph0g6r0918"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_6xf7q5gxunh1vljmp34t6nmx8",
+			"recipe2": "kubejs:kjs_8lu4xe4qwst6asca1fttuiuc9"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_8r170z3klga5nk6huj6278ghx",
+			"recipe2": "kubejs:kjs_dhcyvvvsh5kcfo8ntc37touar"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_3h0ke2uoa3oveo0ydrjhhwksz",
+			"recipe2": "kubejs:kjs_5nko4rhcjg2fsy6ika8q1eqtm"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_c4fwxajs0h26drrbd5ydrc195",
+			"recipe2": "kubejs:kjs_bvh42kmw18nsod3eyjfm5zuv5"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_8g9dtamzfwqz6m9hsan38n3w1",
+			"recipe2": "kubejs:kjs_e7nf1s3q4559drn6plc7119bt"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_erlwo65kpzqdnx1th0bia0h6e",
+			"recipe2": "kubejs:kjs_6fw1kkpsu42sjgjz357xthbg"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_h01ypzv8rhvvmwdr25h8ojv9",
+			"recipe2": "kubejs:kjs_1kua9x1ayl3nql84mu2w6nlx"
+		}
+	]
+}

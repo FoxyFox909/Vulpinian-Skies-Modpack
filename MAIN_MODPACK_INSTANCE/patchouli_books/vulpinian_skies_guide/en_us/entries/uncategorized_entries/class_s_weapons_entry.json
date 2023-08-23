@@ -1,0 +1,33 @@
+{
+	"name": "Class S Weapons",
+	"icon": "scorchedguns:officers_special",
+	"category": "patchouli:uncategorized_entries_category",
+	"sortnum": 7,
+	"pages": [				
+		{ 
+			"type": "patchouli:spotlight",
+			"item": "kubejs:class_s_frame",
+			"text": "$(workbench)$(br)$(br)Raw Materials:$(br)-Class C Frame$(br)-Diamond$(br)-Diamond Steel$(br)-Nether Star"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_ak0eukrpmnlszj90h81d4e3by",
+			"recipe2": "kubejs:kjs_871bjnljwqwo22ypoqmwizwh0"
+		},	
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_agb426jo1nxj1dkvzbeah6wlx",
+			"recipe2": "kubejs:kjs_4f0sifcwkw2nr77czxpbilgsb"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_905xf9bisjcs0vejpgwt11mtp",
+			"recipe2": "kubejs:kjs_1le9tspbzk3v2tbl8efdfvnnt"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_53sw86dslt012nyx1nrry39n2", 
+			"recipe2": "kubejs:kjs_5ni0ymf0pt9fdbzd3q3b185an"			
+		}		
+	]
+}

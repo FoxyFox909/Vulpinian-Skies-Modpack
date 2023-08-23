@@ -1,0 +1,235 @@
+{
+	"name": "Ballistics",
+	"icon": "scorchedguns:scorched_bullet",
+	"category": "patchouli:science_category",
+	"sortnum": 3,
+	"pages": [
+		{
+			"type": "patchouli:spotlight",
+			"item": "cgm:pistol{AmmoCount:16,display:{Name:[{\"text\":\"Starter Gun\",\"italic\":false}]}}",
+			"text": "The field of mechanics concerned with the launching, flight behaviour, and impact effects of projectiles.$(br)$(br)In other words, how to go $(br)$(italics)pew pew$(reset).$(br)$(br)There is a Starter Gun included in every Starter Hut to get you... $(italics)started$(reset).",
+			"title": "Starter Gun"	
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_4nc6tzhgbx8c1usmx85ej2smo",
+			"text": "Aside from a few rudimentary guns, machinery is needed to make most instruments of $(italics)pew pew$(reset)ing, and you can craft accessories for them at a Ballistics Workbench.$(br)$(br)See a list of Weapons $(bold)$(#66e0ff)$(l:uncategorized_entries/weapon_list_entry)here$(reset)$(br)Read on for Ammo information.",
+			"title": "Crafting Weapons"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "create:large_cogwheel",
+			"text": "All ammo production is automatable with machinery.$(br)$(br)Some basic understanding of setting up and operating $(l:patchouli:things_to_do/science_category/create_entry)Create$(reset) machinery will be required.$(br)$(br)Refer to this entry as a catalogue of how to manufacture different munitions.$(br)$(bold)The Factory Must Expand$(reset).",
+			"title": "Crafting Munitions"			
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "cgm:basic_bullet",
+			"text": "$(machinery)$(br)$(br)Raw Materials:$(br)-Copper$(br)-Iron$(br)-Zinc$(br)-Gunpowder"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "cgm:advanced_bullet",
+			"text": "$(machinery)$(br)$(br)Raw Materials:$(br)-Copper$(br)-Iron$(br)-Zinc$(br)-Andesite$(br)-Gunpowder"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "cgm:shell",
+			"text": "$(machinery)$(br)$(br)Raw Materials:$(br)-Gold$(br)-Iron$(br)-Red Wool$(br)-Gunpowder"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "cgm:missile",
+			"text": "$(machinery)$(br)$(br)Raw Materials:$(br)-Iron$(br)-Redstone$(br)-Sand$(br)Bioethanol (mix Sugar, Cinder Flour, and Biomass)$(br)-Gunpowder"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "cgm:grenade",
+			"text": "$(machinery)$(br)$(br)Raw Materials:$(br)-Glass$(br)-Bioethanol$(br)-String"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_1exfxovnbhnvjecfhae59ims1",
+			"text": "$(br)$(br)$(italics)Bang bang!$(reset)"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_exebyeear3ds3keiibl9jtots",
+			"text": "$(br)$(br)$(italics)Poor person's munition.$(reset)"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_9xdcehzrqlwd7thrfz1dpy2f4",
+			"text": "$(br)$(br)$(italics)Slightly less poor person's munition.$(reset)"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_2mh48ajfdg0az831ag1rx0qgn",
+			"text": "$(br)$(br)$(italics)Mostly silent. Until someone screams in pain.$(reset)"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_bhghnt7qdn7gsa35xhslli918",
+			"text": "$(br)$(br)$(italics)More effective than pocket sand.$(reset)"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_blyvwjcd7oreh91mmszmx0wbl",
+			"text": "$(br)$(br)$(italics)To screw things up.$(reset)"
+		},
+		{
+			"type": "patchouli:text",
+			"text": "In the following pages, you will encounter recipes with multiple steps, with one step per page.$(br)$(br)The first step (on the left page) will usually create an intermediary item.$(br)$(br)The second step (on the right page) will yield the final result."
+		},
+		{
+			"type": "patchouli:empty"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "kubejs:unstable_encased_fire",
+			"text": "$(machinery)$(br)$(br)Raw Materials:$(br)-Iron$(br)-Lava$(br)-Blaze Rod"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:encased_fire",
+			"text": "$(machinery)$(br)$(br)$(italics)I don't want to set the world on fire.$(reset)"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_1n9g4nola3co8u2k7h139h0md",
+			"text": "$(br)$(br)$(italics)Thin and pointy.$(reset)"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_3eh3tjq0h6ch2p0fl7d7jndp7",
+			"text": "$(br)$(br)$(italics)Some assembly required.$(reset)"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "kubejs:uncharged_ec_round",
+			"text": "$(machinery)$(br)$(br)Requires Flechettes, Pure Gunpowder, and Cast Iron."
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:ec_round",
+			"text": "$(machinery)$(br)$(br)$(italics)Add a bit of a spark.$(reset)"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:scorched_bronze_ingot",
+			"text": "$(machinery)$(br)$(br)Raw Materials:$(br)-Brass$(br)-Copper$(br)-Blaze Powder$(br)$(br)$(italics)Turn up the heat.$(reset)"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:scorched_bullet",
+			"text": "$(machinery)$(br)$(br)Requires Pure Gunpowder."
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:scorched_bronze_ingot",
+			"text": "$(machinery)$(br)$(br)$(italics)Keep turning it up.$(reset)"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:scorched_big_bullet",
+			"text": "$(machinery)$(br)$(br)Requires Pure Gunpowder and Andesite Alloy."
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:scorched_bronze_ingot",
+			"text": "$(machinery)$(br)$(br)$(italics)Get Scorched.$(reset)"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:scorched_shell",
+			"text": "$(machinery)$(br)$(br)Requires Pure Gunpowder, Shot Balls, and Red Carpet."
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:heavy_bullet",
+			"text": "$(machinery)$(br)$(br)Requires Brass, Andesite Alloy, and Cast Iron."
+		},
+		{
+			"type": "patchouli:empty"			
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:hell_gunpowder",
+			"text": "$(machinery)$(br)$(br)Start with Congealed Nitro, then Haunt, then Crush.$(br)$(br)$(italics)Welcome $(#ff0000)<3$(reset) $(italics)Hell$(reset)"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:pig_round",
+			"text": "$(machinery)$(br)$(br)Requires Hell Gunpowder, Quartz, and Scorched Bronze Ingots."
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:hell_gunpowder",
+			"text": "$(machinery)$(br)$(br)$(italics)Cookin.$(reset)"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:heavy_pig_round",
+			"text": "$(machinery)$(br)$(br)Requires Hell Gunpowder, Quartz, Scorched Bronze Ingots, and Andesite Alloy."
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:hell_gunpowder",
+			"text": "$(machinery)$(br)$(br)$(italics)Cookin.$(reset)"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:quartz_shell",
+			"text": "$(machinery)$(br)$(br)Requires Hell Gunpowder, Quartz, and Scorched Bronze Ingots."
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "createbigcannons:nitropowder",
+			"text": "$(machinery)$(br)$(br)$(italics)Do not inhale.$(reset)"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:osborne_slug",
+			"text": "$(machinery)$(br)$(br)Requires Nitro Dust, Cast Iron, and Red Carpet."
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:experimental_round",
+			"text": "$(machinery)$(br)$(br)Requires Experience Nuggets, Cast Iron, and Scorched Bronze Ingots.$(br)$(br)$(italics)A bullet that has been places...$(reset)"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:experimental_round",
+			"text": "The next munitions are the current pinnacle of ballistics.$(br)$(br)Their accuracy, speed, and damage is unmatched.$(br)$(br)The catch? In order to make them, a marriage between magic and science is required."
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:ethereal_bullet",
+			"text": "$(apparatus)$(br)$(br)Reagent: Experimental Round$(br)Raw Materials:$(br)-Diamond Steel$(br)-Lapis Lazuli$(br)-Zinc$(br)-Experience"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:ethereal_heavy_bullet",
+			"text": "$(apparatus)$(br)$(br)Reagent: Heavy Bullet$(br)Raw Materials:$(br)-Diamond Steel$(br)-Diamond$(br)-Brass"
+		},		
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:ethereal_shell",
+			"text": "$(apparatus)$(br)$(br)Reagent: Scorched Shell$(br)Raw Materials:$(br)-Diamond Steel$(br)-Redstone$(br)-Gold"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "scorchedguns:ec_round",
+			"text": "$(apparatus)$(br)$(br)Reagent: EC Round$(br)Raw Materials:$(br)-Diamond Steel$(br)-Copper$(br)-Gold"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "vulpinian_skies_core:ethereal_grenade",
+			"text": "$(apparatus)$(br)$(br)Reagent: Grenade$(br)Raw Materials:$(br)-Diamond Steel$(br)-Nitropowder$(br)-Hellpowder"
+		}
+	]
+}
+
+
+
+

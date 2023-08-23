@@ -1,0 +1,8 @@
+{
+  "title": {
+    "text": "Framed Hammer",
+	"underlined":true,
+    "color": "dark_aqua"
+  },
+  "tip": "Use this tool to remove blocks stored in framed blocks."
+}

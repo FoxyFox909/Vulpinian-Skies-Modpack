@@ -1,0 +1,8 @@
+{
+	"replace": true,
+	"values": [
+		"createdeco:brass_bars",
+		"createdeco:brass_bars_overlay",
+		"createdeco:brass_support"
+	]
+}

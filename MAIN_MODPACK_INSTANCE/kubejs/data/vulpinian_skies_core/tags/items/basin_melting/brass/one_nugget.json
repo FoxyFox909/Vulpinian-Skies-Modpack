@@ -1,0 +1,9 @@
+{
+	"replace": true,
+	"values": [
+		"#forge:nuggets/brass",
+		"create_things_and_misc:brass_brick_slab",
+		"create_things_and_misc:brass_tiles_slab",
+		"create:brass_bars"		
+	]
+}

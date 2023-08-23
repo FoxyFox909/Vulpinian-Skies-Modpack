@@ -1,0 +1,9 @@
+{
+	"replace": true,
+	"values": [
+		"iceandfire:dragonarmor_silver_head",
+		"iceandfire:dragonarmor_silver_neck",
+		"iceandfire:dragonarmor_silver_body",
+		"iceandfire:dragonarmor_silver_tail"
+	]
+}

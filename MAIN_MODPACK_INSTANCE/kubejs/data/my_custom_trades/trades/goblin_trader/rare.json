@@ -1,0 +1,65 @@
+{
+    "replace": false,
+    "trades": [
+        {
+            "type": "goblintraders:basic",
+            "offer_item": {
+                "item": "capsule:capsule",
+                "count": 1,
+                "nbt": "{author:\"Vulpine Co.\",canRotate:0b,color:8072841,display:{color:11370027},isReward:1b,label:\"Starter Hut - Oak\",oneUse:1b,size:9,state:5,structureName:\"config/capsule/rewards/starter_hut_-_oak.nbt\",upgraded:0}"
+            },
+            "payment_item": {
+                "item": "minecraft:glass_bottle",
+                "count": 1
+            },
+			"secondary_payment_item": {
+                "item": "createdeco:iron_coin",
+                "count": 20
+            },
+			"price_multiplier": 0.0,
+            "max_trades": 1,
+			"experience": 50
+        },
+		{
+            "type": "goblintraders:basic",
+            "offer_item": {
+                "item": "capsule:capsule",
+                "count": 1,
+                "nbt": "{author:\"Vulpine Co.\",canRotate:0b,color:8072841,display:{color:8892108},isReward:1b,label:\"Starter Hut - Frost\",oneUse:1b,size:9,state:5,structureName:\"config/capsule/rewards/starter_hut_-_frost.nbt\",upgraded:0}"
+            },
+            "payment_item": {
+                "item": "minecraft:glass_bottle",
+                "count": 1
+            },
+			"secondary_payment_item": {
+                "item": "createdeco:iron_coin",
+                "count": 20
+            },
+			"price_multiplier": 0.0,
+            "max_trades": 1,
+			"experience": 50
+        },
+		{
+            "type": "goblintraders:basic",
+            "offer_item": {
+                "item": "capsule:capsule",
+                "count": 1,
+                "nbt": "{author:\"Vulpine Co.\",canRotate:0b,color:8072841,display:{color:8026746},isReward:1b,label:\"Starter Hut - Tower\",oneUse:1b,size:9,state:5,structureName:\"config/capsule/rewards/starter_hut_-_tower.nbt\",upgraded:0}"
+            },
+            "payment_item": {
+                "item": "minecraft:glass_bottle",
+                "count": 1
+            },
+			"secondary_payment_item": {
+                "item": "createdeco:iron_coin",
+                "count": 20
+            },
+			"price_multiplier": 0.0,
+            "max_trades": 1,
+			"experience": 50
+        }
+		
+    ],
+	"comment": "Vulpinian Skies custom Goblin Traders trades"
+}
+

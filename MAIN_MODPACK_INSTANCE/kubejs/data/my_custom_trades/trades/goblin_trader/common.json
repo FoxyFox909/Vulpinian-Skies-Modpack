@@ -1,0 +1,22 @@
+{
+    "replace": false,
+    "trades": [
+        {
+            "type": "goblintraders:basic",
+            "offer_item": {
+                "item": "vs_eureka:balloon",
+                "count": 16,
+                "nbt": "{Damage:0}"
+            },
+            "payment_item": {
+                "item": "minecraft:apple",
+                "count": 1
+            },
+			"price_multiplier": 0.0,
+            "max_trades": 24,
+			"experience": 0
+        }
+    ],
+	"comment": "Vulpinian Skies custom Goblin Traders trades"
+}
+

@@ -1,0 +1,26 @@
+{
+    "replace": false,
+    "trades": [
+        {
+            "type": "goblintraders:basic",
+            "offer_item": {
+                "item": "scorchedguns:thumper",
+                "count": 1,
+                "nbt": "{AmmoCount:1,Attachments:{}}"
+            },
+            "payment_item": {
+                "item": "createdeco:iron_coin",
+                "count": 22
+            },
+			"secondary_payment_item": {
+                "item": "createdeco:copper_coin",
+                "count": 50
+            },
+			"price_multiplier": 0.0,
+            "max_trades": 1,
+			"experience": 60
+        }
+    ],
+	"comment": "Vulpinian Skies custom Goblin Traders trades"
+}
+

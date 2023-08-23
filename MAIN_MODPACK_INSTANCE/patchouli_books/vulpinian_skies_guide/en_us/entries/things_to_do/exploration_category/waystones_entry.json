@@ -1,0 +1,33 @@
+{
+	"name": "Waystones",
+	"icon": "waystones:waystone",
+	"category": "patchouli:exploration_category",
+	"sortnum": 1,
+	"pages": [
+		{
+			"type": "patchouli:spotlight",
+			"item": "waystones:waystone",
+			"text": "An easy-to-use yet expensive method of travel.$(br)$(br)Using one of these is considered a luxury.$(br)$(br)They are mainly used for cross-dimensional travel.",
+			"title": "Waystones"
+		},
+		{ 
+			"type": "patchouli:spotlight",
+			"item": "grimoireofgaia:experience_diamond",
+			"text": "Minimim Cost: 3 Levels$(br)Per 1000 blocks: 1 Level (hard cap of 60)$(br)$(br)Cross-dimensional: No extra charge$(br)$(br)Leashed Passengers: No extra charge$(br)$(br)$(italics)These costs apply to all Waystone-related items$(reset).",
+			"title": "Costs"
+			
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "waystones:warp_stone",
+			"text": "This is the core magical item powering all Waystones.$(br)$(br)It can be used by itself as a teleportation device.",
+			"title": "Warp Stones"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_afqjod2vu1vydz9vcbs8lz80w",
+			"text": "",
+			"title": "Crafting Warp Stones"
+		}
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"name": "Class A Weapons",
+	"icon": "scorchedguns:thunderhead",
+	"category": "patchouli:uncategorized_entries_category",
+	"sortnum": 6,
+	"pages": [				
+		{ 
+			"type": "patchouli:spotlight",
+			"item": "kubejs:class_a_frame",
+			"text": "$(workbench)$(br)$(br)Raw Materials:$(br)-Class B Frame$(br)-Diamond Steel Nugget"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_czowe3rcmkf79057o563uq2da",
+			"recipe2": "kubejs:kjs_bu6wu04z1byc0glqs4c0agw3p"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_8g4c1epu905v62i08m3g0plzh"			
+		}		
+	]
+}

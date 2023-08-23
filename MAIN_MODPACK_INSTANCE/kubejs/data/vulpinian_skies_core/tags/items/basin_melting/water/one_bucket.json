@@ -1,0 +1,7 @@
+{
+	"replace": true,
+	"values": [
+		"minecraft:ice",
+		"ecologics:ice_brick_slab"
+	]
+}

@@ -1,0 +1,13 @@
+{
+	"replace": true,
+	"values": [
+		"minecraft:iron_bars",
+		"minecraft:rail",
+		"framedblocks:framed_fancy_rail",
+		"framedblocks:framed_rail_slope",
+		"framedblocks:framed_fancy_rail_slope",
+		"fairylights:oil_lantern",
+		"fairylights:candle_lantern",
+		"minecraft:tripwire_hook"		
+	]
+}

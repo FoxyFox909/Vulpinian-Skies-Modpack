@@ -1,0 +1,7 @@
+To refresh this file, delete it and run /reload command again! Last updated: Apr 20, 2023, 2:27:42 PM
+
+#terrablender:nether_regions
+- minecraft:the_nether
+
+#terrablender:overworld_regions
+- minecraft:overworld

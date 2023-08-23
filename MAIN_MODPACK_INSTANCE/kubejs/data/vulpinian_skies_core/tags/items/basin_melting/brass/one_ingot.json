@@ -1,0 +1,20 @@
+{
+	"replace": true,
+	"values": [	
+		"create:brass_casing",
+		"create:brass_door",
+		"create:brass_sheet",
+		"createdeco:yellow_brass_lamp",
+		"createdeco:red_brass_lamp",
+		"createdeco:green_brass_lamp",
+		"createdeco:blue_brass_lamp",
+		"createdeco:brass_catwalk",
+		"createdeco:brass_catwalk_stair",
+		"createdeco:brass_mesh_fence",		
+		"delightful:brass_knife",
+		"create_things_and_misc:brass_knife",
+		"createdeco:brass_sheet_slab",
+		"createdeco:brass_sheet_slab_vert",
+		"create_things_and_misc:brass_casing_trapdoor"		
+	]
+}

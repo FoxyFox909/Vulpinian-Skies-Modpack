@@ -1,0 +1,13 @@
+name = "Bedspreads (Forge)"
+filename = "bedspreads-forge-1.18.2-5.1.2.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "90e3f844d2866a3b12e4555e1ef692a66883b4d2"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 3858902
+project-id = 308653

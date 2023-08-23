@@ -1,0 +1,9 @@
+{
+	"replace": true,
+	"values": [		
+		"minecraft:packed_ice",
+		"ecologics:ice_bricks",
+		"ecologics:ice_brick_stairs",
+		"ecologics:ice_brick_wall"
+	]
+}

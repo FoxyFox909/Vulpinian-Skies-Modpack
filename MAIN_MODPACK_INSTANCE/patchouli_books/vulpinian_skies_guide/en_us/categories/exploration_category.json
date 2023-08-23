@@ -1,0 +1,7 @@
+{
+	"name": "Exploration",
+	"description": "This place is wide and lively. New life has been breathed into The Overworld, the Nether, and The End. Vast unexplored regions await, with ancient and mystical structures to unearth, and loot!$(br)$(br)There are many various types of creatures and peoples that you will encounter, and a number of them $(italics)may$(reset) attempt to murder you, so be prepared.",
+	"icon": "byg:skyris_boat",
+	"parent": "patchouli:things_to_do_category",
+	"sortnum": 0
+}

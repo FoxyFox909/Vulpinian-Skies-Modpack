@@ -1,0 +1,32 @@
+{
+	"name": "Introducing Capsules",
+	"icon": "capsule:capsule",
+	"category": "patchouli:exploration_category",
+	"sortnum": 0,
+	"pages": [
+		{
+			"type": "patchouli:spotlight",
+			"item": "capsule:capsule{color:65522,size:7,state:0}",
+			"text": "Science or Magic? Try a bit of both!$(br)$(br)A house in your pocket, capsules are what made your complementary $(bold)Starter Hut$(reset) possible, $(italics)courtesy of Vulpine Co.$(br)$(br)No longer stationary, embrace the nomad lifestyle!",
+			"title": "Capsules"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "capsule:capsule_gold",
+			"text": "Capsules come in different sizes.$(br)$(br)The starting size is determiend by the materials used to initially craft it."
+			
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "minecraft:popped_chorus_fruit",
+			"text": "To $(bold)upgrade$(reset) a capsule, combine it with a popped chorus fruit. This will increase the storage capacity of the capsule.$(br)$(br)Current technology allows you to upgrade a capsule up to 10 times.$(br)$(br)Capsules can also be dyed and re-labeled.",
+			"title": "Upgrading Capsules"
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "minecraft:glass_bottle",
+			"text": "Mix a capsule with a glass bottle to create a $(bold)recovery$(reset) capsule to access the contents of the main capsule, in case you lose the capsule somehow!.$(br)$(br)No change will happen to the main capsule.$(br)$(br)The created one will be a$(br)one-time-use glass capsule.",
+			"title": "Capsule Backups"
+		}
+	]
+}

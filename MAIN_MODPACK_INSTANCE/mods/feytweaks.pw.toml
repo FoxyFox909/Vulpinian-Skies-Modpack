@@ -1,0 +1,13 @@
+name = "FeyTweaks"
+filename = "feytweaks-1.18.2-1.2.6.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "11b310b3b3eeb0a90d882305486f783da428e66f"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4633548
+project-id = 663213

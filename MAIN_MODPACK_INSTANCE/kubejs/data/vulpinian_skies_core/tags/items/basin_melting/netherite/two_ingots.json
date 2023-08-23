@@ -1,0 +1,8 @@
+{
+	"replace": true,
+	"values": [		
+		"createdeco:netherite_hull",
+		"createdeco:netherite_sheet_metal",
+		"createdeco:netherite_sheet_stairs"
+	]
+}

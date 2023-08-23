@@ -1,0 +1,8 @@
+{
+  "title": {
+    "text": "Automatic Tool Restock",
+	"underlined":true,
+    "color": "dark_aqua"
+  },
+  "tip": "When a tool breaks during use, it will be restocked by another of the same type taken from your inventory.\nTools with similar enchantments are prioritized."
+}

@@ -1,0 +1,23 @@
+{
+	"replace": true,
+	"values": [
+		"minecraft:golden_sword",
+		"minecraft:golden_hoe",
+		"minecraft:light_weighted_pressure_plate",
+		"aquaculture:gold_fishing_rod",
+		"aquaculture:gold_fillet_knife",
+		"createdeco:gold_hull",
+		"ars_nouveau:imbuement_chamber",
+		"ars_nouveau:arcane_core",
+		"ars_nouveau:agronomic_sourcelink",
+		"ars_nouveau:mycelial_sourcelink",
+		"ars_nouveau:alchemical_sourcelink",
+		"ars_nouveau:vitalic_sourcelink",
+		"ars_nouveau:volcanic_sourcelink",
+		"hmag:fortress_shield",
+		"framedblocks:framed_gold_pressure_plate",
+		"gemsnjewels:jeweled_gold_sword",
+		"gemsnjewels:jeweled_gold_hoe",
+		"createaddition:gold_spool"
+	]
+}

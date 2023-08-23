@@ -1,0 +1,8 @@
+{
+	"replace": true,
+	"values": [
+		"minecraft:diamond_chestplate",
+		"sophisticatedbackpacks:diamond_backpack",
+		"gemsnjewels:pale_diamond_chestplate"
+	]
+}

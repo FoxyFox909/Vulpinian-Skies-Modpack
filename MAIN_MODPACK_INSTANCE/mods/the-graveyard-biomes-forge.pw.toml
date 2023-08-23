@@ -1,0 +1,13 @@
+name = "The Graveyard Biomes (FORGE)"
+filename = "The_Graveyard_Biomes_1.1_(FORGE)_for_1.18.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "10dec7167dcd2db0488820c88064a3a9b3f1c4fd"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 3801624
+project-id = 584868

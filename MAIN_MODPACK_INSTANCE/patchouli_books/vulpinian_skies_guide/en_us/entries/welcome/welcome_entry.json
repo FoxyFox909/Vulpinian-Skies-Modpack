@@ -1,0 +1,20 @@
+{
+	"name": "Welcome to Vulpinian Skies!",
+	"icon": "minecraft:sweet_berries",
+	"category": "patchouli:welcome_category",
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "This world welcomes you warmly, and then it will try to kill you. However, shall you survive, you will be able to enjoy all it has to offer!$(br)$(br)It appears that this world is one that readily rewards those who take part in $(bold)$(#66e0ff)$(l:exploration_category)Exploration$(reset), $(bold)$(#41f244)$(l:science_category)Science$(reset), and $(bold)$(#a541f2)Magic$(reset)."
+		},
+		{ 
+			"type": "patchouli:relations",
+			"entries": ["patchouli:things_to_do/science_category/ballistics_entry"]
+		},
+		{
+			"type": "patchouli:text",
+			"text": "And here are some other activities you could do for leisure, I suppose. There is a world of flavor to discover. Some folks devot their life to culinary pursuits, and that actually makes them stronger too, for some reason.$(br)$(br)Then you have your music. Some smart peopel figured out how to $(bold)etch$(reset) discs that play otherwordly music."
+		}
+		
+	]
+}

@@ -1,0 +1,13 @@
+name = "Curios API (Forge)"
+filename = "curios-forge-1.18.2-5.0.9.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "e4e5d1323e474e2fff0c9419d9d5e1aa71f877ca"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4590652
+project-id = 309927

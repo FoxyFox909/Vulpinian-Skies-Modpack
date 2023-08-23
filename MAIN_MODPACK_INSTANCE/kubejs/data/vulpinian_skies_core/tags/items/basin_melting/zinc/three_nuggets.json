@@ -1,0 +1,8 @@
+{
+	"replace": true,
+	"values": [
+		"createdeco:zinc_bars",
+		"createdeco:zinc_bars_overlay",
+		"createdeco:zinc_support"
+	]
+}

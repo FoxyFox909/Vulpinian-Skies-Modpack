@@ -1,0 +1,13 @@
+name = "Celestial"
+filename = "celestial_1.18_forge-1.3.6.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "11858e8f2d01349a5940f45685bcc2b849f3c7c0"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4601978
+project-id = 661111

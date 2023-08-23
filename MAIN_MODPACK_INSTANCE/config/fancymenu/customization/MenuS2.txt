@@ -1,0 +1,196 @@
+type = menu
+
+customization-meta {
+  vr:showif:guiscale = true
+  identifier = net.minecraft.client.gui.screens.TitleScreen
+  randomgroup = 1
+  renderorder = foreground
+  randommode = false
+  custom_menu_title = Vulpinian Skies
+  randomonlyfirsttime = false
+  vr:value:guiscale = <2.5
+}
+
+customization {
+  name = menu_background
+  action = setbackgroundslideshow
+}
+
+customization {
+  keepaspectratio = false
+  action = backgroundoptions
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_multiplayer_button%
+  orientation = mid-centered
+  x = -100
+  action = movebutton
+  y = 15
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_accessibility_button%
+  orientation = mid-centered
+  x = 129
+  action = movebutton
+  y = 132
+}
+
+customization {
+  identifier = %id=376322%
+  orientation = mid-centered
+  x = 102
+  action = movebutton
+  y = 65
+}
+
+customization {
+  identifier = %id=376322%
+  width = 18
+  action = resizebutton
+  height = 20
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_options_button%
+  orientation = element
+  orientation_element = vanillabtn:button_compatibility_id:mc_titlescreen_singleplayer_button
+  x = 0
+  action = movebutton
+  y = 75
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_quit_button%
+  orientation = element
+  orientation_element = vanillabtn:button_compatibility_id:mc_titlescreen_singleplayer_button
+  x = 102
+  action = movebutton
+  y = 75
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_language_button%
+  orientation = mid-centered
+  x = -122
+  action = movebutton
+  y = 40
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_singleplayer_button%
+  orientation = mid-centered
+  x = -100
+  action = movebutton
+  y = -10
+}
+
+customization {
+  identifier = %id=button_compatibility_id:forge_titlescreen_mods_button%
+  orientation = element
+  orientation_element = vanillabtn:button_compatibility_id:mc_titlescreen_singleplayer_button
+  x = 0
+  action = movebutton
+  y = 50
+}
+
+customization {
+  identifier = %id=button_compatibility_id:forge_titlescreen_mods_button%
+  width = 200
+  action = resizebutton
+  height = 20
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_realms_button%
+  action = hidebutton
+}
+
+customization {
+  identifier = %id=376346%
+  orientation = mid-centered
+  x = -122
+  action = movebutton
+  y = 65
+}
+
+customization {
+  orientation = mid-centered
+  hidden = true
+  x = 506
+  width = 268
+  action = deep_customization_element:title_screen_forge_top
+  actionid = aa490bed-31c4-4ad7-bc28-ce3e9af65ee31678903491516
+  y = 4
+  height = 19
+}
+
+customization {
+  orientation = mid-centered
+  hidden = false
+  x = 2
+  width = 108
+  action = deep_customization_element:title_screen_branding
+  actionid = c0db0272-4f8b-4443-9ccd-4bb6d28d16241678903491526
+  y = 228
+  height = 40
+}
+
+customization {
+  orientation = mid-centered
+  hidden = true
+  x = 1051
+  width = 228
+  action = deep_customization_element:title_screen_forge_copyright
+  actionid = b10a6a3d-a146-46e8-bfcf-4685afd829b11678903491526
+  y = 666
+  height = 9
+}
+
+customization {
+  orientation = mid-centered
+  hidden = true
+  x = 743
+  width = 13
+  action = deep_customization_element:title_screen_realms_notification
+  actionid = ed62be1f-d9a7-48fc-9387-178b4462770a1678903491526
+  y = 271
+  height = 13
+}
+
+customization {
+  orientation = mid-centered
+  hidden = true
+  x = 503
+  width = 274
+  action = deep_customization_element:title_screen_logo
+  actionid = b5132376-3160-4e3f-94a8-ba0b9e62add61678903491526
+  y = 30
+  height = 52
+}
+
+customization {
+  orientation = mid-centered
+  splash_color = #ffff00
+  hidden = false
+  x = 114
+  width = 60
+  splash_rotation = -20
+  action = deep_customization_element:title_screen_splash
+  actionid = 1b08a573-6926-4131-894d-a92bb73c257c1678903491526
+  y = -24
+  height = 30
+}
+
+customization {
+  path = config/fancymenu/assets/vulpinian_skies_logo_v1.png
+  orientation = mid-centered
+  x = -73
+  width = 153
+  action = addtexture
+  actionid = cb2c66f8-3ae0-402e-9496-cfd1832504821678903644213
+  y = -146
+  height = 152
+}
+

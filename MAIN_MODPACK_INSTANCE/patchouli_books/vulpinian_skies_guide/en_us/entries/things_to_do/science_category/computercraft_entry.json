@@ -1,0 +1,13 @@
+{
+	"name": "ComputerCraft",
+	"icon": "computercraft:disk{Color:13388876}",
+	"category": "patchouli:science_category",
+	"sortnum": 2,
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "<WIP>"
+			
+		}
+	]
+}

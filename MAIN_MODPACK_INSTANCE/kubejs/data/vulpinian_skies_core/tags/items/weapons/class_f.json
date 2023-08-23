@@ -1,0 +1,12 @@
+{
+	"replace": true,
+	"values": [
+	"scorchedguns:hand_crossbow",
+	"scorchedguns:auto_crossbow",
+	"scorchedguns:scrap_cannon",
+	"scorchedguns:blunderbuss",
+	"scorchedguns:bastard_gun",
+	"scorchedguns:scrap_pistol",
+	"scorchedguns:riveter"
+	]
+}

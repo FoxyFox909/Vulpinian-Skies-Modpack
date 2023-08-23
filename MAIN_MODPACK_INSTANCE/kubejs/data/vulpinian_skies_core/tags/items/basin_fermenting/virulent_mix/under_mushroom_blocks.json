@@ -1,0 +1,11 @@
+{
+	"replace": true,
+	"values": [
+		"undergarden:indigo_mushroom_cap",
+		"undergarden:indigo_mushroom_stalk",
+		"undergarden:veil_mushroom_cap",
+		"undergarden:veil_mushroom_stalk",
+		"undergarden:blood_mushroom_cap",
+		"undergarden:blood_mushroom_stalk"
+	]
+}

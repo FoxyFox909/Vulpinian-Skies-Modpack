@@ -1,0 +1,40 @@
+
+#General mod settings
+[general]
+	# 
+	Misc_windOn = true
+	# 
+	Wind_LowWindEvents = true
+	# 
+	Wind_HighWindEvents = true
+	# 
+	#Range: > -2147483648
+	lowWindTimerEnableAmountBase = 2400
+	# 
+	#Range: > -2147483648
+	lowWindTimerEnableAmountRnd = 12000
+	# 
+	#Range: > -2147483648
+	lowWindOddsTo1 = 4000
+	# 
+	#Range: > -2147483648
+	highWindTimerEnableAmountBase = 2400
+	# 
+	#Range: > -2147483648
+	highWindTimerEnableAmountRnd = 12000
+	# 
+	#Range: > -2147483648
+	highWindOddsTo1 = 8000
+	# 
+	#Range: 4.9E-324 ~ 1.7976931348623157E308
+	globalWindChangeAmountRate = 1.0
+	# 
+	#Range: 4.9E-324 ~ 1.7976931348623157E308
+	windSpeedMin = 1.0E-5
+	# 
+	#Range: 4.9E-324 ~ 1.7976931348623157E308
+	windSpeedMax = 1.0
+	#Min wind speed to maintain if its raining with global overcast mode on, overrides low wind events and windSpeedMin
+	#Range: 4.9E-324 ~ 1.7976931348623157E308
+	windSpeedMinGlobalOvercastRaining = 0.3
+

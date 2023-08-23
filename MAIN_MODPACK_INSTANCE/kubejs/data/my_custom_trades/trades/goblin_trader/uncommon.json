@@ -1,0 +1,37 @@
+{
+    "replace": true,
+    "trades": [
+        {
+            "type": "goblintraders:basic",
+            "offer_item": {
+                "item": "waystones:warp_stone",
+                "count": 1,
+                "nbt": "{Damage:0}"
+            },
+            "payment_item": {
+                "item": "waystones:waystone",
+                "count": 1
+            },
+			"price_multiplier": 0.0,
+            "max_trades": 64,
+			"experience": 15
+        },
+		{
+            "type": "goblintraders:basic",
+            "offer_item": {
+                "item": "cgm:grenade",
+                "count": 1,
+                "nbt": "{Damage:0}"
+            },
+            "payment_item": {
+                "item": "createdeco:iron_coin",
+                "count": 5
+            },
+			"price_multiplier": 0.0,
+            "max_trades": 48,
+			"experience": 15
+        }
+    ],
+	"comment": "Vulpinian Skies custom Goblin Traders trades"
+}
+

@@ -1,0 +1,8 @@
+{
+  "title": {
+    "text": "Weather Deflector",
+	"underlined":true,
+    "color": "dark_aqua"
+  },
+  "tip": "This block protects a large area around it from weather-based destruction."
+}

@@ -1,0 +1,32 @@
+{
+	"replace": true,
+	"values": [
+	"#vulpinian_skies_core:ammo_users/uses_advanced_bullet",
+	"#vulpinian_skies_core:ammo_users/uses_basic_bullet",
+	"#vulpinian_skies_core:ammo_users/uses_ec_round",
+	"#vulpinian_skies_core:ammo_users/uses_encased_fire",
+	"#vulpinian_skies_core:ammo_users/uses_ethereal_bullet",
+	"#vulpinian_skies_core:ammo_users/uses_ethereal_ec_round",
+	"#vulpinian_skies_core:ammo_users/uses_ethereal_grenade",
+	"#vulpinian_skies_core:ammo_users/uses_ethereal_heavy_bullet",
+	"#vulpinian_skies_core:ammo_users/uses_ethereal_shell",
+	"#vulpinian_skies_core:ammo_users/uses_experimental_round",
+	"#vulpinian_skies_core:ammo_users/uses_flechette_round",
+	"#vulpinian_skies_core:ammo_users/uses_grenade",
+	"#vulpinian_skies_core:ammo_users/uses_heavy_bullet",
+	"#vulpinian_skies_core:ammo_users/uses_heavy_pig_round",
+	"#vulpinian_skies_core:ammo_users/uses_missile",
+	"#vulpinian_skies_core:ammo_users/uses_osborne_slug",
+	"#vulpinian_skies_core:ammo_users/uses_pig_round",
+	"#vulpinian_skies_core:ammo_users/uses_powder_and_ball",
+	"#vulpinian_skies_core:ammo_users/uses_quartz_shell",	
+	"#vulpinian_skies_core:ammo_users/uses_rivet",
+	"#vulpinian_skies_core:ammo_users/uses_scorched_big_bullet",
+	"#vulpinian_skies_core:ammo_users/uses_scorched_bullet",
+	"#vulpinian_skies_core:ammo_users/uses_scorched_shell",
+	"#vulpinian_skies_core:ammo_users/uses_shell",
+	"#vulpinian_skies_core:ammo_users/uses_shotbolt",
+	"#vulpinian_skies_core:ammo_users/uses_simple_bullet",
+	"#vulpinian_skies_core:ammo_users/uses_volatile_scrap"
+	]
+}

@@ -1,0 +1,10 @@
+{
+	"replace": true,
+	"values": [
+		"minecraft:smooth_quartz",
+		"minecraft:chiseled_quartz_block",
+		"minecraft:quartz_block",
+		"minecraft:quartz_bricks",
+		"minecraft:quartz_pillar"		
+	]
+}

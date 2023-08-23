@@ -1,0 +1,26 @@
+{
+	"name": "List of Weapons",
+	"icon": "scorchedguns:sc_lawbringer",
+	"category": "patchouli:uncategorized_entries_category",
+	"sortnum": 99,
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "Weapons of Class F to S require a special $(bold)Frame$(reset) as a core crafting item. These frames and many other weapon components are manufctured with machinery.$(br)$(br)The higher the $(bold)Class$(reset) of the weapon, the more difficult its components are to obtain.$(br)$(br)Classes are listed from lowest to highest."
+		},
+		{ 
+			"type": "patchouli:relations",
+			"entries": [
+				"patchouli:uncategorized_entries/class_g_weapons_entry",
+				"patchouli:uncategorized_entries/class_f_weapons_entry",
+				"patchouli:uncategorized_entries/class_e_weapons_entry",
+				"patchouli:uncategorized_entries/class_d_weapons_entry",
+				"patchouli:uncategorized_entries/class_c_weapons_entry",
+				"patchouli:uncategorized_entries/class_b_weapons_entry",
+				"patchouli:uncategorized_entries/class_a_weapons_entry",
+				"patchouli:uncategorized_entries/class_s_weapons_entry"
+				],
+			"title": "Weapon Classes"
+		}	
+	]
+}

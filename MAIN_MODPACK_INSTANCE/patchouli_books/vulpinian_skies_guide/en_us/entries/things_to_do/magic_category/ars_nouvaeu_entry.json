@@ -1,0 +1,19 @@
+{
+	"name": "Ars Nouvaeu",
+	"icon": "ars_nouveau:apprentice_spell_book",
+	"category": "patchouli:magic_category",
+	"sortnum": 0,
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "The most $(italics)beginner-friendly$(reset) school of magic out there!$(br)$(br)The doors are always open to $(strike)fresh meat$(reset)new recruits.$(br)$(br)Easiest one to get into, but still has depth and can let you become quite powerful.",
+			"title": "Capsules"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "ars_nouveau:novice_spell_book",
+			"text": "Craft you first $(bold)Spell Book$(reset) to get started. It's that easy.$(br)$(br)There should be a $(italics)Worn Notebook$(reset) somewhere in your Starter Hut with a lot more information."
+			
+		}
+	]
+}

@@ -1,0 +1,13 @@
+name = "Farmer's Respite"
+filename = "FarmersRespite-1.18.2-1.3.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "614a77f2bed84318984b97de3a4e6be9e62eb95b"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 3859156
+project-id = 551453

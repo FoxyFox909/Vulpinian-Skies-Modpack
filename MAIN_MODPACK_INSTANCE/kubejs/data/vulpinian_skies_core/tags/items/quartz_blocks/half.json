@@ -1,0 +1,13 @@
+{
+	"replace": true,
+	"values": [
+		"minecraft:quartz_slab",
+		"minecraft:smooth_quartz_slab",
+		"buildersaddition:quartz_vertical_slab",
+		"buildersaddition:smooth_quartz_vertical_slab",
+		"quark:quartz_vertical_slab",
+		"quark:smooth_quartz_vertical_slab",
+		"bygonenether:withered_quartz_block",
+		"delightful:quartz_cabinet"
+	]
+}

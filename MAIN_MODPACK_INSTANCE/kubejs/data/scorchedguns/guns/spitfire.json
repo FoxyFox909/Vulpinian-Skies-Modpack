@@ -1,0 +1,30 @@
+{
+  "general": {
+    "auto": true,
+    "rate": 3,
+    "gripType": "cgm:mini_gun",
+    "maxAmmo": 30,
+    "reloadAmount": 5,
+    "recoilAngle": 1.0,
+    "alwaysSpread": true,
+    "projectileAmount": 8,
+    "spread": 13.0
+  },
+  "projectile": {
+    "item": "scorchedguns:encased_fire",
+    "damage": 18.0,
+    "size": 3.2,
+    "speed": 1.5,
+    "life": 50,
+    "gravity": true
+  },
+  "sounds": {
+    "fire": "scorchedguns:item.flamethrower.fire",
+    "reload": "cgm:item.pistol.reload",
+    "enchantedFire": "scorchedguns:item.flamethrower.fire"
+  },
+  "display": {
+    "flash": {
+    }
+  }
+}

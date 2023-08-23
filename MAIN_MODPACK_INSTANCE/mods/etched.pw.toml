@@ -1,0 +1,13 @@
+name = "Etched"
+filename = "etched-forge-2.2.1+1.18.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "b6843458cd774cad6b1f6271662e848fa64d411f"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4657398
+project-id = 491890

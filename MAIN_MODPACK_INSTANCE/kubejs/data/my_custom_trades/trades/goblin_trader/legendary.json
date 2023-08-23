@@ -1,0 +1,52 @@
+{
+    "replace": false,
+    "trades": [
+        {
+            "type": "goblintraders:basic",
+            "offer_item": {
+                "item": "quark:ancient_tome",
+                "count": 1,
+                "nbt": "{StoredEnchantments:[{id:\"minecraft:efficiency\",lvl:5s}]}"
+            },
+            "payment_item": {
+                "item": "createdeco:netherite_coin",
+                "count": 1
+            },
+			"price_multiplier": 0.0,
+            "max_trades": 1,
+			"experience": 500
+        },
+		{
+            "type": "goblintraders:basic",
+            "offer_item": {
+                "item": "quark:ancient_tome",
+                "count": 1,
+                "nbt": "{StoredEnchantments:[{id:\"minecraft:unbreaking\",lvl:4s}]}"
+            },
+            "payment_item": {
+                "item": "createdeco:netherite_coin",
+                "count": 1
+            },
+			"price_multiplier": 0.0,
+            "max_trades": 1,
+			"experience": 500
+        },
+		{
+            "type": "goblintraders:basic",
+            "offer_item": {
+                "item": "quark:ancient_tome",
+                "count": 1,
+                "nbt": "{StoredEnchantments:[{id:\"minecraft:fortune\",lvl:4s}]}"
+            },
+            "payment_item": {
+                "item": "createdeco:netherite_coin",
+                "count": 1
+            },
+			"price_multiplier": 0.0,
+            "max_trades": 1,
+			"experience": 500
+        }
+    ],
+	"comment": "Vulpinian Skies custom Goblin Traders trades"
+}
+

@@ -1,0 +1,8 @@
+{
+  "title": {
+    "text": "Framed Blocks and Fire",
+	"underlined":true,
+    "color": "dark_aqua"
+  },
+  "tip": "The flammability of framed blocks is dynamically determined by the type of block stored within."
+}

@@ -1,0 +1,9 @@
+{
+	"replace": true,
+	"values": [
+		"createdeco:netherite_bars",
+		"createdeco:netherite_bars_overlay",
+		"createdeco:netherite_support",
+		"createdeco:netherite_ladder"
+	]
+}

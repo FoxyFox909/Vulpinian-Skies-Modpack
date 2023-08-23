@@ -1,0 +1,23 @@
+{
+	"replace": true,
+	"values": [
+	"scorchedguns:scorched_wand",
+	"scorchedguns:scorched_staff",
+	"scorchedguns:scorched_obrez_staff",
+	"scorchedguns:scorched_scatter_staff",
+	"scorchedguns:blasphemy",
+	"scorchedguns:sc_gowza",
+	"scorchedguns:gowza_32l",
+	"scorchedguns:frontier_sidearm",
+	"scorchedguns:sc_deputy",
+	"scorchedguns:sc_lawbringer",
+	"scorchedguns:lm_scoont",
+	"scorchedguns:lm_sekora",
+	"scorchedguns:lm_spear_trough",
+	"scorchedguns:lm_spear_ironport",
+	"scorchedguns:ooz_96",
+	"cgm:grenade_launcher",
+	"scorchedguns:invis_nvr_63",
+	"scorchedguns:skellik_65"
+	]
+}

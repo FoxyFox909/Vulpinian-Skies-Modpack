@@ -1,0 +1,12 @@
+{
+	"replace": true,
+	"values": [
+		"minecraft:heavy_weighted_pressure_plate",    
+		"minecraft:iron_door",    
+		"minecraft:smithing_table",
+		"create:metal_bracket",
+		"minecraft:iron_sword",    
+		"minecraft:iron_hoe",    
+		"minecraft:shears"
+	]
+}

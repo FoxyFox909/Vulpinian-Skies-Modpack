@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:glass",
+    "#forge:stained_glass",
+    "#minecraft:ice",
+    "#minecraft:leaves",
+	"everycomp:c/byg/skyris_window"
+  ]
+}

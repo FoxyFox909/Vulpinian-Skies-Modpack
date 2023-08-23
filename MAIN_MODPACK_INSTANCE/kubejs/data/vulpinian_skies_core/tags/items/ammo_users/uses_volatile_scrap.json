@@ -1,0 +1,8 @@
+{
+	"replace": true,
+	"values": [
+	"scorchedguns:scrap_cannon",
+	"scorchedguns:blunderbuss",
+	"scorchedguns:flechette_jet"	
+	]
+}

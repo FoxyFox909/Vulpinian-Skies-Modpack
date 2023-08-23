@@ -1,0 +1,13 @@
+name = "Obscure API"
+filename = "obscure_api-10.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "00e892f50abad5d49baf79829f51002d13f3b73d"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4259349
+project-id = 638417

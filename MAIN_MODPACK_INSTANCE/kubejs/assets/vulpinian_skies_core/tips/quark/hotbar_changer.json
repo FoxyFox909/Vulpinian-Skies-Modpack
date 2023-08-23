@@ -1,0 +1,17 @@
+{
+	"title": {
+		"text": "Hotbar Changer",
+		"underlined": true,
+		"color": "dark_aqua"
+	},
+	"tip": [{
+			"text": "Pressing ["
+		},
+		{
+			"keybind": "quark.keybind.change_hotbar"
+		},
+		{
+			"text": "] toggles your inventory above your hotbar. Then, you can press 1, 2, or 3 to swap your hotbar to that inventory row."
+		}
+	]
+}

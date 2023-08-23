@@ -1,0 +1,10 @@
+{
+	"replace": true,
+	"values": [		
+		"createdeco:brass_sheet_metal",
+		"createdeco:brass_sheet_stairs",
+		"createdeco:brass_hull",
+		"createdeco:brass_door",
+		"createdeco:locked_brass_door"
+	]
+}

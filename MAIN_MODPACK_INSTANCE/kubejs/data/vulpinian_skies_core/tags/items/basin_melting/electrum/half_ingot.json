@@ -1,0 +1,7 @@
+{
+	"replace": true,
+	"values": [		
+		"createaddition:electrum_rod",
+		"createaddition:electrum_wire"
+	]
+}

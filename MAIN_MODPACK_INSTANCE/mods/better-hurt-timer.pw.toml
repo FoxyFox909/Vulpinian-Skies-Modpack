@@ -1,0 +1,13 @@
+name = "Better Hurt Timer"
+filename = "BetterHurtTimer-5.5.2.7.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "65db6d54fd48f67e9e5ab3401858548b9b895d72"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4529086
+project-id = 390497

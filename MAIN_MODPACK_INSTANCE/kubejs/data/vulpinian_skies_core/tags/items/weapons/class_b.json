@@ -1,0 +1,20 @@
+{
+	"replace": true,
+	"values": [
+	"scorchedguns:sc_fusilage",
+	"scorchedguns:sc_dahka",
+	"scorchedguns:soul_drummer",
+	"cgm:bazooka",
+	"scorchedguns:gauss_rifle",
+	"scorchedguns:cogloader",
+	"scorchedguns:m99_krauser",
+	"scorchedguns:krauser_conversion",
+	"scorchedguns:osgood_50",
+	"scorchedguns:huot_auto",
+	"scorchedguns:spitfire",
+	"scorchedguns:kiln_gun",
+	"scorchedguns:punt_gun",
+	"scorchedguns:tt_jorm_keg",
+	"scorchedguns:tunck_37"
+	]
+}

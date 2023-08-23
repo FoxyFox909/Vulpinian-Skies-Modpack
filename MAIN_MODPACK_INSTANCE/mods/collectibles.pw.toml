@@ -1,0 +1,13 @@
+name = "Collectibles"
+filename = "Collectibles-1.18.2-(v.1.1.5a).jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "87f44b291ff6ed67041e1491112cabce42bff343"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4256195
+project-id = 561493

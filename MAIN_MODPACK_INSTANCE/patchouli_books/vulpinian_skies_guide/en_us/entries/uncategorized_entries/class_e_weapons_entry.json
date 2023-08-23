@@ -1,0 +1,28 @@
+{
+	"name": "Class E Weapons",
+	"icon": "scorchedguns:flechette_jet",
+	"category": "patchouli:uncategorized_entries_category",
+	"sortnum": 2,
+	"pages": [				
+		{ 
+			"type": "patchouli:spotlight",
+			"item": "kubejs:class_e_frame",
+			"text": "$(workbench)$(br)$(br)Raw Materials:$(br)-Copper$(br)-Cast Iron"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_d1zqoue1c6vgwvyqmegfjej4s",
+			"recipe2": "kubejs:kjs_xrxfnmy3taggw8w6sl2avm7v"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_a7mrd6c06kize0z616jn1u0so",
+			"recipe2": "kubejs:kjs_1wkh9cyd1uqivqoy7a6bfa9j9"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_5clxbiury1wuzb73m91k1igav",
+			"recipe2": "kubejs:kjs_98irun2i4k1llaf58xfr0gowy"
+		}
+	]
+}

@@ -1,0 +1,27 @@
+{
+	"replace": "true",
+	"values": [
+	"minecraft:nether_wastes",
+	"minecraft:warped_forest",
+	"minecraft:crimson_forest",
+	"minecraft:soul_sand_valley",
+	"minecraft:basalt_deltas",
+	"regions_unexplored:mycotoxic_undergrowth",
+	"regions_unexplored:glistering_meadow",
+	"regions_unexplored:redstone_hell",
+	"regions_unexplored:corrupted_holt",
+	"regions_unexplored:blackstone_basin",
+	"byg:brimstone_caverns",
+	"byg:crimson_gardens",
+	"byg:embur_bog",
+	"byg:glowstone_gardens",
+	"byg:magma_wastes",
+	"byg:subzero_hypogeal",
+	"byg:sythian_torrids",
+	"byg:warped_desert",
+	"byg:wailing_garth",
+	"byg:arisian_undergrowth",
+	"byg:weeping_mire",
+	"byg:quartz_desert"
+	]
+}

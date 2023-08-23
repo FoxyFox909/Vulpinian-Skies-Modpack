@@ -1,0 +1,13 @@
+name = "Jade 🔍"
+filename = "Jade-1.18.2-forge-5.3.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "fa8c42f78a177a2ec09379df125a013234942485"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4575623
+project-id = 324717

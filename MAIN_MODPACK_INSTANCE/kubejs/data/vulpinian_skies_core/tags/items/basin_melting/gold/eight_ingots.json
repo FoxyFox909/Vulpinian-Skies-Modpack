@@ -1,0 +1,14 @@
+{
+	"replace": true,
+	"values": [
+		"minecraft:golden_apple",
+		"minecraft:golden_chestplate",
+		"hmag:golden_tropical_fish",
+		"unusualend:gilded_pearl",
+		"sophisticatedbackpacks:gold_backpack",
+		"sophisticatedstorage:gold_barrel",
+		"sophisticatedstorage:gold_chest",
+		"sophisticatedstorage:gold_shulker_box",
+		"createdeco:gold_coinstack"
+	]
+}

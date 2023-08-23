@@ -1,0 +1,8 @@
+{
+  "title": {
+    "text": "Framed Wrench",
+	"underlined":true,
+    "color": "dark_aqua"
+  },
+  "tip": "This tool can rotate and edit framed blocks, such as by setting the see-through side of a Framed One-Way Window."
+}

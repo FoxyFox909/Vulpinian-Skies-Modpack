@@ -1,0 +1,10 @@
+{
+	"replace": true,
+	"values": [
+	"scorchedguns:scorched_wand",
+	"scorchedguns:scorched_staff",
+	"scorchedguns:scorched_obrez_staff",
+	"scorchedguns:sc_fusilage",
+	"scorchedguns:soul_drummer"
+	]
+}

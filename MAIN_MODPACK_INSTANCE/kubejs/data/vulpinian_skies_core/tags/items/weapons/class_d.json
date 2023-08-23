@@ -1,0 +1,19 @@
+{
+	"replace": true,
+	"values": [
+	"cgm:pistol",
+	"cgm:shotgun",
+	"cgm:rifle",
+	"cgm:mini_gun",
+	"cgm:assault_rifle",
+	"cgm:machine_pistol",
+	"cgm:heavy_rifle",
+	"scorchedguns:waltz_conversion",
+	"scorchedguns:steyr_smg",
+	"scorchedguns:scattergun",
+	"scorchedguns:carabine_44",
+	"scorchedguns:g19_director",
+	"scorchedguns:m19_waltz_dehann",
+	"scorchedguns:volley_gun"
+	]
+}

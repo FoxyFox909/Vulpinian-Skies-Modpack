@@ -1,0 +1,7 @@
+{
+	"replace": true,
+	"values": [		
+		"createaddition:gold_wire",
+		"createdeco:gold_ladder"
+	]
+}

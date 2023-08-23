@@ -1,0 +1,288 @@
+To refresh this file, delete it and run /reload command again! Last updated: Apr 20, 2023, 2:27:43 PM
+
+#ctov:village_savanna
+- ctov:large/village_savanna
+- ctov:medium/village_savanna
+- ctov:small/village_savanna
+
+#dungeons_arise:explorer_maps/plague_asylum
+- dungeons_arise:plague_asylum
+
+#betterdeserttemples:applies_mining_fatigue
+- betterdeserttemples:desert_temple
+
+#dungeons_arise:explorer_maps/shiraz_palace
+- dungeons_arise:shiraz_palace
+
+#ctov:village_mushroom
+- ctov:large/village_mushroom
+- ctov:medium/village_mushroom
+- ctov:small/village_mushroom
+
+#dungeons_arise:explorer_maps/illager_fort
+- dungeons_arise:illager_fort
+
+#ctov:village_snowy
+- ctov:large/village_snowy
+- ctov:medium/village_snowy
+- ctov:small/village_snowy
+
+#pneumaticcraft:no_oil_lakes
+- #minecraft:village
+
+#quark:soul_bead_target
+- minecraft:fortress
+
+#bettermineshafts:better_mineshafts
+- bettermineshafts:mineshaft_acacia
+- bettermineshafts:mineshaft_desert
+- bettermineshafts:mineshaft_dripstone
+- bettermineshafts:mineshaft_forest
+- bettermineshafts:mineshaft_ice
+- bettermineshafts:mineshaft_jungle
+- bettermineshafts:mineshaft_lush
+- bettermineshafts:mineshaft_mesa
+- bettermineshafts:mineshaft_mushroom
+- bettermineshafts:mineshaft_oak
+- bettermineshafts:mineshaft_red_desert
+- bettermineshafts:mineshaft_spruce
+- bettermineshafts:mineshaft_spruce_snowy
+
+#dungeons_arise:explorer_maps/mining_system
+- dungeons_arise:mining_system
+
+#dungeons_arise:explorer_maps/illager_corsair
+- dungeons_arise:illager_corsair
+
+#minecraft:shipwreck
+- minecraft:shipwreck
+- minecraft:shipwreck_beached
+
+#ctov:village_swamp
+- ctov:large/village_swamp
+- ctov:medium/village_swamp
+- ctov:small/village_swamp
+
+#ctov:village_dark_forest
+- ctov:large/village_dark_forest
+- ctov:medium/village_dark_forest
+- ctov:small/village_dark_forest
+
+#bygonenether:no_basalt
+- minecraft:bastion_remnant
+- bygonenether:piglin_manor
+- minecraft:fortress
+- bygonenether:citadel
+- bygonenether:catacomb
+
+#minecraft:on_ocean_explorer_maps
+- minecraft:monument
+- betteroceanmonuments:ocean_monument
+
+#betterstrongholds:stronghold
+- betterstrongholds:stronghold
+
+#ctov:village_beach
+- ctov:large/village_beach
+- ctov:medium/village_beach
+- ctov:small/village_beach
+
+#minecraft:on_treasure_maps
+- minecraft:buried_treasure
+
+#morevillagers:on_mineshaft_explorer_maps
+- #bettermineshafts:better_mineshafts
+
+#ctov:pillager_outpost
+- ctov:pillager_outpost_beach
+- ctov:pillager_outpost_dark_forest
+- ctov:pillager_outpost_desert
+- ctov:pillager_outpost_jungle
+- ctov:pillager_outpost_mesa
+- ctov:pillager_outpost_mountain
+- ctov:pillager_outpost_plains
+- ctov:pillager_outpost_savanna
+- ctov:pillager_outpost_snowy
+- ctov:pillager_outpost_swamp
+- ctov:pillager_outpost_taiga
+- minecraft:pillager_outpost
+
+#minecraft:ruined_portal
+- minecraft:ruined_portal_desert
+- minecraft:ruined_portal_jungle
+- minecraft:ruined_portal_mountain
+- minecraft:ruined_portal_nether
+- minecraft:ruined_portal_ocean
+- minecraft:ruined_portal
+- minecraft:ruined_portal_swamp
+
+#morevillagers:on_swamp_hut_explorer_maps
+- betterwitchhuts:witch_hut
+
+#minecraft:village
+- minecraft:village_plains
+- minecraft:village_desert
+- minecraft:village_savanna
+- minecraft:village_snowy
+- minecraft:village_taiga
+- #byg:village
+
+#ctov:village_taiga
+- ctov:large/village_taiga
+- ctov:medium/village_taiga
+- ctov:small/village_taiga
+
+#ctov:village_jungle
+- ctov:large/village_jungle
+- ctov:medium/village_jungle
+- ctov:small/village_jungle
+
+#dungeons_arise:explorer_maps/foundry
+- dungeons_arise:foundry
+
+#byg:village
+- byg:village_red_rock
+- byg:village_skyris
+- byg:village_ruins
+- byg:village_tropical
+
+#minecraft:ocean_ruin
+- minecraft:ocean_ruin_cold
+- minecraft:ocean_ruin_warm
+
+#ctov:village_mountain
+- ctov:large/village_mountain
+- ctov:medium/village_mountain
+- ctov:small/village_mountain
+
+#minecraft:mineshaft
+- minecraft:mineshaft
+- minecraft:mineshaft_mesa
+- bettermineshafts:mineshaft_acacia
+- bettermineshafts:mineshaft_desert
+- bettermineshafts:mineshaft_ice
+- bettermineshafts:mineshaft_jungle
+- bettermineshafts:mineshaft_lush
+- bettermineshafts:mineshaft_mesa
+- bettermineshafts:mineshaft_mushroom
+- bettermineshafts:mineshaft_oak
+- bettermineshafts:mineshaft_red_desert
+- bettermineshafts:mineshaft_spruce
+- bettermineshafts:mineshaft_spruce_snowy
+- bettermineshafts:mineshaft_forest
+- bettermineshafts:mineshaft_dripstone
+
+#minecraft:on_woodland_explorer_maps
+- minecraft:mansion
+
+#ctov:village_desert
+- ctov:large/village_desert
+- ctov:medium/village_desert
+- ctov:small/village_desert
+
+#dungeons_arise:explorer_maps/thornborn_towers
+- dungeons_arise:thornborn_towers
+
+#ctov:village_mesa
+- ctov:large/village_mesa
+- ctov:medium/village_mesa
+- ctov:small/village_mesa
+
+#ctov:village_plains
+- ctov:large/village_plains
+- ctov:medium/village_plains
+- ctov:small/village_plains
+
+#ctov:large_village
+- ctov:large/village_beach
+- ctov:large/village_dark_forest
+- ctov:large/village_jungle
+- ctov:large/village_mesa
+- ctov:large/village_mountain
+- ctov:large/village_mushroom
+- ctov:large/village_swamp
+- ctov:large/village_desert
+- ctov:large/village_plains
+- ctov:large/village_savanna
+- ctov:large/village_snowy
+- ctov:large/village_taiga
+
+#dungeons_arise:explorer_maps/mushroom_mines
+- dungeons_arise:mushroom_mines
+
+#ctov:small_village
+- ctov:small/village_beach
+- ctov:small/village_dark_forest
+- ctov:small/village_jungle
+- ctov:small/village_mesa
+- ctov:small/village_mountain
+- ctov:small/village_mushroom
+- ctov:small/village_swamp
+- ctov:small/village_desert
+- ctov:small/village_plains
+- ctov:small/village_savanna
+- ctov:small/village_snowy
+- ctov:small/village_taiga
+
+#betterfortresses:fortress
+- betterfortresses:fortress
+
+#ctov:medium_village
+- ctov:medium/village_beach
+- ctov:medium/village_dark_forest
+- ctov:medium/village_jungle
+- ctov:medium/village_mesa
+- ctov:medium/village_mountain
+- ctov:medium/village_mushroom
+- ctov:medium/village_swamp
+- ctov:medium/village_desert
+- ctov:medium/village_plains
+- ctov:medium/village_savanna
+- ctov:medium/village_snowy
+- ctov:medium/village_taiga
+
+#minecraft:eye_of_ender_located
+- minecraft:stronghold
+- #betterstrongholds:stronghold
+
+#dungeons_arise:explorer_maps/monastery
+- dungeons_arise:monastery
+
+#dungeons_arise:explorer_maps/illager_campsite
+- dungeons_arise:illager_campsite
+
+#byg:arches
+- byg:red_rock_arch
+- byg:destroyed_red_rock_arch
+- byg:overgrown_stone_arch
+- byg:stone_arch
+
+#towns_and_towers:town
+- towns_and_towers:exclusives/village_classic
+- towns_and_towers:exclusives/village_iberian
+- towns_and_towers:exclusives/village_mediterranean
+- towns_and_towers:exclusives/village_rustic
+- towns_and_towers:exclusives/village_swedish
+- towns_and_towers:exclusives/village_tudor
+- towns_and_towers:exclusives/village_wandering_trader_camp
+- towns_and_towers:village_badlands
+- towns_and_towers:village_beach
+- towns_and_towers:village_birch_forest
+- towns_and_towers:village_flower_forest
+- towns_and_towers:village_forest
+- towns_and_towers:village_snowy_slopes
+- towns_and_towers:village_jungle
+- towns_and_towers:village_grove
+- towns_and_towers:village_meadow
+- towns_and_towers:village_mushroom_fields
+- towns_and_towers:village_ocean
+- towns_and_towers:village_old_growth_taiga
+- towns_and_towers:village_sparse_jungle
+- towns_and_towers:village_sunflower_plains
+- towns_and_towers:village_snowy_taiga
+- towns_and_towers:village_swamp
+- towns_and_towers:village_wooded_badlands
+
+#minecraft:dolphin_located
+- #minecraft:ocean_ruin
+- #minecraft:shipwreck

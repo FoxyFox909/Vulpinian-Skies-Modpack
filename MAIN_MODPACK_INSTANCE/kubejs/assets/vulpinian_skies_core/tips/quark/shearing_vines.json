@@ -1,0 +1,8 @@
+{
+  "title": {
+    "text": "Shearing Vines",
+	"underlined":true,
+    "color": "dark_aqua"
+  },
+  "tip": "Right-clicking vines with shears will trim them, which will stop their growth at that spot."
+}

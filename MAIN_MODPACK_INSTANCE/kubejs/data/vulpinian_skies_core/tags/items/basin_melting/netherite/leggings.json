@@ -1,0 +1,7 @@
+{
+	"replace": true,
+	"values": [
+		"minecraft:netherite_leggings",
+		"bygonenether:gilded_netherite_leggings"
+	]
+}

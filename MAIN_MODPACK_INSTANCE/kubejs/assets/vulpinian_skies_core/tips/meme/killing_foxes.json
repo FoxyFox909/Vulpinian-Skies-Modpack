@@ -1,0 +1,31 @@
+{
+  "title": [{
+			"text": "Friendly", "color":"dark_aqua","obfuscated": true
+		},
+		{
+			"text":" Warning ", "color":"dark_aqua", "obfuscated": false
+		},		
+		{
+			"text":"About Foxes","obfuscated": true
+		}
+	],
+  "tip": [{
+			"text": "Vulpinian foxes are protected. Watched over. If you "
+		},
+		{
+			"text":"kill one yourself,", "obfuscated": true
+		},
+		{
+			"text": " there will be "
+		},
+		{
+			"text":"a %9", "obfuscated": true
+		},
+		{
+			"text": " chance to be sent "
+		},
+		{
+			"text":"to the Nether or Undergarden", "obfuscated": true
+		}
+	]
+}

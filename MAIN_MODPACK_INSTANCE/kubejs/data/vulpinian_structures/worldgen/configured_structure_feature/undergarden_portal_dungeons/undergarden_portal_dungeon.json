@@ -1,0 +1,10 @@
+{
+	"type": "minecraft:village",
+	"config": {
+		"start_pool": "vulpinian_structures:undergarden_portal_dungeon/undergarden_portal_dungeon_pool",
+		"size": 7
+	},
+	"biomes": "#vulpinian_skies_core:is_overworld",	
+	"adapt_noise": true,
+	"spawn_overrides": {}
+}

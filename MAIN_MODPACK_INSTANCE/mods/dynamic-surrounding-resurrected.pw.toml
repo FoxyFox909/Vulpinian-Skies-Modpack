@@ -1,0 +1,13 @@
+name = "Dynamic Surroundings Resurrected"
+filename = "DynamicSurroundings-5.0.0.4.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "ba03eb7e71cff7ff037935db93f2eea86199a1bf"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 3819980
+project-id = 630188

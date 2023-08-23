@@ -1,0 +1,9 @@
+{
+	"replace": true,
+	"values": [
+		"minecraft:golden_boots",
+		"minecraft:clock",
+		"ars_nouveau:spell_prism",
+		"minecraft:bell"
+	]
+}

@@ -1,0 +1,31 @@
+{
+	"replace": true,
+	"values": [
+		"minecraft:cut_copper",
+		"minecraft:exposed_cut_copper",
+		"minecraft:weathered_cut_copper",
+		"minecraft:oxidized_cut_copper",
+		"minecraft:waxed_cut_copper",
+		"minecraft:waxed_exposed_cut_copper",
+		"minecraft:waxed_weathered_cut_copper",
+		"minecraft:waxed_oxidized_cut_copper",
+		"minecraft:cut_copper_stairs",
+		"minecraft:exposed_cut_copper_stairs",
+		"minecraft:weathered_cut_copper_stairs",
+		"minecraft:oxidized_cut_copper_stairs",
+		"minecraft:waxed_cut_copper_stairs",
+		"minecraft:waxed_exposed_cut_copper_stairs",
+		"minecraft:waxed_weathered_cut_copper_stairs",
+		"minecraft:waxed_oxidized_cut_copper_stairs",		
+		"createdeco:copper_sheet_metal",
+		"createdeco:copper_sheet_stairs",
+		"createdeco:copper_hull",
+		"#friendsandfoes:copper_buttons",
+		"iceandfire:copper_sword",
+		"iceandfire:copper_hoe",
+		"createdeco:copper_door",
+		"createdeco:locked_copper_door",
+		"createaddition:copper_spool",
+		"createaddition:festive_spool"
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"replace": true,
+	"values": [
+		"minecraft:quartz",
+		"create:rose_quartz",		
+		"create:polished_rose_quartz",
+		"create:rose_quartz_lamp",
+		"create_things_and_misc:rose_quartz_sheet",
+		"buildersaddition:smooth_quartz_vertical_slab",
+		"minecraft:daylight_detector",
+		"minecraft:observer",
+		"minecraft:comparator"
+	]
+}

@@ -1,0 +1,25 @@
+{
+	"replace": true,
+	"values": [
+		"#forge:gems/diamond",
+		"minecraft:diamond_shovel",
+		"minecraft:jukebox",		
+		"farmersdelight:diamond_knife",
+		"gemsnjewels:diamond_set_gold_ring",
+		"gemsnjewels:pale_diamond_set_gold_ring",
+		"iceandfire:summoning_crystal_ice",
+		"iceandfire:summoning_crystal_fire",
+		"iceandfire:summoning_crystal_lightning",
+		"iceandfire:tide_trident",
+		"iceandfire:pixie_wand",
+		"tconstruct:diamond_item_frame",
+		"ars_nouveau:enchanting_apparatus",
+		"undergarden:catalyst",
+		"etched:etching_table",
+		"grimoireofgaia:quill",
+		"aquamirae:fin_cutter",
+		"gemsnjewels:jeweled_diamond_shovel",
+		"gemsnjewels:solid_diamond_shovel",
+		"gemsnjewels:jeweled_solid_diamond_shovel"
+	]
+}

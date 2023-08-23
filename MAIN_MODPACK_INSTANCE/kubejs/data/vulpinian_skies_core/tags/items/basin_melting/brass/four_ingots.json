@@ -1,0 +1,7 @@
+{
+	"replace": true,
+	"values": [		
+		"create:brass_hand",
+		"createdeco:brass_trapdoor"
+	]
+}

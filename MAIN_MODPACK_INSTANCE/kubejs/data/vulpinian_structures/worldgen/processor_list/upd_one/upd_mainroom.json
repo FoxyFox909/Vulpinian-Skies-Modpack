@@ -1,0 +1,87 @@
+{
+	"processors": [
+		{
+			"processor_type": "minecraft:rule",
+			"rules": [
+				{
+					"position_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "minecraft:magenta_concrete",
+						"probability": 0.10
+					},
+					"output_state": {
+						"Name": "minecraft:air"
+					}
+				}
+			]
+		},
+		{
+			"processor_type": "minecraft:rule",
+			"rules": [
+				{
+					"position_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"input_predicate": {
+						"predicate_type": "minecraft:block_match",
+						"block": "minecraft:magenta_concrete"
+					},
+					"output_state": {
+						"Name": "undergarden:depthrock"
+					}
+				}
+			]
+		},
+		{
+			"processor_type": "minecraft:rule",
+			"rules": [
+				{
+					"position_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "minecraft:light_blue_concrete",
+						"probability": 0.10
+					},
+					"output_state": {
+						"Name": "minecraft:air"
+					}
+				}
+			]
+		},		
+		{
+			"processor_type": "minecraft:rule",
+			"rules": [
+				{
+					"position_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "minecraft:yellow_concrete",
+						"probability": 0.90
+					},
+					"output_state": {
+						"Name": "minecraft:air"
+					}
+				}
+			]
+		}
+	]
+}
