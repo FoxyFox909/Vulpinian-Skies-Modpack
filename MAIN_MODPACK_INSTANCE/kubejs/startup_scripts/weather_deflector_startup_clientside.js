@@ -1,4 +1,5 @@
 // priority: 0
+// CLIENT SIDE ONLY
 
 console.info('Setting up custom Weather blocks');
 
@@ -14,7 +15,6 @@ onEvent('block.registry', event => {
 		.resistance(6.0)
 		.notSolid()
 		.requiresTool(true);
-	
 })
 
 onEvent('postinit', event => {
