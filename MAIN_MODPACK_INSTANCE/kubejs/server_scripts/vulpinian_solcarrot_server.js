@@ -4,7 +4,7 @@ onEvent('item.food_eaten', event => {
     
     event.server.scheduleInTicks(2, callback => {
         let uniqueFoods = event.player.fullNBT['ForgeCaps']['solcarrot:food']['foodList'].length;
-		let foodInterval = (uniqueFoods < 10) ? 5 : 10;
+		let foodInterval = (uniqueFoods < 20) ? 5 : 10;
 		
         if (uniqueFoods > preUniqueFoods) {
             let nextFood = foodInterval - (uniqueFoods % foodInterval);
