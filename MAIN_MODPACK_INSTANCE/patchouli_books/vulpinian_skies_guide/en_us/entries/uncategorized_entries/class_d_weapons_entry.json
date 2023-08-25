@@ -6,44 +6,43 @@
 	"pages": [				
 		{ 
 			"type": "patchouli:spotlight",
-			"item": "kubejs:class_d_frame",
+			"item": "vulpinian_skies_core:class_d_frame",
 			"text": "$(workbench)$(br)$(br)Raw Materials:$(br)-Brass$(br)-Cast Iron$(br)-Cogwheel"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_6qfg0a7kne6kbz3yxxizz3j3u",
-			"recipe2": "kubejs:kjs_3mp18xk12604tc95jaycs0dw6"
+			"recipe": "vulpinian_skies_core:pistol",
+			"recipe2": "vulpinian_skies_core:shotgun"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_5ve7cpte1bxxga7apmrsr8p1q",
-			"recipe2": "kubejs:kjs_2frsmzlnromsply9v6wvv5to0"
+			"recipe": "vulpinian_skies_core:rifle",
+			"recipe2": "vulpinian_skies_core:mini_gun"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_4p4o5vdvsocd3kf63m8sx8zdz",
-			"recipe2": "kubejs:kjs_a7fg3f17rbl2oezd90yoo3ywr"
+			"recipe": "vulpinian_skies_core:assault_rifle",
+			"recipe2": "vulpinian_skies_core:machine_pistol"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_8xmnoencvq9f6wym5vmjdmprm",
-			"recipe2": "kubejs:kjs_eb5quoxnuvrkyldq1wms6oxl6"
+			"recipe": "vulpinian_skies_core:heavy_rifle",
+			"recipe2": "vulpinian_skies_core:waltz_conversion"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_bgr1k9xr8n2dr1u8bmnhcuzgf",
-			"recipe2": "kubejs:kjs_1kikfx4ah7qbmsy8kskhtu13i"
+			"recipe": "vulpinian_skies_core:steyr_smg",
+			"recipe2": "vulpinian_skies_core:scattergun"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_e2tjvanpowkv6k7in07qw36vu",
-			"recipe2": "kubejs:kjs_as4bqpebh7pr0odgzgcbodsfc"
+			"recipe": "vulpinian_skies_core:carabine_44",
+			"recipe2": "vulpinian_skies_core:g19_director"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_f4dt6ior2cmogkoh9p8133by0",
-			"recipe2": "kubejs:kjs_d2hgzv7cgx51squna9tqc13y4"
-		}
-		
+			"recipe": "vulpinian_skies_core:m19_waltz_dehann",
+			"recipe2": "vulpinian_skies_core:volley_gun"
+		}		
 	]
 }

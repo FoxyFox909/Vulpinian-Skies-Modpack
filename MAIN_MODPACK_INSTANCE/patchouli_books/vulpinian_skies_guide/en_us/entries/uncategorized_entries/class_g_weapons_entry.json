@@ -6,17 +6,17 @@
 	"pages": [				
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_4h1pe17jq9adnzj13mcfzpry1",
+			"recipe": "vulpinian_skies_core:eoka_pistol",
 			"text": "Craftable by hand.$(br)$(br)$(italics)Gunslinging at its crudest.$(reset)"			
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_9cawd962kktmig52t3fp1vj6w",
+			"recipe": "vulpinian_skies_core:pipe_musket",
 			"text": "$(italics)Humble beginnings.$(reset)"			
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_blpdo7flp8nn466llaf5sexq3",
+			"recipe": "vulpinian_skies_core:noqq_gun",
 			"text": "$(italics)Seven barrels because... reasons.$(reset)"			
 		}
 	]

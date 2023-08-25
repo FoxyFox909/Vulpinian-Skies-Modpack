@@ -86,7 +86,7 @@
 		},
 		{
 			"type": "patchouli:spotlight",
-			"item": "kubejs:unstable_encased_fire",
+			"item": "vulpinian_skies_core:unstable_encased_fire",
 			"text": "$(machinery)$(br)$(br)Raw Materials:$(br)-Iron$(br)-Lava$(br)-Blaze Rod"
 		},
 		{
@@ -106,7 +106,7 @@
 		},
 		{
 			"type": "patchouli:spotlight",
-			"item": "kubejs:uncharged_ec_round",
+			"item": "vulpinian_skies_core:uncharged_ec_round",
 			"text": "$(machinery)$(br)$(br)Requires Flechettes, Pure Gunpowder, and Cast Iron."
 		},
 		{

@@ -6,43 +6,47 @@
 	"pages": [				
 		{ 
 			"type": "patchouli:spotlight",
-			"item": "kubejs:class_b_frame",
+			"item": "vulpinian_skies_core:class_b_frame",
 			"text": "$(workbench)$(br)$(br)Raw Materials:$(br)-Scorched Bronze$(br)-Netherite$(br)-Quartz"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_ca70l3jovlralun17r02cqr2h",
-			"recipe2": "kubejs:kjs_56wyfwjwqf92lkq3r8miu6al9"
+			"recipe": "vulpinian_skies_core:sc_fusilage",
+			"recipe2": "vulpinian_skies_core:sc_dahka"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_dn35myh0emq3dz6oa17ex59ps",
-			"recipe2": "kubejs:kjs_1j6m6h6y6sx1ccziimnmp7tys"
+			"recipe": "vulpinian_skies_core:soul_drummer",
+			"recipe2": "vulpinian_skies_core:bazooka"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_axtwzedrk8tc60ibdlr2o24bz",
-			"recipe2": "kubejs:kjs_81hc126n7310tj17vfm7bnhlt"
+			"recipe": "vulpinian_skies_core:gauss_rifle",
+			"recipe2": "vulpinian_skies_core:cogloader"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_7wgl73blzaymmm0fe4t1dz1yu",
-			"recipe2": "kubejs:kjs_75e0jc6wi305mo0udylav1wz2"
+			"recipe": "vulpinian_skies_core:m99_krauser",
+			"recipe2": "vulpinian_skies_core:krauser_conversion"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_dv9cn2hmgq6ok0v6pkc4xqo5p",
-			"recipe2": "kubejs:kjs_338vnzme71nwtco1gx0yxeucj"
+			"recipe": "vulpinian_skies_core:osgood_50",
+			"recipe2": "vulpinian_skies_core:huot_auto"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_43fsq253d8k574kpcyedtc570",
-			"recipe2": "kubejs:kjs_3cme2hf4tvar82es3unvbfc65"
+			"recipe": "vulpinian_skies_core:spitfire",
+			"recipe2": "vulpinian_skies_core:kiln_gun"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_fr1d8ncavhtp975dylpbttz4",
-			"recipe2": "kubejs:kjs_3nv289vojnai8ousrm3vi7li5"
+			"recipe": "vulpinian_skies_core:punt_gun",
+			"recipe2": "vulpinian_skies_core:tt_jorm_keg"
+		},
+		{ 
+			"type": "patchouli:crafting",
+			"recipe": "vulpinian_skies_core:tunck_37"			
 		}
 	]
 }

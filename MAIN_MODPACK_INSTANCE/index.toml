@@ -2117,8 +2117,44 @@ file = "kubejs/assets/scorchedguns/textures/item/hell_gunpowder.png.mcmeta"
 hash = "955559f3a9c6d1c61e57078d95874ae8f12f8a816c45eeffca2afb4ea44450ad"
 
 [[files]]
+file = "kubejs/assets/vulpinian_skies_core/models/item/class_a_frame.json"
+hash = "e6d154c58982c7f00d51ed386db70877a9180b084db444d42ccd07c3e2870d29"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/models/item/class_b_frame.json"
+hash = "47fcf679dd35f618ef2c517e0396b33279d684df7b05a5c98b82927386bce2a2"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/models/item/class_c_frame.json"
+hash = "8e53a38b1f094e47a1e5fed267a57977487232b88abc8f5a6943cd08e0313624"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/models/item/class_d_frame.json"
+hash = "e731893fef405e91f82f6050e540f36ea10f7ef56f502605a19fd89c7bcc0161"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/models/item/class_e_frame.json"
+hash = "1740bf76b9acafd34918ea3c5c497f8a14ef170b716aa87060f284c7e7897b99"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/models/item/class_f_frame.json"
+hash = "0930408890a5aceeca05a0e7d407ed98a06985a5f0b3d4bda619745c90550477"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/models/item/class_s_frame.json"
+hash = "833d72e4a8b1c0e2b2f90de938828473877f4ec9acb8f07606e3b1fbc80ff0f4"
+
+[[files]]
 file = "kubejs/assets/vulpinian_skies_core/models/item/necroethanol_bucket.json"
-hash = "045b0f1475eea5befccdc316bf8f3b123e89c956bb33647d80ae23d9a20a4826"
+hash = "2a8ec44c5819d3724e5d31e54fa334d6b6e260b5aab2dfdba5219b907014dc07"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/models/unstable_encased_fire.json"
+hash = "a1e0d4b75fb53e0d91b2c19453e8b91e0626f2ee1a01858577b26eba17a4de70"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/block/example_block.png"
+hash = "783d78bd1ee61d3b32273670dff9d82c34cd74c5ae899a10f104f473828d5bbc"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/textures/fluid/necroethanol_flow.png"
@@ -2137,8 +2173,72 @@ file = "kubejs/assets/vulpinian_skies_core/textures/fluid/necroethanol_still.png
 hash = "84a0ef2a3eef33b8d2cde7a87b5156909a302b2acc30ded568dcc7a92c6fb9bd"
 
 [[files]]
-file = "kubejs/assets/vulpinian_skies_core/textures/items/necroethanol_bucket.png"
+file = "kubejs/assets/vulpinian_skies_core/textures/item/class_a_frame.png"
+hash = "4ed617128e31cf0570b95a6e7ecb8ea6635831ba0e91c3f2ee51281b13453d3b"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/class_b_frame.png"
+hash = "dfaedbe177fd25a05741b837b78defc0481ff3c8b4a4dafde8d7886eebe0870f"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/class_c_frame.png"
+hash = "1f6a3c5247c309424a0be46ebee46eed7e0c1d846a6ebf604f70ed00ab643395"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/class_d_frame.png"
+hash = "f645fc2063e50544db2efd96942e61c3e6b14761b221f22a2423f86ef60ca738"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/class_e_frame.png"
+hash = "d20f9800a12c604746ddc3b5f77264ec41839dc1a3ecb87c8e59b0ed393fd65a"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/class_f_frame.png"
+hash = "991c87b8e10bb56abf4ca9f108b2abda391335d27e3cc520e8a7fdbd9d03f9e1"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/class_s_frame.png"
+hash = "dbaa21b51c105287f5b776111c72814f3b5b9fa793ae4b4583db00f44634deef"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/class_s_frame.png.mcmeta"
+hash = "334f475547e0bb7997a30a36901ea3f559b88b4b958fd9125b485bdddc72c0f2"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/example_item.png"
+hash = "45a5f56eba6066ad05c70988a32b72c50cfeb6e35857739bd582007011ea002b"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/haunted_nitro.png"
+hash = "a3233fd7990c85e57959eee21d8ef205d2c0fa547dd8fac90f4622b1749cd4b1"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/haunted_nitro.png.mcmeta"
+hash = "a4438d5b85ab70227883b30e5e260c64e5ea0eced3c77f870fef4bbb2defa014"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/necroethanol_bucket.png"
 hash = "fd90e4c5ad7f8401f0800f55428373856b69ad34f9816d0ef2825e113825f541"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/scorched_bronze_ingot.png"
+hash = "d4b7cd2bbe59cded4084ed81ffeeffabbab0f9224ce343e7447011e302b1589c"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/scorched_bronze_ingot.png.mcmeta"
+hash = "c5bfc21d9093e33955ed876b72c9333cb6184ee6d617753263250d3e400fc9ee"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/uncharged_ec_round.png"
+hash = "05efdd23c3f7a6156602f7acbe9721b1648bf115084ce040a3c8a65a8e23233f"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/unstable_encased_fire.png"
+hash = "be78da155dd1ba25fff120726ec4f7067934f261c125746d2ab1e436070afa38"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/unstable_encased_fire.png.mcmeta"
+hash = "c4021020288525a3d2a57716884cdfd1689c2eade0a3338ffa205ada702057e4"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/tips/framed_blocks/flammability.json"
@@ -3846,7 +3946,7 @@ hash = "2647dff1e02d1940f45638920344a4a4d4780b6dba192df76f05cd81061006fe"
 
 [[files]]
 file = "kubejs/server_scripts/vulpinian_solcarrot_server.js"
-hash = "c4de8bf2d6192575f4789c819eccdd4891f1d3320b1d1fb5bf6d9f86b10c971c"
+hash = "9bad1c70ebdd5504d28014e2667ad5c51f30ad2ac47bdadb27136aed32e56b08"
 
 [[files]]
 file = "kubejs/server_scripts/xp_fluid_dupe_fix.js"
@@ -3857,8 +3957,8 @@ file = "kubejs/startup_scripts/vulpinian_skies_startup.js"
 hash = "54db7b7fbb2d98bfae073f5a088307d5a82dfc0f7d86a3f78002daa56f0e05ed"
 
 [[files]]
-file = "kubejs/startup_scripts/weather_deflector_startup.js"
-hash = "6cd1bb5902d39bb83cb09801f243a7dff6800ad1e16db586c90ab40aaab74ce0"
+file = "kubejs/startup_scripts/weather_deflector_startup_clientside.js"
+hash = "286876878cd22213f413ee3aa4eff8a94f06fd7918660af267b6cbe0b5b433b0"
 
 [[files]]
 file = "mods/additional-banners.pw.toml"
@@ -4846,7 +4946,7 @@ hash = "527ff6acd9de9ba9ed8a4b3079cd1c3fc371cf0f969f90d95fcf6e2de51487dc"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/science_category/ballistics_entry.json"
-hash = "daa7ba9ace721550eefe28e426ab43c836c7ce860a3741696c23ab11a2cee04b"
+hash = "ef7583a86ed6eba817a5723cb960d18f8e2b52d6bb6c68fe3d43a31f32c0d8b0"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/science_category/computercraft_entry.json"
@@ -4862,35 +4962,35 @@ hash = "62e47a3a1ea72fcef8aa2e1790a81ec281d7282709efce64e664da1e4397e170"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/uncategorized_entries/class_a_weapons_entry.json"
-hash = "cbee953a2fd7bd887413a098663b638f86283486cb2e0a0a66c7890e26599a01"
+hash = "cbfe4a7b17aaf7dcfc3587d85538690aa7b9ff702c59520dfd13fcadf3830040"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/uncategorized_entries/class_b_weapons_entry.json"
-hash = "42b40d4aeb71f29a5d77248d04b31403dc57ba620c6222af9047303e2a8e7f39"
+hash = "003606a48e570603cc39506fff30fce7917df73338304dd6287241db61b40f69"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/uncategorized_entries/class_c_weapons_entry.json"
-hash = "9a6b295ea76b42f1cc4128c9e7a31866cbe6c63f49b6b57950a09eb68e1677d6"
+hash = "c9c4b2625d5875361c3808ee3031ad6985209b273c88a9cc5f67df498b54e244"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/uncategorized_entries/class_d_weapons_entry.json"
-hash = "7f7be78e85739c3f7ecf404a7b2b4e4f6e62ac836d7f50ba4ea41ffa608bf744"
+hash = "1fa7dff78429edfd3e70ecd0724a9ab4ee66e8d70268110a0b066d7206b4c867"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/uncategorized_entries/class_e_weapons_entry.json"
-hash = "a24f3f42f1056acd3f0b9672f3d5e7418d5c451112f8debbd2ca9993abb739b5"
+hash = "3d4c2fa348a683995e2869b65a77b06ae4b7897512173045e58efc285b5f3d55"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/uncategorized_entries/class_f_weapons_entry.json"
-hash = "4893dd7ee0cb80f187f1e239d24626388c66c9aef1738a07631616d7b3d77335"
+hash = "6c862a51183ad34fbbc85d3ad85ca1df5cce166798e1a3d386ab3f4967e8f94c"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/uncategorized_entries/class_g_weapons_entry.json"
-hash = "5d44ab79a0f0bcc906c34b49071faa1ff056d08dde1f6c8596a3978c97419f30"
+hash = "c2727f1783263aaf6008fc4e2085850e5a54b906f9c288977e1d246062e033fd"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/uncategorized_entries/class_s_weapons_entry.json"
-hash = "4c82184078178cf90525b89e74dfc6036738780b4cf9b275e9f0b714f6858330"
+hash = "b8d28380ca97662031c4eb6c0746b56f0f3b086939c2dcdc960d26a079597359"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/uncategorized_entries/weapon_list_entry.json"

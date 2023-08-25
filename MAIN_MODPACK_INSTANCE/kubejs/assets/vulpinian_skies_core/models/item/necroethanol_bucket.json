@@ -1,7 +1,7 @@
 {
 	"parent": "item/generated",
 	"textures": {
-	"layer0": "vulpinian_skies_core:items/necroethanol_bucket"
+	"layer0": "vulpinian_skies_core:item/necroethanol_bucket"
 	}
 	
 }

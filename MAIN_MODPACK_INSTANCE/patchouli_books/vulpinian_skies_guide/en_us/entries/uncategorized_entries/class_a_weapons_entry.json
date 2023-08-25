@@ -6,17 +6,17 @@
 	"pages": [				
 		{ 
 			"type": "patchouli:spotlight",
-			"item": "kubejs:class_a_frame",
+			"item": "vulpinian_skies_core:class_a_frame",
 			"text": "$(workbench)$(br)$(br)Raw Materials:$(br)-Class B Frame$(br)-Diamond Steel Nugget"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_czowe3rcmkf79057o563uq2da",
-			"recipe2": "kubejs:kjs_bu6wu04z1byc0glqs4c0agw3p"
+			"recipe": "vulpinian_skies_core:thunderhead",
+			"recipe2": "vulpinian_skies_core:vidas_smg"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_8g4c1epu905v62i08m3g0plzh"			
+			"recipe": "vulpinian_skies_core:cyclone"			
 		}		
 	]
 }

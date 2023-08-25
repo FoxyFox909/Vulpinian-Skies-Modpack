@@ -6,28 +6,28 @@
 	"pages": [				
 		{ 
 			"type": "patchouli:spotlight",
-			"item": "kubejs:class_s_frame",
+			"item": "vulpinian_skies_core:class_s_frame",
 			"text": "$(workbench)$(br)$(br)Raw Materials:$(br)-Class C Frame$(br)-Diamond$(br)-Diamond Steel$(br)-Nether Star"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_ak0eukrpmnlszj90h81d4e3by",
-			"recipe2": "kubejs:kjs_871bjnljwqwo22ypoqmwizwh0"
+			"recipe": "vulpinian_skies_core:officers_special",
+			"recipe2": "vulpinian_skies_core:cosmic_blitzer"
 		},	
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_agb426jo1nxj1dkvzbeah6wlx",
-			"recipe2": "kubejs:kjs_4f0sifcwkw2nr77czxpbilgsb"
+			"recipe": "vulpinian_skies_core:r498_gauss_cannon",
+			"recipe2": "vulpinian_skies_core:alfonz_repeating_punter"
 		},
 		{ 
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_905xf9bisjcs0vejpgwt11mtp",
-			"recipe2": "kubejs:kjs_1le9tspbzk3v2tbl8efdfvnnt"
+			"recipe": "vulpinian_skies_core:alfonz_turnpike",
+			"recipe2": "vulpinian_skies_core:lg8_grenade_launcher"
 		},
 		{
 			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_53sw86dslt012nyx1nrry39n2", 
-			"recipe2": "kubejs:kjs_5ni0ymf0pt9fdbzd3q3b185an"			
+			"recipe": "vulpinian_skies_core:astella", 
+			"recipe2": "vulpinian_skies_core:earths_corpse"			
 		}		
 	]
 }
