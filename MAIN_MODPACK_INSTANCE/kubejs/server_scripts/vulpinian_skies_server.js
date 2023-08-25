@@ -5,7 +5,7 @@ settings.logRemovedRecipes = true
 settings.logSkippedRecipes = false
 settings.logErroringRecipes = true
 
-console.info('KubeJS server script loaded')
+console.info('Loading Vulpinian Skies Main Server Script')
 
 //Gun classes based on their Single-shot damage, Ammo Type, DPS, Effective Range, and Utility
 const classSGuns = ['scorchedguns:officers_special', 'scorchedguns:cosmic_blitzer', 'scorchedguns:r498_gauss_cannon', 'scorchedguns:alfonz_repeating_punter', 'scorchedguns:alfonz_turnpike', 'scorchedguns:lg8_grenade_launcher', 'scorchedguns:astella', 'scorchedguns:earths_corpse']; // Straight to the moon
@@ -42,7 +42,7 @@ onEvent('recipes', event => {
 	
 	event.recipes.create.mixing('createbigcannons:spring_wire', ['3x #forge:wires/iron', '#forge:ingots/iron']).heated()	
 	
-	let interBasicBullet = 'kubejs:incomplete_basic_bullet'
+	let interBasicBullet = 'vulpinian_skies_core:incomplete_basic_bullet'
 	event.remove ({id:'cgm:basic_bullet'})
 	event.recipes.createSequencedAssembly([
 	Item.of('16x cgm:basic_bullet')
@@ -50,9 +50,9 @@ onEvent('recipes', event => {
 	event.recipes.createDeploying(interBasicBullet,[interBasicBullet, 'createbigcannons:packed_gunpowder']),
 	event.recipes.createDeploying(interBasicBullet,[interBasicBullet, 'minecraft:iron_nugget']),
 	event.recipes.createPressing(interBasicBullet, interBasicBullet)
-	]).transitionalItem(interBasicBullet).loops(1)
+	]).transitionalItem(interBasicBullet).loops(1).id('vulpinian_skies_core:basic_bullet')
 
-	let interAdvancedBullet = 'kubejs:incomplete_advanced_bullet'
+	let interAdvancedBullet = 'vulpinian_skies_core:incomplete_advanced_bullet'
 	event.remove ({id:'cgm:advanced_bullet'})
 	event.recipes.createSequencedAssembly([
 	Item.of('16x cgm:advanced_bullet')
@@ -63,7 +63,7 @@ onEvent('recipes', event => {
 	event.recipes.createPressing(interAdvancedBullet, interAdvancedBullet)
 	]).transitionalItem(interAdvancedBullet).loops(1)
 	
-	let interShell = 'kubejs:incomplete_shell'
+	let interShell = 'vulpinian_skies_core:incomplete_shell'
 	event.remove ({id:'cgm:shell'})
 	event.recipes.createSequencedAssembly([
 	Item.of('16x cgm:shell')
@@ -74,7 +74,7 @@ onEvent('recipes', event => {
 	event.recipes.createPressing(interShell, interShell)
 	]).transitionalItem(interShell).loops(1)
 	
-	let interMissile = 'kubejs:incomplete_missile'
+	let interMissile = 'vulpinian_skies_core:incomplete_missile'
 	event.remove ({id:'cgm:missile'})
 	event.recipes.createSequencedAssembly([
 	Item.of('cgm:missile')
@@ -85,7 +85,7 @@ onEvent('recipes', event => {
 	event.recipes.createPressing(interMissile, interMissile)
 	]).transitionalItem(interMissile).loops(1)
 
-	let interGrenade = 'kubejs:incomplete_grenade'
+	let interGrenade = 'vulpinian_skies_core:incomplete_grenade'
 	event.remove ({id:'cgm:grenade'})
 	event.recipes.createSequencedAssembly([
 	Item.of('cgm:grenade')
@@ -95,25 +95,25 @@ onEvent('recipes', event => {
 	event.recipes.createDeploying(interGrenade,[interGrenade, 'minecraft:string'])
 	]).transitionalItem(interGrenade).loops(1)
 	
-	let interEncased = 'kubejs:incomplete_encased_fire'
+	let interEncased = 'vulpinian_skies_core:incomplete_encased_fire'
 	event.remove ({id:'scorchedguns:encased_fire'})
 	event.recipes.createSequencedAssembly([
-	Item.of('4x kubejs:unstable_encased_fire')
+	Item.of('4x vulpinian_skies_core:unstable_encased_fire')
 	],'minecraft:bucket',[
 	event.recipes.createDeploying(interEncased,[interEncased, 'minecraft:blaze_powder']),
 	event.recipes.createFilling(interEncased, [interEncased, Fluid.of('minecraft:lava',50)]),
 	event.recipes.createDeploying(interEncased,[interEncased, 'minecraft:blaze_powder']),
 	event.recipes.createPressing(interEncased, interEncased)
 	]).transitionalItem(interEncased).loops(1)
-	event.recipes.createSplashing('scorchedguns:encased_fire', 'kubejs:unstable_encased_fire')
+	event.recipes.createSplashing('scorchedguns:encased_fire', 'vulpinian_skies_core:unstable_encased_fire')
 	
 	
 	event.remove ({id:'scorchedguns:pure_gunpowder'})
 	event.recipes.create.mixing('8x scorchedguns:pure_gunpowder', ['4x #forge:gunpowder', '#forge:sand']).heated()
-	let interECR = 'kubejs:incomplete_ec_round'
+	let interECR = 'vulpinian_skies_core:incomplete_ec_round'
 	event.remove ({id:'scorchedguns:ec_round'})
 	event.recipes.createSequencedAssembly([
-	Item.of('1x kubejs:uncharged_ec_round')
+	Item.of('1x vulpinian_skies_core:uncharged_ec_round')
 	],'scorchedguns:flechette',[
 	event.recipes.createDeploying(interECR,[interECR, 'scorchedguns:pure_gunpowder']),
 	event.recipes.createDeploying(interECR, [interECR, 'createdeco:cast_iron_nugget']),	
@@ -124,7 +124,7 @@ onEvent('recipes', event => {
 			 "type": "createaddition:charging",
 		"input": {
 				"count": 3,
-				"item": "kubejs:uncharged_ec_round"
+				"item": "vulpinian_skies_core:uncharged_ec_round"
 			},			
 		"result": {
 			"count": 1,
@@ -139,7 +139,7 @@ onEvent('recipes', event => {
 	event.remove ({id:'scorchedguns:scorched_bronze'})
 	event.recipes.create.mixing('2x scorchedguns:scorched_bronze_ingot', ['#forge:ingots/brass', '#forge:ingots/copper', '2x #forge:dusts/blaze']).superheated()
 
-	let interScorchedBullet = 'kubejs:incomplete_scorched_bullet'
+	let interScorchedBullet = 'vulpinian_skies_core:incomplete_scorched_bullet'
 	event.remove ({id:'scorchedguns:scorched_bullet'})
 	event.recipes.createSequencedAssembly([
 	Item.of('8x scorchedguns:scorched_bullet')
@@ -149,7 +149,7 @@ onEvent('recipes', event => {
 	event.recipes.createPressing(interScorchedBullet, interScorchedBullet)
 	]).transitionalItem(interScorchedBullet).loops(1)
 	
-	let interScorchedBigBullet = 'kubejs:incomplete_scorched_big_bullet'
+	let interScorchedBigBullet = 'vulpinian_skies_core:incomplete_scorched_big_bullet'
 	event.remove ({id:'scorchedguns:scorched_big_bullet'})
 	event.recipes.createSequencedAssembly([
 	Item.of('4x scorchedguns:scorched_big_bullet')
@@ -160,7 +160,7 @@ onEvent('recipes', event => {
 	event.recipes.createPressing(interScorchedBigBullet, interScorchedBigBullet)
 	]).transitionalItem(interScorchedBigBullet).loops(1)
 	
-	let interScorchedShell = 'kubejs:incomplete_scorched_shell'
+	let interScorchedShell = 'vulpinian_skies_core:incomplete_scorched_shell'
 	event.remove ({id:'scorchedguns:scorched_shell'})
 	event.recipes.createSequencedAssembly([
 	Item.of('8x scorchedguns:scorched_shell')
@@ -171,7 +171,7 @@ onEvent('recipes', event => {
 	event.recipes.createPressing(interScorchedShell, interScorchedShell)
 	]).transitionalItem(interScorchedShell).loops(1)
 	
-	let interHeavyBullet = 'kubejs:incomplete_heavy_bullet'
+	let interHeavyBullet = 'vulpinian_skies_core:incomplete_heavy_bullet'
 	event.remove ({id:'scorchedguns:heavy_bullet'})
 	event.recipes.createSequencedAssembly([
 	Item.of('4x scorchedguns:heavy_bullet')
@@ -191,9 +191,9 @@ onEvent('recipes', event => {
 	
 	//Unify ScorchedGuns with C:BC
 	event.remove ({id:'scorchedguns:hell_gunpowder'})
-	event.recipes.create.haunting('kubejs:haunted_nitro', 'createbigcannons:congealed_nitro')
-	event.recipes.create.crushing('2x scorchedguns:hell_gunpowder', 'kubejs:haunted_nitro')
-	event.recipes.create.milling('2x scorchedguns:hell_gunpowder', 'kubejs:haunted_nitro')	
+	event.recipes.create.haunting('vulpinian_skies_core:haunted_nitro', 'createbigcannons:congealed_nitro')
+	event.recipes.create.crushing('2x scorchedguns:hell_gunpowder', 'vulpinian_skies_core:haunted_nitro')
+	event.recipes.create.milling('2x scorchedguns:hell_gunpowder', 'vulpinian_skies_core:haunted_nitro')	
 	event.remove ({id:'scorchedguns:nitro_dust'}) //Scorched Guns's Nitro Dust is replaced with C:BC's Nitropowder
 	
 	//Unify Create Deco with C:BC
@@ -206,7 +206,7 @@ onEvent('recipes', event => {
 	event.shapeless('4x tconstruct:quartz_shuriken', ['#forge:gems/quartz', '#forge:gems/quartz', '#forge:gems/quartz', '#forge:gems/quartz'])
 	event.recipes.create.cutting('4x tconstruct:quartz_shuriken', '#forge:gems/quartz').processingTime(50)
 	
-	let interPigRound = 'kubejs:incomplete_pig_round'
+	let interPigRound = 'vulpinian_skies_core:incomplete_pig_round'
 	event.remove ({id:'scorchedguns:pig_round'})
 	event.recipes.createSequencedAssembly([
 	Item.of('8x scorchedguns:pig_round')
@@ -217,7 +217,7 @@ onEvent('recipes', event => {
 	event.recipes.createPressing(interPigRound, interPigRound)
 	]).transitionalItem(interPigRound).loops(1)
 	
-	let interPigHeavyRound = 'kubejs:incomplete_heavy_pig_round'
+	let interPigHeavyRound = 'vulpinian_skies_core:incomplete_heavy_pig_round'
 	event.remove ({id:'scorchedguns:heavy_pig_round'})
 	event.recipes.createSequencedAssembly([
 	Item.of('4x scorchedguns:heavy_pig_round')
@@ -229,7 +229,7 @@ onEvent('recipes', event => {
 	event.recipes.createPressing(interPigHeavyRound, interPigHeavyRound)
 	]).transitionalItem(interPigHeavyRound).loops(1)
 	
-	let interQuartzShell = 'kubejs:incomplete_quartz_shell'
+	let interQuartzShell = 'vulpinian_skies_core:incomplete_quartz_shell'
 	event.remove ({id:'scorchedguns:quartz_shell'})
 	event.recipes.createSequencedAssembly([
 	Item.of('6x scorchedguns:quartz_shell')
@@ -242,7 +242,7 @@ onEvent('recipes', event => {
 	]).transitionalItem(interQuartzShell).loops(1)
 	
 	
-	let interOsborneShell = 'kubejs:incomplete_osborne_shell'
+	let interOsborneShell = 'vulpinian_skies_core:incomplete_osborne_shell'
 	event.remove ({id:'scorchedguns:osborne_slug'})
 	event.recipes.createSequencedAssembly([
 	Item.of('2x scorchedguns:osborne_slug')
@@ -253,7 +253,7 @@ onEvent('recipes', event => {
 	event.recipes.createPressing(interOsborneShell, interOsborneShell)
 	]).transitionalItem(interOsborneShell).loops(1)
 	
-	let interExperimentalRound = 'kubejs:incomplete_experimental_round'
+	let interExperimentalRound = 'vulpinian_skies_core:incomplete_experimental_round'
 	event.remove ({id:'scorchedguns:experimental_round'})
 	event.recipes.createSequencedAssembly([
 	Item.of('2x scorchedguns:experimental_round')
@@ -505,26 +505,26 @@ onEvent('recipes', event => {
 	//Gun crafting overhauled: Each tier has a core item (frame) which is crafted via seq. assembly
 	//Higher tier cores are more expensive
 	
-	let interClassFFrame = 'kubejs:incomplete_class_f_frame'	
+	let interClassFFrame = 'vulpinian_skies_core:incomplete_class_f_frame'	
 	event.recipes.createSequencedAssembly([
-	Item.of('kubejs:class_f_frame')
+	Item.of('vulpinian_skies_core:class_f_frame')
 	],'#forge:plates/copper',[
 	event.recipes.create.cutting(interClassFFrame, interClassFFrame).processingTime(40),
 	event.recipes.createPressing(interClassFFrame, interClassFFrame)
 	]).transitionalItem(interClassFFrame).loops(1)
 	
-	let interClassEFrame = 'kubejs:incomplete_class_e_frame'	
+	let interClassEFrame = 'vulpinian_skies_core:incomplete_class_e_frame'	
 	event.recipes.createSequencedAssembly([
-	Item.of('kubejs:class_e_frame')
+	Item.of('vulpinian_skies_core:class_e_frame')
 	],'#forge:plates/cast_iron',[
 	event.recipes.create.cutting(interClassEFrame, interClassEFrame).processingTime(50),
 	event.recipes.createDeploying(interClassEFrame,[interClassEFrame, '#forge:ingots/copper']),	
 	event.recipes.createPressing(interClassEFrame, interClassEFrame)
 	]).transitionalItem(interClassEFrame).loops(1)
 	
-	let interClassDFrame = 'kubejs:incomplete_class_d_frame'	
+	let interClassDFrame = 'vulpinian_skies_core:incomplete_class_d_frame'	
 	event.recipes.createSequencedAssembly([
-	Item.of('kubejs:class_d_frame')
+	Item.of('vulpinian_skies_core:class_d_frame')
 	],'#forge:plates/brass',[
 	event.recipes.create.cutting(interClassDFrame, interClassDFrame).processingTime(50),
 	event.recipes.createDeploying(interClassDFrame,[interClassDFrame, '#forge:ingots/cast_iron']),	
@@ -533,9 +533,9 @@ onEvent('recipes', event => {
 	event.recipes.createPressing(interClassDFrame, interClassDFrame)
 	]).transitionalItem(interClassDFrame).loops(1)
 	
-	let interClassCFrame = 'kubejs:incomplete_class_c_frame'	
+	let interClassCFrame = 'vulpinian_skies_core:incomplete_class_c_frame'	
 	event.recipes.createSequencedAssembly([
-	Item.of('kubejs:class_c_frame')
+	Item.of('vulpinian_skies_core:class_c_frame')
 	],'scorchedguns:scorched_bronze_ingot',[
 	event.recipes.create.cutting(interClassCFrame, interClassCFrame).processingTime(80),
 	event.recipes.createFilling(interClassCFrame, [interClassCFrame, Fluid.of('createbigcannons:molten_nethersteel',200)]),
@@ -544,9 +544,9 @@ onEvent('recipes', event => {
 	event.recipes.createPressing(interClassCFrame, interClassCFrame)
 	]).transitionalItem(interClassCFrame).loops(1)
 	
-	let interClassBFrame = 'kubejs:incomplete_class_b_frame'	
+	let interClassBFrame = 'vulpinian_skies_core:incomplete_class_b_frame'	
 	event.recipes.createSequencedAssembly([
-	Item.of('kubejs:class_b_frame')
+	Item.of('vulpinian_skies_core:class_b_frame')
 	],'createdeco:netherite_sheet',[
 	event.recipes.create.cutting(interClassBFrame, interClassBFrame).processingTime(100),
 	event.recipes.createFilling(interClassBFrame, [interClassBFrame, Fluid.of('createbigcannons:molten_nethersteel',375)]),	
@@ -557,18 +557,18 @@ onEvent('recipes', event => {
 	event.recipes.createPressing(interClassBFrame, interClassBFrame)
 	]).transitionalItem(interClassBFrame).loops(1)
 	
-	let interClassAFrame = 'kubejs:incomplete_class_a_frame'	
+	let interClassAFrame = 'vulpinian_skies_core:incomplete_class_a_frame'	
 	event.recipes.createSequencedAssembly([
-	Item.of('kubejs:class_a_frame')
-	],'kubejs:class_b_frame',[	
+	Item.of('vulpinian_skies_core:class_a_frame')
+	],'vulpinian_skies_core:class_b_frame',[	
 	event.recipes.createDeploying(interClassAFrame,[interClassAFrame, 'scorchedguns:diamond_steel_nugget']),		
 	event.recipes.createPressing(interClassAFrame, interClassAFrame)
 	]).transitionalItem(interClassAFrame).loops(1)
 	
-	let interClassSFrame = 'kubejs:incomplete_class_s_frame'	
+	let interClassSFrame = 'vulpinian_skies_core:incomplete_class_s_frame'	
 	event.recipes.createSequencedAssembly([
-	Item.of('kubejs:class_s_frame')
-	],'kubejs:class_c_frame',[	
+	Item.of('vulpinian_skies_core:class_s_frame')
+	],'vulpinian_skies_core:class_c_frame',[	
 	event.recipes.createDeploying(interClassSFrame,[interClassSFrame, '#forge:nuggets/nether_star']),
 	event.recipes.createDeploying(interClassSFrame,[interClassSFrame, '#forge:nuggets/nether_star']),
 	event.recipes.createFilling(interClassCFrame, [interClassCFrame, Fluid.of('tconstruct:molten_diamond',900)]),
@@ -588,7 +588,7 @@ onEvent('recipes', event => {
 			F: '#forge:flint',
 			C: '#forge:cobblestone',
 			P: '#minecraft:planks'			
-		})
+		}).id('vulpinian_skies_core:eoka_pistol');
 
 	event.remove ({id:'scorchedguns:pipe_musket'})
 	event.shaped('scorchedguns:pipe_musket', [
@@ -600,7 +600,7 @@ onEvent('recipes', event => {
 			F: '#forge:flint',
 			C: '#forge:cobblestone',
 			P: '#minecraft:planks'	
-		})
+		}).id('vulpinian_skies_core:pipe_musket');
 
 	event.remove ({id:'scorchedguns:noqq_gun'})
 	event.shaped('scorchedguns:noqq_gun', [
@@ -612,7 +612,7 @@ onEvent('recipes', event => {
 			F: '#forge:flint',
 			C: '#forge:cobblestone',
 			P: '#minecraft:planks'	
-		})
+		}).id('vulpinian_skies_core:noqq_gun');
 	
 
 	//Class F Guns
@@ -623,11 +623,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'F  '
 			], {						
-			F: 'kubejs:class_f_frame',						
+			F: 'vulpinian_skies_core:class_f_frame',						
 			C: '#forge:ingots/cast_iron',
 			R: 'scorchedguns:rivet',
 			S: '#forge:string'
-		})		
+		}).id('vulpinian_skies_core:hand_crossbow');
 
 	event.remove ({id:'scorchedguns:auto_crossbow'})
 	event.shaped('scorchedguns:auto_crossbow', [
@@ -635,11 +635,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'F  '
 			], {						
-			F: 'kubejs:class_f_frame',						
+			F: 'vulpinian_skies_core:class_f_frame',						
 			C: '#forge:ingots/cast_iron',
 			R: 'scorchedguns:rivet',
 			S: 'createbigcannons:spring_wire'
-		})
+		}).id('vulpinian_skies_core:auto_crossbow')
 	
 	event.remove ({id:'scorchedguns:scrap_cannon'})
 	event.shaped('scorchedguns:scrap_cannon', [
@@ -647,11 +647,11 @@ onEvent('recipes', event => {
 			'LCC',
 			'FP '
 			], {						
-			F: 'kubejs:class_f_frame',						
+			F: 'vulpinian_skies_core:class_f_frame',						
 			C: '#forge:ingots/cast_iron',
 			L: '#forge:flint',
 			P: '#minecraft:planks'
-		})
+		}).id('vulpinian_skies_core:scrap_cannon');
 	
 	event.remove ({id:'scorchedguns:blunderbuss'})
 	event.shaped('scorchedguns:blunderbuss', [
@@ -659,11 +659,11 @@ onEvent('recipes', event => {
 			'LCC',
 			'FP '
 			], {						
-			F: 'kubejs:class_f_frame',						
+			F: 'vulpinian_skies_core:class_f_frame',						
 			C: '#forge:ingots/cast_iron',
 			L: '#forge:flint',
 			P: '#minecraft:planks'
-		})
+		}).id('vulpinian_skies_core:blunderbuss');
 	
 	event.remove ({id:'scorchedguns:bastard_gun'})
 	event.shaped('scorchedguns:bastard_gun', [
@@ -671,11 +671,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'F  '
 			], {						
-			F: 'kubejs:class_f_frame',						
+			F: 'vulpinian_skies_core:class_f_frame',						
 			C: '#forge:ingots/cast_iron',
 			L: '#forge:flint',
 			S: 'createbigcannons:spring_wire'
-		})
+		}).id('vulpinian_skies_core:bastard_gun');
 	
 	event.remove ({id:'scorchedguns:scrap_pistol'})
 	event.shaped('scorchedguns:scrap_pistol', [
@@ -683,11 +683,11 @@ onEvent('recipes', event => {
 			'LCN',
 			'F  '
 			], {						
-			F: 'kubejs:class_f_frame',						
+			F: 'vulpinian_skies_core:class_f_frame',						
 			C: '#forge:ingots/cast_iron',
 			N: '#forge:nuggets/cast_iron',
 			L: '#forge:flint',			
-		})
+		}).id('vulpinian_skies_core:scrap_pistol');
 	
 	event.remove ({id:'scorchedguns:riveter'})
 	event.shaped('scorchedguns:riveter', [
@@ -695,12 +695,12 @@ onEvent('recipes', event => {
 			'SCN',
 			'F  '
 			], {						
-			F: 'kubejs:class_f_frame',						
+			F: 'vulpinian_skies_core:class_f_frame',						
 			C: '#forge:ingots/brass',
 			O: '#forge:cogwheels',
 			N: '#forge:nuggets/brass',
 			S: 'createbigcannons:spring_wire'
-		})
+		}).id('vulpinian_skies_core:riveter');
 
 	//Class E guns
 	
@@ -710,11 +710,11 @@ onEvent('recipes', event => {
 			'LCC',
 			'F  '
 			], {						
-			F: 'kubejs:class_e_frame',						
+			F: 'vulpinian_skies_core:class_e_frame',						
 			C: '#forge:ingots/cast_iron',
 			L: '#forge:flint',
 			R: 'scorchedguns:rivet'
-		})
+		}).id('vulpinian_skies_core:flechette_jet');
 		
 	event.remove ({id:'scorchedguns:m12_waltz'})
 	event.shaped('scorchedguns:m12_waltz', [
@@ -722,12 +722,12 @@ onEvent('recipes', event => {
 			'LCN',
 			'FP '
 			], {						
-			F: 'kubejs:class_e_frame',						
+			F: 'vulpinian_skies_core:class_e_frame',						
 			C: '#forge:ingots/cast_iron',
 			N: '#forge:nuggets/cast_iron',
 			L: '#forge:flint',
 			P: '#minecraft:planks'
-		})
+		}).id('vulpinian_skies_core:m12_waltz');
 		
 	event.remove ({id:'scorchedguns:jury_rigged_wrist_breaker'})
 	event.shaped('scorchedguns:jury_rigged_wrist_breaker', [
@@ -735,12 +735,12 @@ onEvent('recipes', event => {
 			'SCN',
 			'F  '
 			], {						
-			F: 'kubejs:class_e_frame',						
+			F: 'vulpinian_skies_core:class_e_frame',						
 			C: '#forge:ingots/brass',
 			O: '#forge:cogwheels',
 			N: '#forge:nuggets/brass',
 			S: 'createbigcannons:spring_wire'
-		})
+		}).id('vulpinian_skies_core:jury_rigged_wrist_breaker');
 		
 	event.remove ({id:'scorchedguns:railworker'})
 	event.shaped('scorchedguns:railworker', [
@@ -748,12 +748,12 @@ onEvent('recipes', event => {
 			'SCC',
 			'F  '
 			], {						
-			F: 'kubejs:class_e_frame',						
+			F: 'vulpinian_skies_core:class_e_frame',						
 			C: '#forge:ingots/brass',
 			O: '#forge:cogwheels',
 			N: '#forge:nuggets/cast_iron',
 			S: 'createbigcannons:spring_wire'
-		})
+		}).id('vulpinian_skies_core:railworker');
 		
 	event.remove ({id:'scorchedguns:jackhammer'})
 	event.shaped('scorchedguns:jackhammer', [
@@ -761,11 +761,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'F  '
 			], {						
-			F: 'kubejs:class_e_frame',						
+			F: 'vulpinian_skies_core:class_e_frame',						
 			C: '#forge:ingots/brass',
 			O: '#forge:cogwheels',			
 			S: 'createbigcannons:spring_wire'
-		})
+		}).id('vulpinian_skies_core:jackhammer');
 		
 	event.remove ({id:'scorchedguns:thumper'})
 	event.shaped('scorchedguns:thumper', [
@@ -773,11 +773,11 @@ onEvent('recipes', event => {
 			'SCN',
 			'F  '
 			], {						
-			F: 'kubejs:class_e_frame',						
+			F: 'vulpinian_skies_core:class_e_frame',						
 			C: '#forge:ingots/brass',			
 			N: '#forge:nuggets/brass',
 			S: 'create:propeller'
-		})
+		}).id('vulpinian_skies_core:thumper');
 		
 	//Class D guns
 	
@@ -787,11 +787,11 @@ onEvent('recipes', event => {
 			'SCN',
 			'F  '
 			], {						
-			F: 'kubejs:class_d_frame',						
+			F: 'vulpinian_skies_core:class_d_frame',						
 			C: '#forge:ingots/brass',			
 			N: '#forge:nuggets/brass',
 			S: 'createbigcannons:spring_wire'
-		})
+		}).id('vulpinian_skies_core:pistol');
 		
 	event.remove ({id:'cgm:shotgun'})
 	event.shaped('cgm:shotgun', [
@@ -799,11 +799,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'F  '
 			], {						
-			F: 'kubejs:class_d_frame',						
+			F: 'vulpinian_skies_core:class_d_frame',						
 			C: '#forge:ingots/brass',
 			O: '#forge:cogwheels',
 			S: 'createbigcannons:spring_wire',			
-		})
+		}).id('vulpinian_skies_core:shotgun');
 		
 	event.remove ({id:'cgm:rifle'})
 	event.shaped('cgm:rifle', [
@@ -811,12 +811,12 @@ onEvent('recipes', event => {
 			'SCC',
 			'F  '
 			], {						
-			F: 'kubejs:class_d_frame',						
+			F: 'vulpinian_skies_core:class_d_frame',						
 			C: '#forge:ingots/brass',
 			O: '#forge:cogwheels',
 			S: 'createbigcannons:spring_wire',
 			N: '#forge:nuggets/brass'
-		})
+		}).id('vulpinian_skies_core:rifle');
 		
 	event.remove ({id:'cgm:mini_gun'})
 	event.shaped('cgm:mini_gun', [
@@ -824,12 +824,12 @@ onEvent('recipes', event => {
 			'SCC',
 			'F  '
 			], {						
-			F: 'kubejs:class_d_frame',						
+			F: 'vulpinian_skies_core:class_d_frame',						
 			C: '#forge:storage_blocks/brass',
 			O: '#forge:cogwheels',			
 			S: 'createbigcannons:spring_wire',
 			I: '#forge:ingots/brass'
-		})
+		}).id('vulpinian_skies_core:mini_gun');
 		
 	event.remove ({id:'cgm:assault_rifle'})
 	event.shaped('cgm:assault_rifle', [
@@ -837,12 +837,12 @@ onEvent('recipes', event => {
 			'SCC',
 			'FI '
 			], {						
-			F: 'kubejs:class_d_frame',						
+			F: 'vulpinian_skies_core:class_d_frame',						
 			C: '#forge:ingots/brass',
 			O: '#forge:cogwheels',
 			S: 'createbigcannons:spring_wire',
 			I: '#forge:ingots/cast_iron'
-		})
+		}).id('vulpinian_skies_core:assault_rifle');
 		
 	event.remove ({id:'cgm:machine_pistol'})
 	event.shaped('cgm:machine_pistol', [
@@ -850,12 +850,12 @@ onEvent('recipes', event => {
 			'SCN',
 			'FO '
 			], {						
-			F: 'kubejs:class_d_frame',						
+			F: 'vulpinian_skies_core:class_d_frame',						
 			C: '#forge:ingots/brass',			
 			N: '#forge:nuggets/brass',
 			S: 'createbigcannons:spring_wire',
 			O: '#forge:cogwheels'
-		})
+		}).id('vulpinian_skies_core:machine_pistol');
 		
 	event.remove ({id:'cgm:heavy_rifle'})
 	event.shaped('cgm:heavy_rifle', [
@@ -863,11 +863,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'F  '
 			], {						
-			F: 'kubejs:class_d_frame',						
+			F: 'vulpinian_skies_core:class_d_frame',						
 			C: '#forge:ingots/brass',
 			O: '#forge:cogwheels',
 			S: 'createbigcannons:spring_wire',			
-		})
+		}).id('vulpinian_skies_core:heavy_rifle');
 		
 	event.remove ({id:'scorchedguns:waltz_conversion'})
 	event.shaped('scorchedguns:waltz_conversion', [
@@ -875,11 +875,11 @@ onEvent('recipes', event => {
 			'SCN',
 			'FN '
 			], {						
-			F: 'kubejs:class_d_frame',						
+			F: 'vulpinian_skies_core:class_d_frame',						
 			C: '#forge:ingots/cast_iron',
 			N: '#forge:nuggets/cast_iron',
 			S: 'createbigcannons:spring_wire',			
-		})
+		}).id('vulpinian_skies_core:waltz_conversion');
 		
 	event.remove ({id:'scorchedguns:steyr_smg'})
 	event.shaped('scorchedguns:steyr_smg', [
@@ -887,11 +887,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'FN '
 			], {						
-			F: 'kubejs:class_d_frame',						
+			F: 'vulpinian_skies_core:class_d_frame',						
 			C: '#forge:ingots/cast_iron',
 			N: '#forge:nuggets/cast_iron',
 			S: 'createbigcannons:spring_wire',			
-		})
+		}).id('vulpinian_skies_core:steyr_smg');
 		
 	event.remove ({id:'scorchedguns:scattergun'})
 	event.shaped('scorchedguns:scattergun', [
@@ -899,11 +899,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'FN '
 			], {						
-			F: 'kubejs:class_d_frame',						
+			F: 'vulpinian_skies_core:class_d_frame',						
 			C: '#forge:ingots/cast_iron',
 			N: '#forge:flint',
 			S: 'createbigcannons:spring_wire',			
-		})
+		}).id('vulpinian_skies_core:scattergun');
 		
 	event.remove ({id:'scorchedguns:carabine_44'})
 	event.shaped('scorchedguns:carabine_44', [
@@ -911,10 +911,10 @@ onEvent('recipes', event => {
 			'SCC',
 			'F  '
 			], {						
-			F: 'kubejs:class_d_frame',						
+			F: 'vulpinian_skies_core:class_d_frame',						
 			C: '#forge:ingots/cast_iron',			
 			S: 'createbigcannons:spring_wire',			
-		})
+		}).id('vulpinian_skies_core:carabine_44');
 		
 	event.remove ({id:'scorchedguns:g19_director'})
 	event.shaped('scorchedguns:g19_director', [
@@ -922,10 +922,10 @@ onEvent('recipes', event => {
 			'SCC',
 			'F  '
 			], {						
-			F: 'kubejs:class_d_frame',						
+			F: 'vulpinian_skies_core:class_d_frame',						
 			C: '#forge:ingots/cast_iron',			
 			S: 'create:propeller',			
-		})
+		}).id('vulpinian_skies_core:g19_director');
 		
 	event.remove ({id:'scorchedguns:m19_waltz_dehann'})
 	event.shaped('scorchedguns:m19_waltz_dehann', [
@@ -933,11 +933,11 @@ onEvent('recipes', event => {
 			'SCN',
 			'F  '
 			], {						
-			F: 'kubejs:class_d_frame',						
+			F: 'vulpinian_skies_core:class_d_frame',						
 			C: '#forge:ingots/cast_iron',
 			N: '#forge:nuggets/cast_iron',
 			S: 'createbigcannons:spring_wire',			
-		})
+		}).id('vulpinian_skies_core:m19_waltz_dehann');
 		
 	event.remove ({id:'scorchedguns:volley_gun'})
 	event.shaped('scorchedguns:volley_gun', [
@@ -945,12 +945,12 @@ onEvent('recipes', event => {
 			'SCC',
 			'FN '
 			], {						
-			F: 'kubejs:class_d_frame',						
+			F: 'vulpinian_skies_core:class_d_frame',						
 			C: '#forge:storage_blocks/copper',
 			N: 'create:copper_backtank',
 			S: 'create:propeller',
 			O: '#forge:cogwheels'
-		})
+		}).id('vulpinian_skies_core:volley_gun');
 	
 	//Class C Guns
 	
@@ -1033,12 +1033,12 @@ onEvent('recipes', event => {
 			'SCN',
 			'F  '
 			], {						
-			F: 'kubejs:class_c_frame',						
+			F: 'vulpinian_skies_core:class_c_frame',						
 			C: 'scorchedguns:scorched_bronze_ingot',
 			N: 'scorchedguns:scorched_bronze_nugget',
 			S: 'createbigcannons:spring_wire',
 			W: '#minecraft:wooden_slabs'
-		})
+		}).id('vulpinian_skies_core:scorched_wand');
 		
 	event.remove ({id:'scorchedguns:scorched_staff'})
 	event.shaped('scorchedguns:scorched_staff', [
@@ -1046,11 +1046,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'F  '
 			], {						
-			F: 'kubejs:class_c_frame',						
+			F: 'vulpinian_skies_core:class_c_frame',						
 			C: 'scorchedguns:scorched_bronze_ingot',			
 			S: 'createbigcannons:spring_wire',
 			W: '#minecraft:wooden_slabs'
-		})
+		}).id('vulpinian_skies_core:scorched_staff');
 		
 	event.remove ({id:'scorchedguns:scorched_obrez'})
 	event.shaped('scorchedguns:scorched_obrez_staff', [
@@ -1058,12 +1058,12 @@ onEvent('recipes', event => {
 			'SCN',
 			'FN '
 			], {						
-			F: 'kubejs:class_c_frame',						
+			F: 'vulpinian_skies_core:class_c_frame',						
 			C: 'scorchedguns:scorched_bronze_ingot',
 			N: 'scorchedguns:scorched_bronze_nugget',
 			S: 'createbigcannons:spring_wire',
 			W: '#minecraft:wooden_slabs'
-		})
+		}).id('vulpinian_skies_core:scorched_obrez');
 		
 	event.remove ({id:'scorchedguns:scorched_scatter_staff'})
 	event.shaped('scorchedguns:scorched_scatter_staff', [
@@ -1071,12 +1071,12 @@ onEvent('recipes', event => {
 			'SCC',
 			'FL '
 			], {						
-			F: 'kubejs:class_c_frame',						
+			F: 'vulpinian_skies_core:class_c_frame',						
 			C: 'scorchedguns:scorched_bronze_ingot',			
 			S: 'createbigcannons:spring_wire',
 			W: '#minecraft:wooden_slabs',
 			L: '#forge:flint'
-		})
+		}).id('vulpinian_skies_core:scorched_scatter_staff');
 		
 	event.remove ({id:'scorchedguns:blasphemy'})
 	event.shaped('scorchedguns:blasphemy', [
@@ -1084,10 +1084,10 @@ onEvent('recipes', event => {
 			' N ',
 			'FS '
 			], {						
-			F: 'kubejs:class_c_frame',			
+			F: 'vulpinian_skies_core:class_c_frame',			
 			S: 'create:blaze_burner',			
 			N: 'createbigcannons:nethersteel_nugget'
-		})
+		}).id('vulpinian_skies_core:blasphemy');
 		
 	event.remove ({id:'scorchedguns:sc_gowza'})
 	event.shaped('scorchedguns:sc_gowza', [
@@ -1095,11 +1095,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'F  '
 			], {						
-			F: 'kubejs:class_c_frame',						
+			F: 'vulpinian_skies_core:class_c_frame',						
 			C: 'scorchedguns:scorched_bronze_ingot',			
 			S: 'createbigcannons:spring_wire',
 			W: '#forge:ingots/cast_iron'
-		})
+		}).id('vulpinian_skies_core:sc_gowza');
 		
 	event.remove ({id:'scorchedguns:gowza_32l'})
 	event.shaped('scorchedguns:gowza_32l', [
@@ -1107,12 +1107,12 @@ onEvent('recipes', event => {
 			'SCC',
 			'FN '
 			], {						
-			F: 'kubejs:class_c_frame',						
+			F: 'vulpinian_skies_core:class_c_frame',						
 			C: 'scorchedguns:scorched_bronze_ingot',
 			N: 'scorchedguns:scorched_bronze_nugget',
 			S: 'createbigcannons:spring_wire',
 			W: '#forge:ingots/cast_iron'
-		})
+		}).id('vulpinian_skies_core:gowza_32l');
 		
 	event.remove ({id:'scorchedguns:frontier_sidearm'})
 	event.shaped('scorchedguns:frontier_sidearm', [
@@ -1120,12 +1120,12 @@ onEvent('recipes', event => {
 			'SCN',
 			'F  '
 			], {						
-			F: 'kubejs:class_c_frame',						
+			F: 'vulpinian_skies_core:class_c_frame',						
 			C: 'scorchedguns:scorched_bronze_ingot',
 			N: 'scorchedguns:scorched_bronze_nugget',
 			S: 'createbigcannons:spring_wire',
 			W: '#forge:nuggets/cast_iron'
-		})
+		}).id('vulpinian_skies_core:frontier_sidearm');
 		
 	event.remove ({id:'scorchedguns:sc_deputy'})
 	event.shaped('scorchedguns:sc_deputy', [
@@ -1133,13 +1133,13 @@ onEvent('recipes', event => {
 			'SCN',
 			'FL '
 			], {						
-			F: 'kubejs:class_c_frame',						
+			F: 'vulpinian_skies_core:class_c_frame',						
 			C: 'scorchedguns:scorched_bronze_ingot',
 			N: 'scorchedguns:scorched_bronze_nugget',
 			S: 'createbigcannons:spring_wire',
 			W: '#forge:nuggets/cast_iron',
 			L: '#forge:flint'
-		})
+		}).id('vulpinian_skies_core:sc_deputy');
 		
 	event.remove ({id:'scorchedguns:sc_lawbringer'})
 	event.shaped('scorchedguns:sc_lawbringer', [
@@ -1147,12 +1147,12 @@ onEvent('recipes', event => {
 			'SCC',
 			'FL '
 			], {						
-			F: 'kubejs:class_c_frame',						
+			F: 'vulpinian_skies_core:class_c_frame',						
 			C: 'scorchedguns:scorched_bronze_ingot',			
 			S: 'createbigcannons:spring_wire',
 			W: '#forge:nuggets/cast_iron',
 			L: '#forge:flint'
-		})
+		}).id('vulpinian_skies_core:sc_lawbringer');
 		
 	event.remove ({id:'scorchedguns:lm_scoont'})
 	event.shaped('scorchedguns:lm_scoont', [
@@ -1160,11 +1160,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'FW '
 			], {						
-			F: 'kubejs:class_c_frame',						
+			F: 'vulpinian_skies_core:class_c_frame',						
 			C: '#forge:ingots/cast_iron',			
 			S: 'createbigcannons:spring_wire',
 			W: '#forge:nuggets/cast_iron',			
-		})
+		}).id('vulpinian_skies_core:lm_scoont');
 		
 	event.remove ({id:'scorchedguns:lm_sekora'})
 	event.shaped('scorchedguns:lm_sekora', [
@@ -1172,11 +1172,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'FW '
 			], {						
-			F: 'kubejs:class_c_frame',						
+			F: 'vulpinian_skies_core:class_c_frame',						
 			C: '#forge:ingots/cast_iron',			
 			S: 'createbigcannons:spring_wire',
 			W: '#forge:flint',			
-		})
+		}).id('vulpinian_skies_core:lm_sekora');
 		
 	event.remove ({id:'scorchedguns:lm_spear_trough'})
 	event.shaped('scorchedguns:lm_spear_trough', [
@@ -1184,11 +1184,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'FW '
 			], {						
-			F: 'kubejs:class_c_frame',						
+			F: 'vulpinian_skies_core:class_c_frame',						
 			C: '#forge:ingots/cast_iron',			
 			S: 'createbigcannons:spring_wire',
 			W: '#forge:nuggets/cast_iron',			
-		})
+		}).id('vulpinian_skies_core:lm_spear_trough');
 		
 	event.remove ({id:'scorchedguns:lm_spear_ironport'})
 	event.shaped('scorchedguns:lm_spear_ironport', [
@@ -1196,11 +1196,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'FW '
 			], {						
-			F: 'kubejs:class_c_frame',						
+			F: 'vulpinian_skies_core:class_c_frame',						
 			C: '#forge:ingots/cast_iron',			
 			S: 'createbigcannons:spring_wire',
 			W: '#forge:nuggets/cast_iron',			
-		})
+		}).id('vulpinian_skies_core:lm_spear_ironport');
 		
 	event.remove ({id:'scorchedguns:ooz_96'})
 	event.shaped('scorchedguns:ooz_96', [
@@ -1208,11 +1208,11 @@ onEvent('recipes', event => {
 			'SCW',
 			'FC '
 			], {						
-			F: 'kubejs:class_c_frame',						
+			F: 'vulpinian_skies_core:class_c_frame',						
 			C: '#forge:ingots/cast_iron',			
 			S: 'createbigcannons:spring_wire',
 			W: '#forge:nuggets/cast_iron',			
-		})
+		}).id('vulpinian_skies_core:ooz_96');
 		
 	event.remove ({id:'cgm:grenade_launcher'})
 	event.shaped('cgm:grenade_launcher', [
@@ -1220,11 +1220,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'F  '
 			], {						
-			F: 'kubejs:class_c_frame',						
+			F: 'vulpinian_skies_core:class_c_frame',						
 			C: '#forge:ingots/brass',			
 			S: 'create:propeller',
 			O: '#forge:cogwheels'
-		})
+		}).id('vulpinian_skies_core:grenade_launcher');
 		
 	event.remove ({id:'scorchedguns:invis_nvr_63'})
 	event.shaped('scorchedguns:invis_nvr_63', [
@@ -1232,14 +1232,14 @@ onEvent('recipes', event => {
 			'SCN',
 			'FL '
 			], {						
-			F: 'kubejs:class_c_frame',						
+			F: 'vulpinian_skies_core:class_c_frame',						
 			C: 'scorchedguns:scorched_bronze_ingot',			
 			S: 'createbigcannons:spring_wire',
 			W: 'minecraft:crimson_slab',
 			N: 'scorchedguns:scorched_bronze_nugget',
 			L: '#forge:ingots/gold',
 			I: 'createbigcannons:nethersteel_ingot'
-		})
+		}).id('vulpinian_skies_core:invis_nvr_63');
 		
 	event.remove ({id:'scorchedguns:skellik_65'})
 	event.shaped('scorchedguns:skellik_65', [
@@ -1247,13 +1247,13 @@ onEvent('recipes', event => {
 			'SCC',
 			'FL '
 			], {
-			F: 'kubejs:class_c_frame',						
+			F: 'vulpinian_skies_core:class_c_frame',						
 			C: 'scorchedguns:scorched_bronze_ingot',			
 			S: 'createbigcannons:spring_wire',
 			W: 'minecraft:crimson_slab',		
 			L: '#forge:ingots/gold',
 			I: 'createbigcannons:nethersteel_ingot'
-		})
+		}).id('vulpinian_skies_core:skellik_65');
 		
 		
 	//Class B Guns
@@ -1264,11 +1264,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'FW '
 			], {						
-			F: 'kubejs:class_b_frame',						
+			F: 'vulpinian_skies_core:class_b_frame',						
 			C: 'scorchedguns:scorched_bronze_ingot',			
 			S: 'createbigcannons:spring_wire',
 			W: 'createbigcannons:nethersteel_nugget'
-		})
+		}).id('vulpinian_skies_core:sc_fusilage');
 		
 	event.remove ({id:'scorchedguns:sc_dahka'})
 	event.shaped('scorchedguns:sc_dahka', [
@@ -1276,12 +1276,12 @@ onEvent('recipes', event => {
 			'SCC',
 			'FL '
 			], {						
-			F: 'kubejs:class_b_frame',						
+			F: 'vulpinian_skies_core:class_b_frame',						
 			C: 'scorchedguns:scorched_bronze_ingot',			
 			S: 'createbigcannons:spring_wire',
 			W: 'createbigcannons:nethersteel_nugget',
 			L: '#forge:ingots/netherite'
-		})
+		}).id('vulpinian_skies_core:sc_dahka');
 		
 	event.remove ({id:'scorchedguns:soul_drummer'})
 	event.shaped('scorchedguns:soul_drummer', [
@@ -1289,12 +1289,12 @@ onEvent('recipes', event => {
 			'SCC',
 			'FL '
 			], {						
-			F: 'kubejs:class_b_frame',						
+			F: 'vulpinian_skies_core:class_b_frame',						
 			C: '#forge:ingots/cobalt',
 			S: 'createbigcannons:spring_wire',
 			W: 'createbigcannons:nethersteel_nugget',
 			L: '#forge:ingots/netherite'
-		})
+		}).id('vulpinian_skies_core:soul_drummer');
 
 	event.remove ({id:'cgm:bazooka'})
 	event.shaped('cgm:bazooka', [
@@ -1302,11 +1302,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'F  '
 			], {						
-			F: 'kubejs:class_b_frame',						
+			F: 'vulpinian_skies_core:class_b_frame',						
 			C: '#forge:storage_blocks/brass',
 			S: 'create:propeller',
 			O: '#forge:cogwheels'
-		})
+		}).id('vulpinian_skies_core:bazooka');
 		
 	event.remove ({id:'scorchedguns:gauss_rifle'})
 	event.shaped('scorchedguns:gauss_rifle', [
@@ -1314,13 +1314,13 @@ onEvent('recipes', event => {
 			'SCC',
 			'FDD'
 			], {						
-			F: 'kubejs:class_b_frame',						
+			F: 'vulpinian_skies_core:class_b_frame',						
 			C: '#forge:ingots/brass',
 			S: 'createaddition:alternator',
 			O: '#forge:cogwheels',
 			U: '#forge:wires/gold',
 			D: '#forge:wires/copper'
-		})
+		}).id('vulpinian_skies_core:gauss_rifle');
 		
 	event.remove ({id:'scorchedguns:cogloader'})
 	event.shaped('scorchedguns:cogloader', [
@@ -1328,12 +1328,12 @@ onEvent('recipes', event => {
 			'SCC',
 			'F L'
 			], {						
-			F: 'kubejs:class_b_frame',						
+			F: 'vulpinian_skies_core:class_b_frame',						
 			C: '#forge:ingots/netherite',
 			S: 'createaddition:electric_motor',
 			O: '#forge:cogwheels',
 			L: '#forge:ingots/brass'
-		})
+		}).id('vulpinian_skies_core:cogloader');
 		
 	event.remove ({id:'scorchedguns:m99_krauser'})
 	event.shaped('scorchedguns:m99_krauser', [
@@ -1341,11 +1341,11 @@ onEvent('recipes', event => {
 			'SCN',
 			'FN '
 			], {						
-			F: 'kubejs:class_b_frame',						
+			F: 'vulpinian_skies_core:class_b_frame',						
 			C: '#forge:ingots/brass',
 			S: 'createbigcannons:spring_wire',
 			N: '#forge:nuggets/brass'
-		})
+		}).id('vulpinian_skies_core:m99_krauser');
 		
 	event.remove ({id:'scorchedguns:krauser_conversion'})
 	event.shaped('scorchedguns:krauser_conversion', [
@@ -1353,11 +1353,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'FNN'
 			], {						
-			F: 'kubejs:class_b_frame',						
+			F: 'vulpinian_skies_core:class_b_frame',						
 			C: '#forge:ingots/brass',
 			S: 'createbigcannons:spring_wire',
 			N: '#forge:nuggets/cast_iron'
-		})
+		}).id('vulpinian_skies_core:krauser_conversion');
 		
 	event.remove ({id:'scorchedguns:osgood_50'})
 	event.shaped('scorchedguns:osgood_50', [
@@ -1365,11 +1365,11 @@ onEvent('recipes', event => {
 			'SCN',
 			'FNN'
 			], {						
-			F: 'kubejs:class_b_frame',						
+			F: 'vulpinian_skies_core:class_b_frame',						
 			C: '#forge:ingots/brass',
 			S: 'createbigcannons:spring_wire',
 			N: '#forge:nuggets/brass'
-		})
+		}).id('vulpinian_skies_core:osgood_50');
 		
 	event.remove ({id:'scorchedguns:huot_auto'})
 	event.shaped('scorchedguns:huot_auto', [
@@ -1377,13 +1377,13 @@ onEvent('recipes', event => {
 			'SCC',
 			'FIC'
 			], {						
-			F: 'kubejs:class_b_frame',						
+			F: 'vulpinian_skies_core:class_b_frame',						
 			C: '#forge:ingots/brass',
 			S: 'createbigcannons:spring_wire',
 			N: '#forge:nuggets/netherite',
 			O: '#forge:cogwheels',
 			I: '#forge:ingots/netherite'
-		})
+		}).id('vulpinian_skies_core:huot_auto');
 		
 	event.remove ({id:'scorchedguns:spitfire'})
 	event.shaped('scorchedguns:spitfire', [
@@ -1391,12 +1391,12 @@ onEvent('recipes', event => {
 			'SCC',
 			'FI '
 			], {						
-			F: 'kubejs:class_b_frame',						
+			F: 'vulpinian_skies_core:class_b_frame',						
 			C: '#forge:storage_blocks/brass',
 			S: 'create:propeller',			
 			O: '#forge:cogwheels',
 			I: '#forge:ingots/netherite',
-		})
+		}).id('vulpinian_skies_core:spitfire');
 		
 	event.remove ({id:'scorchedguns:kiln_gun'})
 	event.shaped('scorchedguns:kiln_gun', [
@@ -1404,11 +1404,11 @@ onEvent('recipes', event => {
 			'SCC',
 			'FN '
 			], {						
-			F: 'kubejs:class_b_frame',						
+			F: 'vulpinian_skies_core:class_b_frame',						
 			C: '#forge:storage_blocks/cast_iron',
 			S: 'createbigcannons:spring_wire',
 			N: '#forge:flint'
-		})
+		}).id('vulpinian_skies_core:kiln_gun');
 		
 	event.remove ({id:'scorchedguns:punt_gun'})
 	event.shaped('scorchedguns:punt_gun', [
@@ -1416,12 +1416,12 @@ onEvent('recipes', event => {
 			'SCC',
 			'F  '
 			], {						
-			F: 'kubejs:class_b_frame',						
+			F: 'vulpinian_skies_core:class_b_frame',						
 			C: 'scorchedguns:scorched_bronze_ingot',
 			S: 'createbigcannons:spring_wire',
 			I: '#forge:plates/netherite',
 			N: '#forge:nuggets/netherite'
-		})
+		}).id('vulpinian_skies_core:punt_gun');
 		
 	event.remove ({id:'scorchedguns:tt_jorm_keg'})
 	event.shaped('scorchedguns:tt_jorm_keg', [
@@ -1429,13 +1429,13 @@ onEvent('recipes', event => {
 			'SCC',
 			'FL '
 			], {
-			F: 'kubejs:class_b_frame',						
+			F: 'vulpinian_skies_core:class_b_frame',						
 			C: 'scorchedguns:scorched_bronze_ingot',			
 			S: 'createbigcannons:spring_wire',
 			W: 'minecraft:crimson_slab',		
 			L: '#forge:ingots/gold',
 			I: 'createbigcannons:nethersteel_ingot'
-		})
+		}).id('vulpinian_skies_core:tt_jorm_keg');
 		
 	event.remove ({id:'scorchedguns:tunck_37'})
 	event.shaped('scorchedguns:tunck_37', [
@@ -1443,14 +1443,14 @@ onEvent('recipes', event => {
 			'SCN',
 			'FL '
 			], {						
-			F: 'kubejs:class_b_frame',						
+			F: 'vulpinian_skies_core:class_b_frame',						
 			C: 'scorchedguns:scorched_bronze_ingot',			
 			S: 'createbigcannons:spring_wire',
 			W: 'minecraft:crimson_slab',
 			N: 'scorchedguns:scorched_bronze_nugget',
 			L: '#forge:ingots/gold',
 			I: 'createbigcannons:nethersteel_ingot'
-		})
+		}).id('vulpinian_skies_core:tunck_37');
 		
 	//Class A Guns
 	
@@ -1460,13 +1460,13 @@ onEvent('recipes', event => {
 			'SCC',
 			'FL '
 			], {						
-			F: 'kubejs:class_a_frame',						
+			F: 'vulpinian_skies_core:class_a_frame',						
 			C: '#forge:storage_blocks/brass',
 			S: 'createaddition:electric_motor',
 			B: '#forge:storage_blocks/netherite',		
 			L: 'minecraft:yellow_shulker_box',
 			I: '#forge:ingots/netherite'
-		})
+		}).id('vulpinian_skies_core:thunderhead');
 		
 	event.remove ({id:'scorchedguns:vidas_smg'})
 	event.shaped('scorchedguns:vidas_smg', [
@@ -1474,13 +1474,13 @@ onEvent('recipes', event => {
 			'SCC',
 			'FL '
 			], {
-			F: 'kubejs:class_a_frame',						
+			F: 'vulpinian_skies_core:class_a_frame',						
 			C: 'scorchedguns:scorched_bronze_ingot',			
 			S: 'createbigcannons:spring_wire',
 			W: 'minecraft:crimson_slab',		
 			L: '#forge:ingots/gold',
 			I: '#forge:ingots/netherite'
-		})
+		}).id('vulpinian_skies_core:vidas_smg');
 		
 	event.remove ({id:'scorchedguns:cyclone'})
 	event.shaped('scorchedguns:cyclone', [
@@ -1488,16 +1488,122 @@ onEvent('recipes', event => {
 			'SBC',
 			'FL '
 			], {						
-			F: 'kubejs:class_a_frame',						
+			F: 'vulpinian_skies_core:class_a_frame',						
 			C: '#forge:storage_blocks/brass',
 			S: 'createaddition:electric_motor',
 			B: '#forge:storage_blocks/netherite',		
 			L: 'sophisticatedbackpacks:backpack',
 			I: 'create:propeller'
-		})
-	
-	
+		}).id('vulpinian_skies_core:cyclone');
+		
+	//Class S Guns
 
+	event.remove ({id:'scorchedguns:officers_special'})
+	event.shaped('scorchedguns:officers_special', [
+			' WW',
+			'SCN',
+			'FW '
+			], {						
+			F: 'vulpinian_skies_core:class_s_frame',						
+			C: '#forge:ingots/forgotten_metal',
+			N: '#forge:nuggets/forgotten_metal',
+			S: 'createbigcannons:spring_wire',
+			W: '#forge:nuggets/netherite'
+		}).id('vulpinian_skies_core:officers_special');
+		
+	event.remove ({id:'scorchedguns:cosmic_blitzer'})
+	event.shaped('scorchedguns:cosmic_blitzer', [
+			' WW',
+			'SCN',
+			'FA '
+			], {						
+			F: 'vulpinian_skies_core:class_s_frame',						
+			C: '#forge:ingots/forgotten_metal',
+			N: '#forge:nuggets/forgotten_metal',
+			S: 'createbigcannons:spring_wire',
+			W: '#forge:nuggets/netherite',
+			A: '#forge:nuggets/cast_iron'
+		}).id('vulpinian_skies_core:cosmic_blitzer');
+		
+	event.remove ({id:'scorchedguns:r498_gauss_cannon'})
+	event.shaped('scorchedguns:r498_gauss_cannon', [
+			'OUU',
+			'SCC',
+			'FDD'
+			], {						
+			F: 'vulpinian_skies_core:class_s_frame',						
+			C: '#forge:ingots/forgotten_metal',
+			S: 'createaddition:alternator',
+			O: '#forge:cogwheels',
+			U: '#forge:wires/gold',
+			D: '#forge:wires/copper'
+		}).id('vulpinian_skies_core:r498_gauss_cannon');
+		
+	event.remove ({id:'scorchedguns:alfonz_repeating_punter'})
+	event.shaped('scorchedguns:alfonz_repeating_punter', [
+			' NN',
+			'SCC',
+			'F  '
+			], {						
+			F: 'vulpinian_skies_core:class_s_frame',						
+			C: '#forge:ingots/forgotten_metal',
+			N: '#forge:nuggets/forgotten_metal',
+			S: '#forge:flint'			
+		}).id('vulpinian_skies_core:alfonz_repeating_punter');
+		
+	event.remove ({id:'scorchedguns:alfonz_turnpike'})
+	event.shaped('scorchedguns:alfonz_turnpike', [
+			'PNN',
+			'SCC',
+			'F  '
+			], {						
+			F: 'vulpinian_skies_core:class_s_frame',						
+			C: '#forge:ingots/forgotten_metal',
+			N: '#forge:nuggets/forgotten_metal',
+			S: '#forge:flint',
+			P: '#forge:cogwheels'
+		}).id('vulpinian_skies_core:alfonz_turnpike');
+		
+	event.remove ({id:'scorchedguns:lg8_grenade_launcher'})
+	event.shaped('scorchedguns:lg8_grenade_launcher', [
+			'CCC',
+			'SPC',
+			'F N'
+			], {						
+			F: 'vulpinian_skies_core:class_s_frame',						
+			C: '#forge:ingots/forgotten_metal',
+			N: '#forge:nuggets/netherite',
+			S: 'create:propeller',
+			P: '#forge:storage_blocks/forgotten_metal'
+		}).id('vulpinian_skies_core:lg8_grenade_launcher');
+		
+	event.remove ({id:'scorchedguns:astella'})
+	event.shaped('scorchedguns:astella', [
+			'OWW',
+			'SCW',
+			'F  '
+			], {						
+			F: 'vulpinian_skies_core:class_s_frame',						
+			C: '#forge:ingots/forgotten_metal',			
+			S: 'createbigcannons:spring_wire',
+			W: '#forge:ingots/netherite',
+			O: '#forge:cogwheels'
+		}).id('vulpinian_skies_core:astella');
+		
+	event.remove ({id:'scorchedguns:earths_corpse'})
+	event.shaped('scorchedguns:earths_corpse', [
+			' OW',
+			'SCN',
+			'FO '
+			], {						
+			F: 'vulpinian_skies_core:class_s_frame',						
+			C: '#forge:ingots/forgotten_metal',
+			N: '#forge:ingots/netherite',
+			S: 'createbigcannons:spring_wire',
+			W: '#forge:nuggets/netherite',
+			O: '#forge:nuggets/forgotten_metal'
+		}).id('vulpinian_skies_core:earths_corpse');
+		
 	//Custom, more expensive waystone recipes
 	//event.remove({mod:'waystones'})
 	event.remove({id:'waystones:warp_stone'})
@@ -1512,123 +1618,6 @@ onEvent('recipes', event => {
 		S: 'minecraft:smooth_stone',
 		D: 'minecraft:diamond'
 	})
-
-	event.remove({id:'createaddition:crushing/diamond'})
-	event.recipes.createCrushing([
-		'2x createaddition:diamond_grit',
-		Item.of('create:experience_nugget').withChance(0.5)			
-	], '#forge:gems/diamond');
-	
-	event.recipes.create.compacting('minecraft:diamond_block', {fluid: "tconstruct:molten_diamond", amount: 900});
-	event.recipes.create.compacting('create:experience_block', {fluid: "create_enchantment_industry:experience", amount: 27});
-	event.recipes.create.compacting('create:experience_nugget', {fluid: "create_enchantment_industry:experience", amount: 3});
-
-
-	event.remove ({id:'scorchedguns:officers_special'})
-	event.shaped('scorchedguns:officers_special', [
-			' WW',
-			'SCN',
-			'FW '
-			], {						
-			F: 'kubejs:class_s_frame',						
-			C: '#forge:ingots/forgotten_metal',
-			N: '#forge:nuggets/forgotten_metal',
-			S: 'createbigcannons:spring_wire',
-			W: '#forge:nuggets/netherite'
-		})
-		
-	event.remove ({id:'scorchedguns:cosmic_blitzer'})
-	event.shaped('scorchedguns:cosmic_blitzer', [
-			' WW',
-			'SCN',
-			'FA '
-			], {						
-			F: 'kubejs:class_s_frame',						
-			C: '#forge:ingots/forgotten_metal',
-			N: '#forge:nuggets/forgotten_metal',
-			S: 'createbigcannons:spring_wire',
-			W: '#forge:nuggets/netherite',
-			A: '#forge:nuggets/cast_iron'
-		})
-		
-	event.remove ({id:'scorchedguns:r498_gauss_cannon'})
-	event.shaped('scorchedguns:r498_gauss_cannon', [
-			'OUU',
-			'SCC',
-			'FDD'
-			], {						
-			F: 'kubejs:class_s_frame',						
-			C: '#forge:ingots/forgotten_metal',
-			S: 'createaddition:alternator',
-			O: '#forge:cogwheels',
-			U: '#forge:wires/gold',
-			D: '#forge:wires/copper'
-		})
-		
-	event.remove ({id:'scorchedguns:alfonz_repeating_punter'})
-	event.shaped('scorchedguns:alfonz_repeating_punter', [
-			' NN',
-			'SCC',
-			'F  '
-			], {						
-			F: 'kubejs:class_s_frame',						
-			C: '#forge:ingots/forgotten_metal',
-			N: '#forge:nuggets/forgotten_metal',
-			S: '#forge:flint'			
-		})
-		
-	event.remove ({id:'scorchedguns:alfonz_turnpike'})
-	event.shaped('scorchedguns:alfonz_turnpike', [
-			'PNN',
-			'SCC',
-			'F  '
-			], {						
-			F: 'kubejs:class_s_frame',						
-			C: '#forge:ingots/forgotten_metal',
-			N: '#forge:nuggets/forgotten_metal',
-			S: '#forge:flint',
-			P: '#forge:cogwheels'
-		})
-		
-	event.remove ({id:'scorchedguns:lg8_grenade_launcher'})
-	event.shaped('scorchedguns:lg8_grenade_launcher', [
-			'CCC',
-			'SPC',
-			'F N'
-			], {						
-			F: 'kubejs:class_s_frame',						
-			C: '#forge:ingots/forgotten_metal',
-			N: '#forge:nuggets/netherite',
-			S: 'create:propeller',
-			P: '#forge:storage_blocks/forgotten_metal'
-		})
-		
-	event.remove ({id:'scorchedguns:astella'})
-	event.shaped('scorchedguns:astella', [
-			'OWW',
-			'SCW',
-			'F  '
-			], {						
-			F: 'kubejs:class_s_frame',						
-			C: '#forge:ingots/forgotten_metal',			
-			S: 'createbigcannons:spring_wire',
-			W: '#forge:ingots/netherite',
-			O: '#forge:cogwheels'
-		})
-		
-	event.remove ({id:'scorchedguns:earths_corpse'})
-	event.shaped('scorchedguns:earths_corpse', [
-			' OW',
-			'SCN',
-			'FO '
-			], {						
-			F: 'kubejs:class_s_frame',						
-			C: '#forge:ingots/forgotten_metal',
-			N: '#forge:ingots/netherite',
-			S: 'createbigcannons:spring_wire',
-			W: '#forge:nuggets/netherite',
-			O: '#forge:nuggets/forgotten_metal'
-		})
 		
 	//BASIN MELTING RECIPES USING CBC
 	function createBasinMelting(event, input, inputIsTag, output, amount, superHeated) {
@@ -2421,10 +2410,15 @@ onEvent('recipes', event => {
 	event.recipes.create.compacting('minecraft:gold_ingot', Fluid.of('tconstruct:molten_gold', 90));
 	event.recipes.create.compacting('minecraft:gold_block', Fluid.of('tconstruct:molten_gold', 810));
 	
+	event.recipes.create.compacting('minecraft:diamond', {fluid: "tconstruct:molten_diamond", amount: 100});
+	event.recipes.create.compacting('minecraft:diamond_block', {fluid: "tconstruct:molten_diamond", amount: 900});
+	
+	event.recipes.create.compacting('create:experience_block', {fluid: "create_enchantment_industry:experience", amount: 27});
+	event.recipes.create.compacting('create:experience_nugget', {fluid: "create_enchantment_industry:experience", amount: 3});
+	
 	event.recipes.create.compacting('minecraft:netherite_ingot', Fluid.of('tconstruct:molten_netherite', 90));
 	event.recipes.create.compacting('minecraft:netherite_block', Fluid.of('tconstruct:molten_netherite', 810));
 	
-	//Debris
 	event.recipes.create.compacting('bygonenether:netherite_scrap_ingot', Fluid.of('tconstruct:molten_debris', 90));
 	event.remove({id:'bygonenether:mixing/netherite_scrap_ingot'});
 	event.recipes.create.mixing('bygonenether:netherite_scrap_ingot', '9x #forge:nuggets/netherite_scrap').heated();
@@ -2620,32 +2614,15 @@ onEvent('recipes', event => {
 		
 	}
 	genIceandfireCrushing(event);
+	
+	event.remove({id:'createaddition:crushing/diamond'})
+	event.recipes.createCrushing([
+		'2x createaddition:diamond_grit',
+		Item.of('create:experience_nugget').withChance(0.5)			
+	], '#forge:gems/diamond');
 
 	
-	/*
-	event.recipes.createCrushing([
-		'gemsnjewels:pale_diamond',
-		Item.of('gemsnjewels:pale_diamond').withChance(0.75),			
-		Item.of('create:experience_nugget').withChance(0.75),
-		Item.of('minecraft:cobblestone').withChance(0.12)		
-	], 'gemsnjewels:pale_diamond_ore_block');
-	
-	event.recipes.createCrushing([
-		'2x gemsnjewels:pale_diamond',
-		Item.of('gemsnjewels:pale_diamond').withChance(0.25),
-		Item.of('create:experience_nugget').withChance(0.75),			
-		Item.of('minecraft:cobbled_deepslate').withChance(0.12)		
-	], 'gemsnjewels:pale_diamond_deepslate_ore_block');
-	
-	event.recipes.createCrushing([
-		'2x gemsnjewels:pale_diamond',
-		Item.of('gemsnjewels:pale_diamond').withChance(0.35),
-		Item.of('create:experience_nugget').withChance(0.75),			
-		Item.of('minecraft:netherrack').withChance(0.12)		
-	], 'gemsnjewels:pale_diamond_nether_ore_block');
-	*/
-	
-	//Weather2
+	//Weather2 blocks
 	event.remove ({id:'weather2:weather_item'});
 	event.remove ({id:'weather2:weather_deflector'});
 	event.custom (
