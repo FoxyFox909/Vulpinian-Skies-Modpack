@@ -861,106 +861,6 @@ file = "kubejs/assets/kjspatchouli/textures/gui/entries/vulpinian_skies_logo_v1.
 hash = "430806a368e7453a49f811b32402b626b0102253f6a903f5ecf613d3efdd86ab"
 
 [[files]]
-file = "kubejs/assets/kubejs/models/item/class_a_frame.json"
-hash = "e6d154c58982c7f00d51ed386db70877a9180b084db444d42ccd07c3e2870d29"
-
-[[files]]
-file = "kubejs/assets/kubejs/models/item/class_b_frame.json"
-hash = "47fcf679dd35f618ef2c517e0396b33279d684df7b05a5c98b82927386bce2a2"
-
-[[files]]
-file = "kubejs/assets/kubejs/models/item/class_c_frame.json"
-hash = "8e53a38b1f094e47a1e5fed267a57977487232b88abc8f5a6943cd08e0313624"
-
-[[files]]
-file = "kubejs/assets/kubejs/models/item/class_d_frame.json"
-hash = "e731893fef405e91f82f6050e540f36ea10f7ef56f502605a19fd89c7bcc0161"
-
-[[files]]
-file = "kubejs/assets/kubejs/models/item/class_e_frame.json"
-hash = "1740bf76b9acafd34918ea3c5c497f8a14ef170b716aa87060f284c7e7897b99"
-
-[[files]]
-file = "kubejs/assets/kubejs/models/item/class_f_frame.json"
-hash = "0930408890a5aceeca05a0e7d407ed98a06985a5f0b3d4bda619745c90550477"
-
-[[files]]
-file = "kubejs/assets/kubejs/models/item/class_s_frame.json"
-hash = "833d72e4a8b1c0e2b2f90de938828473877f4ec9acb8f07606e3b1fbc80ff0f4"
-
-[[files]]
-file = "kubejs/assets/kubejs/models/unstable_encased_fire.json"
-hash = "a1e0d4b75fb53e0d91b2c19453e8b91e0626f2ee1a01858577b26eba17a4de70"
-
-[[files]]
-file = "kubejs/assets/kubejs/textures/block/example_block.png"
-hash = "783d78bd1ee61d3b32273670dff9d82c34cd74c5ae899a10f104f473828d5bbc"
-
-[[files]]
-file = "kubejs/assets/kubejs/textures/item/class_a_frame.png"
-hash = "4ed617128e31cf0570b95a6e7ecb8ea6635831ba0e91c3f2ee51281b13453d3b"
-
-[[files]]
-file = "kubejs/assets/kubejs/textures/item/class_b_frame.png"
-hash = "dfaedbe177fd25a05741b837b78defc0481ff3c8b4a4dafde8d7886eebe0870f"
-
-[[files]]
-file = "kubejs/assets/kubejs/textures/item/class_c_frame.png"
-hash = "1f6a3c5247c309424a0be46ebee46eed7e0c1d846a6ebf604f70ed00ab643395"
-
-[[files]]
-file = "kubejs/assets/kubejs/textures/item/class_d_frame.png"
-hash = "f645fc2063e50544db2efd96942e61c3e6b14761b221f22a2423f86ef60ca738"
-
-[[files]]
-file = "kubejs/assets/kubejs/textures/item/class_e_frame.png"
-hash = "d20f9800a12c604746ddc3b5f77264ec41839dc1a3ecb87c8e59b0ed393fd65a"
-
-[[files]]
-file = "kubejs/assets/kubejs/textures/item/class_f_frame.png"
-hash = "991c87b8e10bb56abf4ca9f108b2abda391335d27e3cc520e8a7fdbd9d03f9e1"
-
-[[files]]
-file = "kubejs/assets/kubejs/textures/item/class_s_frame.png"
-hash = "dbaa21b51c105287f5b776111c72814f3b5b9fa793ae4b4583db00f44634deef"
-
-[[files]]
-file = "kubejs/assets/kubejs/textures/item/class_s_frame.png.mcmeta"
-hash = "334f475547e0bb7997a30a36901ea3f559b88b4b958fd9125b485bdddc72c0f2"
-
-[[files]]
-file = "kubejs/assets/kubejs/textures/item/example_item.png"
-hash = "45a5f56eba6066ad05c70988a32b72c50cfeb6e35857739bd582007011ea002b"
-
-[[files]]
-file = "kubejs/assets/kubejs/textures/item/haunted_nitro.png"
-hash = "a3233fd7990c85e57959eee21d8ef205d2c0fa547dd8fac90f4622b1749cd4b1"
-
-[[files]]
-file = "kubejs/assets/kubejs/textures/item/haunted_nitro.png.mcmeta"
-hash = "a4438d5b85ab70227883b30e5e260c64e5ea0eced3c77f870fef4bbb2defa014"
-
-[[files]]
-file = "kubejs/assets/kubejs/textures/item/scorched_bronze_ingot.png"
-hash = "d4b7cd2bbe59cded4084ed81ffeeffabbab0f9224ce343e7447011e302b1589c"
-
-[[files]]
-file = "kubejs/assets/kubejs/textures/item/scorched_bronze_ingot.png.mcmeta"
-hash = "c5bfc21d9093e33955ed876b72c9333cb6184ee6d617753263250d3e400fc9ee"
-
-[[files]]
-file = "kubejs/assets/kubejs/textures/item/uncharged_ec_round.png"
-hash = "05efdd23c3f7a6156602f7acbe9721b1648bf115084ce040a3c8a65a8e23233f"
-
-[[files]]
-file = "kubejs/assets/kubejs/textures/item/unstable_encased_fire.png"
-hash = "be78da155dd1ba25fff120726ec4f7067934f261c125746d2ab1e436070afa38"
-
-[[files]]
-file = "kubejs/assets/kubejs/textures/item/unstable_encased_fire.png.mcmeta"
-hash = "c4021020288525a3d2a57716884cdfd1689c2eade0a3338ffa205ada702057e4"
-
-[[files]]
 file = "kubejs/assets/quark/textures/block/acacia_bookshelf.png"
 hash = "d41ed64299221fa45182f44c52b0cf7b247df515ce43a78436d598ff3f4b59b0"
 
@@ -2118,31 +2018,31 @@ hash = "955559f3a9c6d1c61e57078d95874ae8f12f8a816c45eeffca2afb4ea44450ad"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/models/item/class_a_frame.json"
-hash = "e6d154c58982c7f00d51ed386db70877a9180b084db444d42ccd07c3e2870d29"
+hash = "56217c8341c272a97a9a9a81555ab12cbef07bc96caa75ed47f4c47aa4f661ff"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/models/item/class_b_frame.json"
-hash = "47fcf679dd35f618ef2c517e0396b33279d684df7b05a5c98b82927386bce2a2"
+hash = "2f7088dab731e92c8940fa9ab268873d1a6da4b4c4781c6ced78b502df680933"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/models/item/class_c_frame.json"
-hash = "8e53a38b1f094e47a1e5fed267a57977487232b88abc8f5a6943cd08e0313624"
+hash = "aa5514561ead51bb32d8d0967db7721db9064d1d7541c4b164f6d009a82dd1e8"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/models/item/class_d_frame.json"
-hash = "e731893fef405e91f82f6050e540f36ea10f7ef56f502605a19fd89c7bcc0161"
+hash = "1661b7dbfc222c5f9810fd083bb33c87b45ee603d6051b4c1819651e485c40f0"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/models/item/class_e_frame.json"
-hash = "1740bf76b9acafd34918ea3c5c497f8a14ef170b716aa87060f284c7e7897b99"
+hash = "aed545cb252c77c7153ceff32e96ea3f606470cc8b777dde37e9a47bbcd7239f"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/models/item/class_f_frame.json"
-hash = "0930408890a5aceeca05a0e7d407ed98a06985a5f0b3d4bda619745c90550477"
+hash = "1e5570255f6a885a8fe6d711cec81b18b9edb1646d430c09707defd4a323bca3"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/models/item/class_s_frame.json"
-hash = "833d72e4a8b1c0e2b2f90de938828473877f4ec9acb8f07606e3b1fbc80ff0f4"
+hash = "528e5133450e7fb91d805cdaf44bd1d8d5a071b7cea349db5cf86330c2630ea7"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/models/item/necroethanol_bucket.json"
@@ -3942,7 +3842,7 @@ hash = "b12dd753c8f5bd3b2d9429816dc3049166ae35c9abdd983ed449c2a38275910c"
 
 [[files]]
 file = "kubejs/server_scripts/vulpinian_skies_server.js"
-hash = "2647dff1e02d1940f45638920344a4a4d4780b6dba192df76f05cd81061006fe"
+hash = "b3018da0e7a8d84b60837970c907be100008cb14d80c96685a52943fe650150a"
 
 [[files]]
 file = "kubejs/server_scripts/vulpinian_solcarrot_server.js"
@@ -3954,7 +3854,7 @@ hash = "c60e6a6c3c071bf83e6cfe269cdc1909429d80fb57d8ab483115227ba30c0126"
 
 [[files]]
 file = "kubejs/startup_scripts/vulpinian_skies_startup.js"
-hash = "54db7b7fbb2d98bfae073f5a088307d5a82dfc0f7d86a3f78002daa56f0e05ed"
+hash = "aa2e75cd3a3bb2024f1bbfce96d78777cd8532bfea23278074f5418f6889b9ba"
 
 [[files]]
 file = "kubejs/startup_scripts/weather_deflector_startup_clientside.js"
@@ -4281,12 +4181,12 @@ metafile = true
 
 [[files]]
 file = "mods/eureka-ships.pw.toml"
-hash = "bf48a4f0ed654146397ce5ed3f5b47b62dacdd6b4e81a5b1ef42c5c273958b2f"
+hash = "2dadc536704b5b1ef32028a4fcb44d3cfc4aa1b49824324d918893d5156c1a81"
 metafile = true
 
 [[files]]
 file = "mods/every-compat.pw.toml"
-hash = "23dd27dd7c1c411466a26874bc61c3e8a19bca7db9084a8dda9860936693729e"
+hash = "312dcc758386cf6cbfb1159378a9f3c39323d84d0248233d9c1b210a104e1f5d"
 metafile = true
 
 [[files]]
@@ -4430,6 +4330,11 @@ hash = "cf427d733ee6fa0c94f3eb632134cc733ba1964ecbff2f56b7f6ff62750702ff"
 metafile = true
 
 [[files]]
+file = "mods/infinity-buttons.pw.toml"
+hash = "4d4f175d81e8ec2b7b2423bd6db711a28f28623711e34ff035fac6e1029d0c44"
+metafile = true
+
+[[files]]
 file = "mods/it-takes-a-pillage.pw.toml"
 hash = "86f275a1843c2a47e66de85932bc6895b802a0c16a9e8864a0314bd3ca7ee465"
 metafile = true
@@ -4467,6 +4372,11 @@ metafile = true
 [[files]]
 file = "mods/kotlin-for-forge.pw.toml"
 hash = "8fd61b13a6da4b7f5cdf69ab6241c296b3019846a1635a2cbb427fbbb21635b2"
+metafile = true
+
+[[files]]
+file = "mods/kubejs-additions.pw.toml"
+hash = "a8e3b82948d09fed6ecea2db5c712e2a5df4a12325fa37d06b420dd51fba81cb"
 metafile = true
 
 [[files]]
@@ -4676,7 +4586,7 @@ metafile = true
 
 [[files]]
 file = "mods/selene.pw.toml"
-hash = "7cfcda9ba0dcba7d302f9ea1694e9a420b8e214b3094093d7ded6c5d4a3a6d92"
+hash = "c5ebf0fb867ab9cacccbb59e2cb891e5579098866e5a6bde63fe617b9b7ce12f"
 metafile = true
 
 [[files]]
@@ -4835,6 +4745,11 @@ metafile = true
 [[files]]
 file = "mods/xl-packets.pw.toml"
 hash = "69a85643d125b0454ed6408cfa4a7cea1b3566c78ed3fd5f3107f93fa852f1c9"
+metafile = true
+
+[[files]]
+file = "mods/yawp.pw.toml"
+hash = "aba378bbe0897d9e5f3f7877c217d25c75df499d298874ec9344eaa12533feb4"
 metafile = true
 
 [[files]]

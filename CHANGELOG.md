@@ -342,7 +342,7 @@ Diesel Engines, Necroethanol, Gun Fix
 
 ## Script Additions
 - Added a server script that prevents gun abuse by setting all other weapons on a half-second cooldown when a weapon is fired, preventing cheese of firing a weapon and immediately switching (super basic mechanic that every good FPS and its mother uses to prevent cheese, which was missing from the gun mods)
-- Implemented a server script to track food stuffs from SolCarrot. This means I now have the power to give players special rewards when they reach certain milestones of eating unique foods, including a grand prize if they eat all 2800~ unique foods in the modpack (Food number has increased a lot as more food-related mods have been added, and some custom foods are planned!)
+- Implemented a server script to track food stuffs from SolCarrot. This means I now have the power to give players special rewards when they reach certain milestones of eating unique foods, including a grand prize if they eat all 1800~ unique foods in the modpack (Food number has increased a lot as more food-related mods have been added, and some custom foods are planned!)
 
 ## Fixes
 - Fixed a small issue with keybindinds that was causing shift-locked behavior with Quark's Shift Lock feature, and edited relevant Tip.
@@ -351,16 +351,23 @@ Diesel Engines, Necroethanol, Gun Fix
 
 ------------------------------------------------------------------------------------------------------------
 
-# **Vulpinian Skies 1.0b9 ** (WIP)
+# Vulpinian Skies 1.0b9 (WIP)
 
 ## Mod Additions
 - KubeJS Additions
  - For easier access to more events such as player.changed_dimension.
  - Basically for a better coding experience for me, and thus higher-quality scripts.
-
 - Yet Another World Protector
  - It was already added on the server, so is not new
  - It is needed in the client, too, so that messages from it display properly 
+- Infinity Buttons
+ - All your button needs wrapped up in a lovely little mod
+ - Has really good-looking and polished safety buttons, hidden buttons, builtin RNG buttons, and more...
+ 
+## Mod Updates
+- Eureka Airships (will remain until Clockwork is read)
+- Every Compat
+- Moonlight Lib
 
 ## Misc
 - Did a major refactor for items, assets, recipe, and others associated to the namespace ``vulpinian_skies_core`` Mostly back end, does not affect users for the most part, but does make the pack more polished and easier to work with.
@@ -369,6 +376,6 @@ Diesel Engines, Necroethanol, Gun Fix
 - Fixed some Patchouli stuff with the Vulpinian Skies Guide after the refactor :patchy:
 
 ## Script Additions
--- Implemented a Login Protection script. It is meant to prevent unfair deaths while you are loading in and cannot control your character. For clarity, **there will be protection when**:
-  - You log in
+- Implemented a Login Protection script. It is meant to prevent unfair deaths while you are loading in and cannot control your character. For clarity, **there will be protection when**:
+  - You log in (either to server or single-player world)
   - You enter a new dimension by any means
