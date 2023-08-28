@@ -368,6 +368,8 @@ Diesel Engines, Necroethanol, Gun Fix
 - Eureka Airships (will remain until Clockwork is read)
 - Every Compat
 - Moonlight Lib
+- Born in Chaos
+ - Big update with a lot of new features and polish!
 
 ## Misc
 - Did a major refactor for items, assets, recipe, and others associated to the namespace ``vulpinian_skies_core`` Mostly back end, does not affect users for the most part, but does make the pack more polished and easier to work with.

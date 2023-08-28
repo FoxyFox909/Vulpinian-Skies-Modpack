@@ -2178,7 +2178,7 @@ hash = "cc686fa85dcfc2368285efd6bab329355c7749bce77648fe3203cb84cb3b9fd0"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/tips/quark/cloud_in_a_bottle.json"
-hash = "848d053d3a0e152225f098e0b3ce8f2f1bd2762f8bb44889480b7533f29f8653"
+hash = "c2d5b9e30e0b1671036194525591ccf3df8b3ce735750101afb7aa6e8bb5442c"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/tips/quark/container_transferring.json"
@@ -3976,7 +3976,7 @@ metafile = true
 
 [[files]]
 file = "mods/born-in-chaos.pw.toml"
-hash = "5db9b68523e0cbc47516e3760479f3ffbc10d0064cf45bcd998f2154c5fcb12f"
+hash = "9d378ac09fb1117a1391edbb2217aa3f67df5868aeb8c9563382e691ed7cdefb"
 metafile = true
 
 [[files]]
@@ -4116,7 +4116,7 @@ metafile = true
 
 [[files]]
 file = "mods/create-steam-n-rails.pw.toml"
-hash = "c93b799505f1c70e96cc92ef9ee200fd73a3dd4f0a26b0abb373349eb4343eb7"
+hash = "20c9febe493519484c8bca100a0fecc2e2ad2f4d32455ceefb68bee748234858"
 metafile = true
 
 [[files]]
