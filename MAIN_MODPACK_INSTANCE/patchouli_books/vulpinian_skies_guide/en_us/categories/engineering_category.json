@@ -1,0 +1,7 @@
+{
+	"name": "Engineering",
+	"description": "Knowledge is power. Vulpinians have developed technologies to efficiently $(bold)automate$(reset) many mundane tasks.$(br)$(br)Industrial tech can $(bold)extract more resources$(reset) from raw materials such as ores, and then process said resources to shoot baddies in the face, or burn them, or explode them. Yeah science!",
+	"icon": "createdeco:light_blue_decal",
+	"parent": "patchouli:things_to_do_category",
+	"sortnum": 1
+}

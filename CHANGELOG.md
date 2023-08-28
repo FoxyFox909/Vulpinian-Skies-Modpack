@@ -385,3 +385,9 @@ Diesel Engines, Necroethanol, Gun Fix
 - Implemented a Login Protection script. It is meant to prevent unfair deaths while you are loading in and cannot control your character. For clarity, **there will be protection when**:
   - You log in (either to server or single-player world)
   - You enter a new dimension by any means
+  
+## Vulpinan Skies Guide
+- First steps at giving some love and breathing new life into the official modpack in-game guide.
+- Removed Create category.
+ - Instead of being mod-specific, it has been refactored into a more generic Engineering category. It will hold info about things such as the custom Melting Basin, Fermenting Basin recipes, how to generate and store power, how to create Kinetic energy using Diesel engines, how to make fuel for said engines, etc
+- Cleaned up obsolete Pneumaticcraft category

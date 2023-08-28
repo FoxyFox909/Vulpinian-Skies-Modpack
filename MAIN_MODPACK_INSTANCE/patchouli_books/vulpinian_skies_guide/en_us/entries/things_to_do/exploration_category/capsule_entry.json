@@ -7,7 +7,7 @@
 		{
 			"type": "patchouli:spotlight",
 			"item": "capsule:capsule{color:65522,size:7,state:0}",
-			"text": "Science or Magic? Try a bit of both!$(br)$(br)A house in your pocket, capsules are what made your complementary $(bold)Starter Hut$(reset) possible, $(italics)courtesy of Vulpine Co.$(br)$(br)No longer stationary, embrace the nomad lifestyle!",
+			"text": "Engineering or Magic? Try a bit of both!$(br)$(br)A house in your pocket, capsules are what made your complementary $(bold)Starter Hut$(reset) possible, $(italics)courtesy of Vulpine Co.$(br)$(br)No longer stationary, embrace the nomad lifestyle!",
 			"title": "Capsules"
 		},
 		{ 

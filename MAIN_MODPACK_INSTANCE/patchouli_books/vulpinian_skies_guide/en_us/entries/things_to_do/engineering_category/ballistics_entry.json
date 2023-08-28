@@ -1,7 +1,7 @@
 {
 	"name": "Ballistics",
 	"icon": "scorchedguns:scorched_bullet",
-	"category": "patchouli:science_category",
+	"category": "patchouli:engineering_category",
 	"sortnum": 3,
 	"pages": [
 		{
@@ -19,7 +19,7 @@
 		{
 			"type": "patchouli:spotlight",
 			"item": "create:large_cogwheel",
-			"text": "All ammo production is automatable with machinery.$(br)$(br)Some basic understanding of setting up and operating $(l:patchouli:things_to_do/science_category/create_entry)Create$(reset) machinery will be required.$(br)$(br)Refer to this entry as a catalogue of how to manufacture different munitions.$(br)$(bold)The Factory Must Expand$(reset).",
+			"text": "All ammo production is automatable with machinery.$(br)$(br)Some basic understanding of setting up and operating $(l:patchouli:things_to_do/engineering_category/create_entry)Create$(reset) machinery will be required.$(br)$(br)Refer to this entry as a catalogue of how to manufacture different munitions.$(br)$(bold)The Factory Must Expand$(reset).",
 			"title": "Crafting Munitions"			
 		},
 		{
@@ -200,7 +200,7 @@
 		{
 			"type": "patchouli:spotlight",
 			"item": "scorchedguns:experimental_round",
-			"text": "The next munitions are the current pinnacle of ballistics.$(br)$(br)Their accuracy, speed, and damage is unmatched.$(br)$(br)The catch? In order to make them, a marriage between magic and science is required."
+			"text": "The next munitions are the current pinnacle of ballistics.$(br)$(br)Their accuracy, speed, and damage is unmatched.$(br)$(br)The catch? In order to make them, a marriage between magic and engineering is required."
 		},
 		{
 			"type": "patchouli:spotlight",
