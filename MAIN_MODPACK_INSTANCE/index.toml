@@ -3841,6 +3841,10 @@ file = "kubejs/server_scripts/vulpinian_coins_server.js"
 hash = "b12dd753c8f5bd3b2d9429816dc3049166ae35c9abdd983ed449c2a38275910c"
 
 [[files]]
+file = "kubejs/server_scripts/vulpinian_login_protection_server.js"
+hash = "b913b5d98104bc8d3d632582436ed35fcd55d47069684a520c9ca303fdb47d26"
+
+[[files]]
 file = "kubejs/server_scripts/vulpinian_skies_server.js"
 hash = "b3018da0e7a8d84b60837970c907be100008cb14d80c96685a52943fe650150a"
 
