@@ -4544,6 +4544,11 @@ hash = "75f57aa3190d8ce4552479c17be1a6fe5269ac25755dd87542ad8857401b4ccb"
 metafile = true
 
 [[files]]
+file = "mods/potion-bundles.pw.toml"
+hash = "5e220a316b36ee9e9d589e487c024386dc6cc258a3c99f7285c4114dd94f304b"
+metafile = true
+
+[[files]]
 file = "mods/quark-oddities.pw.toml"
 hash = "c0bc72dd17a97fcdfd2f3c9e31310ad7235b5f9905957032b337f6c8d55c893f"
 metafile = true

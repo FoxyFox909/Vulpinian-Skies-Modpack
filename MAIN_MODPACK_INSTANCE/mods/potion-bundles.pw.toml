@@ -1,0 +1,13 @@
+name = "Potion Bundles"
+filename = "potionbundles-1.18.1-1.5.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "ac2e84a02d6d3168658fd6f9c738eed75b1bb93b"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 3971687
+project-id = 382836
