@@ -1,7 +1,7 @@
 {
 	"name": "Science",
 	"description": "Knowledge is power. People here have developed technologies to effectively $(bold)automate$(reset) many mundane tasks.$(br)$(br)Industrial tech can $(bold)extract more resources$(reset) from collected materials such as ores and other raw blocks, and then use aforementioned resources to shoot baddies in the face, or burn them, or explode them, with science!",
-	"icon": "pneumaticcraft:compressed_iron_gear",
+	"icon": "createdeco:light_blue_decal",
 	"parent": "patchouli:things_to_do_category",
 	"sortnum": 1
 }

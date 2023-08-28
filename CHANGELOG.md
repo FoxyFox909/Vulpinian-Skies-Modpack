@@ -365,7 +365,7 @@ Diesel Engines, Necroethanol, Gun Fix
  - Has really good-looking and polished safety buttons, hidden buttons, builtin RNG buttons, and more buttony goodness...
 - Potion Bundles
  - Lets you use potions in a cute and more compact way
- - Allows you to craft bundles of 3 potions, which are consummable as-is (have 3 uses, obviosly)
+ - Allows you to craft bundles of 3 potions of the same kind, which are consummable as-is (have 3 uses, obviosly)
 
  
 ## Mod Updates
