@@ -36,6 +36,9 @@ function removeSpoutDrain(event, modId, fluidArray) {
 		event.remove('create:spout_filling', `create:fill_minecraft_bucket_with_${modId}_${fluidArray[i]}`)
 		event.remove('create:draining', `create:empty_${modId}_${fluidArray[i]}_bucket_of_${modId}_${fluidArray[i]}`)
 	}
+	
+	//Effect descriptions
+	event.addLang('effect.enlightened_end.radiated.description', "Emitted by some blocks and items. A high enough dose will start doing damage over time.");
 }
 
 onEvent('jei.remove.recipes', event => {

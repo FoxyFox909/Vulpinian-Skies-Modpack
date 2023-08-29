@@ -403,3 +403,8 @@ Diesel Engines, Necroethanol, Gun Fix
 - Reworded Tips:
  - Auto tool restock
  - Cloud in a bottle
+ 
+## Effect Descriptions
+- Figured out how to add effect descriptions for JEED.
+- Will start populating the effects that are missing descriptions.
+- Added description for Enlightened End's Radiation
