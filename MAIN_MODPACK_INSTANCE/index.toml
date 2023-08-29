@@ -2157,12 +2157,20 @@ file = "kubejs/assets/vulpinian_skies_core/tips/framed_blocks/framed_wrench.json
 hash = "76ab99f5f896ad9cd21336207eff10eab7e74abbc87f7fe40710dde8c2f1c5d8"
 
 [[files]]
+file = "kubejs/assets/vulpinian_skies_core/tips/general/potion_bundles.json"
+hash = "ab167c8d614bdb892c47b622a8b36be6bc62f026a890375529c0892eb5507ce4"
+
+[[files]]
 file = "kubejs/assets/vulpinian_skies_core/tips/general/rebindable_keys.json"
 hash = "ae437ce927ccf32295929371edfa7ad261f8f819714b48ddecad8b1403b25f61"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/tips/general/weather_deflector.json"
 hash = "6f51c544035ff0c156d5bc3390189b51a86d83a064f026dfbdd8cce1384d69b8"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/tips/jei/mod_searching.json"
+hash = "07d85de3ea50159a983686b0cc444f9d81d7ac60268cac7f08554fcc0ec0e800"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/tips/meme/killing_foxes.json"
@@ -2174,7 +2182,7 @@ hash = "e0c0b2f6d665633425cf9d6b30e07177a841b173cad3a4d7f30a6dff495a55ff"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/tips/quark/automatic_tool_restock.json"
-hash = "cc686fa85dcfc2368285efd6bab329355c7749bce77648fe3203cb84cb3b9fd0"
+hash = "9db779bf40fc492820e8b92e37f9cc6a113daf2209995a48974b4b08d87d567f"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/tips/quark/cloud_in_a_bottle.json"
@@ -2242,7 +2250,7 @@ hash = "37ca1f757a42143edbc722b8933dc7ccb1b797ee3eaa4278783583d79858937d"
 
 [[files]]
 file = "kubejs/client_scripts/vulpinian_skies_client.js"
-hash = "74d0e2ac91fa052b885d2fd16a9638af5c4c0241dcc3da0e4dbcdb6879e3190a"
+hash = "d0bab92fa4175bf2f90895343dd54cf1d096c50ce736728b9c2ee5b043ba9678"
 
 [[files]]
 file = "kubejs/config/client.properties"
@@ -4822,7 +4830,11 @@ hash = "e4731dfcd3ee0efbdb3d5298ad9127831a02b927b48d33fa6df386c619ffa7dc"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/book.json"
-hash = "c9d5aa5b020f559cef9fe8ab9e5f2d12c2990907fa9fcf57e909d93971789da2"
+hash = "60d709391e591effdef7f4177315583328785768ff8e2d16e14f7857e0312797"
+
+[[files]]
+file = "patchouli_books/vulpinian_skies_guide/en_us/categories/engineering_category.json"
+hash = "979d422f12258f431611928133764d9dbaf2c37b85ff9585bd49e9d96647bfa5"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/categories/exploration_category.json"
@@ -4834,7 +4846,7 @@ hash = "0e07a5a2c647f00f4be8b9e6e8d283d104f0e112aafbbbb3e8a2edf667207a52"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/categories/science_category.json"
-hash = "87c5c5c2e7bb609221d150e5c82a46097681fba1a22feb5bd2d9f89e3c3db71b"
+hash = "cae9805d5ff428cebcaabfb375f9e07926aaef9d59e94faceb6db0d49135b3d0"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/categories/things_to_do_category.json"
@@ -4849,8 +4861,24 @@ file = "patchouli_books/vulpinian_skies_guide/en_us/categories/welcome_category.
 hash = "59a7248363074b7cfcecbb329766354c4424936b430a6b3e4e5be357e97635b1"
 
 [[files]]
+file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/engineering_category/ballistics_entry.json"
+hash = "7748152cab974c23f4ad00b1c3736b5a00cb3288c7ae16319976e92b0da15939"
+
+[[files]]
+file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/engineering_category/basin_fermenting_entry.json"
+hash = "5d9a55cd0425e9493940ec998b2ed95e2bce9e8d5a7f206736a95efbf59859d9"
+
+[[files]]
+file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/engineering_category/basin_melting_entry.json"
+hash = "fa43497740fdc62e8df8e0630945ffc5036a8481c62c2fb49866755f143b10be"
+
+[[files]]
+file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/engineering_category/computercraft_entry.json"
+hash = "2de0aebaea8a92f2b504cbbd1f804390384e18770db6e12f7e50b741fd798d2c"
+
+[[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/exploration_category/capsule_entry.json"
-hash = "d31206c0ea09fab63838021db096675bcb6fdc1dfac8261a61bbf35b7c34cf60"
+hash = "4b98a7335bb37b81f2f4a280aee8b9015cb99267a4450cdee51bf0726a3c06b7"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/exploration_category/waystones_entry.json"
@@ -4867,22 +4895,6 @@ hash = "c6dae865b2833ab80f0463cbab52577e6753f00ca5155b421e63ec8077a745eb"
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/magic_category/hex_casting_entry.json"
 hash = "527ff6acd9de9ba9ed8a4b3079cd1c3fc371cf0f969f90d95fcf6e2de51487dc"
-
-[[files]]
-file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/science_category/ballistics_entry.json"
-hash = "ef7583a86ed6eba817a5723cb960d18f8e2b52d6bb6c68fe3d43a31f32c0d8b0"
-
-[[files]]
-file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/science_category/computercraft_entry.json"
-hash = "46ec20e2be389b251c714fa6450e640889d402f377abcd206b78462abdeccfba"
-
-[[files]]
-file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/science_category/create_entry.json"
-hash = "08b0dc632dd13bb8713d61241f8ecbb4373e44ee1b11f42b10c2416128b6ad1d"
-
-[[files]]
-file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/science_category/pneumaticcraft_entry.json"
-hash = "62e47a3a1ea72fcef8aa2e1790a81ec281d7282709efce64e664da1e4397e170"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/uncategorized_entries/class_a_weapons_entry.json"
@@ -4926,7 +4938,7 @@ hash = "88a3adeecf668e24dc81505454c02f78246a435cce84f3bf38aea484d2093861"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/welcome/welcome_entry.json"
-hash = "5908b71651ae8939e9be2060dac5b5c8014fc67c80e5ca5ba9cbfec082ecd855"
+hash = "7a0f65b45fdfaa6177378ad5ab9711590f9b28f51382fc439023e90633b01fdf"
 
 [[files]]
 file = "servers.dat"

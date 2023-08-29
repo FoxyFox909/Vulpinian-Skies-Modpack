@@ -36,9 +36,6 @@ function removeSpoutDrain(event, modId, fluidArray) {
 		event.remove('create:spout_filling', `create:fill_minecraft_bucket_with_${modId}_${fluidArray[i]}`)
 		event.remove('create:draining', `create:empty_${modId}_${fluidArray[i]}_bucket_of_${modId}_${fluidArray[i]}`)
 	}
-	
-	//Effect descriptions
-	event.addLang('effect.enlightened_end.radiated.description', "Emitted by some blocks and items. A high enough dose will start doing damage over time.");
 }
 
 onEvent('jei.remove.recipes', event => {
@@ -109,4 +106,14 @@ onEvent('client.generate_assets', event => {
 		coinType = coinNames[i]
 		rename(`collectibles:${coinType}_coin`, `Antique ${coinType.charAt(0).toUpperCase()+coinType.slice(1)} Coin`)
 	}
+	
+	//Effect descriptions
+	event.addLang('effect.enlightened_end.radiated.description', "Emitted by some blocks and items. A high enough dose will start doing damage over time.");
+	
+	//Enchantment descriptions
+	event.addLang('enchantment.grapplemod.wallrunenchantment.desc', "Grealy increases parkour abilities. Run toward a wall to start running along it. Jumps will be boosted while wall-running.");
+	
+	//Sound subtitles
+	event.addLang('grapplemod.subtitle.doublejump', "Whoosh");
+
 })
