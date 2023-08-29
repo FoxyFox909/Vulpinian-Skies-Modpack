@@ -1,0 +1,31 @@
+{
+	"name": "Basin Melting",
+	"icon": "createbigcannons:basin_foundry_lid",
+	"category": "patchouli:engineering_category",
+	"sortnum": 0,
+	"pages": [
+		{
+			"type": "patchouli:spotlight",
+			"item": "tconstruct:molten_iron_bucket",
+			"title": "Molten Materials",
+			"text": "Most metals and gems can be melted liquid form.$(br2)Ores, ingots, gems, and items and blocks made from them can be melted for resources. $(br2)It is an alternate way to store and manage resources, and some recipes require the materials in their liquid form."
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "createbigcannons:basin_foundry_lid" ,
+			"text": "To start melting, craft a Basin Foundry Lid, and place it on top of a heated basin.$(br2)Some materials require regular heating, and others superheating."
+		},
+		{
+			"type": "patchouli:spotlight",
+			"item": "tconstruct:seared_melter",
+			"title": "More Melting Methods",			
+			"text": "Basin Melting can melt the biggest number of things.$(br2)Seared Stone Smelteries can also melt many things, and can reclaim materials in some ways Basin Melting cannot.$(br2)In general, either way yields similar resource amounts."
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "tconstruct:common/puny_smelting",
+			"title": "Seared Smelting Guide",
+			"text": "For more information about this alternative melting method, craft a Puny Smelting book."
+		}
+	]
+}
