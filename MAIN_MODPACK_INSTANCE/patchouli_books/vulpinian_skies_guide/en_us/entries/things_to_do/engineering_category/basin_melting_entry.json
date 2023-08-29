@@ -13,7 +13,7 @@
 		{
 			"type": "patchouli:crafting",
 			"recipe": "createbigcannons:basin_foundry_lid" ,
-			"text": "To start melting, craft a Basin Foundry Lid, and place it on top of a heated basin.$(br2)Some materials require regular heating, and others superheating."
+			"text": "To start melting, craft a Basin Foundry Lid, and place it on top of a heated Basin.$(br2)Some materials require regular heating, and others superheating."
 		},
 		{
 			"type": "patchouli:spotlight",

@@ -1,0 +1,19 @@
+{
+	"name": "Basin Fermenting",
+	"icon": "createdieselgenerators:basin_lid",
+	"category": "patchouli:engineering_category",
+	"sortnum": 1,
+	"pages": [
+		{
+			"type": "patchouli:spotlight",
+			"item": "createaddition:bioethanol_bucket",
+			"title": "Basin Fermenting",
+			"text": "Simple way to turn some organic materials into useful derivatives, such as fuels, ink, and of course, alcohol.$(br2)Fermenting Basins display their progress with a pressure gauge.$(br2)They can be manually opened and closed."
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "createdieselgenerators:crafting/basin_lid" ,
+			"text": "To start fermenting, craft a Basin Lid, and place it on top of a Basin.$(br2)The main resource spent in fermenting is time itself."
+		}
+	]
+}

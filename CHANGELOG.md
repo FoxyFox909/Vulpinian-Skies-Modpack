@@ -391,3 +391,7 @@ Diesel Engines, Necroethanol, Gun Fix
 - Removed Create category.
  - Instead of being mod-specific, it has been refactored into a more generic Engineering category. It will hold info about things such as the custom Melting Basin, Fermenting Basin recipes, how to generate and store power, how to create Kinetic energy using Diesel engines, how to make fuel for said engines, etc
 - Cleaned up obsolete Pneumaticcraft category
+- Added Basin Melting entry to Engineering category
+- Added Basin Fermenting entry to Engineering category
+- Changed book.json to change font to a more proper pixelated Minecraft font. This changes the look of the entire book.
+- Changed macros in book.json to account for difference in font rendering

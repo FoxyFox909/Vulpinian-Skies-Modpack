@@ -4,10 +4,11 @@
 	"version": 1,
 	"book_texture": "patchouli:textures/gui/book_cyan.png",
 	"model": "patchouli:book_cyan",
+	"use_blocky_font": true,
 	"show_progress":false,
 	"macros": {
-		"$(machinery)": "Hover over the munition above and press [$(k:jei.showRecipe)] to see $(bold)required machinery$(reset).",
-		"$(workbench)": "Crafted via $(bold)sequenced assembly$(reset). Hover over the frame above and press [$(k:jei.showRecipe)] to see $(bold)required components and process$(reset).",
-		"$(apparatus)": "Crafted via $(bold)Enchanting Apparatus$(reset). Hover over munition above and press [$(k:jei.showRecipe)] for more information$(reset)."
+		"$(machinery)": "Hover the munition and press [$(k:jei.showRecipe)] to see $(3)required machinery$(reset).",
+		"$(workbench)": "Hover the frame and press [$(k:jei.showRecipe)] to see $(3)components and Sequenced Assembly$(reset).",
+		"$(apparatus)": "Crafted via $(3)Enchanting Apparatus$(reset). Hover the munition and press [$(k:jei.showRecipe)] for more information."
 	}
 }
