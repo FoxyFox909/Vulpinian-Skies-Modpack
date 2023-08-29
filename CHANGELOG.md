@@ -408,3 +408,8 @@ Diesel Engines, Necroethanol, Gun Fix
 - Figured out how to add effect descriptions for JEED.
 - Will start populating the effects that are missing descriptions.
 - Added description for Enlightened End's Radiation
+
+## Misc
+- Potion glint has been disabled THANKS TO CCr4f3r.
+ - The code that does this was merged into Vulpinian Skies Fix.
+ - Now you can actually see the orange juice that you drink in order to stay protected from the flames of hell.
