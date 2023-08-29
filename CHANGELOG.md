@@ -395,3 +395,11 @@ Diesel Engines, Necroethanol, Gun Fix
 - Added Basin Fermenting entry to Engineering category
 - Changed book.json to change font to a more proper pixelated Minecraft font. This changes the look of the entire book.
 - Changed macros in book.json to account for difference in font rendering
+
+## Tips
+- Added tips about:
+ - Potion Bundles
+ - Mod Searching
+- Reworded Tips:
+ - Auto tool restock
+ - Cloud in a bottle

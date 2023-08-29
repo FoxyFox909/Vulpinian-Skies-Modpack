@@ -1,0 +1,8 @@
+{
+  "title": {
+    "text": "Potion Bundles",
+	"underlined":true,
+    "color": "dark_aqua"
+  },
+  "tip": "Can be crafted with 3 potions of the same kind and some string, and are still consumable!"
+}
