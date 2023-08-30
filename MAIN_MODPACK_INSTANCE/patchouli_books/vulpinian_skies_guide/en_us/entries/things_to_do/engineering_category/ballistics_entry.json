@@ -160,7 +160,7 @@
 		{
 			"type": "patchouli:spotlight",
 			"item": "scorchedguns:pig_round",
-			"text": "$(machinery)$(br)$(br)Requires Hell Gunpowder, Quartz, and Scorched Bronze Ingots."
+			"text": "$(machinery)$(br)$(br)Requires Hellpowder, Quartz, and Scorched Bronze Ingots."
 		},
 		{
 			"type": "patchouli:spotlight",
@@ -170,7 +170,7 @@
 		{
 			"type": "patchouli:spotlight",
 			"item": "scorchedguns:heavy_pig_round",
-			"text": "$(machinery)$(br)$(br)Requires Hell Gunpowder, Quartz, Scorched Bronze Ingots, and Andesite Alloy."
+			"text": "$(machinery)$(br)$(br)Requires Hellpowder, Quartz, Scorched Bronze Ingots, and Andesite Alloy."
 		},
 		{
 			"type": "patchouli:spotlight",
@@ -180,7 +180,7 @@
 		{
 			"type": "patchouli:spotlight",
 			"item": "scorchedguns:quartz_shell",
-			"text": "$(machinery)$(br)$(br)Requires Hell Gunpowder, Quartz, and Scorched Bronze Ingots."
+			"text": "$(machinery)$(br)$(br)Requires Hellpowder, Quartz, and Scorched Bronze Ingots."
 		},
 		{
 			"type": "patchouli:spotlight",

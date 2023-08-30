@@ -7,8 +7,8 @@
 	"use_blocky_font": true,
 	"show_progress":false,
 	"macros": {
-		"$(machinery)": "Hover the munition and press [$(k:jei.showRecipe)] to see $(3)required machinery$(reset).",
-		"$(workbench)": "Hover the frame and press [$(k:jei.showRecipe)] to see $(3)components and Sequenced Assembly$(reset).",
+		"$(machinery)": "Hover over munition and press [$(k:jei.showRecipe)] to see $(3)required machinery$(reset).",
+		"$(workbench)": "Hover over frame and press [$(k:jei.showRecipe)] to see $(3)components and Sequenced Assembly$(reset).",
 		"$(apparatus)": "Crafted via $(3)Enchanting Apparatus$(reset). Hover the munition and press [$(k:jei.showRecipe)] for more information."
 	}
 }

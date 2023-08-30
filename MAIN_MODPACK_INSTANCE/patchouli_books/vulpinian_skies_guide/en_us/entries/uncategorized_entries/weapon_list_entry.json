@@ -6,7 +6,7 @@
 	"pages": [
 		{
 			"type": "patchouli:text",
-			"text": "Weapons of Class F to S require a special $(bold)Frame$(reset) as a core crafting item. These frames and many other weapon components are manufctured with machinery.$(br)$(br)The higher the $(bold)Class$(reset) of the weapon, the more difficult its components are to obtain.$(br)$(br)Classes are listed from lowest to highest."
+			"text": "Weapons of Class F to S require a special $(3)Frame$(reset) as a core crafting item. These frames and many other weapon components are manufctured with machinery.$(br)$(br)The higher the $(3)Class$(reset) of the weapon, the more difficult its components are to obtain.$(br)$(br)Classes listed from lowest to highest."
 		},
 		{ 
 			"type": "patchouli:relations",
