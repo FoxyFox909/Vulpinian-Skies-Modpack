@@ -1,0 +1,9 @@
+{
+	"replace": true,
+	"values": [
+	"cgm:missile",
+	"cgm:grenade",
+	"scorchedguns:encased_fire",
+	"scorchedguns:ec_round"
+	]
+}

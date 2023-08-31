@@ -1,0 +1,9 @@
+{
+	"replace": true,
+	"values": [
+	"scorchedguns:flechette_round",
+	"cgm:basic_bullet",
+	"cgm:advanced_bullet",
+	"cgm:shell"
+	]
+}

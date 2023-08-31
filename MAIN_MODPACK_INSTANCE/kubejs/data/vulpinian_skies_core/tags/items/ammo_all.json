@@ -1,0 +1,11 @@
+{
+	"replace": true,
+	"values": [
+	"#vulpinian_skies_core:ammo/class_s",
+	"#vulpinian_skies_core:ammo/class_a",
+	"#vulpinian_skies_core:ammo/class_b",
+	"#vulpinian_skies_core:ammo/class_c",
+	"#vulpinian_skies_core:ammo/class_d",
+	"#vulpinian_skies_core:ammo/class_f"
+	]
+}

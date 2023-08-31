@@ -1,0 +1,10 @@
+{
+	"replace": true,
+	"values": [
+	"scorchedguns:scorched_bullet",
+	"scorchedguns:scorched_big_bullet",
+	"scorchedguns:scorched_shell",
+	"scorchedguns:quartz_shell",
+	"scorchedguns:heavy_bullet"
+	]
+}

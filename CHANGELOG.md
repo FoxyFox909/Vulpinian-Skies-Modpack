@@ -413,3 +413,11 @@ Diesel Engines, Necroethanol, Gun Fix
 - Potion glint has been disabled THANKS TO CCr4f3r.
     - The code that does this was merged into Vulpinian Skies Fix.
     - Now you can actually see the orange juice that you drink in order to stay protected from the flames of hell.
+
+## Tags
+- Added tags to bullets of all classes, for use with new advancements.
+
+## Advancements
+- The first custom Vulpinian Skies advancements are being developed!
+- The first advancements will be gun-based, being completed when you obtain one of each tier frame.
+- As well as when you obtain certain ammunition for the first time.

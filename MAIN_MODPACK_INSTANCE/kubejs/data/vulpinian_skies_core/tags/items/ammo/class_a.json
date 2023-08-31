@@ -1,0 +1,9 @@
+{
+	"replace": true,
+	"values": [
+	"scorchedguns:pig_round",
+	"scorchedguns:heavy_pig_round",
+	"scorchedguns:osborne_slug",
+	"scorchedguns:experimental_round"
+	]
+}

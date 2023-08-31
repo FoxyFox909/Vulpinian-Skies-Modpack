@@ -1,0 +1,10 @@
+{
+	"replace": true,
+	"values": [
+	"scorchedguns:ethereal_bullet",
+	"scorchedguns:ethereal_heavy_bullet",
+	"scorchedguns:ethereal_shell",
+	"scorchedguns:ethereal_ec_round",
+	"vulpinian_skies_core:ethereal_grenade"
+	]
+}

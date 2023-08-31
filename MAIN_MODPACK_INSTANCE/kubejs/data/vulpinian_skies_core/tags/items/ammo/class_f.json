@@ -1,0 +1,10 @@
+{
+	"replace": true,
+	"values": [
+	"scorchedguns:powder_and_ball",
+	"scorchedguns:simple_bullet",
+	"scorchedguns:shotbolt",
+	"scorchedguns:rivet",
+	"scorchedguns:volatile_scrap"
+	]
+}
