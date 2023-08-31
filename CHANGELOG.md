@@ -366,14 +366,22 @@ Diesel Engines, Necroethanol, Gun Fix
 - Potion Bundles
     - Lets you use potions in a cute and more compact way
     - Allows you to craft bundles of 3 potions of the same kind, which are consummable as-is (have 3 uses, obviosly)
+- Mosaic Carpentry
+    - Cute little building mod that expands upon 1.20's bamboo mosaics, adding them to wood.
+    - Every Compat has compat for this, generating a mosaic for ALL Vulpinian wood types!
 
  
 ## Mod Updates
 - Eureka Airships (will remain until Clockwork is read)
 - Every Compat
+    - Now supports Mosaic Carpentry
 - Moonlight Lib
 - Born in Chaos
-    - Big update with a lot of new features and polish!
+    - Big update with a lot of new features and polish!	
+- BetterHurtTimer
+    - Many thanks to Aya, for fixing a broken interaction with Dummies and guns
+	- Now dummies will properly be usable for testing gun DPS and will work better with other damage types.
+	- Stacked damage has been removed
 
 ## Misc
 - Did a major refactor for items, assets, recipe, and others associated to the namespace ``vulpinian_skies_core`` Mostly back end, does not affect users for the most part, but does make the pack more polished and easier to work with.

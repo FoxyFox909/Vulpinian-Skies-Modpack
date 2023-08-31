@@ -2165,8 +2165,16 @@ file = "kubejs/assets/vulpinian_skies_core/tips/general/rebindable_keys.json"
 hash = "ae437ce927ccf32295929371edfa7ad261f8f819714b48ddecad8b1403b25f61"
 
 [[files]]
+file = "kubejs/assets/vulpinian_skies_core/tips/general/vulpinian_advancements.json"
+hash = "3610bb2a6a00511c913c6a8f928c025d7bb5f72145b5e83653b05392c05b2751"
+
+[[files]]
 file = "kubejs/assets/vulpinian_skies_core/tips/general/weather_deflector.json"
 hash = "6f51c544035ff0c156d5bc3390189b51a86d83a064f026dfbdd8cce1384d69b8"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/tips/jei/effect_desriptions.json"
+hash = "361c322bf441884ac272a87d8024282de9f5d51877d71b676b05be3bdc4f74f1"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/tips/jei/mod_searching.json"
@@ -2250,7 +2258,7 @@ hash = "37ca1f757a42143edbc722b8933dc7ccb1b797ee3eaa4278783583d79858937d"
 
 [[files]]
 file = "kubejs/client_scripts/vulpinian_skies_client.js"
-hash = "d0bab92fa4175bf2f90895343dd54cf1d096c50ce736728b9c2ee5b043ba9678"
+hash = "b6c483947e5674f47e7ad5de408083b0150da437b87face87732573f604dbbc1"
 
 [[files]]
 file = "kubejs/config/client.properties"
@@ -2859,6 +2867,34 @@ hash = "53394a8cced9d946f31afc998916cefce88c69f7c29a22cac314a00a7e5e9e28"
 [[files]]
 file = "kubejs/data/vulpinian_skies_core/tags/blocks/capsule_override.json"
 hash = "58217f7e527f94a9b753ca5e33ce7788df09b92dcffd6d151e103edf83f32cc5"
+
+[[files]]
+file = "kubejs/data/vulpinian_skies_core/tags/items/ammo/class_a.json"
+hash = "a4647d4160510b50c3c34d8fbdd2aa2a91612ce5cbfb76609a689ad3d1fa2758"
+
+[[files]]
+file = "kubejs/data/vulpinian_skies_core/tags/items/ammo/class_b.json"
+hash = "34f79073abb30fcf417305f1c68dcffff9ae005eb88a723e66ccef7f84178af5"
+
+[[files]]
+file = "kubejs/data/vulpinian_skies_core/tags/items/ammo/class_c.json"
+hash = "2bfcf2b5dceb77bcde397224870f3325391c482fba62bf985e3ed5d73a3d2685"
+
+[[files]]
+file = "kubejs/data/vulpinian_skies_core/tags/items/ammo/class_d.json"
+hash = "9cf445d9673397611d3d5b9944d92d39d10beae4ac9be90f9f9d6b6cc44c49d5"
+
+[[files]]
+file = "kubejs/data/vulpinian_skies_core/tags/items/ammo/class_f.json"
+hash = "b9c1cd550210b739f34d2ac881e6ff6f23e6caf719acf086e99691ef749b3cb4"
+
+[[files]]
+file = "kubejs/data/vulpinian_skies_core/tags/items/ammo/class_s.json"
+hash = "6406dac9d2ebfa05e2dc23fd533b0c9ca0dc52acc83d090943773e73678b30df"
+
+[[files]]
+file = "kubejs/data/vulpinian_skies_core/tags/items/ammo_all.json"
+hash = "75199e56e9d23eed854d84c9abc2e5b166b3495d61faaa8c65077a2f731e2a9e"
 
 [[files]]
 file = "kubejs/data/vulpinian_skies_core/tags/items/ammo_users/uses_advanced_bullet.json"
@@ -3845,6 +3881,10 @@ file = "kubejs/server_scripts/gun_cooldown_server.js"
 hash = "e9dbad03458a8981e30cb78c382642c7b070823326b2dec3ede50c6403c1b189"
 
 [[files]]
+file = "kubejs/server_scripts/vulpinian_advancements_server.js"
+hash = "cd2c68a5d03b46ecc2c92f83f891da4daf4f9f752eff297567be39b71078fb5c"
+
+[[files]]
 file = "kubejs/server_scripts/vulpinian_coins_server.js"
 hash = "b12dd753c8f5bd3b2d9429816dc3049166ae35c9abdd983ed449c2a38275910c"
 
@@ -3854,7 +3894,7 @@ hash = "b913b5d98104bc8d3d632582436ed35fcd55d47069684a520c9ca303fdb47d26"
 
 [[files]]
 file = "kubejs/server_scripts/vulpinian_skies_server.js"
-hash = "b3018da0e7a8d84b60837970c907be100008cb14d80c96685a52943fe650150a"
+hash = "c9f43c2b4c3ccbe3360660c1cb7ab41ca6f4c764072ead150840ddc0adbb98b2"
 
 [[files]]
 file = "kubejs/server_scripts/vulpinian_solcarrot_server.js"
@@ -3867,6 +3907,10 @@ hash = "c60e6a6c3c071bf83e6cfe269cdc1909429d80fb57d8ab483115227ba30c0126"
 [[files]]
 file = "kubejs/startup_scripts/vulpinian_skies_startup.js"
 hash = "aa2e75cd3a3bb2024f1bbfce96d78777cd8532bfea23278074f5418f6889b9ba"
+
+[[files]]
+file = "kubejs/startup_scripts/vulpinian_skies_startup_clientside.js"
+hash = "1239379fd244627b71a6b2cdc7cddc4137cac2eca6b750a718e889f4545a28c6"
 
 [[files]]
 file = "kubejs/startup_scripts/weather_deflector_startup_clientside.js"
@@ -3969,7 +4013,7 @@ metafile = true
 
 [[files]]
 file = "mods/better-hurt-timer.pw.toml"
-hash = "659adcce5690bd08647dc83ced9d544fecbd986b910e063140889725c56c043a"
+hash = "c0d0aba7fcb1da236e1f787dcb2603fa182bec342e67b752144a94ea9234aa28"
 metafile = true
 
 [[files]]
@@ -4198,7 +4242,7 @@ metafile = true
 
 [[files]]
 file = "mods/every-compat.pw.toml"
-hash = "312dcc758386cf6cbfb1159378a9f3c39323d84d0248233d9c1b210a104e1f5d"
+hash = "a1efa33a276385a05c7a044003f00a044ab4f960ed10c298e37442c7adbe0432"
 metafile = true
 
 [[files]]
@@ -4449,6 +4493,11 @@ metafile = true
 [[files]]
 file = "mods/mmmmmmmmmmmm.pw.toml"
 hash = "543cae965a82c348b1a64fce5b3d7a4690970b6db6f38518c6f99771cec9a387"
+metafile = true
+
+[[files]]
+file = "mods/mosaic-carpentry.pw.toml"
+hash = "6a35cd8fcb8268f17569f71d5185c3722157179860474731a17850ae6d75b1bb"
 metafile = true
 
 [[files]]
@@ -4732,8 +4781,8 @@ hash = "9e678eb389661ec070d6adc97e423b6b3b7da876c738dd59ffe3c2d3d1b25489"
 metafile = true
 
 [[files]]
-file = "mods/vulpinian-skies-fix-1.18.2-1.0.0.jar"
-hash = "71ebd072dd165bb819cf4e6e9d84d7a292ae5c1936a5ce30913d22d6422989e5"
+file = "mods/vulpinian-skies-fix-1.18.2-1.1.0.jar"
+hash = "fbc30451bf56871acf9aca30433e4d7e1b38ab79e6c953117e7f29c7ba0a2fc2"
 
 [[files]]
 file = "mods/vulpinian_skies_core-1.0.jar"
@@ -4830,7 +4879,7 @@ hash = "e4731dfcd3ee0efbdb3d5298ad9127831a02b927b48d33fa6df386c619ffa7dc"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/book.json"
-hash = "60d709391e591effdef7f4177315583328785768ff8e2d16e14f7857e0312797"
+hash = "f5fc85ec9fa149406b9e93fd83dfcdf3f25d2b5e7aafe68fcf2e84a0faf2ca19"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/categories/engineering_category.json"
@@ -4862,7 +4911,7 @@ hash = "59a7248363074b7cfcecbb329766354c4424936b430a6b3e4e5be357e97635b1"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/engineering_category/ballistics_entry.json"
-hash = "7748152cab974c23f4ad00b1c3736b5a00cb3288c7ae16319976e92b0da15939"
+hash = "cc4cff48fb838476d2658571d50f4794d2850b9210ae197ec0d3a72337a3dc35"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/engineering_category/basin_fermenting_entry.json"
@@ -4930,7 +4979,7 @@ hash = "b8d28380ca97662031c4eb6c0746b56f0f3b086939c2dcdc960d26a079597359"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/uncategorized_entries/weapon_list_entry.json"
-hash = "dca773edd06aad4f281f25eed67dd3ec1caa1c18f191ca4cca7def329a4977fc"
+hash = "6cb0172a3d8dcb9d1d15403a5210ba5599b4b2dbadf96261f23365a9f90f620b"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/welcome/weather_warning_entry.json"
