@@ -400,6 +400,8 @@ Diesel Engines, Necroethanol, Gun Fix
 - Added tips about:
     - Potion Bundles
     - Mod Searching
+	- Effect Descriptions
+	- Vulpinian Advancements
 - Reworded Tips:
     - Auto tool restock
     - Cloud in a bottle
@@ -421,3 +423,7 @@ Diesel Engines, Necroethanol, Gun Fix
 - The first custom Vulpinian Skies advancements are being developed!
 - The first advancements will be gun-based, being completed when you obtain one of each tier frame.
 - As well as when you obtain certain ammunition for the first time.
+
+## Sripts
+- New client-side-only startup script
+ - Currently simply adds a mysterious conversion recipe for Quark Cloud in a Bottle

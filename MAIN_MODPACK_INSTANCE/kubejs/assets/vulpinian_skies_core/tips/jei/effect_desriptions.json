@@ -1,0 +1,8 @@
+{
+  "title": {
+    "text": "Effect Descriptions",
+	"underlined":true,
+    "color": "dark_aqua"
+  },
+  "tip": "Can be read in JEI, and the sources of the effect will also be listed. Includes all potion effects and others."
+}
