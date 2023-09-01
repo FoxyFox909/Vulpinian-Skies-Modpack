@@ -435,3 +435,9 @@ Diesel Engines, Necroethanol, Gun Fix
 ## Sripts
 - New client-side-only startup script
  - Currently simply adds a mysterious conversion recipe for Quark Cloud in a Bottle
+ 
+## FancyMenu
+- Now the menu has a beautiful, animated new logo that represents Vulpinian Skies!
+ - Art by FoxSinArt
+ - Window icons were also changed
+ 

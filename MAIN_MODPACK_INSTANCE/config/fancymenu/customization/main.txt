@@ -1,14 +1,12 @@
 type = menu
 
 customization-meta {
-  vr:showif:guiscale = true
   identifier = net.minecraft.client.gui.screens.TitleScreen
   randomgroup = 1
   renderorder = foreground
   randommode = false
   custom_menu_title = Vulpinian Skies
   randomonlyfirsttime = false
-  vr:value:guiscale = <2.5
 }
 
 customization {
@@ -130,11 +128,11 @@ customization {
   orientation = mid-centered
   hidden = false
   x = 2
-  width = 108
+  width = 149
   action = deep_customization_element:title_screen_branding
   actionid = c0db0272-4f8b-4443-9ccd-4bb6d28d16241678903491526
-  y = 228
-  height = 40
+  y = 203
+  height = 50
 }
 
 customization {
@@ -184,13 +182,13 @@ customization {
 }
 
 customization {
-  path = config/fancymenu/assets/vulpinian_skies_logo_v1.png
-  orientation = mid-centered
-  x = -73
-  width = 153
-  action = addtexture
-  actionid = cb2c66f8-3ae0-402e-9496-cfd1832504821678903644213
-  y = -146
-  height = 152
+  orientation = top-centered
+  name = vulpinian_skies_logo
+  x = -50
+  width = 100
+  actionid = 98371447-aeb5-46a7-b091-9cc9c5f0dc891693543319610
+  action = addanimation
+  y = 11
+  height = 100
 }
 
