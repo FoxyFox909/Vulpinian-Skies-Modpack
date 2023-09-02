@@ -7,20 +7,45 @@
 		{
 			"type": "patchouli:spotlight",
 			"item": "cgm:pistol{AmmoCount:16,display:{Name:[{\"text\":\"Starter Gun\",\"italic\":false}]}}",
-			"text": "The field of mechanics concerned with the launching, flight behaviour, and impact effects of projectiles.$(br)$(br)In other words, how to go $(br)$(italics)pew pew$(reset).$(br)$(br)There is a Starter Gun included in every Starter Hut to get you... $(italics)started$(reset).",
+			"text": "The field of mechanics concerned with the launching, flight behaviour, and impact effects of projectiles.$(br)$(br)In other words, how to go $(br)$(italics)pew pew$(reset).$(br)$(br)There is a low class gun included in every Starter Hut.",
 			"title": "Starter Gun"	
 		},
 		{
 			"type": "patchouli:crafting",
 			"recipe": "kubejs:kjs_4nc6tzhgbx8c1usmx85ej2smo",
-			"text": "Aside from a few rudimentary guns, machinery is needed to make most instruments of $(italics)pew pew$(reset)ing, and you can craft accessories for them at a Ballistics Workbench.$(br)$(br)See a list of Weapons $(bold)$(#66e0ff)$(l:uncategorized_entries/weapon_list_entry)here$(reset)$(br)Read on for Ammo information.",
+			"text": "Aside from a few basic guns, machinery is needed to make most instruments of $(italics)pew pew$(reset)ing. Accessories can be crafted at a Ballistics Workbench.$(br2)$(1)$(l:uncategorized_entries/weapon_list_entry)List of Weapons here.$(reset)$(br2)Ammo Production information is ahead.",
 			"title": "Crafting Weapons"
 		},
 		{
 			"type": "patchouli:spotlight",
 			"item": "create:large_cogwheel",
-			"text": "All ammo production is automatable with machinery.$(br)$(br)Some basic understanding of setting up and operating $(l:patchouli:things_to_do/engineering_category/create_entry)Create$(reset) machinery will be required.$(br)$(br)Refer to this entry as a catalogue of how to manufacture different munitions.$(br)$(bold)The Factory Must Expand$(reset).",
+			"text": "All ammo production is automatable with machinery.$(br)$(br)Some basic understanding of setting up and operating machinery will be required.$(br)$(br)Refer to this entry as a catalogue of how to manufacture different munitions.$(br)$(3)The Factory Must Expand$(reset).",
 			"title": "Crafting Munitions"			
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_exebyeear3ds3keiibl9jtots",
+			"text": "$(br)$(br)$(italics)Poor person's munition.$(reset)"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_9xdcehzrqlwd7thrfz1dpy2f4",
+			"text": "$(br)$(br)$(italics)Slightly less poor person's munition.$(reset)"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_2mh48ajfdg0az831ag1rx0qgn",
+			"text": "$(br)$(br)$(italics)Mostly silent. Until someone screams in pain.$(reset)"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_bhghnt7qdn7gsa35xhslli918",
+			"text": "$(br)$(br)$(italics)More effective than pocket sand.$(reset)"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "kubejs:kjs_blyvwjcd7oreh91mmszmx0wbl",
+			"text": "$(br)$(br)$(italics)To screw things up.$(reset)"
 		},
 		{
 			"type": "patchouli:spotlight",
@@ -51,31 +76,6 @@
 			"type": "patchouli:crafting",
 			"recipe": "kubejs:kjs_1exfxovnbhnvjecfhae59ims1",
 			"text": "$(br)$(br)$(italics)Bang bang!$(reset)"
-		},
-		{
-			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_exebyeear3ds3keiibl9jtots",
-			"text": "$(br)$(br)$(italics)Poor person's munition.$(reset)"
-		},
-		{
-			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_9xdcehzrqlwd7thrfz1dpy2f4",
-			"text": "$(br)$(br)$(italics)Slightly less poor person's munition.$(reset)"
-		},
-		{
-			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_2mh48ajfdg0az831ag1rx0qgn",
-			"text": "$(br)$(br)$(italics)Mostly silent. Until someone screams in pain.$(reset)"
-		},
-		{
-			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_bhghnt7qdn7gsa35xhslli918",
-			"text": "$(br)$(br)$(italics)More effective than pocket sand.$(reset)"
-		},
-		{
-			"type": "patchouli:crafting",
-			"recipe": "kubejs:kjs_blyvwjcd7oreh91mmszmx0wbl",
-			"text": "$(br)$(br)$(italics)To screw things up.$(reset)"
 		},
 		{
 			"type": "patchouli:text",
