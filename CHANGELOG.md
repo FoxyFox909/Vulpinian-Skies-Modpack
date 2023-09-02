@@ -369,6 +369,10 @@ Diesel Engines, Necroethanol, Gun Fix
 - Mosaic Carpentry
     - Cute little building mod that expands upon 1.20's bamboo mosaics, adding them to wood.
     - Every Compat has compat for this, generating a mosaic for ALL Vulpinian wood types!
+- Dramatic Doors
+    - Another building-related mod. This one introduces many doors of Short and Tall sizes.
+	- Current doors get extended (and shrunk)
+	- New doors are also added, having compat with existing mods.
 
  
 ## Mod Updates

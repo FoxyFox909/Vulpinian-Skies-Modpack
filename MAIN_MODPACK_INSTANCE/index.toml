@@ -245,6 +245,10 @@ file = "config/exoticbirds-common.toml"
 hash = "62937cb1146de6ee0db217e88aaa84afcbb0f6a474fbba1f359cec1b5153e891"
 
 [[files]]
+file = "config/fancymenu/animations/vulpinian_skies_logo/animation.properties"
+hash = "001f133a9e4a6a11fe1c8c179a4cbc6d1b8c5d3a3d407fc86f259f051b291aa9"
+
+[[files]]
 file = "config/fancymenu/assets/vulpinian_skies_logo_v1.png"
 hash = "13dfe3ef7e125d0e4667e05549587a3628efc1b05798159b4c6143c77d73968f"
 
@@ -261,8 +265,8 @@ file = "config/fancymenu/customizablemenus.txt"
 hash = "5e6f0cc031d3b56f462bdfbbeb05600c0ed1401626b61cb8387ef837f737d533"
 
 [[files]]
-file = "config/fancymenu/customization/MenuS2.txt"
-hash = "dc246e7ca55b80e043b30212cc73804be8cb2d4a3649604f22520a2c5db9efae"
+file = "config/fancymenu/customization/main.txt"
+hash = "9f7733f1a1c84e927b4b1d391659bf36d0eb7ad30db78a1d2fd3e8c89700581d"
 
 [[files]]
 file = "config/fancymenu/locals/de_de.local"
@@ -290,27 +294,27 @@ hash = "003a1c89846741e0eb9475089d4ed653896fd08e0b994667fae452b4ad894a72"
 
 [[files]]
 file = "config/fancymenu/minecraftwindow/icons/icon128x128.png"
-hash = "9087bc6f8fe17e1aa52a820746011cde472beffb536000c6918e24dc816ffe4e"
+hash = "9cbfdb0d2dcdec72d1456cb9ded92274b44d9474736baf65891d6356b67c732c"
 
 [[files]]
 file = "config/fancymenu/minecraftwindow/icons/icon16x16.png"
-hash = "fa5caa8ab6b56b038df023c7064f6cbfc7ca24022154abe50afd1803a1ffef14"
+hash = "e0cfbd34aa8a761bcdbcddfb50ac3f34afea0e94165ceab8a993c2d5aa40b4b1"
 
 [[files]]
 file = "config/fancymenu/minecraftwindow/icons/icon256x256.png"
-hash = "8b39112af298fda7ce36899a0a55b4733685e8180bb4c8dfa624ae3e00e4ed89"
+hash = "ad0fa0a688d4346998bed6bcaca67f3eb3a8d9ed4855978e20674a990a61628b"
 
 [[files]]
 file = "config/fancymenu/minecraftwindow/icons/icon32x32.png"
-hash = "03e50429cc65e13ab160e0174119af3b6a4257b8a023d0c6381bf8e4913a9ed9"
+hash = "8db98e06d9f4a1f74a9699c09f459045f95474ba9e0ba1ac8edbcd0aad8fccc8"
 
 [[files]]
 file = "config/fancymenu/minecraftwindow/icons/icon512x512.png"
-hash = "594d245db0ba3f6db8d1f3cb97a08358a3d185af1881f251ec2a013200ed5341"
+hash = "3ab9f77bcabba8e7925da8810a4f91dce3196763fe0689be1776964e84df763a"
 
 [[files]]
 file = "config/fancymenu/minecraftwindow/icons/icon64x64.png"
-hash = "6d5072f7f601f4dd09248a554d5c775c52a7496f68a613550d2141daf7f86b3b"
+hash = "1812bef8f860f1fee9c18c5939624205e691870e39ed78b8a24fbbe551e402a1"
 
 [[files]]
 file = "config/fancymenu/slideshows/main/images/2023-02-26_12.50.26.png"
@@ -2211,6 +2215,246 @@ hash = "6e442d312d1504d0e32007b929843174b702290bf8c1fc26b0a8b8465d0393af"
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/tips/quark/shearing_vines.json"
 hash = "f2aa0189e15b8431f5009bdaf836a99930f66e6274097499301dc98ae4cdec92"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/1.png"
+hash = "cef5e31c6c0d3350d195fa23bfc9e565a949e10870eafef607436ff3b0c27bb4"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/10.png"
+hash = "667c3a1db10ab054b382bc6ed63a14a4eca7800ab89951d3908c0f41855ec7c4"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/11.png"
+hash = "ac0f12618d1bf61d601d4f042b216a811ba48688cfe5354c0a5072805a0cd059"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/12.png"
+hash = "8d8843bd5c6b379a42ba84bb031b23c8759ad2d44808b88fdf085e27f824ea56"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/13.png"
+hash = "d3cd6ba39f698e5de39f652cd7f9bcab9b693efc8f7d607805c4defe4d420ff4"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/14.png"
+hash = "0482825d53b59ade62b1d1c091d761359a666e12431f050124c7c19344665b35"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/15.png"
+hash = "5fbdab5e0592a56218ad43657433d92cbe237835824cb2e33db0dd242ca2cb0c"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/16.png"
+hash = "43789e64ce786ca8f0e46f436475127802fbd8ec2dd65104ce196f78896e85e9"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/17.png"
+hash = "746afd259037402ded96f1ae5e883984e06db2fdc0aefce6e0f61a19d768c5df"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/18.png"
+hash = "fd38fa2996da4d8df7cc7303f4289c2514f47c15463668ba493a6b8ad7d3fde4"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/19.png"
+hash = "fed5799d74f5bf8dd9f39b5583f0299c5b3736f457b0137451a0fff567726275"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/2.png"
+hash = "41cd84e89d075bf7ddbd392af4ec3d0a5b10b482937db1d15add756619980c1f"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/20.png"
+hash = "d38aee75f3b6da7eeb354fefa662e829fa5cac0d0be20fe6437c0349b67e1435"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/21.png"
+hash = "20e58f58e143fd23e0c9b68fe6b0aceee5425ba283088d7e5d0f388f92a33d3e"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/22.png"
+hash = "e28bc48f055848c4d6e4a62c5d604e443492745c899756ec3bf9558e958e3f95"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/23.png"
+hash = "4ede9282ba0704f6423d2f4b13d9706f93a1ddac4a6c94eeff079def4f49a006"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/24.png"
+hash = "69cc853e2ba03b0560755134665dd8d4def0cad8e98a67d8e7d1a1c8b9e96e25"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/25.png"
+hash = "1d3daeea29ac96213d7bed657326c8c5277f91b688d20df3d9465513f53f664f"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/26.png"
+hash = "495fb7ce7b9797aa4229ac354f0bac318434d301c282fe33e1db64341d76fb76"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/27.png"
+hash = "c0ad6771eb13f27edbaa4da7f47baff24e63ade3a22a0167e8c0cb766ae1931f"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/28.png"
+hash = "eb7c971f07ecd983d10a95a37d804cec6106ea0a557fd09ce4aedf3ce93be242"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/29.png"
+hash = "2e8ae334150e9b59016cc3a9a6f2ff970f5f85774aacd6afd326c61c82453459"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/3.png"
+hash = "ee8c9f63fd52532832f97ca7877cadc857111d33fb6dce983d0a46e0609bc377"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/30.png"
+hash = "893990eea9e119d72ddd9c862a726dbd24bc30b02e89d6b73e4a0543413b07e0"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/31.png"
+hash = "a5bc4c4ad56a4fab4b6dcd1fb0dd47c3d7072861a0f50460975a1845a6050cda"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/32.png"
+hash = "4c093e7a31b8e37a74ab7be6c2e72cac63abcb0e78f51b12c698570dd5ce2b71"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/33.png"
+hash = "166848f658928dbe1642c919837a579b81d4b7bfc4c72fd9a74bfaf6a489e076"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/34.png"
+hash = "53d8d360c5fd4311e23c536348459606f45ad957426650135bf1d83aff6d270f"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/35.png"
+hash = "250c3470b1423367e26598c2752038494b962a0d9d118ea8a721e970ded13750"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/36.png"
+hash = "512a56e803292cb439e5f45282059dc09d939bd92069a5e6850f9a97cfda850f"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/37.png"
+hash = "fc45df3981ed959c5ea7909e51eb1e3a0263238f7839fdedc947935d517f0fef"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/38.png"
+hash = "8c34706eac635226dede31876f055bd86e0d3b4bd1a0de80ee4c7c886f0260d3"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/39.png"
+hash = "5cea35921f99f57e79545ecc539e51c9e80fe09fb87a740c141605f727925b1e"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/4.png"
+hash = "0bfcf15323088c4c199b73a74b7501619a63452de817a8e1e9409736db969115"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/40.png"
+hash = "66dd5539cc1f499f0a93adff41c911c274fc92aa6677c9acbc418ca62da25c1e"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/41.png"
+hash = "ebd3dffe74ef90a33a2fc259637bbb19d8e72c9fbfe5d5dec973be3ad95fe09b"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/42.png"
+hash = "d75d891fc8651c70b9d11d572ff226d8a50010a04d9e0ba4e9187c79387e8ffa"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/43.png"
+hash = "ecaee4a71f72eb9f274ff8dcf97164ae5f70217605cde495aa1ba3e843164065"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/44.png"
+hash = "51128fb2b15cbda9722c8ae4c61b7428016c071e931135d9cb337b46755aa16d"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/45.png"
+hash = "da4662a2c2a4bc8445da016c3b00518fdcc5e63d920a48dcc28cdff8f98b5d3b"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/46.png"
+hash = "58cecd2d1ab71ddb2c3bfa181de9de0bb1dc1989c8fc25f8d5433a73df5a56a3"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/47.png"
+hash = "dbd3715a1865d0919c1a3c41d8d0e9f5e9087aa268c55b312424340d4d592e94"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/48.png"
+hash = "d4d5b2f9fafcaa40c29027dacf6e90a33c75c82ebbd90de30f26f48787734aaa"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/49.png"
+hash = "a007b2803a9603453ea440557c3ae8a30e4e4fbee9338486f94adee795aa826c"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/5.png"
+hash = "d1fc3371439f45edbdc154b955e2926af21e6a3155a6dbe8857c729b88ebb620"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/50.png"
+hash = "9599774ba4e199fa8bcb65d73cdd7325b837015877ff8ac2963bde2af63e1036"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/51.png"
+hash = "2488a48a76680ff5c9bce1089a13dec316e4be3ef4e97d7fea537ec305841c1b"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/52.png"
+hash = "7758d554fda4be87c7c793e6017420d7d065a906f8a9ef6b65da787131aeb400"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/53.png"
+hash = "acafa245f4bdedfa9be353d2059c8e553fccc36222c703f857550680a6cb656a"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/54.png"
+hash = "ab6c0d8fae18c81d81c1bac262bf7f22fc0cb666c1901b0bbe1152784adef84e"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/55.png"
+hash = "901d2d600d2674a938bb15d1f79bd13d0707fb1677a0ef6d44cc053586216086"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/56.png"
+hash = "74484152051989b01d569b4c72122f5ea306913404cb7a4240fcaf7cf3b87518"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/57.png"
+hash = "bff84c495811b29d83c597d3746029a8e14501ce4b7ef8c7474ab2738f2f3b09"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/58.png"
+hash = "e136387ac6f11a97cc0f1aa79e58682ed2c429a9f32422dc33e9a03aed9a7c28"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/59.png"
+hash = "98b40a2d0ace50f71dfdf47d76010b66170234845eb83600978a2e2615ebd2f3"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/6.png"
+hash = "b89ea2c99725ba1525baad01d3c2be3c6ea570ffad942a122b8c73214da29b67"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/60.png"
+hash = "339e542a82973b4f43f2298a86f13568c199ebc8109602009c9223d9e3a95e2d"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/7.png"
+hash = "892b6cdc4a9d722cab905abad6f812f952ad2baedfc921ee5556d97f453f00eb"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/8.png"
+hash = "2ae591283f3cf3e46a9d3d466cb54980766ddeda8888dbfadcc341b68a31cceb"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_logo/frames_main/9.png"
+hash = "cd49c929caed0713958ab708db40ea70f295e58be71233b55b9375a49356fc4d"
 
 [[files]]
 file = "kubejs/assets/weather2/models/block/weather_deflector.json"
@@ -4203,6 +4447,11 @@ metafile = true
 [[files]]
 file = "mods/do-a-barrel-roll.pw.toml"
 hash = "48b2b63982ac6146e96a91c3830461d90ccda9bfe8e3769346de2fbdc747fc7c"
+metafile = true
+
+[[files]]
+file = "mods/dramatic-doors.pw.toml"
+hash = "f2980a74993e854d338fe7e4e4a3e352b04d321ec0968a9c2d01288559b7d70a"
 metafile = true
 
 [[files]]
