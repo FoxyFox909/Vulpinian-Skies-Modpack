@@ -393,6 +393,22 @@ file = "config/immersive_paintings.json"
 hash = "ca7e01b2fb185290a3572c48e9c5056aebeeca1e10ec9f0f2e3e4d69b03e22e3"
 
 [[files]]
+file = "config/jade/hide-blocks.json"
+hash = "6f6658b4a600c154e8bceb74fbfd887c9cb159ae389b1c87d29bd90f21ce5b0a"
+
+[[files]]
+file = "config/jade/hide-entities.json"
+hash = "82a022760c1ca91894bc3b1184664cf65e16ba39dc17a4aa2fc482c4fe4df581"
+
+[[files]]
+file = "config/jade/jade.json"
+hash = "80c1dae2b3ecdf2f744c9bf814a28277dbae2f867bfb69ba17d537a4d2adf14b"
+
+[[files]]
+file = "config/jade/jade_plugins.json"
+hash = "61655610371e724ce5317a0b526a3aac84dd52eea3ad6c7301358e8528e1596d"
+
+[[files]]
 file = "config/jei/recipe-category-sort-order.ini"
 hash = "2838c46d0c42fd0ca3969af31d69f8079681ecef630fb757475611703f96762f"
 
@@ -2175,6 +2191,10 @@ hash = "3610bb2a6a00511c913c6a8f928c025d7bb5f72145b5e83653b05392c05b2751"
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/tips/general/weather_deflector.json"
 hash = "6f51c544035ff0c156d5bc3390189b51a86d83a064f026dfbdd8cce1384d69b8"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/tips/jade/jade.json"
+hash = "ee8e9703524a18078e86dc7181380904c8ce1a125601065c9fe7153cfc9c0cc5"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/tips/jei/effect_desriptions.json"
@@ -4645,6 +4665,11 @@ hash = "86f275a1843c2a47e66de85932bc6895b802a0c16a9e8864a0314bd3ca7ee465"
 metafile = true
 
 [[files]]
+file = "mods/jade-addons.pw.toml"
+hash = "aa0cb222f2497eb5f0788f83c2a9c88611748e82101fef9192801e817d7d6919"
+metafile = true
+
+[[files]]
 file = "mods/jade.pw.toml"
 hash = "68b34a638042fcb11810a6266be7c1075cd39e601485f1c30c32569deb13df46"
 metafile = true
@@ -5124,7 +5149,7 @@ metafile = true
 
 [[files]]
 file = "options.txt"
-hash = "e4731dfcd3ee0efbdb3d5298ad9127831a02b927b48d33fa6df386c619ffa7dc"
+hash = "69cbcd01cee04b07204af4bd410ad8673884c5b9f9c08a96cb7a2a011d7064fa"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/book.json"
@@ -5160,7 +5185,7 @@ hash = "59a7248363074b7cfcecbb329766354c4424936b430a6b3e4e5be357e97635b1"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/engineering_category/ballistics_entry.json"
-hash = "cc4cff48fb838476d2658571d50f4794d2850b9210ae197ec0d3a72337a3dc35"
+hash = "118fd1f155f84acbd2a9138d6c02e03ad1c9a4546a41692cbbbe105b4e103e2a"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/engineering_category/basin_fermenting_entry.json"

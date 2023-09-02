@@ -1,0 +1,43 @@
+{
+	"title": {
+		"text": "Jade (Upper HUD Info)",
+		"underlined": true,
+		"color": "dark_aqua"
+	},
+	"tip": [{
+			"text": "Keybinds (Numpad by default):\n["
+		},
+		{
+			"keybind": "key.waila.show_overlay"
+		},
+		{
+			"text": "] - Toggle overlay\n["
+		},
+		{
+			"keybind": "key.waila.toggle_liquid"
+		},
+		{
+			"text": "] - Toggle fluids\n["
+		},
+		{
+			"keybind": "key.waila.show_uses"
+		},
+		{
+			"text": "] - Show uses\n["
+		},
+		{
+			"keybind": "key.waila.show_recipes"
+		},
+		{
+			"text": "] - Show recipes\n["
+		},
+		
+		{
+			"keybind": "key.waila.config"
+		},
+		{
+			"text": "] - Configure"
+		}
+		
+	]
+}

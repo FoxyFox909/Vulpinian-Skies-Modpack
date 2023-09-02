@@ -373,6 +373,9 @@ Diesel Engines, Necroethanol, Gun Fix
     - Another building-related mod. This one introduces many doors of Short and Tall sizes.
 	- Current doors get extended (and shrunk)
 	- New doors are also added, having compat with existing mods.
+- Jade Addons
+    - Allows displaying more Jade information for many of the mods in the pack
+    - Compat includes Create, Tinkers, and more
 
  
 ## Mod Updates
@@ -414,9 +417,11 @@ Diesel Engines, Necroethanol, Gun Fix
     - Mod Searching
 	- Effect Descriptions
 	- Vulpinian Advancements
+	- Jade keybindinds
 - Reworded Tips:
     - Auto tool restock
     - Cloud in a bottle
+
  
 ## Effect Descriptions
 - Figured out how to add effect descriptions for JEED.
@@ -445,3 +450,8 @@ Diesel Engines, Necroethanol, Gun Fix
  - Art by FoxSinArt
  - Window icons were also changed
  
+## Configs
+- Jade
+    - Added default configuration
+	- Sset theme to Create to match Engineer's Goggles
+	- Changed default key to see Uses

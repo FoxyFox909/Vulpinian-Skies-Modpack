@@ -190,7 +190,7 @@ key_key.waila.show_overlay:key.keyboard.keypad.1
 key_key.waila.toggle_liquid:key.keyboard.keypad.2
 key_key.waila.narrate:key.keyboard.keypad.6
 key_key.waila.show_details:key.keyboard.left.shift
-key_key.waila.show_recipes:key.keyboard.keypad.3
+key_key.waila.show_recipes:key.keyboard.keypad.5
 key_key.waila.show_uses:key.keyboard.keypad.4
 key_key.ars_elemental.open_pouch:key.keyboard.j
 key_quark.keybind.back:key.mouse.4
