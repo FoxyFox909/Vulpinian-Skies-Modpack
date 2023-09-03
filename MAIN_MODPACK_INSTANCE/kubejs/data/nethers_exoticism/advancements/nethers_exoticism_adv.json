@@ -1,0 +1,23 @@
+{
+  "display": {
+    "background": "nethers_exoticism:textures/screens/ramboutan_log.png",
+    "icon": {
+      "item": "nethers_exoticism:kiwano_sapling"
+    },
+    "title": {
+      "translate": "advancements.nethers_exoticism_adv.title"
+    },
+    "description": {
+      "translate": "advancements.nethers_exoticism_adv.descr"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "nethers_exoticism_adv": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
