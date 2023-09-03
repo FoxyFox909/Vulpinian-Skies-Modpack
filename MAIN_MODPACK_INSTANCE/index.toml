@@ -50,7 +50,7 @@ hash = "51c56fe270dcc2781d49a54f5e6450c5194b857312b33b63688c2e391a66068a"
 
 [[files]]
 file = "config/capsule-common.toml"
-hash = "24f8709f55d57b09a0a93f03197891b37443a8271589128439f63b3c097430ee"
+hash = "e0056a03d171d343190a4bf19c2b0a33294491391a8f25610180fb1d0e905b9b"
 
 [[files]]
 file = "config/capsule/blueprint_whitelist.json"
@@ -2530,7 +2530,7 @@ hash = "37ca1f757a42143edbc722b8933dc7ccb1b797ee3eaa4278783583d79858937d"
 
 [[files]]
 file = "kubejs/client_scripts/vulpinian_skies_client.js"
-hash = "46999c386f6754fe5fcc49d4162dd3d97b309598e215aa7c0eb47a95333ad325"
+hash = "bf9223d379b61a642ab35f62c66af46ed0830c574bef0ad9cca93313a71ff0ca"
 
 [[files]]
 file = "kubejs/config/client.properties"
@@ -3037,6 +3037,10 @@ file = "kubejs/data/gunarena/tags/entity_types/checked_types.json"
 hash = "689f66851f0c962261a7820e8075a2fb5bb408b03ee6ff6d39dfc3ef1b446c72"
 
 [[files]]
+file = "kubejs/data/iceandfire/advancements/iceandfire/root.json"
+hash = "85950b0602e2b9b529ed1f4474439cf85ebe3d73913a222ec0e7724b96e40c3e"
+
+[[files]]
 file = "kubejs/data/immersive_paintings/vs_entities/painting.json"
 hash = "dc66be4bad2da0e595ecf8fc411c41eb1c669a4810a73b5e8f908056d6cb46dd"
 
@@ -3059,6 +3063,10 @@ hash = "25ea031767f586e67432bdaa3c35bf744034348c2533e59f9a5becba9b2fa007"
 [[files]]
 file = "kubejs/data/my_custom_trades/trades/goblin_trader/uncommon.json"
 hash = "e0f766586194f01f2c75238e2dc1e843eaccf62f712bd57652f764203e7b1564"
+
+[[files]]
+file = "kubejs/data/nethers_exoticism/advancements/nethers_exoticism_adv.json"
+hash = "58b04d28b508149b714e72628f650c8bf7c71a20ea0f457ba68992a592d984b5"
 
 [[files]]
 file = "kubejs/data/scorchedguns/guns/alfonz_repeating_punter.json"
@@ -3398,7 +3406,7 @@ hash = "b271450f07e68d50ba9a5a6e75793f137c9f7fd00fa358396e18f648c507766d"
 
 [[files]]
 file = "kubejs/data/vulpinian_skies_core/tags/items/basin_melting/diamond/four_gems.json"
-hash = "0dad1022cfecda94b878c56d06d499dff5efe8dee321ad60cf5a8369e3256c83"
+hash = "51b6e9c9bc410468564527a37cf9ab7a2794b85f4447a24059b9036f42048944"
 
 [[files]]
 file = "kubejs/data/vulpinian_skies_core/tags/items/basin_melting/diamond/fourth_of_gem.json"
@@ -4333,11 +4341,6 @@ hash = "c0d0aba7fcb1da236e1f787dcb2603fa182bec342e67b752144a94ea9234aa28"
 metafile = true
 
 [[files]]
-file = "mods/blood-magic.pw.toml"
-hash = "fd84f4d2e26dfaf74ba56e710d8aad6715033c2ceddaec1efaa8fef047fec805"
-metafile = true
-
-[[files]]
 file = "mods/bookshelf.pw.toml"
 hash = "1d7f95592de63e85db46a17cb90c0386b9810954ae55dea2da7ba6291db0cb4d"
 metafile = true
@@ -4479,7 +4482,7 @@ metafile = true
 
 [[files]]
 file = "mods/create-misc-and-things.pw.toml"
-hash = "10f43e3b1634307694605c67be96d3d1e5f860d2cb37f97c705f970ebc25eea1"
+hash = "97a03319b67bb86c29c05d1d482434c7f3a3b7f0a48c95f1a156b437c80ba213"
 metafile = true
 
 [[files]]
@@ -4759,11 +4762,6 @@ metafile = true
 [[files]]
 file = "mods/kubejs-additions.pw.toml"
 hash = "a8e3b82948d09fed6ecea2db5c712e2a5df4a12325fa37d06b420dd51fba81cb"
-metafile = true
-
-[[files]]
-file = "mods/kubejs-blood-magic.pw.toml"
-hash = "5d3e53345c3a7a58a85421a8587b62d6cc89efdfa355d32a99cb9c53add1ec5a"
 metafile = true
 
 [[files]]
@@ -5262,10 +5260,6 @@ hash = "45bbdea945fd570a624b12d5a84bc4fa1da2b5468819fd52d9eb55c35a032184"
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/magic_category/ars_nouvaeu_entry.json"
 hash = "fcf6fbbda8c55581075f8f127ed806366d6f150ec563d0dccbde76e785c6ea66"
-
-[[files]]
-file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/magic_category/blood_magic_entry.json"
-hash = "c6dae865b2833ab80f0463cbab52577e6753f00ca5155b421e63ec8077a745eb"
 
 [[files]]
 file = "patchouli_books/vulpinian_skies_guide/en_us/entries/things_to_do/magic_category/hex_casting_entry.json"

@@ -351,7 +351,8 @@ Diesel Engines, Necroethanol, Gun Fix
 
 ------------------------------------------------------------------------------------------------------------
 
-# Vulpinian Skies 1.0b9 (WIP)
+# Vulpinian Skies 1.0b9
+Big update that adds a lot of polish, sets up methods to further develop more polish later on, adds a few small but well-made and useful mods, and removes one semi-big mod.
 
 ## Mod Additions
 - KubeJS Additions
@@ -377,7 +378,6 @@ Diesel Engines, Necroethanol, Gun Fix
     - Allows displaying more Jade information for many of the mods in the pack
     - Compat includes Create, Tinkers, and more
 
- 
 ## Mod Updates
 - Eureka Airships (will remain until Clockwork is read)
 - Every Compat
@@ -389,6 +389,7 @@ Diesel Engines, Necroethanol, Gun Fix
     - Many thanks to Aya, for fixing a broken interaction with Dummies and guns
 	- Now dummies will properly be usable for testing gun DPS and will work better with other damage types.
 	- Stacked damage has been removed
+- Create Misc and Things
 	
 ## Mod Removals
 

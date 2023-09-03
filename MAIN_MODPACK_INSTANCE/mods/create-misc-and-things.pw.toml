@@ -1,13 +1,13 @@
 name = "Create : Misc & Things"
-filename = "create_misc_and_things_1.18.2_3.0.jar"
+filename = "create_misc_and_things_ 1.18.2_4.0A.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "779ebdba6ac61e666eebd8095815f851930cd5d2"
+hash = "c33df0c8d528da4b6ec2c2672e37849330bcae1d"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 4550630
+file-id = 4735324
 project-id = 652202
