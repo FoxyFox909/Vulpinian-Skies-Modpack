@@ -2161,6 +2161,14 @@ file = "kubejs/assets/vulpinian_skies_core/textures/item/unstable_encased_fire.p
 hash = "c4021020288525a3d2a57716884cdfd1689c2eade0a3338ffa205ada702057e4"
 
 [[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/vulpinian_logo_small_animated.png"
+hash = "19c33722dafff612bb717c16453d7fa752785787dbe9c9d8de5b85e75013da5f"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/item/vulpinian_logo_small_animated.png.mcmeta"
+hash = "90fb44a3511d279e0f59d80d82799e72ee6295ef29420184f76f218d4d3d653a"
+
+[[files]]
 file = "kubejs/assets/vulpinian_skies_core/tips/framed_blocks/flammability.json"
 hash = "20bd5e418d98769177249a5cf1db1a6eb66dea34481afe509e02e23e74786061"
 
@@ -2522,7 +2530,7 @@ hash = "37ca1f757a42143edbc722b8933dc7ccb1b797ee3eaa4278783583d79858937d"
 
 [[files]]
 file = "kubejs/client_scripts/vulpinian_skies_client.js"
-hash = "b6c483947e5674f47e7ad5de408083b0150da437b87face87732573f604dbbc1"
+hash = "46999c386f6754fe5fcc49d4162dd3d97b309598e215aa7c0eb47a95333ad325"
 
 [[files]]
 file = "kubejs/config/client.properties"
@@ -3119,6 +3127,50 @@ hash = "13235cd49dc2d285cba1e90a89e1ef2a8a91d1408c4b7497429cfb8deb92e96b"
 [[files]]
 file = "kubejs/data/scorchedguns/guns/tunck_37.json"
 hash = "c0cffd8c3cacb36160b0e94c54c7b6515e0cc0ae464cbed9fa5b57f26b0ba414"
+
+[[files]]
+file = "kubejs/data/tconstruct/weapon_attributes/broad_axe.json"
+hash = "aeeafa76066cb6e684dc0a19448064e9c60f575c30a91fed3c54a2589c55b23e"
+
+[[files]]
+file = "kubejs/data/tconstruct/weapon_attributes/cleaver.json"
+hash = "af565761c2e6392f93edee3b4bec4de2577c4a419f3e7b0c8eaa9f103be6254c"
+
+[[files]]
+file = "kubejs/data/tconstruct/weapon_attributes/dagger.json"
+hash = "b3c23f1f20fe7497cf15a64b5bada9bbf4dbc7141bf0bd55c1c124cdce969009"
+
+[[files]]
+file = "kubejs/data/tconstruct/weapon_attributes/kama.json"
+hash = "2807beee4f62c340b9810e39be98bed8e5d96a496f6981c2bbb6d605ec4b94ee"
+
+[[files]]
+file = "kubejs/data/tconstruct/weapon_attributes/mattock.json"
+hash = "ec27b6c6a5c4204bb2dba57420bda401de339121faa11ab69976a4c0a77303db"
+
+[[files]]
+file = "kubejs/data/tconstruct/weapon_attributes/pickadze.json"
+hash = "ec27b6c6a5c4204bb2dba57420bda401de339121faa11ab69976a4c0a77303db"
+
+[[files]]
+file = "kubejs/data/tconstruct/weapon_attributes/pickaxe.json"
+hash = "ec27b6c6a5c4204bb2dba57420bda401de339121faa11ab69976a4c0a77303db"
+
+[[files]]
+file = "kubejs/data/tconstruct/weapon_attributes/scythe.json"
+hash = "2807beee4f62c340b9810e39be98bed8e5d96a496f6981c2bbb6d605ec4b94ee"
+
+[[files]]
+file = "kubejs/data/tconstruct/weapon_attributes/sledge_hammer.json"
+hash = "ba03531dcc413f7f610e7ac16ddef29aac437451e595cfd2aaa74179f75ada73"
+
+[[files]]
+file = "kubejs/data/tconstruct/weapon_attributes/sword.json"
+hash = "af1148393625564fc6f5950219652207d49a609899cc34cc0a57e06049117140"
+
+[[files]]
+file = "kubejs/data/tconstruct/weapon_attributes/vein_hammer.json"
+hash = "ba03531dcc413f7f610e7ac16ddef29aac437451e595cfd2aaa74179f75ada73"
 
 [[files]]
 file = "kubejs/data/vulpinian_skies_core/loot_tables/chests/starter_hut/gun_chest.json"
@@ -4146,7 +4198,7 @@ hash = "e9dbad03458a8981e30cb78c382642c7b070823326b2dec3ede50c6403c1b189"
 
 [[files]]
 file = "kubejs/server_scripts/vulpinian_advancements_server.js"
-hash = "cd2c68a5d03b46ecc2c92f83f891da4daf4f9f752eff297567be39b71078fb5c"
+hash = "e15f2ac91fcc1224d3e658979bc21250b9264cccd21ec2690634c09868b589f1"
 
 [[files]]
 file = "kubejs/server_scripts/vulpinian_coins_server.js"
@@ -4158,7 +4210,7 @@ hash = "b913b5d98104bc8d3d632582436ed35fcd55d47069684a520c9ca303fdb47d26"
 
 [[files]]
 file = "kubejs/server_scripts/vulpinian_skies_server.js"
-hash = "c9f43c2b4c3ccbe3360660c1cb7ab41ca6f4c764072ead150840ddc0adbb98b2"
+hash = "d32215b648e9f8e3f463f0f94ccff168091f945c4647eebdc5885d64fb04316a"
 
 [[files]]
 file = "kubejs/server_scripts/vulpinian_solcarrot_server.js"
@@ -4170,7 +4222,7 @@ hash = "c60e6a6c3c071bf83e6cfe269cdc1909429d80fb57d8ab483115227ba30c0126"
 
 [[files]]
 file = "kubejs/startup_scripts/vulpinian_skies_startup.js"
-hash = "aa2e75cd3a3bb2024f1bbfce96d78777cd8532bfea23278074f5418f6889b9ba"
+hash = "a9be2aa3f4fe10b0b30dc3fc3a66f81118e629f9058b92f920a78b73e643a40b"
 
 [[files]]
 file = "kubejs/startup_scripts/vulpinian_skies_startup_clientside.js"

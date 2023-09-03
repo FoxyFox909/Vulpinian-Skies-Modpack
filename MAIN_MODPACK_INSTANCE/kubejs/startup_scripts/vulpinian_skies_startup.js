@@ -1,4 +1,4 @@
-// priority: 0
+// priority: 10
 
 console.info('Loading Vulpinian Skies startup script');
 
@@ -57,7 +57,13 @@ onEvent('item.registry', event => {
 	
 	event.create('vulpinian_skies_core:incomplete_class_s_frame','create:sequenced_assembly').texture('vulpinian_skies_core:item/class_c_frame').unstackable()
 	event.create('vulpinian_skies_core:class_s_frame').texture('vulpinian_skies_core:item/class_s_frame').maxStackSize(16).rarity('epic');
-		
+	
+	
+	event.create('vulpinian_skies_core:vulpinian_logo_small_animated')
+		.displayName('Vulpinian Cogwheel')
+		.tooltip(Text.darkAqua('Forbidden item - secret currency. Only obtainable by Admins.'))
+		.texture('vulpinian_skies_core:item/vulpinian_logo_small_animated').maxStackSize(16).rarity('epic');
+
 	
 })
 
@@ -69,7 +75,7 @@ onEvent('fluid.registry', event => {
 		.flowingTexture('vulpinian_skies_core:fluid/necroethanol_flow')
 		.rarity('rare')
 		.density(2000)
-		.viscosity(4500)		
+		.viscosity(4500)
 	
 	let bucket = new java('dev.latvian.mods.kubejs.fluid.FluidBucketItemBuilder')(fluid);
 	

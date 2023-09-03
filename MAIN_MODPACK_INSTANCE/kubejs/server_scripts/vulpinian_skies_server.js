@@ -1604,8 +1604,10 @@ onEvent('recipes', event => {
 			O: '#forge:nuggets/forgotten_metal'
 		}).id('vulpinian_skies_core:earths_corpse');
 		
-	//Custom, more expensive waystone recipes
-	//event.remove({mod:'waystones'})
+	
+	//Misc Recipes
+	
+	//Custom, more expensive waystone recipes	
 	event.remove({id:'waystones:warp_stone'})
 	event.shaped('waystones:warp_stone', [
 		'SPS',
@@ -1618,6 +1620,34 @@ onEvent('recipes', event => {
 		S: 'minecraft:smooth_stone',
 		D: 'minecraft:diamond'
 	})
+	
+	event.custom (
+	{
+	  "type": "ars_nouveau:imbuement",
+	  "input": {
+		"item": "create_confectionery:gingerdough"
+	  },
+	  "output": "create_confectionery:little_gingerbread_man_spawn_egg",
+	  "count": 1,
+	  "source": 1000,
+	  "pedestalItems": [
+		{
+		  "item": {
+			"item": "ars_nouveau:conjuration_essence"
+		  }
+		},
+		{
+		  "item": {
+			"item": "ars_nouveau:manipulation_essence"
+		  }
+		},
+		{
+		  "item": {
+			"item": "ars_nouveau:air_essence"
+		  }
+		}
+	  ]
+	});
 		
 	//BASIN MELTING RECIPES USING CBC
 	function createBasinMelting(event, input, inputIsTag, output, amount, superHeated) {
@@ -2708,7 +2738,7 @@ onEvent('recipes', event => {
 			}
 		  ]
 		}
-	);
+	).id('vulpinian_skies_core:basin_fermenting/virulent_mix/rotten_blisterberry');
 	
 	event.custom(
 		{
@@ -2730,7 +2760,7 @@ onEvent('recipes', event => {
 			}
 		  ]
 		}
-	);
+	).id('vulpinian_skies_core:basin_fermenting/virulent_mix/blood_mushroom_globule');
 	
 	event.custom(
 		{
@@ -2752,7 +2782,7 @@ onEvent('recipes', event => {
 			}
 		  ]
 		}
-	);
+	).id('vulpinian_skies_core:basin_fermenting/virulent_mix/mushrooms');
 	
 	event.custom(
 		{
@@ -2770,7 +2800,7 @@ onEvent('recipes', event => {
 			}
 		  ]
 		}
-	);
+	).id('vulpinian_skies_core:basin_fermenting/virulent_mix/mushroom_blocks');
 	
 	event.custom(
 		{
@@ -2788,7 +2818,7 @@ onEvent('recipes', event => {
 			}
 		  ]
 		}
-	);
+	).id('vulpinian_skies_core:basin_fermenting/ink/ink_mushroom_cap');
 	
 
 	event.custom(
@@ -2816,7 +2846,7 @@ onEvent('recipes', event => {
 			}
 		  ]
 		}
-	);
+	).id('vulpinian_skies_core:basin_fermenting/bioethanol');
 	
 	event.recipes.create.mixing(Fluid.of('vulpinian_skies_core:necroethanol', 100), [
 		Fluid.of('createaddition:bioethanol', 50),
@@ -3031,6 +3061,8 @@ onEvent('entity.death', event => {
 		}
 	}
 })
+
+
 
 //Was meant to prevent seared spirits form persisting forever, but even with this they still persist
 /*

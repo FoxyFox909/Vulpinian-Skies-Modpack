@@ -20,6 +20,8 @@ onEvent('jei.hide.items', event => {
 	event.hide('createdieselgenerators:ethanol_bucket');	
 	event.hide('createdieselgenerators:biodiesel_bucket');
 	
+	event.hide('vulpinian_skies_core:vulpinian_logo_small_animated');
+	
 })
 
 onEvent('jei.hide.fluids', event => {
@@ -106,14 +108,19 @@ onEvent('client.generate_assets', event => {
 		coinType = coinNames[i]
 		rename(`collectibles:${coinType}_coin`, `Antique ${coinType.charAt(0).toUpperCase()+coinType.slice(1)} Coin`)
 	}
-	
+})
+
+onEvent('client.generate_assets', event => {
+
 	//Effect descriptions
 	event.addLang('effect.enlightened_end.radiated.description', "Emitted by some blocks and items. A high enough dose will start doing damage over time.");
-	
+	event.addLang('effect.farmersdelight.comfort.description', "Removes and grants immunity to Slowness, Hunger, and Weakness.");
+  
 	//Enchantment descriptions
 	event.addLang('enchantment.grapplemod.wallrunenchantment.desc', "Grealy increases parkour abilities. Run toward a wall to start running along it. Jumps will be boosted while wall-running.");
 	
 	//Sound subtitles
 	event.addLang('grapplemod.subtitle.doublejump', "Whoosh");
-
-})
+	event.addLang('scorchedguns.subtitle.regular_fire', "Gunfire");
+	
+});

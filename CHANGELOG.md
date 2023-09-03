@@ -432,6 +432,7 @@ Diesel Engines, Necroethanol, Gun Fix
 - Potion glint has been disabled THANKS TO CCr4f3r.
     - The code that does this was merged into Vulpinian Skies Fix.
     - Now you can actually see the orange juice that you drink in order to stay protected from the flames of hell.
+- Added a datapack by Ssquoshi to make Tinker's Construct weapons and tools compatible with Better Combat
 
 ## Tags
 - Added tags to bullets of all classes, for use with new advancements.
@@ -455,3 +456,7 @@ Diesel Engines, Necroethanol, Gun Fix
     - Added default configuration
 	- Sset theme to Create to match Engineer's Goggles
 	- Changed default key to see Uses
+	
+## Fixes
+- Fixed some sound subtitles.
+- Started working on fixing the misisng or broken descriptions of some Effects.
