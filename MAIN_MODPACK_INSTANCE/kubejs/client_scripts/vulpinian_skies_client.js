@@ -22,13 +22,13 @@ onEvent('jei.hide.items', event => {
 	
 	event.hide('vulpinian_skies_core:vulpinian_logo_small_animated');
 	
-})
+});
 
 onEvent('jei.hide.fluids', event => {
   event.hide('createdieselgenerators:plant_oil');
   event.hide('createdieselgenerators:ethanol');
   event.hide('createdieselgenerators:biodiesel');
-})
+});
 
 //Only way to hide Create-generated recipes
 function removeSpoutDrain(event, modId, fluidArray) {
@@ -45,7 +45,7 @@ onEvent('jei.remove.recipes', event => {
     //console.log(event.categoryIds)
 	
 	removeSpoutDrain(event, 'createdieselgenerators', ['plant_oil', 'ethanol', 'biodiesel']);
-})
+});
 
 
 onEvent('item.tooltip', tooltip => {
@@ -86,7 +86,7 @@ onEvent('item.tooltip', tooltip => {
 	));
 	
 	
-})
+});
 
 onEvent('client.generate_assets', event => {	
 	const rename = (itemId, newName) =>	{event.addLang(Item.of(itemId).item.getDescriptionId(), newName)};
@@ -108,10 +108,7 @@ onEvent('client.generate_assets', event => {
 		coinType = coinNames[i]
 		rename(`collectibles:${coinType}_coin`, `Antique ${coinType.charAt(0).toUpperCase()+coinType.slice(1)} Coin`)
 	}
-})
-
-onEvent('client.generate_assets', event => {
-
+	
 	//Effect descriptions
 	event.addLang('effect.enlightened_end.radiated.description', "Emitted by some blocks and items. A high enough dose will start doing damage over time.");
 	event.addLang('effect.farmersdelight.comfort.description', "Removes and grants immunity to Slowness, Hunger, and Weakness.");
@@ -121,6 +118,6 @@ onEvent('client.generate_assets', event => {
 	
 	//Sound subtitles
 	event.addLang('grapplemod.subtitle.doublejump', "Whoosh");
-	event.addLang('scorchedguns.subtitle.regular_fire', "Gunfire");
-	
+	event.addLang('subtitle.scorchedguns.regular_fire', "Gunfire");
+	event.addLang('subtitle.scorchedguns.supressed_fire', "Silenced Gunfire");
 });
