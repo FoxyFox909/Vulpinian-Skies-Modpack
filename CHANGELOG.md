@@ -431,7 +431,6 @@ Big update that adds a lot of polish, sets up methods to further develop more po
     - Auto tool restock
     - Cloud in a bottle
 
- 
 ## Effect Descriptions
 - Figured out how to add effect descriptions for JEED.
 - Will start populating the effects that are missing descriptions.
@@ -463,7 +462,7 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 ## Configs
 - Jade
     - Added default configuration
-	- Sset theme to Create to match Engineer's Goggles
+	- Set theme to Create to match Engineer's Goggles
 	- Changed default key to see Uses
 	
 ## Fixes
