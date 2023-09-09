@@ -4,5 +4,5 @@
 	"underlined":true,
     "color": "dark_aqua"
   },
-  "tip": "Type @ in front of a mod name in the JEI search bar, to see content only from that mod."
+  "tip": "Type @ followed by a mod name in the JEI search bar, to see content only from that mod."
 }

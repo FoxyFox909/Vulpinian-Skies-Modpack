@@ -468,3 +468,18 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 ## Fixes
 - Fixed some sound subtitles.
 - Started working on fixing the misisng or broken descriptions of some Effects.
+
+------------------------------------------------------------------------------------------------------------
+
+# Vulpinian Skies 1.0b9
+
+## Mod Additions
+- Alcocraft+
+
+## JEI
+- Moved some recipe types around so they make more sense and are more logically grouped
+
+##Tips
+
+- Added tips about:
+    - Graveyard: Coffin Ghoulings, 

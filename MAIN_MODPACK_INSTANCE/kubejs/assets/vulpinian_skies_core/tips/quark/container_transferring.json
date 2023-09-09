@@ -4,7 +4,5 @@
 		"underlined": true,
 		"color": "dark_aqua"
 	},
-	"tip": [{
-			"text": "Containers (chests, etc.) have two clickable buttons:\n↑ (Insert) and ↓ (Extract).\n Holding Shift (or using Shift Lock) will do Filtered mode."
-	]
+	"tip": "Containers (chests, etc.) have two clickable buttons:\n↑ (Insert) and ↓ (Extract).\n Holding Shift (or using Shift Lock) will use Filtered mode."
 }
