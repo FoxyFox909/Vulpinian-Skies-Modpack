@@ -4272,6 +4272,10 @@ hash = "bf9eb80716783254346903f620b4300c77467bc6266a4111d7adb66892cf999b"
 metafile = true
 
 [[files]]
+file = "mods/alcocraftvulpinia-1.0.jar"
+hash = "5026e85a94b3c2948a2f2b02930298d5c50240f1a64293d76431d7bee079d134"
+
+[[files]]
 file = "mods/alternate-current.pw.toml"
 hash = "5262b40999a9c2e60b43561067f5f199814627eaaee3d193c92ef8b99f20fe61"
 metafile = true
