@@ -1,0 +1,13 @@
+name = "Seamless"
+filename = "seamless-1.3.0-forge-1.18.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "85eb07feaa4e7c1ccf4aacf897cf265fb3527965"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4676303
+project-id = 855593

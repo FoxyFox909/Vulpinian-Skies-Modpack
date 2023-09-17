@@ -1,13 +1,13 @@
 name = "Yet Another World Protector"
-filename = "yawp-1.18.2-0.0.2.9-beta3-fabric.jar"
+filename = "yawp-1.18.2-0.0.2.9-beta3-forge.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "1c9655f10ede0f1533086aa8bd104967be5e2433"
+hash = "e3e6d3683b5c1552fdb89af8eefd8033edac9293"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 4708196
+file-id = 4702334
 project-id = 663276

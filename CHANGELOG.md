@@ -450,7 +450,7 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 - The first advancements will be gun-based, being completed when you obtain one of each tier frame.
 - As well as when you obtain certain ammunition for the first time.
 
-## Sripts
+## Scripts
 - New client-side-only startup script
  - Currently simply adds a mysterious conversion recipe for Quark Cloud in a Bottle
  
@@ -482,4 +482,73 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 ##Tips
 
 - Added tips about:
-    - Graveyard: Coffin Ghoulings, 
+    - Graveyard: Coffin Ghoulings, Quark Poisonous Potato Babies
+- Fixed some broken tips
+
+## Configs
+
+- Disabled connection to Moonflower servers in Pollen client config
+    - This apparently caused a crash for a player, so the hope is to avoid such crashes.
+	
+------------------------------------------------------------------------------------------------------------
+
+# Vulpinian Skies 1.0b10
+
+## Mod Additions
+
+- Alcocraft Vulpinia
+    - A fork of Alcocraft+ by itzme1on, by yours truly
+	- Has a lot of neat features including a fluid for every beer
+	- Spout interactions
+	- And many new beers and stuff to come!
+	- (I am cooking up a drunkenness system, heheheh)
+
+- Now running a suite of Team Diopside mods:
+    - Seamless: **CLIENT-SIDE ONLY MOD**. Gets rid of some unpleasant lines from blocks such as beds and doors.
+	- Separated Leaves: This makes it so leaves stick to leaves of their own kind when decaying
+	
+- Create: Extended Cogwheels
+    - Adds a variety of new cogwheels into the game, of differing materials. 
+	- Different material cogwheels can have different properties.
+	
+- Not Enough Recipe Book
+    - More of a back-end mod that compeltley removes recipe book funcitonality.
+	- Recipe book is no longer needed when JEI exists, and only servers to slow down operations, especially when they relate to player NBT
+	- In more detail, Minecraft has to deserialize the entire player NBT, including the ENTIRE list of unlocked recipes of a player
+    - which is stored in player NBT, EVERY time that a player's NBT gets accessed
+	
+## Mod Updates
+
+- Botany Trees
+    - More trees are not plantable
+- Bygone Nether
+    - Graphics and bugfixes
+- Enchantment Descriptions
+    - Bugfixes
+- Enlightened End
+    - Big Remake of the mod that overhauls it
+	- It breathes new life into the mod and adds a ton of new features
+- Friends and Foes
+    - Bugfix
+- Miner's Delight
+    - Compostable foods
+	- Create compat
+- Moonlightt lib (Selene)
+    - Bugfixes
+- Slice and Dice
+    - Farmer's Delight compat
+- Sophisticated Mods:
+    - Backpacks: Tweak to backpack mobs and bugfixes
+	- Core: Gui and bugfixes
+	- Storage: Feature and bugfixes
+
+
+
+
+
+
+	
+
+## Fixes
+
+- Fixed YAWP messages being broken (mod properly instaleld now)
