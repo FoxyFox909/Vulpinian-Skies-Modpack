@@ -1,13 +1,13 @@
 name = "Born in Chaos"
-filename = "born_in_chaos_[Forge]1.18.2_1.14.jar"
+filename = "born_in_chaos_[Forge]1.18.2_1.16.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "e734bb564e0241d560c69b3c4e9e8dd182bf5ea4"
+hash = "922fa194c05bfc3eaba64dea5cd81a7221cd34b5"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 4725369
+file-id = 4836363
 project-id = 686437

@@ -22,6 +22,8 @@ onEvent('jei.hide.items', event => {
 	
 	event.hide('vulpinian_skies_core:vulpinian_logo_small_animated');
 	
+	event.hide('undergarden:gloomgourd_pie');
+	
 });
 
 onEvent('jei.hide.fluids', event => {
@@ -45,6 +47,12 @@ onEvent('jei.remove.recipes', event => {
     //console.log(event.categoryIds)
 	
 	removeSpoutDrain(event, 'createdieselgenerators', ['plant_oil', 'ethanol', 'biodiesel']);
+});
+
+onEvent('jei.add.items', event => {
+	
+	event.add('vulpinian_skies_core:gloomgourd_pie');
+	event.add('vulpinian_skies_core:gloomgourd_pie_slice');
 });
 
 

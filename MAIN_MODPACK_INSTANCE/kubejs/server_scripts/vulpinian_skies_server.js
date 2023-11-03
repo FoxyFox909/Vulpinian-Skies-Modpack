@@ -35,8 +35,7 @@ onEvent('recipes', event => {
 	});
 		
 	
-	/**Overhaul of recipes for munitions and guns*/	
-	
+	/**Overhaul of recipes for munitions and guns*/		
 	event.remove ({id:'createbigcannons:cutting/spring_wire_steel'});
 	event.remove ({id:'createbigcannons:cutting/spring_wire_iron'});
 	
@@ -2864,7 +2863,70 @@ onEvent('recipes', event => {
 	
 	event.remove({input:Fluid.of('createdieselgenerators:plant_oil')});
 	event.remove({output:Fluid.of('createdieselgenerators:plant_oil')});
+	//Liquid burning = Create Additions recipe for allowing blaze burners to use fluid fuels
+	event.custom(
+		{
+			"type":"createaddition:liquid_burning",
+			"input": {
+				  "fluid": "vulpinian_skies_core:necroethanol",
+				  "amount": 1000
+			},
+			"burnTime": 51200,
+			"superheated": true,			
+		}
+	);																					 
 	
+	//Food Recipes
+	event.recipes.create.crushing([
+		'2x vulpinian_skies_core:grongle_sugar',
+		Item.of(`create:experience_nugget`).withChance(0.15)
+		], 'undergarden:gronglet').id('vulpinian_skies_core:grongle_sugar_crushing');
+		
+	event.recipes.create.milling([
+		'2x vulpinian_skies_core:grongle_sugar',
+		Item.of(`create:experience_nugget`).withChance(0.15)
+		], 'undergarden:gronglet').id('vulpinian_skies_core:grongle_sugar_milling');
+	
+	event.remove({id:'undergarden:gloomgourd_pie'});
+	event.shaped('vulpinian_skies_core:gloomgourd_pie', [
+		'MMM',
+		'DGD',
+		'SCS'
+		], {
+		C: 'farmersdelight:pie_crust',
+		D: 'undergarden:droopvine_item',
+		G: 'undergarden:gloomgourd',
+		S: 'vulpinian_skies_core:grongle_sugar',
+		M: 'undergarden:glitterkelp'
+	}).id('vulpinian_skies_core:gloomgourd_pie');
+	
+	event.shaped('vulpinian_skies_core:gloomgourd_pie', [
+		'SS ',
+		'SS ',
+		'   '
+		], {
+		S: 'vulpinian_skies_core:gloomgourd_pie_slice'
+	}).id('vulpinian_skies_core:gloomgourd_pie_from_slices');
+	
+	event.custom(
+		{
+		  "type": "farmersdelight:cutting",
+		  "ingredients": [
+			{
+			  "item": "vulpinian_skies_core:gloomgourd_pie"
+			}
+		  ],
+		  "tool": {
+			"tag": "forge:tools/knives"
+		  },
+		  "result": [
+			{
+			  "item": "vulpinian_skies_core:gloomgourd_pie_slice",
+			  "count": 4
+			}
+		  ]
+		}
+	);
 })
 
 onEvent('recipes.after_load', event => {
@@ -2948,6 +3010,8 @@ onEvent('item.tags', event => {
 	event.add('forge:seeds', 'undergarden:blisterberry');
 	event.add('forge:seeds', 'undergarden:underbeans');
 	event.add('forge:seeds', 'undergarden:droopvine_item');
+	
+	event.add('create:upright_on_belt', 'vulpinian_skies_core:gloomgourd_pie');
 	
 })
 

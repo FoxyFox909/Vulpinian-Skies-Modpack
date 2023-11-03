@@ -1,0 +1,9 @@
+{
+  "parent": "farmersdelight:block/pie",
+  "textures": {
+    "particle": "vulpinian_skies_core:block/gloomgourd_pie_top",
+    "bottom": "farmersdelight:block/pie_bottom",
+    "side": "farmersdelight:block/pie_side",
+    "top": "vulpinian_skies_core:block/gloomgourd_pie_top"
+  }
+}

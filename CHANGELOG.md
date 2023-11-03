@@ -502,34 +502,79 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 	- Spout interactions
 	- And many new beers and stuff to come!
 	- (I am cooking up a drunkenness system, heheheh)
-
 - Now running a suite of Team Diopside mods:
     - Seamless: **CLIENT-SIDE ONLY MOD**. Gets rid of some unpleasant lines from blocks such as beds and doors.
 	- Separated Leaves: This makes it so leaves stick to leaves of their own kind when decaying
-	
 - Create: Extended Cogwheels
     - Adds a variety of new cogwheels into the game, of differing materials. 
-	- Different material cogwheels can have different properties.
-	
+	- Different material cogwheels can have different properties.	
 - Not Enough Recipe Book
     - More of a back-end mod that compeltley removes recipe book funcitonality.
 	- Recipe book is no longer needed when JEI exists, and only servers to slow down operations, especially when they relate to player NBT
 	- In more detail, Minecraft has to deserialize the entire player NBT, including the ENTIRE list of unlocked recipes of a player
     - which is stored in player NBT, EVERY time that a player's NBT gets accessed
+- Yung's Better End Island
+    - Beter End Island in 1.18.2 POGGERS
 	
 ## Mod Updates
 
+- Apple Skin
+    - Fixes a pontetial crash
+- Born in Chaos
+	- **Big update**. Beware the spookies and dangerous creatures of the water...
+	- New aquatic and land mobs
+    - Bug fixe and balancing
+- Botany Pots
+    - Now has compay with Regions Unexplored
 - Botany Trees
     - More trees are not plantable
 - Bygone Nether
     - Graphics and bugfixes
+- Collective
+    - Bugfixes
+- Create: Central Kitchen
+    - Update to 0.5.1e and bugfixes, and compat	
+- Create: Enchantment Industry
+    - Update to 0.5.1e
+	- Now XP can be pumped out of furnaces!
+- Create
+    - Big Chungus (not really, but decently big update)
+	- Broke lots of add-ons, most of which are updated now.
+- Create: Diesel Generators
+    - **Big update**. Now there are OIL and PUMPJACKS!
+	- As well as a lot of other items and recipe types.
+	- Process oil into gasoline and other stuff, with rinery towers!
+	- Find oil in chunks, and naturally, more oil in Desert-like biomes!
+- Create: Slice and Dice
+    - Small QoL
+- Create: Steam n Rails:
+    - Updated in preparation for Create 0.5.1f
 - Enchantment Descriptions
     - Bugfixes
 - Enlightened End
     - Big Remake of the mod that overhauls it
 	- It breathes new life into the mod and adds a ton of new features
+- Eureka
+    - Updated for Valkyrien Skies
+- Everycomp
+    - Bugfixes and compat
+- Extended Gears
+    - Big update that makes gears programmatically-generated
+	- Now custom woods are supported
+	- And custom gear types can be done easily via KubeJS!
 - Friends and Foes
+    - Bugfixes
+- Grimoire of Gaiga
+    - Bugfixes and balancing
+- Hotile Mobs and Girls
+    - Bugfixes, compat with more mods
+- Immersive Paintings
     - Bugfix
+- Jade
+    - Crash fix
+- KubeJS Additions
+    - ? (me no find changelog)
+    - Is important mod, so still updated, probably a dependency update of sorts.	
 - Miner's Delight
     - Compostable foods
 	- Create compat
@@ -541,14 +586,36 @@ Big update that adds a lot of polish, sets up methods to further develop more po
     - Backpacks: Tweak to backpack mobs and bugfixes
 	- Core: Gui and bugfixes
 	- Storage: Feature and bugfixes
+- Pam's HarvestCraft: Crops
+    - **Texture overhaul** for majority of items
+- Sophisticated: Core, Backpacks, Storage
+    - Bugfixes, optimizations, back-end changes
+- Soul fire'd
+    - Bugfix
+- Valkyrien Skies
+    - Experimental, feature-limited LoD
 
-
-
-
-
-
+## Vulpinian Food and Drink
+- Added new ingredient: Grongle Sugar
+    - You guys voted for this. Don't complain about the way you obtain it.
+- Added Farmer's Delight-styled Gloomgourd Pie
+    - Can be placed, and sliced with knives, etc
+	- Uses ingrdients from the Undergarden
 	
+### Alcocraft Vulpina
+    - Added a NEW BEER: **Grongle Lambic**
+	    - Brewed with Undergarden ingredients
+	    - Has fairly high alcohol content
+	    - Has effects upon drinking it
+		- Has its own fluid like other beers, and more!
+
 
 ## Fixes
 
-- Fixed YAWP messages being broken (mod properly instaleld now)
+- Fixed YAWP messages being broken (mod properly installed now)
+
+## Misc
+
+- Lowered resolution of the frames of the animated VS menu logo to 256x256 because it was taking up a bit too much memory.
+- Create: Big Cannons has been **temporarily** removed due to a ticking block crash error. It should be back next update.
+- Create has been locked to its 0.5.1e version, until all add-ons are updated and thus Create can update to 1f.
