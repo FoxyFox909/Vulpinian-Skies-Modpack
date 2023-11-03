@@ -566,7 +566,7 @@ Big update that adds a lot of polish, sets up methods to further develop more po
     - Bugfixes
 - Grimoire of Gaiga
     - Bugfixes and balancing
-- Hotile Mobs and Girls
+- Hostile Mobs and Girls
     - Bugfixes, compat with more mods
 - Immersive Paintings
     - Bugfix

@@ -45,4 +45,4 @@ Wolfish Miko, FoxSinArt, Raven, Quantum, Darth Dan, Lythom, Mahco, Effie, Borg D
 And of course, I tip my hat and give my respect to the modders who develop the high-quality and amazing mods included in the pack!
 
 ## Interested in Beta Testing or simply want to follow the modpack's development?
-Come visit the [Discord server](https://discord.gg/9zSpukuHv)!
+Come visit the [Discord server](https://discord.gg/K8z4fsZ8X)!
