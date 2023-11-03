@@ -225,6 +225,8 @@ onEvent('server.datapack.first', event => {
 
 	genObtainSimple(event, "Ethereal Boom Booms", "vulpinian_skies_core:ethereal_grenade", "ballistics/class_s_frame", 20000);
 	
+	genObtainSimple(event, "Sweet, Terrible Person", "vulpinian_skies_core:grongle_sugar", "vulpinian_skies_core:root", 200);
+	
 	/*
 	event.addJson('vulpinian_skies_core:advancements/ballistics/class_f_frame',
 		{

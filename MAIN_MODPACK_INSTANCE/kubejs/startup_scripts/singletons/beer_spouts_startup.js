@@ -18,21 +18,6 @@ onEvent("create.spout.special", event => {
         return 0;
     })
 
-    /*event.addSpoutHandler("alcocraftvulpinia:mug_of_chorus_ale", "alcocraftvulpinia:mug_empty", (block, fluid, simulate) => {
-        if (fluid.id == "alcocraftvulpinia:chorus_ale" && fluid.amount >= 250) {
-
-            //let blockRot = 
-            Utis.server.tell("Keys = " + Object.keys(block));
-
-            if (!simulate) {
-                //block.setBlockState(Block.getBlock("alcocraftvulpinia:mug_of_chorus_ale").defaultBlockState(), 2);
-                // block.set('alcocraftvulpinia:cho')
-            }
-            return 250;
-        }
-        return 0;
-    })*/
-
     function genMugBlockSpout() {
         let beers = [
             'chorus_ale',
@@ -46,7 +31,8 @@ onEvent("create.spout.special", event => {
             'nether_star_lager',
             'night_rauch',
             'sun_pale_ale',
-            'wither_stout'
+            'wither_stout',
+            'grongle_lambic'
         ];
 
         beers.forEach(beer => {

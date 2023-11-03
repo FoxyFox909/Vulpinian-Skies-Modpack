@@ -610,6 +610,10 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 		- Has its own fluid like other beers, and more!
 
 
+## Vulpinian Advancements
+    - Added new Advancement: "Sweet, Terrible Person."
+        - Granted upon obtaining Grongle Sugar for the first time.
+
 ## Fixes
 
 - Fixed YAWP messages being broken (mod properly installed now)
@@ -617,5 +621,4 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 ## Misc
 
 - Lowered resolution of the frames of the animated VS menu logo to 256x256 because it was taking up a bit too much memory.
-- Create: Big Cannons has been **temporarily** removed due to a ticking block crash error. It should be back next update.
 - Create has been locked to its 0.5.1e version, until all add-ons are updated and thus Create can update to 1f.
