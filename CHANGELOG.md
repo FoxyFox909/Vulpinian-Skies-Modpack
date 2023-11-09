@@ -519,15 +519,15 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 ## Mod Updates
 
 - Apple Skin
-    - Fixes a pontetial crash
+    - Fixes a pontential crash
 - Born in Chaos
 	- **Big update**. Beware the spookies and dangerous creatures of the water...
 	- New aquatic and land mobs
-    - Bug fixe and balancing
+    - Bug fixes and balancing
 - Botany Pots
-    - Now has compay with Regions Unexplored
+    - Now has compat with Regions Unexplored
 - Botany Trees
-    - More trees are not plantable
+    - More trees are now plantable
 - Bygone Nether
     - Graphics and bugfixes
 - Collective
@@ -543,7 +543,7 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 - Create: Diesel Generators
     - **Big update**. Now there are OIL and PUMPJACKS!
 	- As well as a lot of other items and recipe types.
-	- Process oil into gasoline and other stuff, with rinery towers!
+	- Process oil into gasoline and other stuff, with winery towers!
 	- Find oil in chunks, and naturally, more oil in Desert-like biomes!
 - Create: Slice and Dice
     - Small QoL
@@ -564,7 +564,7 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 	- And custom gear types can be done easily via KubeJS!
 - Friends and Foes
     - Bugfixes
-- Grimoire of Gaiga
+- Grimoire of Gaia
     - Bugfixes and balancing
 - Hotile Mobs and Girls
     - Bugfixes, compat with more mods
@@ -600,7 +600,7 @@ Big update that adds a lot of polish, sets up methods to further develop more po
     - You guys voted for this. Don't complain about the way you obtain it.
 - Added Farmer's Delight-styled Gloomgourd Pie
     - Can be placed, and sliced with knives, etc
-	- Uses ingrdients from the Undergarden
+	- Uses ingredients from the Undergarden
 	
 ### Alcocraft Vulpina
     - Added a NEW BEER: **Grongle Lambic**
