@@ -72,10 +72,10 @@ This is a major patch that introduces a lot of unified and custom content for th
     - Brass-based recipe for Heavy Bullets
     - Now  Hell Gunpowder has been renamed to Hellpowder and has been unified with Create: Big Canon's Nitropowder process.
      - made new Pig Round, Heavy Pig Round, and Quartz Shell recipes with it.
-     - Removed scorchedguns's Nitro Dust and replaced instances of its use for Createbigcannon's Nitropowder
+     - Removed scorched guns's Nitro Dust and replaced instances of its use for Createbigcannon's Nitropowder
      - Made new Osborne Slug recipe with it.
     - New Experimental Round recipe (hint: it uses experience).
-    - The end-game munitions (ethereal ammo, the one used by S Class guns) were overhauled. Now Ars Nouevau has been integrated into the creation, and magic wil be required to obtain the final tier of ammo.
+    - The end-game munitions (ethereal ammo, the one used by S Class guns) were overhauled. Now Ars Nouevau has been integrated into the creation, and magic will be required to obtain the final tier of ammo.
 
 ## Gun Rebalancing
 - Huot Auto: recoilAngle reduced from 25 to 6 and recoilKick reduced from 19 to 3.5 (this is a buff, gun felt pretty awkward to shoot before), reloadAmount reduced from 16 to 4 (slight nerf)
@@ -149,7 +149,7 @@ Removed mods due to game-breaking bugs/incompatibility:
      - The LG8 was therefore changed to use these for ammo. They are way more expensive and hard to craft than regular grenades, but also way more destructive.
   
 ## Vulpinian Structures
-  The modpack now has custom structures that are generetable in any biomee and dimension!
+  The modpack now has custom structures that are generatable in any biome and dimension!
       - Added an Undergarden dungeon that spawns rarely in most overworld biomes. Has randomly-generated rooms and has hints on how to get to the Underworld
    
 ## Vulpinian Skies Fix
@@ -519,15 +519,15 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 ## Mod Updates
 
 - Apple Skin
-    - Fixes a pontetial crash
+    - Fixes a pontential crash
 - Born in Chaos
 	- **Big update**. Beware the spookies and dangerous creatures of the water...
 	- New aquatic and land mobs
-    - Bug fixe and balancing
+    - Bug fixes and balancing
 - Botany Pots
     - Now has compay with Regions Unexplored
 - Botany Trees
-    - More trees are not plantable
+    - More trees are now plantable
 - Bygone Nether
     - Graphics and bugfixes
 - Collective
@@ -543,7 +543,7 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 - Create: Diesel Generators
     - **Big update**. Now there are OIL and PUMPJACKS!
 	- As well as a lot of other items and recipe types.
-	- Process oil into gasoline and other stuff, with rinery towers!
+	- Process oil into gasoline and other stuff, with refinery towers!
 	- Find oil in chunks, and naturally, more oil in Desert-like biomes!
 - Create: Slice and Dice
     - Small QoL
@@ -564,7 +564,7 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 	- And custom gear types can be done easily via KubeJS!
 - Friends and Foes
     - Bugfixes
-- Grimoire of Gaiga
+- Grimoire of Gaia
     - Bugfixes and balancing
 - Hotile Mobs and Girls
     - Bugfixes, compat with more mods
@@ -600,7 +600,7 @@ Big update that adds a lot of polish, sets up methods to further develop more po
     - You guys voted for this. Don't complain about the way you obtain it.
 - Added Farmer's Delight-styled Gloomgourd Pie
     - Can be placed, and sliced with knives, etc
-	- Uses ingrdients from the Undergarden
+	- Uses ingredients from the Undergarden
 	
 ### Alcocraft Vulpina
     - Added a NEW BEER: **Grongle Lambic**
