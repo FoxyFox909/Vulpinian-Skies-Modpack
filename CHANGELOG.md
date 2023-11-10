@@ -622,3 +622,36 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 
 - Lowered resolution of the frames of the animated VS menu logo to 256x256 because it was taking up a bit too much memory.
 - Create has been locked to its 0.5.1e version, until all add-ons are updated and thus Create can update to 1f.
+
+------------------------------------------------------------------------------------------------------------
+
+# Vulpinian Skies 1.0b11 (WIP)
+
+## Mod Updates
+- Collective
+    - Refactoring, optimizations
+- Create: Big Cannons
+    - Re-added, and is now updated to 1f.
+- Create: Cafe
+    - Fix crash
+- Create: Central Kitchen
+    - Update to 1f and bugfixes
+- Create: Enchantment Industry
+    - Update to 1f and fix client crash
+	- Other bugfixes
+- Create: Steam and Rails
+    - Update to 1f and fix server crash
+	- Other bugfixes
+- Everycomp (Wood Good)
+    - Update to supported modules
+- Kubejs Create
+    - ???
+- Oh, The Biomes You'll Go
+    - No new biomes
+	- but a lot of bugfixes
+	- including possible crash fix.
+
+## Vulpinian Food and Drink
+- Now Canisters with beer can be right-clicked with an empty mug to immediately take beer. (Canisters are portable fluid-holding blocks added by Create: Diesel Engines).
+
+
