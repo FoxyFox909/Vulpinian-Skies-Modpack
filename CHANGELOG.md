@@ -644,12 +644,26 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 	- Other bugfixes
 - Everycomp (Wood Good)
     - Update to supported modules
+- GUI Clock
+    - Code refactoring, small optimizations
+- GUI Compass
+    - Code refactoring, small optimizations
+- Hostile Mobs and Girls
+    - Rebalancing
+	- Compat with more mods
+	- Texture update
+	- Other "Minor tweaks"
 - Kubejs Create
     - ???
 - Oh, The Biomes You'll Go
     - No new biomes
 	- but a lot of bugfixes
 	- including possible crash fix.
+- Sophisticated Core, Backpacks, Storage
+    - Bugfixes
+	- Optimizations
+	- Better settings
+	- GUI improvemets
 
 ## Vulpinian Food and Drink
 - Now Canisters with beer can be right-clicked with an empty mug to immediately take beer. (Canisters are portable fluid-holding blocks added by Create: Diesel Engines).
