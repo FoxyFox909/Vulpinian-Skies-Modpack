@@ -5,7 +5,7 @@ console.info('Loading Vulpinian Skies startup script');
 
 onEvent('item.registry', event => {
 	
-	//Items used as intermediary items for sequenced assembly create recipes for Crayfish and Scorched guns ammo
+	// Items used as intermediary items for sequenced assembly create recipes for Crayfish and Scorched guns ammo
 	event.create('vulpinian_skies_core:incomplete_basic_bullet','create:sequenced_assembly').texture('create:item/brass_sheet').unstackable();
 	event.create('vulpinian_skies_core:incomplete_advanced_bullet','create:sequenced_assembly').texture('create:item/copper_sheet').unstackable();
 	event.create('vulpinian_skies_core:incomplete_shell','create:sequenced_assembly').texture('minecraft:item/gold_ingot').unstackable();
@@ -36,7 +36,7 @@ onEvent('item.registry', event => {
 	event.create('vulpinian_skies_core:incomplete_experimental_round','create:sequenced_assembly').texture('create_things_and_misc:items/experience_sheet').unstackable().glow(true)
 	
 	
-	//Gun frames for Weapon Crafting Overhaul
+	// Gun frames for Weapon Crafting Overhaul
 	event.create('vulpinian_skies_core:incomplete_class_f_frame','create:sequenced_assembly').texture('create:item/copper_sheet').unstackable()
 	event.create('vulpinian_skies_core:class_f_frame').texture('vulpinian_skies_core:item/class_f_frame').maxStackSize(16).rarity('common');
 	
@@ -57,8 +57,7 @@ onEvent('item.registry', event => {
 	
 	event.create('vulpinian_skies_core:incomplete_class_s_frame','create:sequenced_assembly').texture('vulpinian_skies_core:item/class_c_frame').unstackable()
 	event.create('vulpinian_skies_core:class_s_frame').texture('vulpinian_skies_core:item/class_s_frame').maxStackSize(16).rarity('epic');
-	
-	
+
 	event.create('vulpinian_skies_core:vulpinian_logo_small_animated')
 		.displayName('Vulpinian Cogwheel')
 		.tooltip(Text.darkAqua('Forbidden item - secret currency. Only obtainable by Admins.'))
@@ -66,6 +65,21 @@ onEvent('item.registry', event => {
 
 	
 })
+
+onEvent('block.registry', event => {
+	event.create('vulpinian_skies_core:electrum_block')
+		.material('metal')
+		.hardness(3.0)
+		.resistance(6.0)
+		.requiresTool(true)
+		.displayName('Block of Electrum')		
+		.tagBlock('minecraft:mineable/pickaxe')
+		.tagBlock('minecraft:requires_iron_tool')
+		.tagBlock('minecraft:beacon_base_blocks')
+		.tagBoth('forge:storage_blocks')
+		.tagBoth('forge:storage_blocks/electrum')
+	
+});
 
 onEvent('fluid.registry', event => {
 

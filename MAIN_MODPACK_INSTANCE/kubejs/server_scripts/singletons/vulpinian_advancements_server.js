@@ -163,8 +163,37 @@ onEvent('server.datapack.first', event => {
 			  "item": "vulpinian_skies_core:vulpinian_logo_small_animated"
 			},
 			"title": "Welcome to Vulpinia",
-			"description": "A world of Engineering, Exploration, Magic, Foxes, and more...",
+			"description": "A world of Engineering, Exploration, Magic, Foxes, and more... (Most advancements have an Experience reward)",
 			"background": "weather2:textures/blocks/weather_deflector_plate.png",
+			"frame": "task",
+			"show_toast": false,
+			"announce_to_chat": true,
+			"hidden": false
+		  },
+		   "criteria": {
+			"0": {
+			  "trigger": "minecraft:inventory_changed",
+			  "conditions": {}
+			}
+		  },
+		  "requirements": [
+			[
+			  "0"
+			]
+		  ]
+		}
+	);
+	
+	// Engineering Root
+	event.addJson('vulpinian_skies_core:advancements/engineering/root',
+		{
+		  "parent": "vulpinian_skies_core:root",
+		  "display": {
+			"icon": {
+			  "item": "create:wrench"
+			},
+			"title": "Engineering",
+			"description": "Building and tinkering with contraptions",			
 			"frame": "task",
 			"show_toast": false,
 			"announce_to_chat": true,
@@ -226,6 +255,13 @@ onEvent('server.datapack.first', event => {
 	genObtainSimple(event, "Ethereal Boom Booms", "vulpinian_skies_core:ethereal_grenade", "ballistics/class_s_frame", 20000);
 	
 	genObtainSimple(event, "Sweet, Terrible Person", "vulpinian_skies_core:grongle_sugar", "root", 200);
+	
+	
+	genObtainSimple(event, "Vroom Vroom!", "createdieselgenerators:diesel_engine", "engineering/root", 800);
+	
+	
+	genObtainSimple(event, "Let 'Em Cook", "createdieselgenerators:distillation_controller", "engineering/root", 600);
+	
 	
 	/*
 	event.addJson('vulpinian_skies_core:advancements/ballistics/class_f_frame',

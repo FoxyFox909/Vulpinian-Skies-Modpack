@@ -410,7 +410,7 @@ hash = "61655610371e724ce5317a0b526a3aac84dd52eea3ad6c7301358e8528e1596d"
 
 [[files]]
 file = "config/jei/recipe-category-sort-order.ini"
-hash = "4377e70362cd0c46109b5be919003256631d13125b7ceeed40c76da3e9850df6"
+hash = "d67ccd3607a343b777721150d5637dfd55db44dfd4b8c0de4fbf26394ec9a18e"
 
 [[files]]
 file = "config/lmft.json"
@@ -434,7 +434,7 @@ hash = "54e3d7f0ddc6390020825b2ec8b96889e5898ed5f1f9218cafd0f48717ae87cf"
 
 [[files]]
 file = "config/spawnbalanceutility/BiomeMobWeight.csv"
-hash = "5c80ac6cf23d9398d23de27da1ab35cf9512da77aa3fea0dcd21e99d55e2b454"
+hash = "5889cc947f9818b82d1eceb74f29d0dcccdd56653e7cc98454c734f46773a7b3"
 
 [[files]]
 file = "config/tconstruct-common.toml"
@@ -2107,6 +2107,10 @@ hash = "2a8ec44c5819d3724e5d31e54fa334d6b6e260b5aab2dfdba5219b907014dc07"
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/models/unstable_encased_fire.json"
 hash = "a1e0d4b75fb53e0d91b2c19453e8b91e0626f2ee1a01858577b26eba17a4de70"
+
+[[files]]
+file = "kubejs/assets/vulpinian_skies_core/textures/block/electrum_block.png"
+hash = "3b52524a4e3cc44cc1074bfa1914ee913f7a1d532a777d139cba1d121143da73"
 
 [[files]]
 file = "kubejs/assets/vulpinian_skies_core/textures/block/example_block.png"
@@ -4261,36 +4265,44 @@ file = "kubejs/exported/tags/worldgen/trunk_placer_type.txt"
 hash = "0c8628857b59323e30a3e1ed708640c9cc1d702680f003a252cb12f15cb897cf"
 
 [[files]]
-file = "kubejs/server_scripts/gun_cooldown_server.js"
+file = "kubejs/server_scripts/singletons/beer_from_canister.js"
+hash = "6d616f952fedffe38eab71b4c6d2d5a9cf86f41432febacaee8bafcde5fada7c"
+
+[[files]]
+file = "kubejs/server_scripts/singletons/gronglet_screams_server.js"
+hash = "9a34366614ff427dacf50e576349188dfded4ef809b8c7dd30f43ca6f5768334"
+
+[[files]]
+file = "kubejs/server_scripts/singletons/gun_cooldown_server.js"
 hash = "e9dbad03458a8981e30cb78c382642c7b070823326b2dec3ede50c6403c1b189"
 
 [[files]]
-file = "kubejs/server_scripts/vulpinian_advancements_server.js"
-hash = "e15f2ac91fcc1224d3e658979bc21250b9264cccd21ec2690634c09868b589f1"
+file = "kubejs/server_scripts/singletons/vulpinian_advancements_server.js"
+hash = "99fe848850a2ae8c2119ecc3ec8d0686f887a31ae1ea118aa32032cec3614b2e"
 
 [[files]]
-file = "kubejs/server_scripts/vulpinian_coins_server.js"
+file = "kubejs/server_scripts/singletons/vulpinian_coins_server.js"
 hash = "b12dd753c8f5bd3b2d9429816dc3049166ae35c9abdd983ed449c2a38275910c"
 
 [[files]]
-file = "kubejs/server_scripts/vulpinian_login_protection_server.js"
+file = "kubejs/server_scripts/singletons/vulpinian_login_protection_server.js"
 hash = "b913b5d98104bc8d3d632582436ed35fcd55d47069684a520c9ca303fdb47d26"
+
+[[files]]
+file = "kubejs/server_scripts/singletons/vulpinian_solcarrot_server.js"
+hash = "9bad1c70ebdd5504d28014e2667ad5c51f30ad2ac47bdadb27136aed32e56b08"
+
+[[files]]
+file = "kubejs/server_scripts/singletons/xp_fluid_dupe_fix.js"
+hash = "c60e6a6c3c071bf83e6cfe269cdc1909429d80fb57d8ab483115227ba30c0126"
 
 [[files]]
 file = "kubejs/server_scripts/vulpinian_skies_server.js"
 hash = "a088184b247616bb899ea3f5b08bd81fcc3cc4777892e9931103033289be91cc"
 
 [[files]]
-file = "kubejs/server_scripts/vulpinian_solcarrot_server.js"
-hash = "9bad1c70ebdd5504d28014e2667ad5c51f30ad2ac47bdadb27136aed32e56b08"
-
-[[files]]
-file = "kubejs/server_scripts/xp_fluid_dupe_fix.js"
-hash = "c60e6a6c3c071bf83e6cfe269cdc1909429d80fb57d8ab483115227ba30c0126"
-
-[[files]]
-file = "kubejs/startup_scripts/beer_spouts_startup.js"
-hash = "4e32c1ffe359caf10af84169ee2384756c599f08bf107cb55cb98886b96e31b6"
+file = "kubejs/startup_scripts/singletons/beer_spouts_startup.js"
+hash = "8745ec8f90617690a45b15165a6da33f025e245aec00004d68d02c01f543b711"
 
 [[files]]
 file = "kubejs/startup_scripts/singletons/vulpinian_food_startup.js"
@@ -4298,7 +4310,7 @@ hash = "56d25ade6a1365ff196c0319a1ace54617f6bad2b0550df06bca3dc3e327a472"
 
 [[files]]
 file = "kubejs/startup_scripts/vulpinian_skies_startup.js"
-hash = "a9be2aa3f4fe10b0b30dc3fc3a66f81118e629f9058b92f920a78b73e643a40b"
+hash = "c7a7035f4fa33426b45fd73a74c9ae3db7421da528260626dc0048f1a1c112b8"
 
 [[files]]
 file = "kubejs/startup_scripts/vulpinian_skies_startup_clientside.js"
@@ -4325,7 +4337,7 @@ metafile = true
 
 [[files]]
 file = "mods/alcocraftvulpinia-1.0.1.jar"
-hash = "9e7ad98549f118a222b1f3863cd23788df90212abf1c6cad6c5e1924576cef0e"
+hash = "48578ba9273412f137bee26095762101280673c584a748b810fbf9f3d14dbd11"
 
 [[files]]
 file = "mods/alternate-current.pw.toml"
@@ -4419,7 +4431,7 @@ metafile = true
 
 [[files]]
 file = "mods/born-in-chaos.pw.toml"
-hash = "70ab58ca89cf2438a8926cc185761b6779bdc4978462f0c531b903aa5dd897d0"
+hash = "7518a6d20b16e2bb3f563b1495a39821ead9da876735cb76b2e5d23480786b67"
 metafile = true
 
 [[files]]
@@ -4489,7 +4501,7 @@ metafile = true
 
 [[files]]
 file = "mods/collective.pw.toml"
-hash = "f415d762cf94ff18380cdc8ef56987319003e1f2967c9d98597090b73e43515e"
+hash = "ac1b752858973dbec55ecd6b98771367fa1b8df5b7dba4b4183952437777b8b8"
 metafile = true
 
 [[files]]
@@ -4518,17 +4530,13 @@ hash = "f8f870fbe565f81156ac054ab32ebb6009e214af70b057874965b99896e059eb"
 metafile = true
 
 [[files]]
-file = "mods/create-1.18.2-0.5.1.e.jar"
-hash = "df901d82210991bd9b565783ac56a2c5fe78797967bf96cecbbe6072dc95fe97"
-
-[[files]]
 file = "mods/create-cafe.pw.toml"
-hash = "ac654e56d0490c5116a7a9d068185e8966937d5c748f1a847dc2a52ef64de4e0"
+hash = "15e9a4d9541e472cf213680258a0ec31cb96612dbdf74c84ecf0895f8b4b3cce"
 metafile = true
 
 [[files]]
 file = "mods/create-central-kitchen.pw.toml"
-hash = "69ba5fa350f50495ef5ce8e2fc8c29b90231537fe9499f589e769880d641b0a6"
+hash = "73ec4484ca338711f0b6ca61176c1e3bbeb341d7b6b195ad186e9abda2d6ac9f"
 metafile = true
 
 [[files]]
@@ -4543,12 +4551,12 @@ metafile = true
 
 [[files]]
 file = "mods/create-diesel-generators.pw.toml"
-hash = "d6a6fc14254f1588b50e0930f0ac90ec88afe63565f0154c6e105d79ca79cfb9"
+hash = "65a9e09ffb7b1f40f7822824114713cbc3274cac5cc315b4364a70b908d84169"
 metafile = true
 
 [[files]]
 file = "mods/create-enchantment-industry.pw.toml"
-hash = "03b99ce34a32207001365b33b1a2b4ed109008905309678d5806d6305c1b4d9b"
+hash = "82c05a8f25e3c77dae78624cb700503a4301e9b5937c98644a53a8bb3fc96c9a"
 metafile = true
 
 [[files]]
@@ -4568,7 +4576,12 @@ metafile = true
 
 [[files]]
 file = "mods/create-steam-n-rails.pw.toml"
-hash = "48f99d79ad03e802d53890c8d6a43fcbababc068852b59d7bee9aedcaf026954"
+hash = "bd4e6bfe6903689b8c8b767c524ea6cf78eff0b5ee22c16dde76960848052607"
+metafile = true
+
+[[files]]
+file = "mods/create.pw.toml"
+hash = "33d7887c49e0450fd0466ea686140a461aa0510329f4505cfa17164454737363"
 metafile = true
 
 [[files]]
@@ -4577,8 +4590,8 @@ hash = "2501a135e13170ec58f946ba34eea02562651a4e4ce3277802b912d32bf8a507"
 metafile = true
 
 [[files]]
-file = "mods/createbigcannons-forge-1.18.2-0.5.3-nightly-1280034.jar"
-hash = "f6d4f624badf5041e649d26808a94c269378e3bb614359abc2f78d426719122b"
+file = "mods/createbigcannons-forge-1.18.2-0.5.3-nightly-f4020bb.jar"
+hash = "5db7a54cbcf9269d329d571bbf9732c7dc1817242a98b5d7e83f1a6ce59fe4a1"
 
 [[files]]
 file = "mods/culllessleaves-reforged.pw.toml"
@@ -4637,12 +4650,12 @@ metafile = true
 
 [[files]]
 file = "mods/eureka-ships.pw.toml"
-hash = "0b2d5e0cd7b36c7f11572fe47840b1ae3fa40f2191da60aadf51d578b6c56ec7"
+hash = "6e60ea1edbe0ffb86f9c4536cb196926d2dfef184202678f9c267eb5547fcc3e"
 metafile = true
 
 [[files]]
 file = "mods/every-compat.pw.toml"
-hash = "ad9bb9a6dc522874974a278c165e06631d952e8624962bd43f7ddec80d194014"
+hash = "ff64773770a243fcb4fe9025299ae38967aa37c6a9b508a2fb41f29e18137c1a"
 metafile = true
 
 [[files]]
@@ -4752,12 +4765,12 @@ metafile = true
 
 [[files]]
 file = "mods/gui-clock.pw.toml"
-hash = "831475a8318c077ab5520028e41329805a72a278eb817ce78b1e8d9ae0925005"
+hash = "2d4fd66b71f38080b375654a24189847ac33e265c44ecc85749ba038cfde2e36"
 metafile = true
 
 [[files]]
 file = "mods/gui-compass.pw.toml"
-hash = "679808e163467c92d576eea612153965bc2efa50c8831b4a1106a4b0c4e5130e"
+hash = "9c6e52bfc05156ddf6bce8bc59a3c6b148321f5d36839aaf68f73fdfa1d5b9b9"
 metafile = true
 
 [[files]]
@@ -4772,7 +4785,7 @@ metafile = true
 
 [[files]]
 file = "mods/hostile-mobs-and-girls.pw.toml"
-hash = "884f9d11be7e902464539dbc8476f85416fbc50b17b351e082c6c566d1eb80f6"
+hash = "e074cdfa2b89ad4fdae0e13860f6cfcbf7e47d8fd47919f71fb492514663b9a9"
 metafile = true
 
 [[files]]
@@ -4787,7 +4800,7 @@ metafile = true
 
 [[files]]
 file = "mods/infinity-buttons.pw.toml"
-hash = "4d4f175d81e8ec2b7b2423bd6db711a28f28623711e34ff035fac6e1029d0c44"
+hash = "eecbeae86b4c4b5903e6f2a04876e2d4c0cf92580769fa030bfd62050abb4932"
 metafile = true
 
 [[files]]
@@ -4842,7 +4855,7 @@ metafile = true
 
 [[files]]
 file = "mods/kubejs-create.pw.toml"
-hash = "da4f1850ce6c2003f9dc7b6c74b1c22cd7add08145dac03c898241f39f84e1e8"
+hash = "b0b37998d473a8befd9429e53d4597ec294eb29cc8303078c97958efdb98470d"
 metafile = true
 
 [[files]]
@@ -4883,6 +4896,11 @@ metafile = true
 [[files]]
 file = "mods/mantle.pw.toml"
 hash = "485e1aefa205baa57b29c54af2987257e06ef09516a32fb70759bbc700f2a337"
+metafile = true
+
+[[files]]
+file = "mods/marblegates-exotic-enchantment-flowing-agony.pw.toml"
+hash = "921e5357572ad6fb1163e430b15f7a7db2aecf949f953da702916e186d351c95"
 metafile = true
 
 [[files]]
@@ -4952,7 +4970,7 @@ metafile = true
 
 [[files]]
 file = "mods/oh-the-biomes-youll-go.pw.toml"
-hash = "4a5234958a5656afaf5c8cd1c907cbc89a58c6fa0f806e6f8e8b3f98b39dcfe8"
+hash = "a7698e44ea1457b955f8602dd58e554ceefcd1f922224596db1a12e819b1bb3d"
 metafile = true
 
 [[files]]
@@ -5057,7 +5075,7 @@ metafile = true
 
 [[files]]
 file = "mods/seamless.pw.toml"
-hash = "722f4220fbacc6f83f08a9d3cd6c74c62d775c97a209b0ce2731945f80041198"
+hash = "c517c2735cfc43ae993f921409065e97f3f90ac112c11aaa3f021af7c742dd36"
 metafile = true
 
 [[files]]
@@ -5087,22 +5105,22 @@ metafile = true
 
 [[files]]
 file = "mods/sophisticated-backpacks.pw.toml"
-hash = "bc37e9f37a91c5344a70a0aaa65f8fcfc2c46baf3fef4f28f9c925263d352f66"
+hash = "dddf53af2c157e72076942c507100b499ec5766fe0d44d168cad1169aab68b5e"
 metafile = true
 
 [[files]]
 file = "mods/sophisticated-core.pw.toml"
-hash = "9c3c13ce4bd6e743672ae36e0bad43483e6ed90a065270b2fef74e2c79b304fc"
+hash = "57a2381da3f80ebe6696bc1e2121677235c531dd42700c96e2dec9ef3c207271"
 metafile = true
 
 [[files]]
 file = "mods/sophisticated-storage.pw.toml"
-hash = "07b30dc1c61a36372a67f4b65e8a65df2226673095bd71dddaa4a4f4fb7a9668"
+hash = "1a96355845932926d26ff91ad461d942d3ed2b5640551fbf352957fb2f8a1e41"
 metafile = true
 
 [[files]]
 file = "mods/soul-fired.pw.toml"
-hash = "1e49ed91d212833c0884bbf6dc243e77c2cedb443aed84a212106ef721e21737"
+hash = "d07e3930f6d59b7b88815079925b2dc0299421ef177f0eca5970d8c6035e3e6e"
 metafile = true
 
 [[files]]

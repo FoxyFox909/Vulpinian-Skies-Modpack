@@ -625,9 +625,19 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 
 ------------------------------------------------------------------------------------------------------------
 
-# Vulpinian Skies 1.0b11 (WIP)
+# Vulpinian Skies 1.0b11
+
+## Mod Additions
+- MarbleGate's Exotic Enchantment: Flowing Agony
+    - This mod adds a LOT of very unique enchantments with a darker theme.
+	- This mod should expand the type of playstyles a fair bit, and add a lot of variety to gear setups
 
 ## Mod Updates
+- Born in Chaos
+    - New summonable BOSS mob with multiple stages.
+	- New items
+    - Balancing
+	
 - Collective
     - Refactoring, optimizations
 - Create: Big Cannons
@@ -644,6 +654,8 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 	- Other bugfixes
 - Everycomp (Wood Good)
     - Update to supported modules
+- Eureka!
+    - ???
 - GUI Clock
     - Code refactoring, small optimizations
 - GUI Compass
@@ -652,7 +664,18 @@ Big update that adds a lot of polish, sets up methods to further develop more po
     - Rebalancing
 	- Compat with more mods
 	- Texture update
-	- Other "Minor tweaks"
+	- AI Update
+	- Mob spawning update	
+	- Other Minor tweaks
+- Infinity Buttons
+    - Bugfix
+	- More compat (sadly we don't have the mods this update brings compat for)
+- Seamless
+    - Better performance
+	- Introduction of "Fast Seamless" setting.
+- Soulfire'd
+    - Improvements to API (tweakable enchants)
+	- Bugfix
 - Kubejs Create
     - ???
 - Oh, The Biomes You'll Go
@@ -668,4 +691,17 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 ## Vulpinian Food and Drink
 - Now Canisters with beer can be right-clicked with an empty mug to immediately take beer. (Canisters are portable fluid-holding blocks added by Create: Diesel Engines).
 
+## Vulpinian Spawns
+- Nerfed the spawn rates of monster girls from Grimoire of Gaia across the board, as they were basically minibosses that spawned way too often.
 
+## Vulpinian Blocks
+- Added Block of Electrum. Props to Scribe for making its texture!
+    - Added all relevant tags and recipes, including Basin Melting, Tinkers etc.
+
+## Vulpinian Advancements
+- Added new Engineering root category
+- Added "Vroom vroom!"  - Obtain a Diesel Engine 
+- Added "Let 'Em Cook" - Obtain a Distillation Controller
+	
+## Misc
+- Slightly reordered the order in which JEI recipes display, to be more logical (grouping more things together).
