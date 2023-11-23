@@ -4278,7 +4278,7 @@ hash = "e9dbad03458a8981e30cb78c382642c7b070823326b2dec3ede50c6403c1b189"
 
 [[files]]
 file = "kubejs/server_scripts/singletons/vulpinian_advancements_server.js"
-hash = "99fe848850a2ae8c2119ecc3ec8d0686f887a31ae1ea118aa32032cec3614b2e"
+hash = "717232413af14937780e503ea65601103e51f30e89adbd9c0233a3360ad76c45"
 
 [[files]]
 file = "kubejs/server_scripts/singletons/vulpinian_coins_server.js"

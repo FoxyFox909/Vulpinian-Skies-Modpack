@@ -692,7 +692,7 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 - Now Canisters with beer can be right-clicked with an empty mug to immediately take beer. (Canisters are portable fluid-holding blocks added by Create: Diesel Engines).
 
 ## Vulpinian Spawns
-- Nerfed the spawn rates of monster girls from Grimoire of Gaia across the board, as they were basically minibosses that spawned way too often.
+- Nerfed the spawn rates of monster girls from Grimoire of Gaia across the board, across all biomes, as they were basically minibosses that spawned way too often.
 
 ## Vulpinian Blocks
 - Added Block of Electrum. Props to Scribe for making its texture!
