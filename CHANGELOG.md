@@ -705,3 +705,82 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 	
 ## Misc
 - Slightly reordered the order in which JEI recipes display, to be more logical (grouping more things together).
+
+------------------------------------------------------------------------------------------------------------
+
+# Vulpinian Skies 1.0b12 (WIP)
+
+## Mod Additions
+- Create: Interactive
+    - The latest thing cooked up by the Valkyrien Skies devs.
+	- Interact with your Create contraptions in ways never before possible! With Interactive all contraptions behave just like Minecraft blocks, place/destroy blocks to your hearts content!
+	- Features train derailment, the chaos!
+	- Modified mechanical bearing that propagates rotation to its Contraption (useful for Sub-Contraptions!)
+	- Blocks can be placed and destroyed on contraptions just liek regular Minecraft!
+	- **By default trains will roll off of tracks when they reach the end of the line!**
+    - **Use Train Buffer Stops to prevent your train from rolling off the tracks.**
+
+## Mod Updates
+
+- Botany Trees
+    - Now has better support for Regions Unexplored
+- Capsule
+    - Bugfixes
+	- Is now compatible with GDLauncher.
+	- Enchantment-related bugs were fixed.
+- Create: Cafe
+    - Fix crash with Quark/Apple Skin (both mods we have)
+	- Added Coffee Grounds
+- Create: Central Kitchen
+    - Fix Passionfruit Tart Compacting
+- Create: Diesel Geneartors
+    - Improved fuel type system
+	- Improved tooltips
+	- Improved fuel explosions
+	- Added Oil Barrels
+	- Numerous bugfixes
+	- Compat added to Every Compat (Wood Good)
+	- Oil Barrels work on contraptions.
+	- Diesel Engines emit sound on trains.
+	- A lot of new configs to mess with.
+- Create: Enchantment Industry
+    - Fix a crash with a Quark interaction
+- Create: Steam and Rails
+    - Fix crash with Valkyrien Skies (huge W)
+- Cloth Config API
+    - ???
+- Curios API
+    - Support for Create Stuff & Additions enchantments.
+- Enchantment Descriptions
+    - GUI Bugfix
+- Every Compat (Wood Good)
+    - Added support for Macaw's Windows (we don't have the mod... but maybe it could be added? It's small enough.)
+- Seamless
+    - Integration wtih Rubidium (Fast Seamless button now in its video settings screen)
+	- Better error outputting
+	- Bugfix and Crash fix
+- Separated Leaves
+    - Added structure and biome tags to be able to configure where mismatched leaves are allowed 
+- Sophisticated Backpacks, Core
+    - Backpack keybind now works in all container screns, if player's inventory is hoevered.
+    - Fixed crash (probably didn't apply to us)
+	- Bugfixes
+	- Better compay with Create contraptions
+	- Support for Anvil upgrade
+	- Fill level bars for barrels gui
+	- Other improvements in gui, like total slot capacity of stacks tooltips
+	- Optimization upgrades to core.
+- Oh The Biomes You'll Go
+    - Sapling bugfixes
+	- New wood advancements
+- Valkyrien Skies
+    - Support for Create
+- Waystones
+    - Bugfixes and crash fix
+	
+
+
+## Misc
+- Added sound subtitles for HMAG entities that were missing it
+    - Ghost spooking
+	- Ghost hurting

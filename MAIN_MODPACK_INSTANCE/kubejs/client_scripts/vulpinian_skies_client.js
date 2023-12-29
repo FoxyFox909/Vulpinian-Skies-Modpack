@@ -128,4 +128,6 @@ onEvent('client.generate_assets', event => {
 	event.addLang('grapplemod.subtitle.doublejump', "Whoosh");
 	event.addLang('subtitle.scorchedguns.regular_fire', "Gunfire");
 	event.addLang('subtitle.scorchedguns.supressed_fire', "Silenced Gunfire");
+	event.addLang('subtitles.hmag.entity.ghost.ambient', "Ghost spooks");
+	event.addLang('subtitles.hmag.entity.ghost.hurt', "Ghost hurts");
 });
