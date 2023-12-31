@@ -422,7 +422,7 @@ hash = "3ee928d34b0014f47100a706628b1e7b1196e9ec38ef9557ca9ad8e6558df33e"
 
 [[files]]
 file = "config/quark-common.toml"
-hash = "c92ff0bc98dd33921463a92d63229beb2bfea3095d065c1791c984a6b4811e36"
+hash = "5f49bd9aa1ef5c0a8fa59abcddb5d9a4324b6800d62a4cb70bb950bf440a5b63"
 
 [[files]]
 file = "config/rubidium-options.json"
@@ -4455,6 +4455,11 @@ hash = "a0ca95f7c72032f3f51eb5e1e2839e1b8792e5bf84aee992d31d05e09bbae3a5"
 metafile = true
 
 [[files]]
+file = "mods/canary.pw.toml"
+hash = "02bcf6368fb1bfbb0328c54b60886a15fa20ebb0168a13e2e1d44598f4ed03c1"
+metafile = true
+
+[[files]]
 file = "mods/capsule.pw.toml"
 hash = "54889a69c8366ee52e015a3a890de097863d0c18577d2b63daaea900e866390d"
 metafile = true
@@ -4530,6 +4535,11 @@ hash = "f8f870fbe565f81156ac054ab32ebb6009e214af70b057874965b99896e059eb"
 metafile = true
 
 [[files]]
+file = "mods/create-big-cannons.pw.toml"
+hash = "d137909ade79e2070f7f5836e0f88b2896bd2c6d390ee3c95ba9a709322ed041"
+metafile = true
+
+[[files]]
 file = "mods/create-cafe.pw.toml"
 hash = "5a211130770ed631adc0e5cb192ef5c98244f3b2815da2838e1cf5b730389fd5"
 metafile = true
@@ -4593,10 +4603,6 @@ metafile = true
 file = "mods/createaddition.pw.toml"
 hash = "2501a135e13170ec58f946ba34eea02562651a4e4ce3277802b912d32bf8a507"
 metafile = true
-
-[[files]]
-file = "mods/createbigcannons-forge-1.18.2-0.5.3-nightly-f4020bb.jar"
-hash = "5db7a54cbcf9269d329d571bbf9732c7dc1817242a98b5d7e83f1a6ce59fe4a1"
 
 [[files]]
 file = "mods/culllessleaves-reforged.pw.toml"
@@ -4711,6 +4717,11 @@ metafile = true
 [[files]]
 file = "mods/feature-nbt-deadlock-be-gone.pw.toml"
 hash = "44c2de08592e5c0dad820b217b0fd332db0757a344796f1e01806cfe881206bc"
+metafile = true
+
+[[files]]
+file = "mods/ferritecore.pw.toml"
+hash = "a6944c6e912ec3c1293b84cbed86ea1a0dbd8f1827435cb1bf2849d37b42a0dc"
 metafile = true
 
 [[files]]

@@ -710,7 +710,62 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 
 # Vulpinian Skies 1.0b12 (WIP)
 
-## Mod Additions
+## Vulpinian Food and Drink
+
+### Drunkness System
+- The first iteration of the Drunkness System has been implemented.
+- This is a fully custom-made system written in KubeJS, which will simulate all the goodness and fun of being intoxicated.
+- Rundown of how it works:
+    - When you drink an alcoholic beverage, there is now an alcohol content that will be transfered to you.
+	- Each alcoholic beverage has a different strength (alcohol content), so some will get you more drunk than others.
+	- The drunkness will not be instant. But rather, when you drink, a small amount of the alcohol content will be instantly applied, and the rest will be applied over time, to simulate how intoxication works in real life: it's drawn out.
+	- Once an alcohol beverage is done applying all of its alcohol content, it will stop.
+	- Different beverages can have different rates of applying their alcohol content, so different drinks will also get you drunk faster!
+	- You will slowly lose drunkness over time. If you stop drinking and don't currently have any "active" alcoholic beverages, you will slowly start to detoxify.
+	- The drunker you are at any given point, the more effects that will start falling upon you, and they will be more intense the drunker you are!
+- Imbibe in this festive season to your heart's content (please enjoy responsibly in real life)!
+- A lot more is planned for this system, including:
+    - More effects for being drunk
+	- Hangover system
+	- More ways to get un-drunk!
+	- An entire "Drunkard" leveling progression system:
+	    - The more time you spend drunk, the more "drunk experience" you get
+		- The higher your "Drunkard" level, the more resistance and tolerance you have to the negative effects of being drunk
+		- You can drink more and for longer without being sick, so you get to enjoy all the positives (beers have strong positive effects, and are quite nutritious filling a lot of food bars often!) with less of the negatives!
+		- However, this may also involve buidling a dependency to alcohol! If you spend too much time NOT being drunk, then negative effects apply! Withdrawal baby!
+	- New Advancements related to alcohol and being drun
+- Currently, drunkness effects involve sickness and random movement, which dynamically scale in frequency and intensity depending on how drunk you are.
+- Random movement is made to not be intrussive but will definitely push you off a ledge if you are not careful. Also, random movement will not kick in until after a certain threshold of drunkness is passed, so drunkess will work in stages. 
+- The ultimate effect is a blackout, once you reach the "ultimate" threshold of intoxication. You will have a random chance to "black out"
+- What a "blackout" means:
+    - You will be kicked out of the server (works in single or multi-player)
+	- You will have a message about why you're kicked, and it will be announced to the rest of the server if it was on a multiplayer server.
+	- When you log back in, you'll be teleported to a random location, perhaps in a different dimension, perhaps with random junk in your inventory
+	- That's just what happens when you party a bit too hard, innit
+
+## Performance-related Changes
+- There were some increasing performance issues that I suppose just tipped over the last patch
+- Some settings were adjusted to address it, and two really good performance mods were thoroughly tested and added.
+- This has gotten the situation back under control, and now the modpack performs even better than before!
+
+### Performance Mod Additions
+- Canary
+    - Has improved performance in a variety of areas, including AI, collision, world generation, and more.
+	- In tests, it lowered used memory by as much as a gigabyte!
+	- There seem to be no compatibility issues.
+- FerriteCore
+    - This mod does some Java witchcraft to optimize some back-end Minecraft processes to use less memory.
+	- In tests, it lowered memory usage by about a gigabyte, as well!
+	- Additionally, the average startup time on my machine went from 120 seconds to 93 seconds.
+	- That's almost a 25% increase in startup speed!
+	- There also seem to be no compatibility issues.
+
+### Mod Settings
+- Quark
+    - Disabled Feeding Throughs. This feature of the Automation module was causing spikes and affecting TPS.
+	- I personally consider it a very situational feature, but if you want it turned on again, you can start a campaign or vote.
+
+## General Mod Additions
 - Create: Interactive
     - The latest thing cooked up by the Valkyrien Skies devs.
 	- Interact with your Create contraptions in ways never before possible! With Interactive all contraptions behave just like Minecraft blocks, place/destroy blocks to your hearts content!
@@ -719,6 +774,9 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 	- Blocks can be placed and destroyed on contraptions just liek regular Minecraft!
 	- **By default trains will roll off of tracks when they reach the end of the line!**
     - **Use Train Buffer Stops to prevent your train from rolling off the tracks.**
+- Clockwork
+    - It is time. This mod is still not fully finished and polished, but it is time we get it in there.
+	- Eureka is still in the pack, but it is planned to  be removed in the future.
 
 ## Mod Updates
 
@@ -779,6 +837,8 @@ Big update that adds a lot of polish, sets up methods to further develop more po
     - Bugfixes and crash fix
 	
 
+## Server
+- Now you can ping USERS from in-game chat by clicking on their name in-game.
 
 ## Misc
 - Added sound subtitles for HMAG entities that were missing it
