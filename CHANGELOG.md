@@ -708,7 +708,7 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 
 ------------------------------------------------------------------------------------------------------------
 
-# Vulpinian Skies 1.0b12 (WIP)
+# Vulpinian Skies 1.0b12
 
 ## Vulpinian Food and Drink
 
@@ -836,7 +836,6 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 - Waystones
     - Bugfixes and crash fix
 	
-
 ## Server
 - Now you can ping USERS from in-game chat by clicking on their name in-game.
 
@@ -844,3 +843,14 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 - Added sound subtitles for HMAG entities that were missing it
     - Ghost spooking
 	- Ghost hurting
+
+# Vulpinian Skies 1.0b12 Hotfix 1
+
+## Critical Bugfix
+- Fixed a server-breaking issue caused by improper use of KubeJS persistent data for the Drunkness System.
+    - Code has been refactored to be fully NBT data-driven.
+## Mod Removal
+- Create: Interactive has been removed due to an unrelated bug.
+    - Mod was creating ships with a mass of 0, which are not good to have.
+	- Will be re-added in the future, when it is a bit more mature.
+	- Issue will be reported to their Github, if it hasn't been already.

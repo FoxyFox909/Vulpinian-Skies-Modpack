@@ -4281,6 +4281,10 @@ file = "kubejs/server_scripts/singletons/vulpinian_advancements_server.js"
 hash = "717232413af14937780e503ea65601103e51f30e89adbd9c0233a3360ad76c45"
 
 [[files]]
+file = "kubejs/server_scripts/singletons/vulpinian_alcocraft_server.js"
+hash = "59d524b420aa677b15bc44a08841b3d6aa29a1537d42b0fcf1b4b153167a2efa"
+
+[[files]]
 file = "kubejs/server_scripts/singletons/vulpinian_coins_server.js"
 hash = "b12dd753c8f5bd3b2d9429816dc3049166ae35c9abdd983ed449c2a38275910c"
 
@@ -4295,6 +4299,10 @@ hash = "9bad1c70ebdd5504d28014e2667ad5c51f30ad2ac47bdadb27136aed32e56b08"
 [[files]]
 file = "kubejs/server_scripts/singletons/xp_fluid_dupe_fix.js"
 hash = "c60e6a6c3c071bf83e6cfe269cdc1909429d80fb57d8ab483115227ba30c0126"
+
+[[files]]
+file = "kubejs/server_scripts/vulpinian_playerdata_handler_server.js"
+hash = "12f1b16fa51b44bb811108d42ec03c2cf56d063ba1fb395f249bb1b8cf7f4a19"
 
 [[files]]
 file = "kubejs/server_scripts/vulpinian_skies_server.js"
@@ -4490,6 +4498,10 @@ hash = "dbe6a9e42390a6e5fa08ebd31c44567981ec8face7afff290930d542bd87f6e7"
 metafile = true
 
 [[files]]
+file = "mods/clockwork-forge-0.0.1-alpha350ee73315.jar"
+hash = "ed423f4321436e9cb539a6dbd80e2f2f13d1be914f35f1c7229d4742818af0c5"
+
+[[files]]
 file = "mods/cloth-config.pw.toml"
 hash = "53222211d9551cee2d22352b64b0ad714ecb8d1316e0f225b679ba909179b4a2"
 metafile = true
@@ -4577,11 +4589,6 @@ metafile = true
 [[files]]
 file = "mods/create-factory.pw.toml"
 hash = "a667a81f6ee2fbb112e0eda2660b0c44d4fc00cb2794fbb4ec24d30038429350"
-metafile = true
-
-[[files]]
-file = "mods/create-interactive.pw.toml"
-hash = "b7dfb95ad3c190630ce234dd3b837508c31be335f257c03d1b344c5b0b50f56b"
 metafile = true
 
 [[files]]
