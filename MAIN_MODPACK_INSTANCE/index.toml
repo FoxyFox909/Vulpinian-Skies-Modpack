@@ -2594,7 +2594,7 @@ hash = "37ca1f757a42143edbc722b8933dc7ccb1b797ee3eaa4278783583d79858937d"
 
 [[files]]
 file = "kubejs/client_scripts/vulpinian_skies_client.js"
-hash = "3fe15b413a3da1169c2b86a904efb44caee49de2aed5cc981f78098779205b0a"
+hash = "f96a33197f7be0dab0a9728528cf7bc8b856a2f8469a75921747d326e476f7e6"
 
 [[files]]
 file = "kubejs/config/client.properties"
@@ -4306,7 +4306,7 @@ hash = "12f1b16fa51b44bb811108d42ec03c2cf56d063ba1fb395f249bb1b8cf7f4a19"
 
 [[files]]
 file = "kubejs/server_scripts/vulpinian_skies_server.js"
-hash = "a088184b247616bb899ea3f5b08bd81fcc3cc4777892e9931103033289be91cc"
+hash = "60eff5c569c95abd07adea610bc5c663bd0e74c6c44986c315a51a40b68c6abc"
 
 [[files]]
 file = "kubejs/startup_scripts/singletons/beer_spouts_startup.js"
@@ -4498,8 +4498,8 @@ hash = "dbe6a9e42390a6e5fa08ebd31c44567981ec8face7afff290930d542bd87f6e7"
 metafile = true
 
 [[files]]
-file = "mods/clockwork-forge-0.0.1-alpha350ee73315.jar"
-hash = "ed423f4321436e9cb539a6dbd80e2f2f13d1be914f35f1c7229d4742818af0c5"
+file = "mods/clockwork-1.18.2-0.1.16-forge-a0682a9698.jar"
+hash = "71193cb2ad143df07d8a2c889c0a3032ce4d86bfb8bee0013d14e6d8caf3f44e"
 
 [[files]]
 file = "mods/cloth-config.pw.toml"

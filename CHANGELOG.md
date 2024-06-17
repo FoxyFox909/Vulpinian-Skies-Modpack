@@ -858,6 +858,7 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 ------------------------------------------------------------------------------------------------------------
 
 # Vulpinian Skies 1.0b13
+Many mods updated and a few fixes and tweaks.
 
 ## Mod Additions
 - Melody
@@ -962,4 +963,11 @@ Big update that adds a lot of polish, sets up methods to further develop more po
 	- zombi quality of life
 	- zombi now smarter
 	- zombi use Create handcrank
-	
+- Clockwork
+    - Updated to the latest nightly build.
+
+## Fixes
+- Fixed Diesel Engine fuels, which are now more data-driven and give a lot more freedom.
+
+## Misc
+- Fixed and added some tooltips for items.

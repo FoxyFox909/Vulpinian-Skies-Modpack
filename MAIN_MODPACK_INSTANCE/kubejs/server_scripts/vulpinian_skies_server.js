@@ -3036,14 +3036,20 @@ onEvent('tags.fluids', event => {
 	//Strong = 1024 SU
 	//eg 'createdieselgenerators:diesel_engine_fuel_slow_weak' = 48 RPM, 512 SU
 	
-	event.add('createdieselgenerators:diesel_engine_fuel_slow_weak', 'createaddition:seed_oil');
-	event.add('createdieselgenerators:diesel_engine_fuel_fast_weak', 'createaddition:bioethanol');
-	event.add('createdieselgenerators:diesel_engine_fuel_slow_strong', 'vulpinian_skies_core:necroethanol');
+	// Obsolete since now Diesel engien fuel data is JSON-based.
+	// event.add('createdieselgenerators:diesel_engine_fuel_slow_weak', 'createaddition:seed_oil');
+	// event.add('createdieselgenerators:diesel_engine_fuel_fast_weak', 'createaddition:bioethanol');
+	// event.add('createdieselgenerators:diesel_engine_fuel_slow_strong', 'vulpinian_skies_core:necroethanol');
+	// event.remove('forge:ethanol', 'createdieselgenerators:ethanol');
+	// event.remove('forge:fuel', 'createdieselgenerators:biodiesel');
+	// event.remove('forge:biodiesel', 'createdieselgenerators:biodiesel');
+	// event.remove('forge:plantoil', 'createdieselgenerators:plant_oil');
 	
-	event.remove('forge:ethanol', 'createdieselgenerators:ethanol');
-	event.remove('forge:fuel', 'createdieselgenerators:biodiesel');
-	event.remove('forge:biodiesel', 'createdieselgenerators:biodiesel');
-	event.remove('forge:plantoil', 'createdieselgenerators:plant_oil');
+	// Diesel Engine fuel registration occurs at startup and needs the fluids to be tagged properly.
+	event.add('forge:plantoil', 'createaddition:seed_oil');
+	event.add('forge:ethanol', 'createaddition:bioethanol');
+	event.add('forge:diesel', 'vulpinian_skies_core:necroethanol');
+	
 	
 	event.add('minecraft:water', 'vulpinian_skies_core:necroethanol');
 	event.add('minecraft:water', 'vulpinian_skies_core:flowing_necroethanol');
