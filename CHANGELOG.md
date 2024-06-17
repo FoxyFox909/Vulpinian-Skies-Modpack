@@ -854,3 +854,112 @@ Big update that adds a lot of polish, sets up methods to further develop more po
     - Mod was creating ships with a mass of 0, which are not good to have.
 	- Will be re-added in the future, when it is a bit more mature.
 	- Issue will be reported to their Github, if it hasn't been already.
+
+------------------------------------------------------------------------------------------------------------
+
+# Vulpinian Skies 1.0b13
+
+## Mod Additions
+- Melody
+    - Library mod for FancyMenu, allowing dynamic loading of audio from various sources including web.
+
+## Mod Updates
+- AttributeFix 
+    - Add support for infinite and nan values in config.
+- Architectury API
+    - It has added new commands that can be run from client. Probably mainly for OPs.
+- Artifats
+    - Better tagging of generatec chests
+	- Better integration with Quark mimics (time to get bamboozled)
+- Botany Pots
+    - Optimization of pots by reorganizing tick logic
+- Botany Trees
+    - Compatibility with Pam's HarvestCraft trees. Now all trees should be compatible with botany pots! Pleae report any that might be missing.
+	- Slight rebalancing of one BoP tree drop
+- Canary
+    - Numerous optimizations and bugfixes to this performance mod. Go read their patch notes lmao
+- Collectibles
+	- Bugfix
+- CoroUtils
+    - This is the dependency of the Weather mod. However, it is updated so it can also support the new mod What Are They Up To.
+- Create: Big Cannons
+    - Multiple bugfixes and small improvements
+	- QoL
+	- More interactability
+- Create: Cafe
+    - Roasted Beans bugfix
+- Create: Diesel Engines
+    - Multiple bugfixes and polish as well as QoL
+	- Engines can now be turned on/off with Redstone!
+- Create: Enchantment Industry
+    - Bugfixes
+- Eureka
+- Enchantment Descriptions
+    - Bugfix and more descriptions added
+- Everycomp (Wood Good)
+    - New modules and updated modules for mods that are in the pack.
+- FancyMenu
+    - Looks like it is officially out of beta and has a stable release.
+	- Bunch of bugfixes and nice little features
+	- Now requires Melody library dependency.
+- Grimoire of Gaia
+    - Bugfixes
+	- More localization
+- Hexcasting: Hexal
+    - Bugfix
+- Hostile Mobs and Girls
+	- Bugfixes
+	- Updated visuals for several monsters
+    - Rebalanced some monster parameters
+	- Changed some monster behavior
+	- New trades for wandering traders
+	- Added more mod compat
+- Infinity Buttons
+    - More localization options
+- Ice and Fire
+    - Numerous bugfixes
+	- Dragons can eat more food
+- Lootr
+    - Many bugfixes
+	- Backported features
+	- New textures
+	- Localization
+- Jade
+    - ??? Can't find changelog
+	- Probably updated because its dependency, Just Enough Items, also updated.
+- Just Enough Items
+    - A good number of backported features, bugfixes, and nice stuff
+- Konkrete
+    - Updated as FancyMenu dependency
+- Lootr
+    - Several bugfixes
+    - Better localization
+- Mantle
+    - Update in preparation for a future Tinker's Construct update!
+	- Other bugfixes and internal improvements
+- Mowzie's Mobs
+    - Significant content update. New bosses and a lot of new stuff! Read more here: https://www.curseforge.com/minecraft/mc-mods/mowzies-mobs/files/5129638
+	- Bugfixes
+- Polymorphism
+    - Bugfixes
+- Separated Leaves
+    - Now supports a cute little Create Addon, Create: Garnished. Isn't in the modpack currently but could be in the future.
+- Simple Backups
+    - Adds a way to restore incremental backups.
+- Sophisticated Mods:
+    - Backpacks: Rebalancing, more global configuration options, bugfixes
+	- Core: Bugfixes, more global configurations
+	- Storage: Rebalancing, more global configuration options, bugfixes
+- Tinker's Construct:
+    - Major content update. Too many tweaks and additions to list. Read more here: https://github.com/SlimeKnights/TinkersConstruct/releases/tag/3.7.0.152
+	- Stated as the last major content update for 1.18.2, but they'll still do bugfixing and technical changes.
+- Valkyrien Skies:
+    - Clockwork copium
+- YAWP
+    - Big update: https://www.curseforge.com/minecraft/mc-mods/yawp/files/5371935
+- Zombie Players
+    - zombi bugfixes
+	- zombi quality of life
+	- zombi now smarter
+	- zombi use Create handcrank
+	

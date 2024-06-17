@@ -1,13 +1,13 @@
 name = "Grimoire of Gaia"
-filename = "GrimoireOfGaia4-1.18.2-2.0.0-beta.7.jar"
+filename = "GrimoireOfGaia4-1.18.2-2.0.0-beta.11.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "d1a8fd5d9cecb1091acc034c4e466904fc885171"
+hash = "58f5ed023665bfc65049f28ac4c8dc46f8f03b6d"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 4780582
+file-id = 5387877
 project-id = 228948

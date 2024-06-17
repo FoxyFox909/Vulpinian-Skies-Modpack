@@ -1,13 +1,13 @@
 name = "Separated Leaves"
-filename = "separatedleaves-2.3.0-forge-1.18.2.jar"
+filename = "separatedleaves-2.4.0-forge-1.18.2.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "b220321c6b798149948e3b9a412f8ccfc3dc5399"
+hash = "1175f8dd4ad5f54657399ce7b9769246beda911d"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 4983123
+file-id = 5095821
 project-id = 905482

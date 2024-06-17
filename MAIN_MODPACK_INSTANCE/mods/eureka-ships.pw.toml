@@ -1,13 +1,13 @@
 name = "Eureka! Ships! for Valkyrien Skies (Forge/Fabric)"
-filename = "eureka-1.4.0-beta.1.jar"
+filename = "eureka-1.5.1-beta.1.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "91e1be76273aedd53f8ae9035a6e62c1f9fc108a"
+hash = "b222e0c80df659ddecbcd8e09fc5086103c24d60"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 4877485
+file-id = 5321597
 project-id = 654384

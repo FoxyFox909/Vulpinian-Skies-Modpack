@@ -1,13 +1,13 @@
 name = "Infinity Buttons"
-filename = "infinitybuttons-1.18.2-4.0.2.jar"
+filename = "infinitybuttons-1.18.2-4.0.4.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "6871df0960741d34ff6c41047d043d8f52ff94ac"
+hash = "5ac8c6bab2d30da2ff1ab65e2ac9bda300ed8d1d"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 4888185
+file-id = 5330351
 project-id = 661902
