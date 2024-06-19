@@ -971,3 +971,17 @@ Many mods updated and a few fixes and tweaks.
 
 ## Misc
 - Fixed and added some tooltips for items.
+
+------------------------------------------------------------------------------------------------------------
+
+# Vulpinian Skies 1.0b14
+Many mods updated and a few fixes and tweaks.
+
+## Mod Additions
+- Create: Crystal Clear
+    - Mod readded as it apepars stable now.
+
+## Mod Updates
+- 
+
+## Fixes
