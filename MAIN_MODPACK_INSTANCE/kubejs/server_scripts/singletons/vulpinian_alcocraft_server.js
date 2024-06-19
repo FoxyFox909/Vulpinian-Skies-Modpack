@@ -345,9 +345,17 @@ function randomBlackoutTp(event, randomTpRadius, shouldRandomizeDim) {
 //Roll every second for chance of drunkness-related effect
 onEvent('player.tick', event => {
 
+    /** @type {Internal.ListTag} */
+    let playerAlcoData = getAlcoData(event.player.minecraftPlayer);
+	
+	// Initialize AlcoData as needed.
+    if (playerAlcoData == null) {
+        console.log("Initializing AlcoData Persistent Data for " + event.player.name.contents);
+        genClearAlcoData(event.player.minecraftPlayer);
+        return;
+    }
     
-    
-    let ap = getAlcoData(event.player.minecraftPlayer).AlcoPoints;
+    let ap = playerAlcoData.AlcoPoints;
 
     if (ap <= 0) {
         return;

@@ -4282,7 +4282,7 @@ hash = "717232413af14937780e503ea65601103e51f30e89adbd9c0233a3360ad76c45"
 
 [[files]]
 file = "kubejs/server_scripts/singletons/vulpinian_alcocraft_server.js"
-hash = "59d524b420aa677b15bc44a08841b3d6aa29a1537d42b0fcf1b4b153167a2efa"
+hash = "de7d5bba25f954c7a1268a7446042229ee0ad393a749021add05a8efb8f5fbfe"
 
 [[files]]
 file = "kubejs/server_scripts/singletons/vulpinian_coins_server.js"
@@ -4302,7 +4302,7 @@ hash = "c60e6a6c3c071bf83e6cfe269cdc1909429d80fb57d8ab483115227ba30c0126"
 
 [[files]]
 file = "kubejs/server_scripts/vulpinian_playerdata_handler_server.js"
-hash = "12f1b16fa51b44bb811108d42ec03c2cf56d063ba1fb395f249bb1b8cf7f4a19"
+hash = "6ba345204df959a36cf658426823226eed1229ffa1dd3e415d7e99fd47cf943c"
 
 [[files]]
 file = "kubejs/server_scripts/vulpinian_skies_server.js"

@@ -54,6 +54,7 @@ const addAlcoPoints = (serverPlayer, amount) => {
 //     event.player.persistentData.AlcoData.ActiveBeers.pop();
 // }
 
+/** @returns {Internal.ListTag} */
 const getAlcoAngle = (serverPlayer) => {
     return serverPlayer.persistentData.AlcoData.AlcoAngle;
 }
@@ -104,35 +105,35 @@ onEvent('server.load', event => {
     //event.server.persistentData.
 });
 
-onEvent('player.logged_in', event => {
+// onEvent('player.logged_in', event => {
 
     
-    //if (event.player.persistentData.alcocraftVulpinia == (null || undefined)) {
+    // //if (event.player.persistentData.alcocraftVulpinia == (null || undefined)) {
 
-    event.server.scheduleInTicks(100, () => {
+    // event.server.scheduleInTicks(100, () => {
 
-        // console.info("Attempting to give data to player " + event.player);
-        // console.info("AlcoData: " + event.player.persistentData);
+        // // console.info("Attempting to give data to player " + event.player);
+        // // console.info("AlcoData: " + event.player.persistentData);
         
-        if (event.player.persistentData.AlcoData == null || event.player.persistentData.AlcoData == {}) {
+        // if (event.player.persistentData.AlcoData == null || event.player.persistentData.AlcoData == {}) {
 
-            console.info("Detected Null or Undefined AlcoData for " + event.player.name.conents);
-            //event.player.persistentData.alcocraftVulpinia = null ?? {Drunkness:{"Level":0, "Beers":[]}};
-            // event.player.persistentData.AlcoData.putFloat('AlcoPoints', 0.0);
-            // event.player.persistentData.AlcoData = {AlcoPoints:0.0, AlcoAngle:0.0, ActiveBeers:[]};
+            // console.info("Detected Null or Undefined AlcoData for " + event.player.name.conents);
+            // //event.player.persistentData.alcocraftVulpinia = null ?? {Drunkness:{"Level":0, "Beers":[]}};
+            // // event.player.persistentData.AlcoData.putFloat('AlcoPoints', 0.0);
+            // // event.player.persistentData.AlcoData = {AlcoPoints:0.0, AlcoAngle:0.0, ActiveBeers:[]};
 
-            genClearAlcoData(event.player);
+            // genClearAlcoData(event.player);
 
-            console.info("Generated AlcoData for " + event.player + " for the first time.");
-         }
-         if (event.player.persistentData.AlcoData.AlcoPoints < 0) {
-            event.player.persistentData.AlcoData.AlcoPoints = 0;
-         }
+            // console.info("Generated AlcoData for " + event.player + " for the first time.");
+         // }
+         // if (event.player.persistentData.AlcoData.AlcoPoints < 0) {
+            // event.player.persistentData.AlcoData.AlcoPoints = 0;
+         // }
 
-    })
+    // })
 
 
-})
+// })
 
 onEvent('command.registry', event => {
     const { commands: Commands, arguments: Arguments} = event;
