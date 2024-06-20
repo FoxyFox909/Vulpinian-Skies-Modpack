@@ -18,6 +18,8 @@ High-effort modpack with extensive customization via KubeJS (which includes hund
 
 Modpack has been in development for about 9 months as of this repo's first commit. There is still much work to do and I am on the grindset, but this is also a team effort as I am getting help in several aspects of the modpack.
 
+It is recommended to enjoy the modpack blindly, but check out the [Modlist](https://github.com/FoxyFox909/Vulpinian-Skies-Modpack/blob/main/MODLIST.md) here if you would like!
+
 ## Motivation
 
 In terms of mods, Vulpinan Skies is heavily inspired by Valkyrien Skies and its upcoming Create-based add-on Clockwork; thus, these mods are central to the pack's identity. Other than that, I felt unsatisfied from playing modpacks where the mods felt like islands isolated from one another, lacking even simple like allowing modded tree logs to be turned into Create's Andesite Casing, and I was simply moved by this feeling that modpacks can be so much more if they are given love and attention, with a focus on quality over quantity, so I decided to take it into my own hands with Vulpinian Skies! It is my second modpack, and although it may not be my last, it will be the only one I will focus on for the time being.
